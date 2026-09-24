@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this research repository, cite the associated paper once a definitive citation is available."
+title: "fractional-d-stability-networks"
+type: software
+authors:
+  - family-names: "Lucius"
+    given-names: "Maximiliano"
+version: 0.1.0
