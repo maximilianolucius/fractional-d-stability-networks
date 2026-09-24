@@ -2,78 +2,60 @@
 
 ## Canonical repository
 
-**Repository:** `maximilianolucius/fractional-d-stability-networks`
-
+**Repository:** `maximilianolucius/fractional-d-stability-networks`  
 **Public URL:** `https://github.com/maximilianolucius/fractional-d-stability-networks`
 
-The public repository is live. An agent can access it in any of these ways:
-
-```bash
+\`\`\`bash
 git clone https://github.com/maximilianolucius/fractional-d-stability-networks.git
 cd fractional-d-stability-networks
 git checkout main
+git pull --ff-only
 git rev-parse HEAD
-```
+\`\`\`
 
-If the agent has a GitHub connector/tool rather than shell access, give it the exact repository identifier:
+## CURRENT CHIEF STATUS
 
-```text
-maximilianolucius/fractional-d-stability-networks
-```
+**NOVELTY AUDIT IS REOPENED as of 2026-09-24.**
 
-and instruct it to inspect the `main` branch.
+The audit in commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is baseline evidence, not the final novelty verdict.
 
-## Read this first
+The next novelty agent must read, in this order:
 
-Read, in order:
+1. `research/CHIEF_RESEARCH_DIRECTION_2026-09-24.md`
+2. `research/NOVELTY_AGENT_TASK.md`
+3. `research/NOVELTY_REPORT.md`
+4. `research/NOVELTY_MATRIX.md`
+5. `research/CLAIMS.md`
+6. `research/SCOPE_MATRIX.md`
+7. `research/novelty/novelty-audit.md`
+8. `agent_directives_publishable_first_submission.md`
+9. `README.md`
 
-1. `agent_directives_publishable_first_submission.md` — controlling publication/research constraints.
-2. `README.md` — project scope and core mathematical object.
-3. `research/NOVELTY_AGENT_TASK.md` — exact novelty-audit assignment and deliverables.
-4. `research/CLAIMS.md` — claim registry; do not upgrade a claim without evidence.
-5. `research/NOVELTY_MATRIX.md` — closest-work comparison matrix to populate.
-6. `research/SCOPE_MATRIX.md` — scope discipline for claims.
-7. `research/research-status.md` — current mathematical framing.
-8. `reference-paper/mathematics-4528508.tex` — previous accepted paper; reuse its MDPI Mathematics format and presentation conventions, not its novelty claims.
-9. `paper/main.tex` — current manuscript scaffold, not a finalized paper.
-10. `src/fdsn/` and `tests/` — computational definitions and tests.
+## Mandatory reopened-audit references
 
-## Novelty-agent mission
+- Siami, arXiv:2011.04204 / IEEE TCNS — fractional cyclic-network secant condition.
+- Kushel, LAA 656 (2023), DOI 10.1016/j.laa.2022.09.018 / arXiv:2205.10823 — relative D-stability and sector gap.
+- Abed, Systems & Control Letters 7(3) (1986), DOI 10.1016/0167-6911(86)90116-7 — strong D-stability.
+- Kushel 2019 and Kushel–Pavani 2020/2021.
 
-The next agent should **audit novelty before drafting the paper**. It must identify the closest literature and determine whether the project supports a genuinely new theorem rather than a new application of a standard fractional stability criterion.
+## Research lock
 
-Candidate central objects to audit include:
+Until the reopened audit is complete:
 
-- fractional stabilization of an integer-order unstable equilibrium;
-- the graph-indexed stabilization region `S_alpha(G)`;
-- positive diagonal scaling `D J_G` and a fractional analogue/extension of classical D-stability;
-- topology/motif dependence of fractional sector stability;
-- open-set/robustness results showing the phenomenon is not fine-tuned.
+- single-cycle/cactus novelty is NOT approved;
+- uniform angular-margin novelty is NOT approved;
+- openness/robustness novelty is NOT approved;
+- C-02 remains motivation only;
+- no title or abstract may claim C-04/C-05/C-06 as proved or novel.
 
-No item above is asserted to be novel merely by appearing in this repository.
+The sampler in `src/fdsn/d_stability.py` is counterexample hunting only.
 
-## Required novelty output
+## Required final verdict
 
-The novelty agent should commit or return:
+The next agent must update the research files, create `research/novelty/REOPENED_AUDIT_2026-09-24.md`, and return exactly one research verdict:
 
-- `research/NOVELTY_REPORT.md` — dated deep-literature audit with a conservative verdict for each candidate contribution;
-- populated `research/NOVELTY_MATRIX.md` — closest papers × comparison axes;
-- updated `research/CLAIMS.md` — label each central statement as `NEW THEOREM CANDIDATE`, `KNOWN/STANDARD`, `DERIVABLE BUT NOT NOVEL`, or `OPEN` until proved;
-- a shortlist of the 5–15 closest works, with exact theorem/result correspondence rather than keyword similarity;
-- a <=3-sentence statement of the strongest defensible novelty, or an explicit conclusion that novelty is insufficient;
-- precise next mathematical theorem(s) needed to reach publishable novelty if the current claim is too weak.
+- `GO`
+- `GO-NARROWED`
+- `NO-GO/REFRAME`
 
-## Reproducibility sanity check
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e '.[dev]'
-pytest -q
-python scripts/demo_fractional_stability.py
-
-# Minimal alternative without installation:
-PYTHONPATH=src pytest -q
-```
-
-Finite diagonal sampling in `src/fdsn/d_stability.py` is exploratory/falsification evidence only; it must never be cited as a proof of D-stability.
+The criterion is theorem-level novelty.
