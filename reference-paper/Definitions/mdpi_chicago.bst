@@ -498,6 +498,7 @@ FUNCTION {format.key}
     { "" }
   if$
 }
+
 %
 % Format editor names for use in the "in" types: inbook, incollection,
 % inproceedings: first initial, then last names. When editors are the
@@ -996,7 +997,8 @@ FUNCTION {calc.label}
 FUNCTION {output.bibitem}
 { newline$
 
-  "\bibitem[\protect\citeauthoryear{" write$  calc.label write$
+  "\bibitem[\protect\citeauthoryear{" write$
+  calc.label write$
   sort.year write$
   "}]{" write$
 
@@ -1495,7 +1497,8 @@ FUNCTION {author.editor.sort}
          }
          { editor sort.format.names }
       if$
-    }    { author sort.format.names }
+    }
+    { author sort.format.names }
   if$
 }
 
@@ -1669,3 +1672,4 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
