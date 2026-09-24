@@ -1,3 +1,5 @@
-# Security and private research material
+# Security and public research material
 
-Do not commit credentials, private correspondence, reviewer identities, confidential datasets, or unpublished third-party material without permission. Keep the repository private until the publication and licensing strategy is decided.
+This repository is intentionally **public**. Do not commit credentials, private correspondence, reviewer identities, confidential datasets, API keys, unpublished third-party material without permission, or other sensitive information.
+
+Before every push, treat the repository contents as immediately world-readable.
