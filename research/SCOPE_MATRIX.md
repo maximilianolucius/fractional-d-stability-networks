@@ -14,7 +14,7 @@ Use this table to prevent a benchmark, a prior-art corollary, or finite computat
 | C-06 | classical strong/robust D-stability known | fractional genuinely non-Hurwitz interior is project target | possible | possible | possible | exploratory |
 | C-07 | **THEOREM for all real 2×2 matrices and all 0<α<1** |  |  |  |  |  |
 | C-08 | **THEOREM: dimension-three open separation for 0<α<=2/3** | explicit strict P-matrix neighborhood | A_γ is witness/center, not the whole theorem |  |  |  |
-| C-09 | OPEN for 2/3<α<1 | candidate neighborhoods around structured 3×3 centers | cycle center may guide proof |  | possible | sampler only for counterexample hunting |
+| C-09 | **THEOREM for every 0<α<1: minimal robust genuinely-fractional dimension is 3** | explicit full-dimensional neighborhoods around `A_γ`; high-order proof via cubic angular certificate + AM-GM orbit bound | `A_γ` is a witness/center |  |  | sampler not used in proof |
 | C-10 | OPEN exact 3×3 characterization | target: explicit cubic/principal-minor criterion | boundary-ray parameterizations useful |  | possible | exploratory |
 
 ## Current hard boundary
@@ -28,13 +28,13 @@ for every 0 < α <= 2/3.
 
 Proof: `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
 
-The range
+The high-order range
 
 ```text
 2/3 < α < 1
 ```
 
-is **not proved**. No title, abstract, conclusion, or ecological generalization may silently extrapolate C-08 into that range.
+is now **internally proved** in `research/THEOREM_C09_DIMENSION_THRESHOLD.md`. However, bibliographic novelty is still under targeted audit. No title or abstract may call C-09 novel until that audit is closed.
 
 ## Single-cycle restriction
 
