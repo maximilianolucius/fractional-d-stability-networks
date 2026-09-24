@@ -83,8 +83,7 @@ Important files:
 - [`reference-paper/mathematics-4528508.pdf`](reference-paper/mathematics-4528508.pdf) — compiled accepted paper;
 - [`reference-paper/Definitions/`](reference-paper/Definitions/) — MDPI *Mathematics* class and bibliography/template files used by the accepted version;
 - [`reference-paper/fig*.pdf`](reference-paper/) — publication figures;
-- [`reference-paper/original-package-mathematics-4528508-alt.zip`](reference-paper/original-package-mathematics-4528508-alt.zip) — unmodified archival copy of the uploaded package;
-- [`reference-paper/ORIGINAL_PACKAGE_SHA256.txt`](reference-paper/ORIGINAL_PACKAGE_SHA256.txt) — checksum of that archival ZIP.
+- [`reference-paper/ORIGINAL_PACKAGE_SHA256.txt`](reference-paper/ORIGINAL_PACKAGE_SHA256.txt) — provenance checksum of the original uploaded archive. The redundant archival ZIP itself is not mirrored in GitHub.
 
 ### What should be reused
 
@@ -220,7 +219,7 @@ Canonical repository identifier:
 maximilianolucius/fractional-d-stability-networks
 ```
 
-Expected public URL:
+Public URL:
 
 ```text
 https://github.com/maximilianolucius/fractional-d-stability-networks
