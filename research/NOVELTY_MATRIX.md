@@ -1,34 +1,67 @@
 # Closest-work novelty matrix
 
-**Status:** populated by the independent novelty audit of 2026-09-24 (see `NOVELTY_REPORT.md`).
-One row per genuinely close work. Overlap is recorded at the level of theorem hypotheses/conclusions, not keywords.
+**Status:** reopened and updated 2026-09-24 after theorem-level second-pass audit.  
+**Rule:** overlap is compared at the level of hypotheses, quantifiers, conclusions, and stability region — not keywords.
 
-| Reference | Mathematical object | Fractional operator/order | Stability region | Positive diagonal scaling / D-stability | Graph/topology dependence | Ecological feasibility | Exact theorem vs numerics | Open-family result | Relation to our candidate theorem |
-|---|---|---|---|---|---|---|---|---|---|
-| Matignon 1996, IMACS CESA (via [Brandibur et al. 2021](https://www.mdpi.com/2227-7390/9/8/914)) | commensurate linear fractional system `D^αx=Ax` | Caputo, 0<α<2 | sector `|arg λ|>απ/2` (iff) | none | none | none | exact theorem (iff + boundary case) | yes (all matrices) | Our C-01; C-02 is its sufficient direction. Not novel. |
-| Brandibur, Garrappa & Kaslik 2021, *Mathematics* 9:914, [link](https://www.mdpi.com/2227-7390/9/8/914) | stability regions of Caputo systems | Caputo, commensurate + multi-order 2D | exact regions `S_q={|arg λ|>qπ/2}` | none | none | none | exact theorem + Remark 4 (α-monotonicity) | yes | Publishes α-monotonicity and critical-order structure: kills novelty of "α\* threshold" claims. |
-| Ahmed, El-Sayed & El-Saka 2007, *JMAA* 325:542 | fractional predator–prey/rabies equilibria | Caputo, 0<α≤1 | wedge condition on non-Hurwitz Jacobians | none | none | predator–prey models | theorem (low-dim criteria) + numerics | no (specific models) | Earliest explicit "fractionally stable / order-1 unstable" usage. C-02 folklore status starts here. |
-| Kushel 2019, *SIAM Review* 61:643, [arXiv:1907.07089](https://arxiv.org/abs/1907.07089) | unified `(𝔇,𝒢,∘)`-stability framework | none (α=1 setting, arbitrary regions allowed) | arbitrary `𝔇⊂ℂ` (incl. sectors as definition) | yes: preservation under diagonal and other multiplier classes | no specific graph results | no | definitions + survey theorems | yes (framework) | Already *defines* the general concept our C-04 instantiates. Naming is not novelty. |
-| Kushel & Pavani 2020, *J. Dyn. Diff. Equat.*, [arXiv:2004.11172](https://arxiv.org/abs/2004.11172) | generalized D-stability in unbounded LMI regions | none | unbounded LMI regions (conic sectors included) | yes: `(𝔇,𝒟)`-stability criteria, computational aspects | none | none | exact theorems (sufficient criteria) | yes | Direct structural template for C-04; covers convex sectorial regions only. |
-| Kushel & Pavani 2021, [arXiv:2103.04127](https://arxiv.org/abs/2103.04127) | diagonal 𝔇-dominance w.r.t. LMI regions | applied to fractional-order systems (Sec. 8) | conic sector around negative real axis (convex) | yes: diag. dominance ⇒ `(𝔇,𝒟)`-stability; Sec. 8: sufficient condition for stability and D-stability of fractional-order systems | none | none | exact theorems (sufficient) | yes | **Closest work overall.** Gap: convex regions only — cannot reach the non-convex purely fractional sliver `απ/2<|arg λ|≤π/2`; sufficient, not characterizing. |
-| Sabatier, Moze & Farges 2010, *Comput. Math. Appl.* 59:1594, [link](https://www.sciencedirect.com/science/article/pii/S0898122109005355) | LMI stability conditions for fractional systems | Caputo commensurate | sector region via LMI | no diagonal scaling | none | none | exact theorem (LMI iff/sufficient forms) | yes | Standard computational certificate for C-01; alternative to spectral check. |
-| Zhang & Chen 2015, ASME IDETC, "D-stability based LMI criteria of stability and stabilization for fractional order systems" | fractional D-stability (LMI-region sense) | fractional LTI | LMI regions for fractional systems | D-stability in the pole-region sense (not positive diagonal scaling) | none | none | exact LMI criteria | yes | Terminology collision: "D-stability of fractional systems" already taken in control. Our usage must be disambiguated. |
-| Cross 1978, *LAA* 20:253 | hierarchy: stable / D-stable / Volterra–Lyapunov stable | none | left half-plane | yes: VL ⇒ D-stable ⇒ stable; equivalences for combinatorially symmetric matrices | combinatorial symmetry | no | exact theorems | yes | Our fractional D-stability must be positioned against this hierarchy (strictly larger class for α<1 — separation claim, unproved). |
-| Kaszkurewicz & Bhaya 2000, *Matrix Diagonal Stability in Systems and Computation*, Birkhäuser | diagonal (Volterra–Lyapunov) stability | none | left half-plane | yes: definitive monograph, LMI/convex methods, graphical conditions | some graphical conditions | cited for LV systems | exact theorems | yes | Standard certificate at α=1. If our class were convex-sectorial it would collapse into this theory; the non-convex zone is the escape. |
-| Berman & Hershkowitz 1983, *SIAM J. Alg. Disc. Meth.* 4:377 | diagonal stability vs graph structure | none | left half-plane | yes | acyclic undirected graphs: diag. stability ⇔ positive principal minors | no | exact theorem | yes (graph class) | α=1 template for C-05. Angular/fractional analogue not found in literature. |
-| Jeffries, Klee & van den Driessche 1977, *Canad. J. Math.* 29:315 | sign stability | none | left half-plane (all magnitudes) | stronger than D-stability | complete digraph characterization (color test) | ecosystems motivation | exact theorem (full characterization) | yes | The extreme point of topology→stability results; shows what a complete C-05 could look like. |
-| Arcak & Sontag 2006, *Automatica* 42(9); Arcak 2011, *IEEE TAC* 56:2766 | diagonal stability of cyclic systems / cactus graphs | none | left half-plane | yes | cycle-secant criterion; cactus graphs certified cycle-by-cycle | biochemical networks | exact theorems | yes (graph class) | Direct structural model for the target theorem: replace Hurwitz condition by angular condition, keep cycle-by-cycle architecture. |
-| Allesina & Tang 2012, *Nature* 483:205, [arXiv:1105.2071](https://arxiv.org/abs/1105.2071) | community-matrix spectra (elliptic law) | none | half-plane via elliptic envelope | diagonal self-regulation only | interaction-type correlation (predation/mutualism) | yes | exact asymptotic theorem | yes (random-matrix ensemble) | Ecological spectral geometry at α=1; our fractional sector would replace the half-plane criterion. Cite as motivation, not competitor. |
-| Grilli, Rogers & Allesina 2016, *Nat. Commun.* 7:12031 | modularity ↔ community-matrix spectrum | none | half-plane; outliers from block structure | no | yes (block/modular structure, analytic cavity method) | yes | exact asymptotic theorem | yes | Closest "graph-indexed stability region" at α=1. C-03 must differ via α, sector, and diagonal orbit. |
-| Cao–Ren school, fractional multi-agent consensus (2010–; e.g. surveys in *Fract. Fract.* [6:147](https://www.mdpi.com/2504-3110/6/3/147)) | fractional consensus of multi-agent systems | Caputo, 0<α<1 | sector condition on `σ(L(G))` | no diagonal scaling | yes, but only through Laplacian spectrum | no | exact theorems | yes | Closest "graph-indexed fractional stability". Differentiation: full Jacobian + diagonal-scaling orbit + motif-level conditions, not `σ(L)` alone. |
+| Reference | Mathematical object | Fractional order | Spectral region | Positive diagonal orbit | Graph / structure | Robust/interior aspect | Relation to current project |
+|---|---|---|---|---|---|---|---|
+| Matignon 1996 (via Brandibur–Garrappa–Kaslik 2021) | commensurate fractional linear systems | yes | `|arg λ|>απ/2` iff | no | none | no | C-01 imported; C-02 is a corollary, not novelty |
+| Brandibur, Garrappa & Kaslik 2021, *Mathematics* 9:914 | corrected stability theory + α-monotonicity | yes | exact Matignon sector | no | none | no | kills novelty of critical-order/monotonicity claims |
+| Ahmed, El-Sayed & El-Saka 2007, *JMAA* 325 | low-dimensional fractional stability criteria | yes | fractional wedge | no | specific models | no | explicit precedent for fractionally stable / integer-order unstable equilibria |
+| Kushel 2019, *SIAM Review* 61:643, arXiv:1907.07089 | `(𝔇,𝒢,∘)`-stability | general framework | arbitrary `𝔇⊂C` | yes, including positive diagonal classes | general | no | `F_α` is an instance of an existing generalized D-stability concept |
+| Kushel–Pavani 2020, arXiv:2004.11172 | generalized D-stability; forbidden-boundary approach | not specifically fractional | LMI regions / sector boundaries; complement machinery | yes | general | boundary exclusion | important: diagonal-orbit boundary machinery already exists |
+| Kushel–Pavani 2021, arXiv:2103.04127 | diagonal `𝔇`-dominance and applications | yes, Sec. 8 | fractional stability described via complement of a cone; non-LMI aspect acknowledged | yes for theorem-specific diagonal classes | general | some robustness-type implications | invalidates baseline claim that literature is wholly blind to the non-convex Matignon complement |
+| Kushel 2023, *LAA* 656:9–26, arXiv:2205.10823 | relatively D-stable matrices; determinant bounds; sector gaps | no | sectors / gaps from imaginary axis | yes | several D-stable subclasses | uniform sector-gap estimates for subclasses | "uniform angular gap" language alone is not novel |
+| **Siami 2020/2021**, arXiv:2011.04204 / IEEE TCNS | cyclic interconnected commensurate fractional networks | yes | generalized fractional secant stability condition | not stated as D-orbit theorem, but cycle ratio is invariant under positive row scaling | **single circuit** | robustness also studied in H2 sense | **main killer of single-cycle novelty**; exact D-orbit criterion is largely recoverable by invariance + diagonal equalization |
+| Arcak & Sontag 2006; Arcak 2011 | cyclic / cactus diagonal stability | no | left half-plane | diagonal-stability setting | cycles/cactus | no | α=1 structural template; cactus novelty survives only if strictly beyond Siami + Arcak |
+| Jeffries–Klee–van den Driessche 1977 | sign stability | no | left half-plane | stronger sign-robustness notion | graph characterization | yes in sign class | topology→stability precedent |
+| Berman–Hershkowitz 1983 | diagonal stability on acyclic graph classes | no | left half-plane | yes/related | acyclic graph | no | structural α=1 precedent |
+| Cain 1976 and classical low-dimensional D-stability literature | exact/special low-dimensional D-stability conditions | no | left half-plane | yes | low-dimensional matrices | topology/interior implications | model for what an exact fractional 3x3 theorem should look like |
+| Hartfiel 1980, *LAA* | interior of the D-stable matrices | no | left half-plane | yes | general | **interior** | openness/interior is classical research territory |
+| Abed 1986, *Systems & Control Letters* 7(3):207–212 | **strong D-stability** | no | left half-plane | yes | general | **small perturbations remain D-stable** | "strong/robust D-stability" terminology and concept are prior art |
+| Lee & Edgar 2001, *Systems & Control Letters* 44:273–277 | structured-singular-value conditions for strong D-stability | no | left half-plane | yes | general | necessary/sufficient-style robust conditions | reinforces that robustness alone is not novelty |
+| Casasanta & Simpson-Porco 2026, arXiv:2603.13608 | Lyapunov characterization of robust (block) D-stability | no | left half-plane | yes | general | necessary-and-sufficient Lyapunov-type characterization | raises standard for any new "strong fractional D-stability" result |
+| Kellogg P-matrix wedge theorem | spectrum of P-matrices | no | `|arg μ|<π-π/n` | preserved by positive diagonal left scaling | principal-minor class | strict inequalities give open class | imported bridge yielding C-08 for `α<=2/n`; not novelty by itself |
+| Allesina–Tang 2012; Grilli–Rogers–Allesina 2016 | ecological random/community-matrix spectra | no | half-plane | no | interaction type / modularity | ensemble-level | ecology remains application layer, not novelty source |
+| fractional consensus literature (Cao–Ren line) | fractional network consensus | yes | sector condition on Laplacian spectrum | no | graph Laplacian | no | occupies generic "graph-indexed fractional stability" language |
+
+## Corrected reading
+
+### What is occupied
+
+1. **Purely fractional stabilization:** standard consequence of Matignon.
+2. **Generalized fractional D-stability as a concept:** occupied by Kushel's framework and fractional applications.
+3. **Single-cycle fractional secant conditions:** occupied by Siami to a degree that makes a D-orbit theorem on the same family corollary-level.
+4. **Robust/strong D-stability terminology and interior questions:** occupied classically by Hartfiel, Abed, Lee–Edgar and current work.
+5. **Sector-gap / forbidden-boundary machinery under diagonal scaling:** already present in Kushel/Kushel–Pavani.
+
+### What still appears unoccupied after this pass
+
+The current strongest candidate is the **minimal-dimension robust genuinely-fractional separation theorem**:
+
+[
+min{n:
+operatorname{int}(mathcal F_alpha^{(n)}setminusmathcal D_H^{(n)})
+eqarnothing}
+=3
+]
+
+proved internally for
+
+[
+0<alphale2/3.
+]
+
+The ingredients (Matignon, P-matrix wedge, classical D-stability, strong D-stability, cyclic fractional stability) are individually known, but targeted searches have not located the combined dimension-threshold statement.
+
+The highest-value open extension is the same result for
+
+[
+2/3<alpha<1,
+]
+
+or, stronger still, an exact `3x3` characterization of (mathcal F_alpha) in that range.
 
 ## Audit rule
 
-For every row, record the exact theorem/proposition/equation that creates overlap. Keyword similarity is not enough. Terminological differences are not evidence of novelty.
-
-## Net reading
-
-- Rows 1–3: C-02 is standard. Do not claim.
-- Rows 4–8: C-04's *concept* and *sufficient convex-region conditions* exist; the non-convex purely fractional zone and any characterization are open.
-- Rows 10–13: C-05 has strong α=1 templates and no fractional analogue found.
-- Rows 14–16: ecological and graph-indexed-framings are occupied at α=1; our differentiation must be the fractional sector + diagonal orbit + motif conditions, proved as theorems.
+No claim is marked novel because an identical phrase was not found. A future final novelty verdict must show that the theorem's quantifier structure and conclusion are not recoverable from Siami, Kushel/Kushel–Pavani, classical low-dimensional D-stability, or strong-D-stability theory.
