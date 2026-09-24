@@ -328,3 +328,38 @@ Numerical diagonal sampling remains counterexample hunting only.
 - Arcak 2011, *IEEE TAC* 56(12):2766–2777.
 - Hartfiel 1980, *Linear Algebra and its Applications*.
 - Lee & Edgar 2001, *Systems & Control Letters* 44:273–277.
+
+
+---
+
+## 14. Chief targeted audit of C-09
+
+The range 2/3 < alpha < 1 is now internally proved in `research/THEOREM_C09_DIMENSION_THRESHOLD.md`. The exact combined theorem is
+
+[
+min{n:operatorname{int}(F_alpha^{(n)}setminus D_H^{(n)})
+eqarnothing}=3
+quadorall,0<alpha<1.
+]
+
+A dedicated theorem-level audit is recorded in `research/novelty/C09_TARGETED_AUDIT.md`.
+
+Additional prior art checked:
+
+- Cermak-Nechvatal (2017): optimal necessary-and-sufficient fractional Routh-Hurwitz conditions. Fixed-cubic angular criteria are therefore prior art.
+- Bourafa-Abdelouahab-Moussaoui (2020), Propositions 1-3: explicit n=2/n=3 fractional coefficient criteria, including an exact Cardano-form cubic angular criterion.
+- Kushel 2023: relative D-stability in a conic sector around the negative real axis and sector-gap estimates.
+- Cain/Hartfiel/Abed: low-dimensional, interior, and robust classical D-stability.
+- Siami: structured single-cycle fractional stability.
+
+None of the located results contains the full C-09 quantifier package: all positive diagonal scalings, full Matignon region with genuinely non-Hurwitz spectra, full-dimensional interior, exact lower-dimensional obstruction, and minimum dimension 3 for every 0<alpha<1.
+
+### Updated verdict for C-09
+
+**NOVELTY SURVIVES**
+
+This is theorem-specific. The cubic root-location lemma, generalized D-stability framework, P-matrix bridge, robustness notion, and cyclic witness are not independently claimed as new.
+
+### Updated project status
+
+C-09 is the provisional flagship theorem. The next mathematical priority is to sharpen the all-diagonal 3x3 certificate and determine how close it is to a necessary-and-sufficient characterization.
