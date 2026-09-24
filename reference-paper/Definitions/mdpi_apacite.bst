@@ -4993,4 +4993,4 @@ EXECUTE { begin.bib }
 ITERATE { write.bbl.entry }
 EXECUTE { end.bib }
 
-%%
+%%%% End of file `apacite.bst'.
