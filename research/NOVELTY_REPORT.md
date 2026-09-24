@@ -4,696 +4,327 @@
 **Status:** `GO-NARROWED — AUDIT STILL OPEN`  
 **Scope:** theorem-level novelty audit for `fractional-d-stability-networks`, updated after the Chief reopened the baseline audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731`.
 
-This report incorporates the mandatory prior art that materially changes the first-pass conclusions:
+Mandatory prior art incorporated in this pass:
 
 - Milad Siami, *Stability and Robustness Analysis of Commensurate Fractional-order Networks*, arXiv:2011.04204 / IEEE TCNS.
 - Olga Y. Kushel, *Some bounds for determinants of relatively D-stable matrices*, LAA 656 (2023), arXiv:2205.10823.
 - Eyad H. Abed, *Strong D-stability*, Systems & Control Letters 7(3) (1986), 207–212.
 - Re-reading of Kushel 2019 and Kushel–Pavani 2020/2021.
-- Current robust-D-stability work: Casasanta–Simpson-Porco 2026, arXiv:2603.13608.
+- Casasanta–Simpson-Porco 2026, arXiv:2603.13608.
 
-Detailed derivations are recorded in `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
-
----
+Detailed derivations: `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
 
 ## 1. Central objects
 
-For (0<alpha<1),
+For 0 < α < 1,
 
-[
-Sigma_alpha={z
-eq0:|arg z|>alphapi/2}.
-]
+```text
+Σ_α = { z ≠ 0 : |arg z| > απ/2 }
 
-Define
+F_α^(n) = { A ∈ R^(n×n) : σ(DA) ⊂ Σ_α for every positive diagonal D }
 
-[
-mathcal F_alpha^{(n)}
-=
-{Ainmathbb R^{n	imes n}:
-sigma(DA)subsetSigma_alpha
-	ext{ for every positive diagonal }D},
-]
+P_α^(n) = F_α^(n) \ D_H^(n)
+```
 
-and let (mathcal D_H^{(n)}) be the classical Hurwitz D-stable class. The genuinely fractional separation class is
+where D_H^(n) is the classical Hurwitz D-stable class.
 
-[
-mathcal P_alpha^{(n)}
-=
-mathcal F_alpha^{(n)}
-setminus
-mathcal D_H^{(n)}.
-]
-
-The scientific question is no longer whether fractional stabilization or generalized D-stability exists. Both are known. The live question is:
-
-> **What exact structural mathematics governs the genuinely non-Hurwitz portion (mathcal P_alpha^{(n)}), and in what dimension can that portion first have nonempty full-dimensional interior?**
+The scientific question is no longer whether fractional stabilization or generalized D-stability exists. Both are known. The live question is exact structural mathematics for the genuinely non-Hurwitz part P_α^(n).
 
 ---
 
-# 2. Corrected verdicts on the original candidate contributions
+## 2. Corrected verdicts
 
-## C-01 — Matignon sector criterion — `KNOWN / IMPORTED`
+### C-01 — Matignon sector criterion — KNOWN / IMPORTED
 
-For a commensurate Caputo system (D^alpha x=Ax), Matignon's criterion gives asymptotic stability iff the spectrum lies outside the excluded wedge:
+For commensurate Caputo systems, asymptotic stability is governed by
 
-[
-|arglambda|>alphapi/2.
-]
+```text
+|arg λ| > απ/2.
+```
 
-Brandibur, Garrappa & Kaslik (2021) provide a corrected modern treatment and explicitly record monotonicity with respect to (alpha). This is standard machinery.
+Brandibur–Garrappa–Kaslik provide a corrected modern treatment and α-monotonicity.
 
-**Verdict:** no novelty.
+### C-02 — fractionally stable but integer-order unstable — KNOWN
 
----
+The region
 
-## C-02 — stable for (alpha<1), unstable at (alpha=1) — `KNOWN / MOTIVATION ONLY`
+```text
+απ/2 < |arg λ| <= π/2
+```
 
-The existence of matrices with eigenvalues in
+is exactly the purely fractional sliver. Ahmed–El-Sayed–El-Saka already use the phenomenon explicitly.
 
-[
-alphapi/2<|arglambda|lepi/2
-]
+### C-03 — graph-indexed S_α(G) — DEFINITION ONLY
 
-is exactly the geometric difference between the fractional Matignon sector and the Hurwitz half-plane.
+A graph-indexed stability set is not a contribution unless accompanied by a theorem beyond Matignon, fractional consensus, or classical topology-to-spectrum results.
 
-Ahmed–El-Sayed–El-Saka (2007) already use this phenomenon explicitly in applied fractional systems. It is also immediate from Matignon plus (alpha)-monotonicity.
+### C-04 — fractional D-stability under all positive diagonal scalings — FRAMEWORK KNOWN
 
-**Verdict:** not a contribution.
+Kushel's generalized D-stability framework already permits arbitrary spectral regions and positive diagonal multiplier classes. The previous baseline claim that all literature was blind to the non-convex Matignon complement is **withdrawn**. Kushel–Pavani discuss the fractional stability set as the complement of a cone and develop boundary machinery relevant to diagonal scaling. Kushel 2023 studies relative D-stability and sector gaps.
 
----
+What may still be new: exact low-dimensional characterization, dimension thresholds, or structural separation inside the genuinely non-Hurwitz class.
 
-## C-03 — graph-indexed region (S_alpha(G)) — `DEFINITION ONLY`
+### C-05 — single-cycle / motif fractional D-stability — SINGLE-CYCLE NOVELTY REJECTED
 
-A graph-indexed stability set is not novel merely because it is defined. Fractional consensus already uses graph spectra with sector conditions, while integer-order ecology/network literature contains many topology-to-spectrum stability theorems.
+Siami studies the single-circuit fractional network and generalized secant condition. Its key ratio
 
-A publishable theorem must add exact structure that is not a relabeling of Matignon, Laplacian spectral conditions, or classical topology-to-Hurwitz results.
+```text
+γ = (Π c_i / Π a_i)^(1/n)
+```
 
-**Verdict:** open only as a theorem program.
+is invariant under positive left-diagonal row scaling. Choosing d_i proportional to 1/a_i equalizes the diagonal magnitudes inside the same orbit, which reaches Siami's necessary special case.
 
----
+Therefore a single-cycle fractional D-stability iff fractional-secant theorem is substantially recoverable from prior art.
 
-## C-04 — fractional D-stability under all positive diagonal scalings — `FRAMEWORK KNOWN`
+### C-06 — robustness / openness — CONCEPT KNOWN, FRACTIONAL NON-HURWITZ VERSION MAY BE NEW
 
-The first-pass report was too optimistic here.
+Hartfiel studied the interior of the classical D-stable set; Abed introduced strong D-stability; Lee–Edgar and current work give further robust-D-stability characterizations. Robustness alone is not novelty.
 
-Kushel's ((mathfrak D,mathcal G,circ))-stability framework already includes arbitrary spectral regions and multiplier classes such as positive diagonal matrices. Hence
-
-[
-mathcal F_alpha
-=
-{A:sigma(DA)subsetSigma_alpha orall Dsucc0}
-]
-
-is an instance of a known generalized D-stability framework.
-
-More importantly, the previous sentence
-
-> "all existing sufficient conditions use convex regions and are blind to the non-convex purely fractional sliver"
-
-is **withdrawn**.
-
-Kushel–Pavani explicitly discuss the fractional-order stability set as the complement of a cone and note that this complement is not an LMI region. Their forbidden-boundary machinery treats the relevant angular boundaries under diagonal scaling. Kushel 2023 further studies relatively D-stable matrices and sector gaps.
-
-These works do **not** supply the exact low-dimensional characterization sought here, but they occupy the ambient framework and much of the boundary/sector language.
-
-**Verdict:** the concept is known. Only exact subclass characterization, dimension thresholds, or genuinely new structural separation remain viable.
+What can still be new is a full-dimensional open subset of matrices that are robustly stable in the Matignon region while lying outside classical Hurwitz D-stability.
 
 ---
 
-## C-05 — single-cycle / motif fractional D-stability — `SINGLE-CYCLE NOVELTY REJECTED`
+## 3. Exact 2×2 theorem
 
-This is the most important correction.
+Let A = [[a,b],[c,d]] and D = diag(x,y), with x,y > 0.
 
-Siami studies a cyclic commensurate fractional network with ratio
+```text
+tr(DA)  = xa + yd
+det(DA) = xy det(A).
+```
 
-[
-gamma=
-left(
-rac{prod_i c_i}
-     {prod_i a_i}
-ight)^{1/n},
-]
+For every 0 < α < 1,
 
-and derives a generalized fractional secant condition. The condition is sufficient for the general single-circuit family and becomes necessary in a special equalized/uniform case.
-
-Under a positive diagonal left scaling (D=operatorname{diag}(d_i)), both the relevant diagonal coefficient and cycle coefficient in row (i) are multiplied by (d_i). Hence
-
-[
-gamma(DA)=gamma(A).
-]
-
-Moreover, choosing
-
-[
-d_i=k/a_i
-]
-
-equalizes all diagonal magnitudes inside the same orbit.
-
-Therefore a theorem of the form
-
-> "a single-cycle matrix is fractionally D-stable iff a fractional secant condition holds"
-
-is substantially recoverable from Siami by invariance plus diagonal equalization.
-
-**Verdict:** a single-cycle secant theorem cannot be the paper's central novelty. Cactus or multi-cycle results survive only if they are strictly non-reducible to Siami plus known Arcak/Sontag-style results.
-
----
-
-## C-06 — openness / robustness / uniform angular margin — `CONCEPT KNOWN; FRACTIONAL NON-HURWITZ VERSION MAY BE NEW`
-
-Abed (1986) introduced **strong D-stability** precisely to mean D-stability that persists under all sufficiently small perturbations.
-
-The classical literature also includes Hartfiel on the interior of the D-stable set, later structured-singular-value characterizations, and a 2026 Lyapunov characterization of robust D-stability by Casasanta & Simpson-Porco.
-
-Therefore:
-
-- "robust D-stability",
-- "strong D-stability",
-- "interior of D-stable matrices",
-- or generic "uniform margin"
-
-cannot be claimed as new concepts.
-
-What may be new is a theorem showing a full-dimensional open subset of matrices that are robustly stable in the **fractional Matignon region** while remaining outside classical Hurwitz D-stability.
-
-**Verdict:** viable only in genuinely fractional non-Hurwitz form.
-
----
-
-# 3. Exact low-dimensional result: the (2	imes2) problem is closed
-
-Let
-
-[
-A=
-egin{pmatrix}
-a&b\
-c&d
-end{pmatrix},
-qquad
-D=
-operatorname{diag}(x,y),
-quad x,y>0.
-]
-
-Then
-
-[
-operatorname{tr}(DA)=xa+yd,
-qquad
-det(DA)=xydet A.
-]
-
-For every (0<alpha<1),
-
-[
-oxed{
-Ainmathcal F_alpha^{(2)}
+```text
+A ∈ F_α^(2)
 iff
-det A>0,quad ale0,quad dle0.
-}
-]
+det(A) > 0,  a <= 0,  d <= 0.
+```
 
-### Sufficiency
+Reason:
 
-If (det A>0) and (a,dle0), then for every positive (D),
+- sufficiency: det(DA)>0 and tr(DA)<=0 for every D>0, so eigenvalues are negative real or a conjugate pair with nonpositive real part; therefore |arg λ|>=π/2>απ/2;
+- necessity: det(A)<=0 gives a zero/nonnegative real eigenvalue; a>0 is excluded by x/y→∞; d>0 is excluded by y/x→∞.
 
-[
-det(DA)>0,
-qquad
-operatorname{tr}(DA)le0.
-]
+The classical Hurwitz D-stable subset additionally requires (a,d)!=(0,0). Hence
 
-The eigenvalues are therefore either both negative real numbers or a conjugate pair with nonpositive real part. Hence
-
-[
-|arglambda|gepi/2>alphapi/2.
-]
-
-### Necessity
-
-- If (det Ale0), then (DA) has a zero or nonnegative real eigenvalue.
-- If (a>0), taking (x/y	oinfty) forces a positive real eigenvalue asymptotically.
-- If (d>0), taking (y/x	oinfty) does the same.
-
-Therefore the characterization is exact.
-
-The classical Hurwitz D-stable subset additionally requires
-
-[
-(a,d)
-eq(0,0).
-]
-
-Thus
-
-[
-oxed{
-mathcal P_alpha^{(2)}
-=
-left{
-egin{pmatrix}
-0&b\
-c&0
-end{pmatrix}
-:
-bc<0
-ight},
-}
-]
-
-and so
-
-[
-oxed{
-operatorname{int}_{mathbb R^4}
-mathcal P_alpha^{(2)}
-=
-arnothing.
-}
-]
-
-**Proof status:** analytic theorem.  
-**Novelty status:** structurally useful, but likely too elementary to carry a Q1 paper by itself.
-
----
-
-# 4. The P-matrix bridge
-
-A classical theorem of Kellogg gives the eigenvalue wedge for a (P)-matrix (Pinmathbb R^{n	imes n}):
-
-[
-|argmu|<pi-rac{pi}{n}
-qquad
-(muinsigma(P)).
-]
-
-If (-A) is a (P)-matrix and (Dsucc0), then (D(-A)) remains a (P)-matrix because every principal minor is multiplied by a positive product of entries of (D).
-
-Therefore the eigenvalues of
-
-[
-DA=-D(-A)
-]
-
-satisfy
-
-[
-|arglambda(DA)|>rac{pi}{n}.
-]
-
-Hence:
-
-> **Kellogg-to-Matignon lemma.**  
-> If (-A) is a (P)-matrix, then
-> [
-> Ainmathcal F_alpha^{(n)}
-> qquad
-> orall,0<alphale2/n.
-> ]
-
-This bridge is imported/classical in ingredients and must not be presented as the paper's main novelty. Its role is to produce a full-dimensional separation theorem in dimension three.
-
----
-
-# 5. Dimension three supports an open genuinely fractional class for (0<alphale2/3)
-
-Consider
-
-[
-A_gamma=
-egin{pmatrix}
--1&0&-gamma\
-gamma&-1&0\
-0&gamma&-1
-end{pmatrix},
-qquad gamma>2.
-]
-
-The matrix (-A_gamma) is a strict (P)-matrix:
-
-- its three order-one principal minors equal (1);
-- its three order-two principal minors equal (1);
-- its determinant is (1+gamma^3>0).
-
-Therefore, by the bridge above,
-
-[
-A_gammainmathcal F_alpha^{(3)}
-qquad
-orall,0<alphale2/3.
-]
-
-But
-
-[
-sigma(A_gamma)
-=
-left{
--1-gamma,,
--1+rac{gamma}{2}
-pm irac{sqrt3,gamma}{2}
-ight}.
-]
-
-If (gamma>2), the complex pair has positive real part. Thus (A_gamma) is not even Hurwitz at (D=I), and therefore
-
-[
-A_gamma
-otinmathcal D_H^{(3)}.
-]
-
-Hence
-
-[
-A_gammainmathcal P_alpha^{(3)}.
-]
-
-### Full-dimensional openness
-
-The strict (P)-matrix inequalities for (-A_gamma) are strict polynomial inequalities in the entries. They therefore persist on a sufficiently small full-dimensional ball around (A_gamma).
-
-Likewise, the positive spectral abscissa of (A_gamma) at (D=I) persists under sufficiently small perturbations.
-
-Consequently there exists (arepsilon>0) such that
-
-[
-oxed{
-B_arepsilon(A_gamma)
-subset
-mathcal F_alpha^{(3)}
-setminus
-mathcal D_H^{(3)}
-}
-]
-
-for every (0<alphale2/3).
+```text
+P_α^(2) = { [[0,b],[c,0]] : bc<0 }.
+```
 
 Therefore
 
-[
-oxed{
-operatorname{int}
-mathcal P_alpha^{(3)}
+```text
+int_R4 P_α^(2) = empty.
+```
 
-eqarnothing
-qquad
-(0<alphale2/3).
-}
-]
-
-Combining dimensions 1, 2 and 3:
-
-[
-oxed{
-minleft{
-n:
-operatorname{int}mathcal P_alpha^{(n)}
-
-eqarnothing
-ight}
-=
-3,
-qquad
-0<alphale2/3.
-}
-]
-
-### Status
-
-- **Mathematical proof:** complete at the level recorded above, modulo the imported Kellogg theorem.
-- **Novelty:** strong candidate, but not yet frozen. Targeted searches found all ingredients separately but did not locate this minimal-dimension robust genuinely-fractional separation theorem as a published result.
-
-This is presently the strongest surviving result in the project.
+**Proof status:** analytic theorem.  
+**Novelty status:** useful structural result, but too elementary to carry the paper alone.
 
 ---
 
-# 6. Why (alpha=2/3) is a genuine cubic transition
+## 4. P-matrix bridge
+
+Kellogg's classical wedge theorem for a P-matrix P ∈ R^(n×n) gives
+
+```text
+|arg μ| < π - π/n
+for every μ ∈ σ(P).
+```
+
+Positive diagonal left scaling preserves the P-matrix property. Therefore, if -A is a P-matrix,
+
+```text
+|arg λ(DA)| > π/n
+for every D>0.
+```
+
+So
+
+```text
+-A P-matrix  =>  A ∈ F_α^(n)
+for every 0 < α <= 2/n.
+```
+
+This is an imported bridge, not the main novelty.
+
+---
+
+## 5. Dimension three supports an open genuinely fractional class for 0 < α <= 2/3
+
+Define
+
+```text
+A_γ = [ [-1, 0, -γ],
+        [ γ,-1,  0],
+        [ 0, γ, -1] ],   γ>2.
+```
+
+All principal minors of -A_γ are strictly positive, so -A_γ is a P-matrix. Thus
+
+```text
+A_γ ∈ F_α^(3)
+for every 0 < α <= 2/3.
+```
+
+Its spectrum is
+
+```text
+σ(A_γ) =
+{ -1-γ,
+  -1+γ/2 + i(√3 γ/2),
+  -1+γ/2 - i(√3 γ/2) }.
+```
+
+For γ>2 the complex pair has positive real part. Hence A_γ is not Hurwitz at D=I and therefore is not classically D-stable.
+
+Because the P-matrix principal-minor inequalities and the positive spectral-abscissa inequality are strict, both persist on a sufficiently small full-dimensional ball around A_γ. Consequently there exists ε>0 such that
+
+```text
+B_ε(A_γ) ⊂ F_α^(3) \ D_H^(3)
+```
+
+for every 0<α<=2/3.
+
+Therefore
+
+```text
+int P_α^(3) != empty
+for every 0 < α <= 2/3.
+```
+
+Combining n=1, n=2, and n=3:
+
+```text
+min { n : int P_α^(n) != empty } = 3
+for every 0 < α <= 2/3.
+```
+
+**Mathematical status:** internally proved, modulo the imported Kellogg theorem.  
+**Novelty status:** **STRONG NOVELTY CANDIDATE — NOT YET FROZEN**. Targeted searches found the ingredients separately but not this combined minimal-dimension robust genuinely-fractional separation theorem.
+
+---
+
+## 6. Why α = 2/3 is structural
 
 For a cubic
 
-[
-p(lambda)
-=
-lambda^3+alambda^2+blambda+c
-]
+```text
+p(λ) = λ^3 + a λ^2 + b λ + c
+```
 
-with positive coefficients, suppose a conjugate pair lies on the angular boundary
+with positive coefficients, suppose a conjugate pair lies on λ = r exp(±iθ) and the third root is -s. Let t=s/r. Then coefficient matching gives
 
-[
-lambda=re^{pm i	heta}
-]
+```text
+a = r (t - 2 cos θ)
+b = r^2 (1 - 2 t cos θ)
+c = t r^3.
+```
 
-and the third root is (-s), (s>0). Writing
+For a,b>0 one needs
 
-[
-t=s/r,
-qquad h=cos	heta,
-]
+```text
+2 cos θ < t < 1/(2 cos θ).
+```
 
-gives
+This interval exists exactly when θ>π/3. Since the Matignon boundary is θ=απ/2, the transition is α>2/3.
 
-[
-a=r(t-2h),
-]
-
-[
-b=r^2(1-2ht),
-]
-
-[
-c=tr^3.
-]
-
-To keep (a,b>0), one needs
-
-[
-2cos	heta
-<
-t
-<
-rac{1}{2cos	heta}.
-]
-
-That interval exists exactly when
-
-[
-	heta>pi/3.
-]
-
-Since the Matignon boundary is
-
-[
-	heta=alphapi/2,
-]
-
-the critical point is
-
-[
-oxed{alpha=2/3}.
-]
-
-Thus (2/3) is not an artifact of the chosen example. It is the natural angular threshold at which a positive-coefficient cubic can first meet the Matignon boundary.
+Thus 2/3 is the natural cubic angular threshold, not an artifact of the chosen witness matrix.
 
 ---
 
-# 7. Highest-value open problem: (n=3,;2/3<alpha<1)
+## 7. Highest-value open problem
 
-For (2/3<alpha<1), the (P)-matrix wedge alone is too weak.
+The unresolved range is
 
-Siami nevertheless supplies structured cyclic centers satisfying a fractional secant condition and allows a range in which the cycle is fractionally stable while classically unstable.
+```text
+n = 3
+2/3 < α < 1.
+```
 
-The central unresolved question is:
+The main target is
 
-[
-oxed{
-operatorname{int}
-mathcal P_alpha^{(3)}
+```text
+int P_α^(3) != empty
+for every 2/3 < α < 1.
+```
 
-eqarnothing
-quad ?
-}
-]
+Ordinary continuity at a fixed D is insufficient because the diagonal orbit is noncompact modulo scalar normalization. A proof must control degenerate diagonal directions.
 
-for every
+Preferred route:
 
-[
-2/3<alpha<1.
-]
+1. normalize D to a compact simplex;
+2. analyze boundary faces using principal submatrices / limiting characteristic polynomials;
+3. exclude contact with the two Matignon boundary rays;
+4. derive an explicit cubic inequality, ideally a fractional analogue of the classical 3×3 D-stability criterion.
 
-Equivalently, can one produce a full-dimensional open ball around a (3	imes3) genuinely fractional D-stable matrix?
-
-### Why ordinary continuity is insufficient
-
-The quantifier
-
-[
-orall Dsucc0
-]
-
-ranges over a noncompact cone. After scalar normalization, the diagonal orbit approaches degenerate faces where one or more diagonal coordinates tend to zero.
-
-Therefore a proof must control:
-
-- interior normalized diagonal directions;
-- all boundary faces;
-- principal-submatrix limits;
-- contact with the two Matignon rays.
-
-This is exactly where a genuine new theorem could live.
+A stronger alternative is an exact characterization of F_α^(3) in the high-order regime.
 
 ---
 
-# 8. Candidate exact (3	imes3) program
+## 8. Reopened mandatory questions — answers
 
-The strongest possible next theorem would be an explicit characterization of
-
-[
-mathcal F_alpha^{(3)}
-qquad
-(2/3<alpha<1)
-]
-
-analogous in role to classical low-dimensional D-stability criteria, but replacing exclusion of the imaginary axis with exclusion of the rays
-
-[
-arglambda
-=
-pmalphapi/2.
-]
-
-A viable route is:
-
-1. normalize (D) to a simplex;
-2. write the cubic coefficients of (det(lambda I-DA)) in terms of diagonal entries and principal minors;
-3. parameterize boundary contact by (lambda=re^{pm ialphapi/2});
-4. eliminate (r) and diagonal ratios;
-5. derive an explicit inequality or finite family of inequalities;
-6. analyze all simplex faces;
-7. compare the resulting criterion theorem-by-theorem with Kushel's forbidden-boundary framework and classical (3	imes3) D-stability.
-
-If this exact criterion is obtained, it is likely stronger and cleaner than a graph-specific theorem.
+1. **Does Siami quantify over the same DA orbit?** Not explicitly, but its key cycle ratio is invariant under positive left-diagonal scaling and diagonal scaling can equalize the diagonal coefficients.
+2. **Can the single-cycle target be recovered from Siami?** Yes, to a degree that makes it unsafe as novelty.
+3. **Does Siami reach the right-half-plane Matignon sliver?** Yes; fractional stability can extend beyond the integer-order Hurwitz range.
+4. **What is the relationship between Kushel and Σ_α?** Kushel supplies the generalized-D-stability framework and sector/boundary machinery; it does not give the present low-dimensional P_α characterization.
+5. **Does Kushel already give generic uniform sector gaps?** Sector-gap estimates exist for important D-stable subclasses, so "uniform angular margin" alone is not novelty.
+6. **Which topology claims survive Siami?** Not single-cycle secant; only genuinely non-reducible multi-cycle/motif results remain candidates.
+7. **Is the 2×2 classification settled?** Yes analytically in this audit.
+8. **Is int P_α^(3) nonempty?** Yes for 0<α<=2/3; high-order range remains open.
+9. **How must strong fractional D-stability differ from Abed?** It must concern the Matignon angular region and a non-Hurwitz robust class not reducible to classical strong D-stability.
+10. **Smallest title-worthy package?** Exact 2×2 obstruction + dimension-three full-dimensional separation + extension to all 0<α<1, preferably with an exact 3×3 criterion or a minimal-motif theorem.
 
 ---
 
-# 9. Reopened mandatory questions — answers
+## 9. Strongest novelty surviving the reopened audit
 
-### 1. Does Siami quantify over the same positive diagonal orbit (DA)?
+For 0<α<=2/3, the project now has an analytic proof that dimension three is the first dimension in which the genuinely non-Hurwitz fractional D-stable class can have nonempty full-dimensional interior: the class is empty in dimension one, has empty interior in dimension two, and contains an explicit open ball in dimension three. The individual ingredients are known, but the combined minimal-dimension separation theorem was not located in the targeted literature audit. The high-value unresolved extension is to prove the same dimension threshold for every 0<α<1 or derive an exact 3×3 characterization for 2/3<α<1.
 
-Not explicitly in the theorem statement. However, his key cycle ratio is invariant under all positive diagonal left row scalings, and the orbit can equalize the diagonal coefficients. Therefore the single-cycle D-orbit theorem is substantially subsumed.
+## 10. Exact theorem target
 
-### 2. Can the proposed single-cycle theorem be recovered from Siami?
+> **Target theorem.** For every 0<α<1,
+>
+> ```text
+> min { n : int(F_α^(n) \ D_H^(n)) != empty } = 3.
+> ```
+>
+> For 0<α<=2/3 this is already proved internally; the remaining proof burden is 2/3<α<1.
 
-Yes, to a degree that makes it unsafe as a novelty claim.
+## 11. Prior-art result most likely to kill the current target
 
-### 3. Does Siami reach the right-half-plane Matignon sliver?
-
-Yes. The fractional cyclic criterion permits stability beyond the integer-order Hurwitz range for suitable (alpha<1).
-
-### 4. What is the relation between Kushel's sector work and (Sigma_alpha)?
-
-Kushel supplies the generalized-D-stability setting and sector/boundary machinery. Kushel–Pavani explicitly discuss fractional stability via the complement of a cone. Their work does not give the present low-dimensional (mathcal P_alpha) characterization, but the nonconvex/boundary geometry is not untouched.
-
-### 5. Does Kushel already imply a generic proposed uniform angular margin?
-
-Sector-gap results exist for important D-stable subclasses, so "uniform angular margin" is not itself novel. A new theorem must concern the genuinely non-Hurwitz Matignon class and exact quantifiers.
-
-### 6. Which topology claims survive Siami?
-
-Not a single-cycle secant theorem. Multi-cycle/cactus claims survive only if they cannot be reduced to Siami cycle conditions plus classical topology results.
-
-### 7. Is the (2	imes2) classification known or immediate?
-
-It is elementary enough to derive exactly from trace/determinant scaling, and the project now has a complete analytic proof. It is unlikely to be enough for a paper by itself.
-
-### 8. Is (operatorname{int}mathcal P_alpha^{(3)}
-eqarnothing)?
-
-Yes, analytically for
-
-[
-0<alphale2/3.
-]
-
-The range (2/3<alpha<1) remains open.
-
-### 9. How must "strong fractional D-stability" differ from Abed?
-
-It must describe persistence inside the Matignon sector for matrices that are outside classical Hurwitz D-stability, and it must yield a theorem not inherited from classical robust D-stability.
-
-### 10. What is the smallest Q1-level theorem package now visible?
-
-The current package should be:
-
-1. exact (2	imes2) characterization;
-2. proof that the first dimension with a full-dimensional genuinely fractional D-stable region is (3);
-3. extension of that dimension threshold to all (0<alpha<1), or an exact (3	imes3) characterization in the high-order range;
-4. only then a motif/network interpretation.
-
----
-
-# 10. Strongest novelty surviving the reopened audit — ≤3 sentences
-
-For (0<alphale2/3), the project now has an analytic proof that dimension three is the first dimension in which the genuinely non-Hurwitz fractional D-stable class can have nonempty full-dimensional interior: the class is empty in dimension one, has empty interior in dimension two, and contains an explicit open ball in dimension three. The individual ingredients — Matignon stability, P-matrix wedges, generalized D-stability, cyclic fractional secant conditions, and strong D-stability — are known, but the combined minimal-dimension separation theorem was not located in the targeted literature audit. The high-value unresolved extension is to prove the same dimension threshold for every (0<alpha<1) or derive an exact (3	imes3) characterization for (2/3<alpha<1).
-
-# 11. Exact theorem target
-
-> **Target theorem.** For every (0<alpha<1),
-> [
-> min{n:
-> operatorname{int}
-> (mathcal F_alpha^{(n)}
-> setminus
-> mathcal D_H^{(n)})
-> 
-eqarnothing}
-> =3.
-> ]
-> Equivalently: (nle2) cannot support a full-dimensional robust genuinely fractional D-stable class, while (n=3) can. For (0<alphale2/3) this is already proved internally; the remaining proof burden is (2/3<alpha<1).
-
-A stronger alternative target is an exact characterization of (mathcal F_alpha^{(3)}) in the high-order regime.
-
-# 12. Prior-art result most likely to kill the current target
-
-No single located paper presently kills the dimension-threshold theorem. The **closest structural threats** are:
+No single located paper presently kills the dimension-threshold theorem. The closest structural threats are:
 
 1. Kushel/Kushel–Pavani generalized-D-stability and forbidden-boundary theory, if a low-dimensional specialization already implies the same result;
-2. classical low-dimensional D-stability/interior results (Cain, Hartfiel, Abed), if a direct region substitution yields the fractional statement;
+2. classical low-dimensional D-stability/interior results, if a direct region substitution yields the fractional statement;
 3. Siami, for any proof that remains confined to a single-cycle submanifold instead of producing a full-dimensional open class.
 
-# 13. Final verdict
+## 12. Final verdict
 
-[
-oxed{	exttt{GO-NARROWED}}
-]
+**GO-NARROWED**
 
-Proceed with the low-dimensional theorem program. Do **not** draft the central manuscript around a single-cycle/cactus novelty claim. The immediate research priority is:
+Proceed with the low-dimensional theorem program. Do **not** draft the central manuscript around a single-cycle/cactus novelty claim. Immediate research priority:
 
-[
-oxed{
-n=3,qquad 2/3<alpha<1.
-}
-]
+```text
+n = 3
+2/3 < α < 1.
+```
 
 Numerical diagonal sampling remains counterexample hunting only.
 
----
+## 13. Key sources
 
-# 14. Key sources
-
-- Brandibur, Garrappa & Kaslik 2021, *Mathematics* 9:914: https://www.mdpi.com/2227-7390/9/8/914
-- Kushel 2019, *SIAM Review* 61(3):643–729: https://arxiv.org/abs/1907.07089
+- Brandibur, Garrappa & Kaslik 2021: https://www.mdpi.com/2227-7390/9/8/914
+- Kushel 2019: https://arxiv.org/abs/1907.07089
 - Kushel & Pavani 2020: https://arxiv.org/abs/2004.11172
 - Kushel & Pavani 2021: https://arxiv.org/abs/2103.04127
-- Kushel 2023 / arXiv preprint: https://arxiv.org/abs/2205.10823
+- Kushel 2023 preprint: https://arxiv.org/abs/2205.10823
 - Siami 2020/2021: https://arxiv.org/abs/2011.04204
-- Abed 1986, DOI: https://doi.org/10.1016/0167-6911(86)90116-7
+- Abed 1986 DOI: https://doi.org/10.1016/0167-6911(86)90116-7
 - Casasanta & Simpson-Porco 2026: https://arxiv.org/abs/2603.13608
 - Sabatier, Moze & Farges 2010, *Comput. Math. Appl.* 59:1594–1609.
 - Ahmed, El-Sayed & El-Saka 2007, *J. Math. Anal. Appl.* 325:542–553.
 - Arcak & Sontag 2006, *Automatica* 42(9).
 - Arcak 2011, *IEEE TAC* 56(12):2766–2777.
-- Hartfiel 1980, *Linear Algebra and its Applications*, interior of D-stable matrices.
+- Hartfiel 1980, *Linear Algebra and its Applications*.
 - Lee & Edgar 2001, *Systems & Control Letters* 44:273–277.
