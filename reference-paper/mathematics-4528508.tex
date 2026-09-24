@@ -1,0 +1,1000 @@
+%=====================================================================
+%  Fractional Stabilization and Step-Size-Independent Euler Verdict
+%  Inversion in an Allee Predator-Prey Model
+%
+%  Native LaTeX. Compiles with pdflatex + bibtex, no shell-escape, no
+%  non-standard packages, no system fonts. See README for the exact commands.
+%=====================================================================
+\documentclass[mathematics,article,accept,pdftex,moreauthors]{Definitions/mdpi} 
+
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}
+%\usepackage[margin=2cm]{geometry}
+%\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+%\usepackage{graphicx}
+%\usepackage{booktabs}
+%\usepackage{array}
+%\usepackage{tabularx}
+%\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+%\emergencystretch=1.5em
+%\usepackage{caption}
+%\captionsetup{font=small}
+%\usepackage{enumitem}
+%\usepackage{placeins}
+%\usepackage[hidelinks]{hyperref}
+%\input{ensemble_numbers.tex}
+\usepackage[none]{hyphenat}
+%\graphicspath{{figures/out/}{figures/}{./}}
+
+\newcommand{\ensembleN}{10^{6}}
+\newcommand{\ensembleCoexistPct}{41.1}
+\newcommand{\ensembleSixRowPct}{16.0}
+\newcommand{\ensembleWedgePct}{24.5}
+\newcommand{\ensembleTposWedge}{34909}
+\newcommand{\ensembleWidthMedian}{0.16}
+\newcommand{\ensembleWidthQa}{0.07}
+\newcommand{\ensembleWidthQb}{0.34}
+\newcommand{\setIIalphastar}{0.839}
+\newcommand{\setIIA}{0.62}
+\newcommand{\setIIalpha}{0.75}
+\newcommand{\setIIReMu}{0.0287}
+
+
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\Rn}{\mathbb{R}}
+\newcommand{\Cn}{\mathbb{C}}
+\newcommand{\Dc}[1]{{}^{C}\!D^{#1}}
+\newcommand{\Eml}[1]{E_{#1}}
+\newcommand{\Emlt}[2]{E_{#1,#2}}
+
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\externaleditor{Janez Žerovnik} % More than 1 editor, please add `` and '' before the last editor name
+\datereceived{12 August 2026} 
+\daterevised{14 September 2026} % Comment out if no revised date
+\dateaccepted{18 September 2026} 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For retracted papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+%\CorrStatement{yes}  % For updates
+%\longauthorlist{yes} % For many authors that exceed the left citation part
+%\IsAssociation{yes} % For association journals
+
+\Title{Exact Stability Atlases and a Memoryless-Surrogate Failure Theorem 
+for a Caputo Allee Predator-Prey Model}
+
+
+%\date{}
+
+
+\Author{{Ibrahim Alraddadi} %MDPI: Please carefully check the accuracy of names and affiliations.
+ $^{1}$ and Thoraya N. Alharthi $^{2,*}$}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Ibrahim Alraddadi and Thoraya N. Alharthi}
+
+\address{%
+$^{1}$ \quad Department of Mathematics, Faculty of Science, Islamic University of Madinah, Madinah, {42351}
+, Saudi Arabia; ialraddadi@iu.edu.sa\\
+$^{2}$ \quad Department of Mathematics, College of Science, University of Bisha,{P.O. Box 551}
+, Bisha 61922, Saudi Arabia}
+
+% Contact information of the corresponding author
+\corres{Correspondence: talhrthe@ub.edu.sa}
+
+
+\abstract{We study a strong-Allee predator--prey system with Holling type-II predation under a commensurate Caputo derivative of order $\alpha\in(0,1]$. The coexistence equilibrium is
+given in closed form, and its local fractional stability reduces to the trace and determinant
+of the Jacobian, both affine in the reciprocal Allee threshold. For every parameter set
+satisfying one explicit inequality, this yields a stability atlas in the $(A,\alpha)$ plane
+with three algebraic breakpoints and a critical order $\alpha^{*}(A)$ that decreases strictly
+from $1$ to $0$; on a benchmark slice the breakpoints are the rationals $2/23$, $2/7$,
+$10/19$, $2/3$. The second result is a dichotomy about discretization. On the
+fractional-stabilization region, where the Caputo equilibrium is asymptotically stable
+despite a right-half-plane spectrum, the memoryless map $z\mapsto z+\varepsilon f(z)$ is
+unstable for every step size and every consistent memoryless one-step method for all small
+steps, whereas the implicit Gr\"unwald--Letnikov scheme, which retains the history, is stable
+for every step size and reproduces the exact algebraic decay, and the explicit one for all
+small steps. Positivity, an extinction strip, a uniform ultimate bound, and global existence
+complete the picture; proof objects audit the benchmark constants and numerical corroboration
+covers two further parameter sets and $10^{6}$ random ones.}
+
+\keyword{Caputo fractional derivative; strong Allee effect;
+Holling type-II; Matignon sector criterion; exact stability atlas; fractional
+stabilization; memoryless forward-Euler surrogate; Gr\"unwald-Letnikov scheme; certified
+interval arithmetic; proof objects} 
+\MSC{34A08; 34D20; 92D25; 65L20; 65G20}
+
+\begin{document}
+%=====================================================================
+\section{Introduction}
+%=====================================================================
+
+\textls[-15]{A strong Allee effect gives a population a threshold below which it cannot recover; a
+fractional-order derivative gives it memory, so that the current rate of change depends on
+the whole trajectory. Both ingredients are standard in population modeling. Their
+interaction with {{discretization}
+} is the subject of this paper, and it rests on a
+mismatch between two notions of stability. For an integer-order autonomous system, an
+equilibrium is linearly stable when the Jacobian spectrum lies in the open left half-plane;
+for a commensurate Caputo system of order $\alpha$ the condition is Matignon's sector
+{condition} 
+ $|\arg\upmu|>\alpha\pi/2$ \cite{Matignon1996}, {which} 
+ for $\alpha<1$ is strictly
+weaker: an eigenvalue may have a positive real part and still satisfy it. Memory can, therefore,
+stabilize an equilibrium that classical intuition reads as unstable. This
+{{fractional stabilization}} is known \cite{Ahmed2007,WangHan2025,Ramesh2025,Saha2026}.}
+\newpage
+We answer two questions about it. First, {{where}} does it occur for the whole parameter
+family rather than for one benchmark? We show that the trace and determinant of the Jacobian
+at the coexistence equilibrium are affine functions of the reciprocal Allee threshold $1/A$,
+so that for every parameter set satisfying one explicit inequality, the $(A,\alpha)$ plane
+carries the same six-row stability atlas, with algebraic breakpoints and a critical order
+$\alpha^{*}(A)$ that decreases strictly from $1$ to $0$. The benchmark atlas with rational
+breakpoints \linebreak  $2/23$, $2/7$, $10/19$, $2/3$ is one instance. Second, {{what does a
+discretization see}} there? If one replaces the Caputo system by the memoryless map
+$z\mapsto z+\varepsilon f(z)$, its multiplier at an equilibrium is $\lambda=1+\varepsilon\upmu$ and
+\[
+  |1+\varepsilon\upmu|^{2}-1 \;=\; 2\varepsilon\Real\upmu+\varepsilon^{2}|\upmu|^{2},
+\]
+so $\Real\upmu>0$ forces $|\lambda|>1$ for {{every}} $\varepsilon>0$: on the
+fractional-stabilization region, the map is unstable at every step size, while the continuous
+system is locally asymptotically stable. The identity is elementary. What is not elementary
+is the dichotomy it belongs to, which we prove in Section~\ref{sec:inversion}: every consistent
+memoryless one-step method inverts the verdict for all sufficiently small steps, whereas the
+implicit Gr\"unwald--Letnikov scheme, which retains the history, is asymptotically stable for
+{{every}} step size and reproduces the exact algebraic Mittag-Leffler tail, and the explicit
+one is for every sufficiently small step. Refining the mesh does not repair a memoryless map,
+because the defect is not an accuracy defect; carrying the memory does, at any resolution.
+
+\subsection*{Related Work and What Is New Here}
+
+Fractional predator--prey models with Allee effects are an active area
+\cite{WangHan2025,Ramesh2025,Mondal2025,Rahmi2026,Saha2026,Baghel2026}, and comparisons of a
+fractional model with a discrete counterpart are established \cite{Mondal2020,Elsadany2015,
+Cermak2013,CressonSzafranska2017}. The numerical analysis of history-retaining fractional
+schemes is a developed subject: Lubich's convolution quadratures \cite{Lubich1986}, the
+Diethelm-Ford-Freed predictor-corrector method \cite{Diethelm2002}, its linear stability
+analysis by Garrappa \cite{Garrappa2010}, and the survey \cite{Garrappa2018}. Validated
+numerics for fractional equations exist \cite{RauhJaulin2021}. The passage from the spectrum
+of the Jacobian to local asymptotic stability of the {{nonlinear}} Caputo equilibrium is
+the rigorous linearization theorem of Cong, Doan, Siegmund, and Tuan \cite{Cong2016}, with
+the instability counterpart \cite{Cong2016b}; several published proofs of that step are known
+to be defective, so we lean on the one that has been established. We claim no novelty for
+fractional predator--prey dynamics with Allee effects, for order-dependent stabilization, for
+the existence of a critical order, for Matignon-based classification, or for the stability
+theory of fractional schemes. {Table}
+~\ref{tab:lit} places the closest work against the axes on
+which this paper differs.
+
+The contributions are the following:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textls[-15]{An exact two-scalar reduction in local fractional stability for the whole parameter
+      family and the complete Matignon classification of the $(T,D)$ plane
+      (Theorems~\ref{thm:general} and \ref{thm:classification}), together with a consolidated
+      statement of what is and is not decided at the critical boundaries
+      (Proposition~\ref{prop:critical}).}
+\item A {{general atlas theorem}}: $T$ and $D$ are affine in $1/A$, and under the
+      explicit open condition $c_{T}<0$ every parameter set has the six-row atlas with
+      breakpoints $A_{1}<A_{T}<A_{2}<q$ and $\alpha^{*}$ strictly decreasing
+      (Theorem~\ref{thm:general-atlas}); the rational benchmark atlas is its instance
+      (Theorem~\ref{thm:atlas}). The fractional-stabilization region is therefore an open
+      phenomenon in parameter space, not an artifact of the benchmark.
+\item A {{discretization dichotomy}}. On an analytically described region the memoryless
+      map inverts the verdict for every $\varepsilon>0$ (Theorem~\ref{thm:inversion},
+      Corollaries~\ref{cor:wedge} and \ref{cor:general-wedge}), and every consistent memoryless
+      one-step method does so for all small steps (Proposition~\ref{prop:onestep}); the
+      implicit Gr\"unwald--Letnikov scheme is verdict-faithful for every step and the explicit
+      one for every small step (Theorem~\ref{thm:gl-implicit} and Proposition~\ref{prop:gl-explicit}).
+\item \textls[-15]{Global results, included for completeness and proved with standard tools: positivity
+      and invariant strips by fractional first-contact arguments, an extinction strip that is
+      sharp on the predator-free face, a uniform ultimate bound, and global existence obtained
+      after the bound (Section~\ref{sec:global}), with an explicit statement of what is not
+      proved (Proposition~\ref{prop:basins}).}
+\item Numerical corroboration on the benchmark, on two further parameter sets, and on an
+      ensemble of $\ensembleN$ random ones, with a convergence study near $\alpha^{*}$ and
+      several initial conditions (Section~\ref{sec:numerics}); and a machine-checkable
+      proof-object layer auditing the benchmark constants (Section~\ref{sec:certificates}).
+\end{enumerate}
+
+\begin{table}[H]
+\caption{{The} %MDPI: Middle borders were added to increade legibility. Please check and confirm.
+ closest related work, organized by the axes on which this paper differs.
+``Not reported'' means the cited work does not address that axis and is a statement about
+scope, not a deficiency.\label{tab:lit}}
+
+
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+\footnotesize
+\begin{tabularx}{\fulllength}{cCCCCC}
+\toprule
+\textbf{{Reference}} %MDPI: We added the word ``Reference'' in this cell. Please check if acceptable.
+ & \textbf{Model, Allee Mechanism} & \textbf{Derivative} & \textbf{Stability Criterion} & \textbf{Discretization Studied} & \textbf{Global Analysis} \\
+\midrule
+Wang \& Han \cite{WangHan2025}
+  & predator--prey, refuge, Allee & Caputo & Matignon & not reported & global stability \\
+  \midrule
+Ramesh et al.\ \cite{Ramesh2025}
+  & Holling I, double Allee & Caputo & Matignon & not reported & boundedness; global stability of $E^{*}$ \\
+  \midrule
+Mondal et al.\ \cite{Mondal2025}
+  & double Allee & Caputo; separate discrete-time model & Matignon; Jury & discrete-time model (flip, Neimark--Sacker) & equilibrium stability \\
+  \midrule
+Rahmi et al.\ \cite{Rahmi2026}
+  & eco-epidemiological & Caputo & Matignon & predictor--corrector simulations & global dynamics \\
+  \midrule
+Saha et al.\ \cite{Saha2026}
+  & Allee and fear & commensurate and incommensurate Caputo & Matignon & not reported & boundedness \\
+  \midrule
+Mondal, Biswas \& Bairagi \cite{Mondal2020}
+  & habitat complexity & Caputo; discretized fractional system & Matignon; Jury & order- and step-dependent discrete dynamics & global stability \\
+  \midrule
+Elsadany \& Matouk \cite{Elsadany2015}
+  & Lotka--Volterra & Caputo; discretization & Matignon; Jury & bifurcations of the discretization & equilibrium stability \\
+  \midrule
+\v{C}erm\'ak et al.\ \cite{Cermak2013}
+  & linear systems & Caputo & stability regions & stability regions of discretizations & not applicable \\
+  \midrule
+{{this case}
+}
+  & strong Allee, Holling II & Caputo & Matignon; exact affine $(T,D)$ structure, general atlas
+  & memoryless one-step maps against Gr\"unwald--Letnikov: all-step dichotomy
+  & positivity, sharp-on-face extinction strip, uniform ultimate bound \\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\end{table}
+
+
+\textls[-15]{Items 2 and 3 are the new mathematics; item 1 is the reduction they rest on; item 4 is
+completeness; item 5 is evidence, not proof. A table at the end of Section~\ref{sec:atlas}
+records, for every statement, whether it holds for the whole family, for the benchmark, or
+only as a numerical observation.}
+
+Two caveats frame everything below. The benchmark parameter values are exact rationals chosen
+for arithmetic convenience; they are not calibrated against any population, and we attach no
+ecological realism to them (Definition~\ref{def:benchmark}). And the paper's practical
+message is about method choice, not ecology: which conclusions admit an ecological reading is
+discussed in Section~\ref{sec:discussion}.
+
+
+%=====================================================================
+\section{Model, Nondimensionalization and Local Well-Posedness}
+%=====================================================================
+
+\subsection{The Model}
+
+Let $\Dc{\alpha}$ denote the Caputo derivative of order $\alpha\in(0,1]$,
+\[
+  \Dc{\alpha}g(t) \;=\; \frac{1}{\Gamma(1-\alpha)}\int_{0}^{t}(t-s)^{-\alpha}g'(s)\,ds,
+  \qquad 0<\alpha<1,
+\]
+with $\Dc{1}=d/dt$. We study the commensurate {system} 
+\begin{equation}\label{eq:model}
+\begin{aligned}
+  \Dc{\alpha}x &= P(x) - \frac{a\,x\,y}{1+h\,x}, \\
+  \Dc{\alpha}y &= \frac{e\,a\,x\,y}{1+h\,x} - m\,y,
+\end{aligned}
+\qquad
+  P(x) \;=\; r\,x\Bigl(1-\frac{x}{K}\Bigr)\Bigl(\frac{x}{A}-1\Bigr),
+\end{equation}
+on the closed first quadrant, with all of $r,K,a,h,e,m,A$ positive and $0<A<K$. Here $x$ is
+prey and $y$ predator biomass, $P$ is a strong-Allee growth law with threshold $A$ and
+carrying capacity $K$, predation is Holling type-II with attack rate $a$ and handling time
+$h$, $e$ is conversion efficiency, and $m$ predator mortality. Writing $f=(f_1,f_2)$ for the
+right-hand side of Equation~\eqref{eq:model}, we record two conventions and two structural facts.
+
+The Holling term is smooth on the open half-plane
+\begin{equation}\label{eq:Omega}
+  \Omega=\{(x,y)\in\Rn^{2}: x>-1/h\},
+\end{equation}
+which already contains the closed biological quadrant, so no artificial extension of the
+response function is needed anywhere in this paper: all statements are made on $\Omega$, and
+once positivity is proved, the solution stays a positive distance from the pole at $x=-1/h$.
+Two structural facts are used repeatedly:
+\begin{equation}\label{eq:boundary-facts}
+  f_1(0,y)=0 \quad\text{for all } y, \qquad f_2(x,0)=0 \quad\text{for all } x,
+  \qquad P(K)=0 .
+\end{equation}
+
+\subsection{Nondimensionalization}\label{sec:nondim}
+
+\textls[-15]{The Caputo derivative $\Dc{\alpha}$ carries physical dimension $T^{-\alpha}$, so comparing
+different values of $\alpha$ at fixed numerical coefficients is meaningless unless those
+coefficients are dimensionless. We remove the difficulty once and for all by working with a
+nondimensional model.}
+
+With $[x]=[K]=[A]=X$, $[y]=Y$, $[h]=X^{-1}$, $[r]=[m]=T^{-\alpha}$, $[a]=Y^{-1}T^{-\alpha}$
+and $[e]=Y/X$, choose a characteristic time $t_{0}>0$ and an \emph{arbitrary} predator
+biomass scale $Y_{0}>0$, and put
+\begin{equation}\label{eq:scaling}
+  \tau=\frac{t}{t_{0}},\qquad u=\frac{x}{K},\qquad v=\frac{y}{Y_{0}} .
+\end{equation}
+
+{Since} 
+ $\Dc{\alpha}_{t}=t_{0}^{-\alpha}\Dc{\alpha}_{\tau}$, substitution turns
+Equation~\eqref{eq:model} into
+\begin{equation}\label{eq:nondim}
+\begin{aligned}
+  \Dc{\alpha}_{\tau}u &= R\,u\,(1-u)\Bigl(\frac{u}{\hat A}-1\Bigr)
+                        -\frac{\mathcal{A}\,u\,v}{1+\eta u},\\[2pt]
+  \Dc{\alpha}_{\tau}v &= \frac{\mathcal{E}\mathcal{A}\,u\,v}{1+\eta u}-M\,v,
+\end{aligned}
+\qquad
+\begin{aligned}
+  R&=t_{0}^{\alpha}r, & \hat A&=A/K, & \eta&=hK,\\
+  \mathcal{A}&=t_{0}^{\alpha}aY_{0}, & \mathcal{E}&=eK/Y_{0}, & M&=t_{0}^{\alpha}m,
+\end{aligned}
+\end{equation}
+in which every coefficient is a pure number and, because $Y_{0}$ is free, the six effective
+coefficients are {{independent}} positive parameters apart from the normalisation
+$\hat K=1$. This is Equation~\eqref{eq:model} again in the generic notation, so no generality is lost
+by analysing Equation~\eqref{eq:model} with dimensionless parameters throughout; in particular a
+benchmark with $r\neq a$ is admissible. The substitution is verified symbolically as a
+regression test, together with the fact that the superficially natural choice $Y_{0}=r/a$ is
+only a \emph{{special gauge}}: it forces $\mathcal{A}=R$, \linebreak  i.e.,\ it selects the reduced
+subfamily in which the prey-growth and predation coefficients coincide, and cannot justify a
+generic benchmark. An $\alpha$-scan at fixed dimensionless coefficients is therefore a
+well-posed comparison between systems referred to the same characteristic time; it is not the
+same as varying $\alpha$ at fixed dimensional rates, about which we make no claim.
+
+\subsubsection*{{When the Coexistence Equilibrium Exists} 
+}
+
+Whenever $ea>mh$ put
+\begin{equation}\label{eq:q}
+  q \;:=\; \frac{m}{ea-mh},
+\end{equation}
+the prey level at which predator growth balances mortality; it does not depend on $A$. A
+positive coexistence equilibrium exists if and only if $A<q<K$
+(Theorem~\ref{thm:general}), and every statement about that equilibrium below presupposes
+this condition.
+
+\begin{Definition}[benchmark parameter set]\label{def:benchmark}
+The benchmark is the dimensionless parameter point
+\begin{equation}\label{eq:benchmark}
+  r=\tfrac{3}{2},\quad K=1,\quad a=1,\quad h=\tfrac{1}{2},\quad
+  e=\tfrac{4}{5},\quad m=\tfrac{2}{5},
+  \qquad\text{for which } q=\tfrac{2}{3}.
+\end{equation}
+
+Its values are exact rationals chosen for arithmetic convenience and reproducibility. They
+are not calibrated against any dataset and carry no ecological realism; every statement
+labeled ``benchmark'' is a statement about this point, and Section~\ref{sec:general-atlas}
+shows which of its features are shared by every parameter set.
+\end{Definition}
+
+\subsection{Local Well-Posedness and a Caputo Extremum Lemma}
+
+\begin{Proposition}[local existence, uniqueness, and regularity]\label{prop:local}
+\textls[-15]{$f$ is real-analytic on $\Omega$; in particular, it is locally Lipschitz there. By a
+\emph{solution} of~Equation~\eqref{eq:model} we mean, throughout, a continuous solution of the
+equivalent Volterra integral equation}
+\begin{equation}\label{eq:volterra}
+  z(t)=z_{0}+\frac{1}{\Gamma(\alpha)}\int_{0}^{t}(t-s)^{\alpha-1}f\bigl(z(s)\bigr)\,ds .
+\end{equation}
+
+\textls[-35]{For every $z_{0}\in\Omega$ there is a unique such solution on a maximal interval
+$[0,T_{\max})$, depending continuously on $z_{0}$ (Chapter 6, \emph{\cite{Diethelm2010}}). Moreover, on
+every compact $[0,T]\subset[0,T_{\max})$ the solution satisfies}
+\begin{equation}\label{eq:regularity}
+  z\in C([0,T])\cap C^{1}\bigl((0,T]\bigr),
+  \qquad \|z'(t)\|=O\bigl(t^{\alpha-1}\bigr)\ \text{as } t\downarrow0 ,
+\end{equation}
+so that $z\in W^{1,1}(0,T)$ and, for every $t\in(0,T]$, the weighted derivative
+$(t-s)^{-\alpha}z'(s)$ is integrable on $(0,t)$: the Caputo derivative of each component
+exists pointwise on $(0,T]$ and Equation~\eqref{eq:model} holds there in the classical sense.
+\end{Proposition}
+
+\begin{proof}
+For $\alpha=1$ the equation is an ordinary differential equation with real-analytic
+right-hand side on $\Omega$, and the classical local theory gives a unique $C^{1}$ solution
+with all the stated properties; assume $0<\alpha<1$ from here on, so that every
+Beta-function statement below is in range. Existence, uniqueness, continuous dependence, and
+the equivalence with Equation~\eqref{eq:volterra} are the standard Caputo theory for a locally
+Lipschitz right-hand side \linebreak  (Chapter 6,~\cite{Diethelm2010}). The regularity Equation~\eqref{eq:regularity} is the smoothness theory for weakly singular
+Abel--Volterra equations, the class to which Equation~\eqref{eq:volterra} belongs: Lubich
+\cite{Lubich1983} develops the local theory and the smoothness of exact solutions, Diethelm,
+Ford and Freed \linebreak  ({Theorem~2.1}
+, \cite{DiethelmFordFreed2004}) record the fractional-power expansion
+$y(t)=\psi(t)+\sum_{\nu}c_{\nu}t^{\nu\alpha}$ with $\psi\in C^{1}$ for smooth data---which
+gives $C^{1}((0,T])$ and the leading $O(t^{\alpha-1})$ derivative behavior; the result is
+stated for a scalar equation, and the extension to the present two-dimensional system is
+componentwise, through the same vector-valued Volterra regularity argument---and Diethelm
+\cite{Diethelm2007,Diethelm2010} treats the Caputo setting directly. The mechanism is
+visible in Equation~\eqref{eq:volterra}:
+
+{Formally,} 
+\[
+  z'(t)=\frac{1}{\Gamma(\alpha)}\Bigl[t^{\alpha-1}f(z_{0})
+   +\int_{0}^{t}(t-s)^{\alpha-1}\,\tfrac{d}{ds}f\bigl(z(s)\bigr)\,ds\Bigr],
+\]
+\textls[-35]{and a weighted fixed-point argument closes this representation in the class
+$\{\,\|z'(t)\|\le Mt^{\alpha-1}\,\}$, because with
+$\|\tfrac{d}{ds}f(z(s))\|\le CMs^{\alpha-1}$ the convolution obeys
+$\int_{0}^{t}(t-s)^{\alpha-1}s^{\alpha-1}\,ds=B(\alpha,\alpha)\,t^{2\alpha-1}$, of higher
+order than $t^{\alpha-1}$ near $0$. Integrability of the weighted derivative follows from \linebreak  
+$\int_{0}^{t}(t-s)^{-\alpha}s^{\alpha-1}\,ds=B(1-\alpha,\alpha)<\infty$. This is exactly the
+solution class consumed by Lemma~\ref{lem:extremum} below.}
+\end{proof}
+
+\textls[-15]{We do {{not}} assert global existence here: ruling out blow-up needs the a priori bound
+of Section~\ref{sec:global}, and asserting global existence alongside local existence would
+be circular. Every statement between here and Corollary~\ref{cor:global} is therefore made
+on $[0,T_{\max})$ and on nothing longer.}
+
+The whole invariance argument rests on one identity, which we state and prove because the
+{{strict}} version of the sign is what the first-contact arguments actually consume.
+
+\begin{Lemma}[Caputo extremum identity]\label{lem:extremum}
+Let $0<\alpha<1$, $T>0$, and let $w\in C([0,T])\cap C^{1}\bigl((0,T]\bigr)$ satisfy
+$w'(t)=O(t^{\alpha-1})$ as $t\downarrow0$ --- the class delivered for solution components by
+Proposition~\ref{prop:local}. Then for every $t\in(0,T]$ the Caputo integral converges
+absolutely and
+\begin{equation}\label{eq:extremum}
+  \Gamma(1-\alpha)\,\Dc{\alpha}w(t)
+  \;=\;\frac{w(t)-w(0)}{t^{\alpha}}
+      +\alpha\int_{0}^{t}\frac{w(t)-w(s)}{(t-s)^{\alpha+1}}\,ds .
+\end{equation}
+
+{Consequently,} if $w(t_{*})=\max_{[0,t_{*}]}w$ then $\Dc{\alpha}w(t_{*})\ge0$, strictly if
+$w(t_{*})>w(0)$; and if $w(t_{*})=\min_{[0,t_{*}]}w$ then $\Dc{\alpha}w(t_{*})\le0$, strictly
+if $w(t_{*})<w(0)$.
+\end{Lemma}
+
+\begin{proof}
+\textls[-35]{The stated regularity gives the weighted integrability directly: near $s=0$,
+$|w'(s)|\le Cs^{\alpha-1}$ and $\int_{0}^{t/2}(t-s)^{-\alpha}s^{\alpha-1}ds<\infty$, while on
+$[t/2,t]$ the derivative is bounded and $(t-s)^{-\alpha}$ is integrable. Hence,
+$(t-s)^{-\alpha}w'(s)\in L^{1}(0,t)$ and the Caputo integral converges absolutely. Write
+$w'(s)=\tfrac{d}{ds}\bigl(w(s)-w(t)\bigr)$ and integrate by parts in
+$\Gamma(1-\alpha)\Dc{\alpha}w(t)=\int_{0}^{t}(t-s)^{-\alpha}w'(s)\,ds$:}
+\[
+  \int_{0}^{t}(t-s)^{-\alpha}w'(s)\,ds
+  =\Bigl[(t-s)^{-\alpha}\bigl(w(s)-w(t)\bigr)\Bigr]_{s=0}^{s=t}
+   +\alpha\int_{0}^{t}\frac{w(t)-w(s)}{(t-s)^{\alpha+1}}\,ds .
+\]
+
+{The} upper boundary term needs care because of the singular weight and the bounded
+derivative near the fixed $t>0$ gives it at once:
+\[
+  (t-s)^{-\alpha}\bigl|w(s)-w(t)\bigr|
+  \;\le\;\|w'\|_{L^{\infty}([t/2,t])}\,(t-s)^{1-\alpha}\;\longrightarrow\;0
+  \qquad(s\uparrow t),
+\]
+so the boundary term vanishes at $s=t$; at $s=0$ it equals $t^{-\alpha}(w(t)-w(0))$. This is
+Equation~\eqref{eq:extremum}. If $w(t_{*})$ is the maximum over $[0,t_{*}]$ then both terms on
+the right of Equation~\eqref{eq:extremum} are nonnegative, and the first is strictly positive exactly
+when $w(t_{*})>w(0)$. The minimum case is the same with signs reversed. The sign consequences are consistent with the classical fractional extremum principles:
+Luchko \cite{Luchko2009} for the original Caputo extremum principle, Luchko, Suzuki, and
+Yamamoto \cite{LuchkoSuzukiYamamoto2022} for the extremum {{sign}} on the broader class
+$C([0,T])\cap W^{1,1}(0,T)$, and Al-Refai \cite{AlRefai2012} for related strict estimates.
+The pointwise identity itself is proved here, for the narrower solution class the paper
+actually uses, so nothing is outsourced.
+\end{proof}
+\newpage
+\begin{Remark}[what is and is not available for a nonlocal derivative]\label{rem:nocross}
+{A classical ODE crossing argument, which reads only the vector field at the contact point,
+is {not} available here: \linebreak  Cong and Tuan~\emph{\cite{CongTuan2017}} show that whereas distinct
+solutions of a scalar or triangular Caputo system cannot intersect in dimension two or more
+two distinct solutions can meet precisely because two solutions reaching a common point may
+carry different histories, and Equation~\eqref{eq:model} is not triangular. What {is} available
+is a fractional first-contact argument: at a first contact the identity Equation~\eqref{eq:extremum}
+evaluates the entire history on $[0,t_{*}]$ and supplies the sign needed for a
+contradiction. That is the argument used below, and it needs no viability theorem, no change
+of variables and no extension of the vector field.}
+\end{Remark}
+
+\subsection{Positivity and Upper Bounds on the Maximal Interval}
+
+\begin{Theorem}[positivity and invariant upper strips]\label{thm:positive-invariance}
+Let $0<\alpha\le1$ and let the initial data be nonnegative. Then on the whole maximal
+interval $[0,T_{\max})$:
+\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=1pt]
+\item $x(t)\ge0$ and $y(t)\ge0$, and each is strictly positive whenever its initial value is;
+\item $x(t)\le L:=\max\{K,x(0)\}$;
+\item if $0<x(0)=x_{0}<A$, then $x(t)\le x_{0}$.
+\end{enumerate}
+\end{Theorem}
+
+\begin{proof}
+Take first $0<\alpha<1$; the case $\alpha=1$ is treated at the end.
+
+{{(i) Positivity.}
+} Suppose $x(0)>0$ and that $x$ has a first zero at some
+$t_{*}\in(0,T_{\max})$. Then, $x(t_{*})=0<x(0)$ and $x(t_{*})=\min_{[0,t_{*}]}x$, so
+Lemma~\ref{lem:extremum} gives $\Dc{\alpha}x(t_{*})<0$ strictly. But the prey equation
+evaluated there gives $\Dc{\alpha}x(t_{*})=f_{1}(0,y(t_{*}))=0$ by
+Equation~\eqref{eq:boundary-facts} --- a contradiction. Hence, $x>0$ on $[0,T_{\max})$. The same
+argument with $f_{2}(x,0)=0$ gives $y>0$ when $y(0)>0$. If $x(0)=0$, then the pair
+$\bigl(0,\tilde y\bigr)$ with $\Dc{\alpha}\tilde y=-m\tilde y$ solves Equation~\eqref{eq:model} with
+the same initial state, so by uniqueness $x\equiv0$ and $y=\tilde y\ge0$. If $y(0)=0$, the
+face $y\equiv0$ is likewise a solution, and the prey equation reduces to the scalar equation
+$\Dc{\alpha}x=P(x)$. In every case, the closed quadrant is not left.
+
+{{(ii) and (iii).}} Both are first-contact arguments at a level $\ell+\delta$ with
+$P(\ell+\delta)<0$: $\ell=L$ with $\delta>0$ in (ii), since $L+\delta>K>A$; $\ell=x_{0}$
+with $0<\delta<A-x_{0}$ in (iii), since $0<x_{0}+\delta<A<K$. If $x$ first attains
+$\ell+\delta$ at $t_{\delta}\in(0,T_{\max})$, then $x(t_{\delta})>x(0)$ is the maximum of
+$x$ over $[0,t_{\delta}]$ and Lemma~\ref{lem:extremum} gives $\Dc{\alpha}x(t_{\delta})>0$,
+whereas $P(\ell+\delta)<0$ and, by (i), the predation term is nonpositive, so the right-hand
+side of the prey equation is strictly negative: a contradiction. Hence $x<\ell+\delta$ on
+$[0,T_{\max})$ for every admissible $\delta$, and $\delta\downarrow0$ gives the bounds.
+
+{{The endpoint $\alpha=1$.}} Here, Equation~\eqref{eq:model} is an ordinary differential equation
+and no fractional result is invoked. Positivity is the classical quasipositivity argument
+--- $f_{1}=0$ on $\{x=0\}$ and $f_{2}=0$ on $\{y=0\}$ make each axis invariant, and
+uniqueness keeps solutions off it --- while (ii) and (iii) are the classical first-hit
+arguments: at a first contact with an upper level, the derivative would have to be
+nonnegative, whereas the right-hand side computed above is strictly negative.
+\end{proof}
+
+%=====================================================================
+\section{Equilibria and the Exact Fractional Stability Atlas}\label{sec:atlas}
+%=====================================================================
+
+\subsection{Exact Equilibrium Geometry}\label{sec:geometry}
+
+\begin{Theorem}[coexistence equilibrium in closed form]\label{thm:general}
+Assume $ea>mh$ and let $q$ be given by Equation~\eqref{eq:q}.
+Then Equation~\eqref{eq:model} has a positive coexistence equilibrium if and only if $A<q<K$, in
+which case it is unique and equals
+\begin{equation}\label{eq:Estar}
+  E^{*}=(x^{*},y^{*}), \qquad x^{*}=q, \qquad
+  y^{*}=\frac{P(q)\,(1+hq)}{a\,q}.
+\end{equation}
+
+{Its} Jacobian, simplified before any numerical substitution, is
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+\begin{equation}\label{eq:Jstar}
+  J^{*}=\begin{pmatrix} T & -\dfrac{m}{e} \\[6pt]
+        \dfrac{e\,P(q)}{q\,(1+hq)} & 0 \end{pmatrix},
+  \qquad
+  T=P'(q)-\frac{P(q)}{q(1+hq)},
+  \qquad
+  D=\det J^{*}=\frac{m\,P(q)}{q\,(1+hq)}>0,
+\end{equation}
+\end{adjustwidth}
+so the characteristic polynomial is $\lambda^{2}-T\lambda+D=0$.
+\end{Theorem}
+
+\begin{proof}
+On $y>0$, $f_2=0$ forces $eax/(1+hx)=m$, i.e.,\ $x(ea-mh)=m$, giving \linebreak  $x=q$ uniquely;
+$ea>mh$ makes $q>0$. Substituting into $f_1=0$ and solving for $y$ gives Equation~\eqref{eq:Estar}.
+Positivity of $y^{*}$ is equivalent to $P(q)>0$, which for $0<q<K$ holds precisely when
+$q>A$; and $q<K$ is needed for $1-q/K>0$. Hence a positive equilibrium exists iff
+$A<q<K$. The entries of Equation~\eqref{eq:Jstar} follow by differentiating $f$ and using
+$eaq/(1+hq)=m$ to cancel: the $(2,2)$ entry is $eaq/(1+hq)-m=0$, the $(1,2)$ entry is
+$-aq/(1+hq)=-m/e$, and $D=-J^{*}_{12}J^{*}_{21}=mP(q)/(q(1+hq))$, positive because
+$P(q)>0$. All identities in this proof, and every formula in
+Equations~\eqref{eq:q}--~\eqref{eq:Jstar}, were additionally verified symbolically; See
+Section~\ref{sec:certificates}.
+\end{proof}
+
+The reduction is the point: local fractional stability of $E^{*}$ now depends on the two
+scalars $T$ and $D$ only, for the whole parameter family.
+
+\begin{Theorem}[boundary equilibria, with their domains of validity]\label{thm:boundary}
+System Equation~\eqref{eq:model} has the boundary equilibria $E_{0}=(0,0)$, $E_{A}=(A,0)$ and
+$E_{K}=(K,0)$. On $y=0$ the Jacobian is triangular, so its eigenvalues are the diagonal
+entries:
+\[
+  E_{0}:\;\{-r,\,-m\}, \qquad
+  E_{A}:\;\Bigl\{r\bigl(1-\tfrac{A}{K}\bigr),\; \tfrac{eaA}{1+hA}-m\Bigr\}, \qquad
+  E_{K}:\;\Bigl\{-r\bigl(\tfrac{K}{A}-1\bigr),\; \tfrac{eaK}{1+hK}-m\Bigr\}.
+\]
+
+Hence, $E_{0}$ is locally asymptotically stable for every $\alpha\in(0,1]$. For the
+benchmark Equation~\eqref{eq:benchmark} and $0<A<1$:
+
+\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=1pt]
+\item $0<A<2/3$: $E_{A}$ is linearly unstable, with one strictly negative and one strictly
+      positive real eigenvalue;
+\item $A=2/3$: $E_{A}$ is nonhyperbolic, the second eigenvalue vanishing exactly, and the
+      linearization decides nothing;
+\item $2/3<A<1$: $E_{A}$ is linearly unstable with \emph{both} eigenvalues strictly positive;
+\end{enumerate}
+and throughout $0<A<2/3$, $E_{K}$ is linearly unstable with one strictly negative and one
+strictly positive real eigenvalue, the latter equal to $2/15$.
+\end{Theorem}
+
+\begin{proof}
+$f_2(x,0)=0$ gives $\partial f_2/\partial x=0$ on $y=0$, so the Jacobian is triangular
+there, and its spectrum is its diagonal. The three diagonal pairs are obtained by direct
+differentiation. For $E_{0}$ both entries are negative, so both eigenvalues are real
+negative with $\arg=\pi>\alpha\pi/2$ for every $\alpha\in(0,1]$; stability follows from
+\cite{Cong2016} when $0<\alpha<1$ and from the classical Lyapunov indirect method at
+$\alpha=1$. For the benchmark, $eaA/(1+hA)-m$ vanishes exactly at $A=2/3$, is negative
+for $A<2/3$ and positive for $A>2/3$, while $r(1-A/K)>0$ for $A<1$; this gives (i)--(iii).
+At $A=4/5$, for instance, the eigenvalues of $E_{A}$ are the exact rationals $3/10$ and
+$2/35$, both positive. For $E_{K}$, $-r(K/A-1)<0$ for $0<A<K$ and $eaK/(1+hK)-m=2/15>0$.
+\end{proof}
+
+Statement (iii) corrects a claim that is easy to make and false: the eigenvalue signs at
+$E_{A}$ are {{not}} the same for every $A$, and a classification of a boundary equilibrium
+without its $A$-domain is incomplete. We deliberately give eigenvalue signs rather than
+saddle/source language: an autonomous Caputo system does not in general generate the usual
+flow on $\Rn^{2}$---this is the same nonlocality recorded in Remark~\ref{rem:nocross}---so invariant-manifold vocabulary would assert geometry we have not proved.
+
+\subsection{The Matignon Classification}\label{sec:classification}
+
+From here on $E^{*}$ is the coexistence equilibrium of
+Theorem~\ref{thm:general}, and $T$, $D$, $\Delta=T^{2}-4D$ are its trace, determinant, and
+discriminant. Recall that $D>0$ always.
+
+\subsubsection*{{Two Notions of Stability, Kept Apart}}
+
+We say that $E^{*}$ is {{Matignon-stable}} at order $\alpha$ if every eigenvalue $\upmu$ of
+$J^{*}$ satisfies \linebreak  $|\arg\upmu|>\alpha\pi/2$, {{Matignon-unstable}} if some eigenvalue
+satisfies $|\arg\upmu|<\alpha\pi/2$, and {{critical}} if some eigenvalue lies on the sector
+boundary and none strictly inside the sector. These are statements about the linearization.
+For $0<\alpha<1$, Matignon-stable implies local asymptotic stability of the nonlinear Caputo
+equilibrium by the linearization theorem of \linebreak  Cong, Doan, Siegmund, and Tuan \cite{Cong2016},
+and Matignon-unstable implies instability by its counterpart \cite{Cong2016b}; at $\alpha=1$
+the classical Lyapunov indirect method gives the same two implications. Every theorem below
+says which notion it asserts. In tables and figures ``stable'' and ``unstable'' mean
+Matignon-stable and Matignon-unstable, hence also the corresponding nonlinear statements, and
+``critical'' means that nothing about the nonlinear equilibrium is asserted.
+
+\begin{Theorem}[complete Matignon classification]\label{thm:classification}
+Let $D>0$ and $\alpha\in(0,1]$. Then:
+\begin{enumerate}[label=(\alph*),leftmargin=*,itemsep=1pt]
+\item $T<0$: the eigenvalues lie in the open left half-plane (real or complex), so
+      $|\arg\upmu|>\pi/2\ge\alpha\pi/2$ and $E^{*}$ is locally asymptotically stable for
+      every $\alpha\in(0,1]$.
+\item $T=0$: the eigenvalues are $\pm i\sqrt{D}$, purely imaginary, and
+      $|\arg\upmu|=\pi/2$. Hence, $E^{*}$ is locally asymptotically stable for every
+      $\alpha<1$, while at $\alpha=1$ the linearization is \emph{critical} and decides
+      nothing.
+\item $T>0$ and $\Delta\ge0$: both eigenvalues are real and positive, $\arg\upmu=0$, and
+      $E^{*}$ is unstable for every $\alpha$.
+\item \textls[-15]{$T>0$ and $\Delta<0$: the eigenvalues are $\rho\pm i\sigma$ with $\rho=T/2>0$ and
+      $\sigma=\sqrt{4D-T^{2}}/2>0$. Setting}
+      \begin{equation}\label{eq:alphastar}
+        \alpha^{*} \;=\; \frac{2}{\pi}\arctan\frac{\sqrt{4D-T^{2}}}{T}\;\in(0,1),
+      \end{equation}
+      $E^{*}$ is locally asymptotically stable for $0<\alpha<\alpha^{*}$, unstable for
+      $\alpha^{*}<\alpha\le1$, and at $\alpha=\alpha^{*}$ the linearization is critical.
+\end{enumerate}
+\end{Theorem}
+
+\begin{proof}
+\textls[-15]{Throughout, the passage from the spectrum to the nonlinear equilibrium is made in two
+regimes, and we keep them separate because the available theorems do. For
+$0<\alpha<1$ we use Matignon's spectral sector criterion \cite{Matignon1996} for the
+linearization together with the rigorous nonlinear linearization theorem of Cong, Doan,
+Siegmund and Tuan \cite{Cong2016}, whose hypotheses cover exactly this range, and their
+instability counterpart \cite{Cong2016b} for a strict eigenvalue inside the sector. At
+$\alpha=1$ neither applies---both are stated for $\alpha\in(0,1)$---and none is needed:
+the sector degenerates to the open left half-plane and the classical Lyapunov indirect
+method gives asymptotic stability when every eigenvalue has a strictly negative real part, and
+instability when one has a strictly positive real part.}
+
+\textls[-25]{$D>0$ excludes a real pair of opposite signs, so real eigenvalues share the sign of $T$.
+Cases (a) and (c) are then immediate from $\arg\upmu\in\{0,\pi\}$ for real eigenvalues, in both
+regimes. In (b), $T=0$ with $D>0$ gives
+$\lambda^{2}=-D$, so $\upmu=\pm i\sqrt{D}$ and $|\arg\upmu|=\pi/2$; the sector condition
+$\pi/2>\alpha\pi/2$ holds iff $\alpha<1$, and at $\alpha=1$ we have equality, where the
+linear theorem is silent. In (d), $\arg\upmu=\arctan(\sigma/\rho)\in(0,\pi/2)$ because
+$\rho,\sigma>0$, and the sector condition $\arctan(\sigma/\rho)>\alpha\pi/2$ is, since
+$\tan$ is increasing on $(0,\pi/2)$, equivalent to $\alpha<(2/\pi)\arctan(\sigma/\rho)$,
+which is Equation~\eqref{eq:alphastar} after substituting $\rho$ and $\sigma$.}
+\end{proof}
+
+The boundary cases deserve one consolidated statement, because a change of linear
+classification is easily mistaken for a bifurcation theorem.
+
+\begin{Proposition}[what is and is not decided at the critical boundaries]\label{prop:critical}
+Let $D>0$.
+\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=1pt]
+\item At $T=0$ with $\alpha=1$, and at $\alpha=\alpha^{*}$ in case (d), the eigenvalue pair
+      lies exactly on the sector boundary $|\arg\upmu|=\alpha\pi/2$. The linearization is
+      critical: neither \emph{\cite{Cong2016}} nor \emph{\cite{Cong2016b}} applies, and nothing about the
+      nonlinear equilibrium is asserted there in this paper.
+\item Crossing $\alpha=\alpha^{*}(A)$, or crossing $T=0$ at $\alpha=1$, is a crossing of a
+      \emph{linear} stability boundary. It is not asserted to be a Hopf bifurcation, and no
+      periodic orbit is claimed. For $0<\alpha<1$ exact nonconstant periodic solutions are
+      excluded for broad classes of autonomous Caputo systems \emph{\cite{Kaslik2012,Tavazoei2009}};
+      long transients and asymptotically periodic behavior are separate questions, not
+      addressed here.
+\item At $\Delta=0$ the eigenvalue is a double real one of the sign of $T$; the verdict is
+      decided and $\alpha$-independent: Matignon-stable if $T<0$, Matignon-unstable if $T>0$.
+\item At $A=q$ the coexistence equilibrium reaches $y^{*}=0$ and ceases to exist, while
+      $E_{A}$ acquires a zero eigenvalue. This is an existence and nonhyperbolicity boundary,
+      not an unresolved verdict about an interior equilibrium.
+\end{enumerate}
+\end{Proposition}
+
+\begin{proof}
+(i) is the equality case of Theorem~\ref{thm:classification}(b) and (d); both cited theorems
+assume a strict inequality. (ii) is the definition of the boundary together with the cited
+results. (iii): $\Delta=0$ with $D>0$ gives a double real root of $\lambda^{2}-T\lambda+D$
+with the sign of $T$, so $\arg\upmu\in\{0,\pi\}$ and Theorem~\ref{thm:classification} (a) or (c)
+applies. (iv): $y^{*}(A)=P(q)(1+hq)/(aq)\to0$ as $A\uparrow q$, and the second eigenvalue of
+$E_{A}$ in Theorem~\ref{thm:boundary}, $eaA/(1+hA)-m$, vanishes exactly when $A(ea-mh)=m$,
+i.e.,\ at $A=q$.
+\end{proof}
+
+\subsection{The Atlas for an Arbitrary Parameter Set}\label{sec:general-atlas}
+
+The benchmark is not special. Fix a parameter set with $ea>mh$ and $q<K$, write $u=1/A$, and
+put
+\begin{equation}\label{eq:sw}
+  s \;:=\; 1-\frac{q}{K}\in(0,1),\qquad w \;:=\; 1+hq .
+\end{equation}
+
+\begin{Theorem}[structure of the atlas for every parameter set]\label{thm:general-atlas}
+Let $ea>mh$ and $q<K$, so that the coexistence equilibrium exists exactly for $A\in(0,q)$.
+\begin{enumerate}[label=(\alph*),leftmargin=*,itemsep=1pt]
+\item $T$ and $D$ are affine in $u=1/A$:
+\begin{equation}\label{eq:affine}
+\begin{gathered}
+  T=c_{T}\,u+d_{T},\qquad D=c_{D}\,u+d_{D},\\[2pt]
+  c_{T}=rq\Bigl(2-\frac{3q}{K}-\frac{s}{w}\Bigr),\qquad
+  d_{T}=r\Bigl(\frac{2q}{K}+\frac{s}{w}-1\Bigr),\\[2pt]
+  c_{D}=\frac{mrqs}{w},\qquad d_{D}=-\frac{mrs}{w}.
+\end{gathered}
+\end{equation}
+
+\textls[-15]{Hence $D=(mrs/w)(q/A-1)>0$ on $(0,q)$, $T(q)=rs>0$, and $\Delta$ is a quadratic in $u$ with
+leading coefficient $c_{T}^{2}$. The classification of Theorem~\ref{thm:classification}
+changes at no more than three values of $A$ in $(0,q)$, and on a left neighborhood of $A=q$
+the eigenvalues are real and positive.}
+\item If $c_{T}<0$, equivalently
+\begin{equation}\label{eq:cT}
+  2-\frac{3q}{K} \;<\; \frac{1-q/K}{1+hq},
+\end{equation}
+then $T$ has exactly one zero $A_{T}=-c_{T}/d_{T}\in(0,q)$, $\Delta$ has exactly two zeros
+\linebreak  $0<A_{1}<A_{T}<A_{2}<q$, and the six-row classification of Table~\ref{tab:benchmark-atlas}
+holds verbatim with $(2/23,\,2/7,\,10/19,\,2/3)$ replaced by $(A_{1},A_{T},A_{2},q)$: a real
+negative pair on $(0,A_{1}]$, a complex left-half-plane pair on $(A_{1},A_{T})$, a purely
+imaginary pair at $A_{T}$, a complex right-half-plane pair on $(A_{T},A_{2})$ and a real
+positive pair on $[A_{2},q)$.
+\item Under (b), $\alpha^{*}$ is strictly decreasing on $(A_{T},A_{2})$, with
+$\alpha^{*}(A)\to1$ as $A\downarrow A_{T}$ and $\alpha^{*}(A)\to0$ as $A\uparrow A_{2}$.
+The fractional-stabilization region
+\begin{equation}\label{eq:W-general}
+  \mathcal{W} \;=\; \{(A,\alpha):\ A_{T}<A<A_{2},\ 0<\alpha<\alpha^{*}(A)\}
+\end{equation}
+is nonempty with nonempty interior, and on it $E^{*}$ is locally asymptotically stable
+although $\Real\upmu=T/2>0$.
+\item If $c_{T}\ge0$ then $T>0$ on all of $(0,q)$. Fractional stabilization occurs exactly
+on $\{A\in(0,q):\Delta(A)<0\}$, an interval that may be empty, and there $\alpha^{*}<1$.
+\end{enumerate}
+\end{Theorem}
+
+\begin{table}[H]
+\caption{The benchmark stability atlas of Theorem~\ref{thm:atlas}. ``Stable'' and
+``unstable'' are Matignon-stable and Matignon-unstable, hence also locally asymptotic stability
+and instability of the nonlinear equilibrium for $0<\alpha<1$; ``critical'' asserts nothing.
+By Theorem~\ref{thm:general-atlas} (b) the same six rows hold for every parameter set with
+$c_{T}<0$, with breakpoints $A_{1}<A_{T}<A_{2}<q$.}
+\label{tab:benchmark-atlas}
+\footnotesize
+\begin{tabularx}{\textwidth}{Llll}
+\toprule
+\textbf{Range of $A$} & \textbf{General Symbol} & \textbf{Eigenvalue Geometry} & \textbf{Caputo Verdict} \\
+\midrule
+$0<A\le 2/23$        & $(0,A_{1}]$     & real negative (double at $A_{1}$)   & stable for all $\alpha\in(0,1]$ \\
+$2/23<A<2/7$         & $(A_{1},A_{T})$ & complex, left half-plane             & stable for all $\alpha\in(0,1]$ \\
+$A=2/7$              & $A_{T}$         & purely imaginary                     & stable for $\alpha<1$; critical at $\alpha=1$ \\
+$2/7<A<10/19$        & $(A_{T},A_{2})$ & complex, right half-plane            & stable iff $\alpha<\alpha^{*}(A)$ \\
+$10/19\le A<2/3$     & $[A_{2},q)$     & real positive (double at $A_{2}$)   & unstable for all $\alpha$ \\
+$A\ge 2/3$           & $[q,\infty)$    & no coexistence equilibrium           & not applicable \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+\begin{proof}
+\textls[-35]{(a) By Equations~\eqref{eq:Estar}--~\eqref{eq:Jstar}, $P(q)=rqs\,(qu-1)$ and
+$P'(q)=r\bigl[(2q-3q^{2}/K)u-1+2q/K\bigr]$, so
+$T=P'(q)-P(q)/(qw)$ and $D=mP(q)/(qw)$ are the affine functions displayed, with the stated
+coefficients. At $u=1/q$ the value of $T$ is $r(2-3q/K-s/w)+r(-1+2q/K+s/w)=r(1-q/K)=rs$,
+and $D(q)=0$. Since $\Delta=(c_{T}u+d_{T})^{2}-4(c_{D}u+d_{D})$, it is a quadratic in $u$
+with leading coefficient $c_{T}^{2}$; its zeros and the zero of $T$ are the only points where
+the case of Theorem~\ref{thm:classification} can change. As $A\uparrow q$, $D\to0^{+}$ and
+$T\to rs>0$, so $\Delta\to r^{2}s^{2}>0$: a real positive pair.}
+
+(b) If $c_{T}<0$ then $T$ is strictly decreasing in $u$ with $T(1/q)=rs>0$ and
+$T\to-\infty$ as $u\to\infty$, so it has exactly one zero $u_{T}>1/q$, i.e.,\
+$A_{T}=1/u_{T}=-c_{T}/d_{T}\in(0,q)$; here $d_{T}=rs-c_{T}/q>0$. At $u_{T}$,
+$\Delta=-4D<0$. The quadratic $\Delta(u)$ is convex, negative at $u_{T}$, positive at
+$u=1/q$, and tends to $+\infty$ as $u\to\infty$; hence it has exactly one zero
+$u_{2}\in(1/q,u_{T})$ and one zero $u_{1}>u_{T}$. With $A_{i}=1/u_{i}$ this gives
+$0<A_{1}<A_{T}<A_{2}<q$, $\Delta<0$ exactly on $(A_{1},A_{2})$ and $T<0$ exactly on
+$(0,A_{T})$; the rows follow from Theorem~\ref{thm:classification} with $D>0$.
+
+(c) Write $\alpha^{*}=(2/\pi)\arctan\sqrt{R}$ with $R=(4D-T^{2})/T^{2}$, as in
+Equation~\eqref{eq:alphastar}. Differentiating in $u$,
+\[
+  \frac{dR}{du} \;=\; \frac{4\,(c_{D}T-2Dc_{T})}{T^{3}},
+\]
+and on $(A_{T},A_{2})$ we have $T>0$, $D>0$, $c_{D}>0$ and $c_{T}<0$, so $dR/du>0$: $R$
+increases with $u$, decreases with $A$, and so does $\alpha^{*}$. As $A\downarrow A_{T}$,
+$T\to0^{+}$ with $D>0$, so $R\to\infty$ and $\alpha^{*}\to1$; as $A\uparrow A_{2}$,
+$\Delta\to0^{-}$, so $R\to0^{+}$ and $\alpha^{*}\to0$. Local asymptotic stability on
+$\mathcal{W}$ is Theorem~\ref{thm:classification} (d).
+
+(d) If $c_{T}\ge0$ then $T$ is nondecreasing in $u$ and $T(1/q)>0$, so $T>0$ on $(0,q)$. A
+complex pair occurs exactly where the convex quadratic $\Delta$ is negative, which is an
+interval, and there $\arg\upmu\in(0,\pi/2)$ gives $\alpha^{*}<1$. Every identity in this
+proof was additionally verified symbolically.
+\end{proof}
+\newpage
+\begin{Corollary}[the fractional-stabilization region is an open phenomenon]\label{cor:open}
+The set of parameter vectors $(r,K,a,h,e,m)\in(0,\infty)^{6}$ with $ea>mh$, $q<K$ and
+$c_{T}<0$ is open, and the benchmark lies in it with
+$(c_{T},d_{T},c_{D},d_{D})=(-\tfrac14,\tfrac78,\tfrac1{10},-\tfrac{3}{20})$. Hence, every
+parameter set in a neighborhood of the benchmark has the six-row atlas and a nonempty
+region Equation~\eqref{eq:W-general}. Condition Equation~\eqref{eq:cT} holds whenever $q/K\ge2/3$, and as
+$h\to0$ it reduces to $q/K>1/2$: the coexistence prey level must exceed roughly half the
+carrying capacity.
+\end{Corollary}
+
+\begin{proof}
+$c_{T}$ is a continuous function of the parameters on the open set $\{ea>mh,\ q<K\}$, so
+$\{c_{T}<0\}$ is open; the benchmark values are a direct evaluation of Equation~\eqref{eq:affine}. If
+$q/K\ge2/3$ then the left side of Equation~\eqref{eq:cT} is nonpositive and the right side is positive.
+As $h\to0$ the right side tends to $1-q/K$, and $2-3q/K<1-q/K$ iff $q/K>1/2$.
+\end{proof}
+
+Section~\ref{sec:num-beyond} exhibits the theorem on two further parameter sets, one of them
+with irrational coefficients, and quantifies on an ensemble of random parameter sets how
+often Equation~\eqref{eq:cT} holds.
+
+\subsection{The Benchmark Slice}
+
+\begin{Theorem}[exact atlas on the benchmark slice]\label{thm:atlas}
+For the benchmark Equation~\eqref{eq:benchmark}, $q=x^{*}=2/3$ independently of $A$, and
+\begin{equation}\label{eq:slice}
+\begin{aligned}
+  y^{*}(A)&=\frac{2(2-3A)}{9A}, &\qquad T(A)&=\frac{7A-2}{8A}, \\[2pt]
+  D(A)&=\frac{2-3A}{20A},       &\qquad \Delta(A)&=\frac{(19A-10)(23A-2)}{320A^{2}} .
+\end{aligned}
+\end{equation}
+
+{A positive} coexistence equilibrium exists exactly for $0<A<2/3$, and on that range the
+classification is the one of Table~\ref{tab:benchmark-atlas}, with $\alpha^{*}(A)$ given by
+Equation~\eqref{eq:alphastar}. All four breakpoints are exact rationals, and
+$(c_{T},d_{T},c_{D},d_{D})=(-\tfrac14,\tfrac78,\tfrac1{10},-\tfrac3{20})$ in
+Equation~\eqref{eq:affine}.
+\end{Theorem}
+
+
+
+\begin{proof}
+Substituting Equation~\eqref{eq:benchmark} in Equation~\eqref{eq:q} gives
+$q=(2/5)/(4/5-1/5)=2/3$, independent of $A$; Equation~\eqref{eq:slice} then follows from
+Equations~\eqref{eq:Estar} and~\eqref{eq:Jstar} by direct rational computation. The zeros of the
+numerators locate the breakpoints: $y^{*}>0$ iff $A<2/3$; $T=0$ iff $A=2/7$; and
+$\Delta=0$ iff $A\in\{2/23,10/19\}$, with $\Delta<0$ strictly between them. Since
+$2/23<2/7<10/19<2/3$, the six rows are exactly the cases of
+Theorem~\ref{thm:classification} on the successive subintervals. Each identity in
+Equation~\eqref{eq:slice} is an equality of rational functions and was verified symbolically; the
+values at the four breakpoints are additionally carried by machine-checkable objects
+(Section~\ref{sec:certificates}).
+\end{proof}
+
+\begin{Theorem}[strict monotonicity of the critical order]\label{thm:monotone}
+On $(2/7,10/19)$ define $R(A)=(4D-T^{2})/T^{2}$. For the benchmark slice
+\begin{equation}\label{eq:R}
+  R(A)=-\frac{(19A-10)(23A-2)}{5\,(7A-2)^{2}},
+  \qquad
+  R'(A)=-\frac{128\,(A+2)}{5\,(7A-2)^{3}} .
+\end{equation}
+
+On $(2/7,10/19)$ we have $7A-2>0$ and $A+2>0$, so $R'<0$. Since
+\linebreak  $\alpha^{*}=(2/\pi)\arctan\sqrt{R}$ and both $\sqrt{\cdot}$ and $\arctan$ are strictly
+increasing, $\alpha^{*}$ is strictly decreasing on $(2/7,10/19)$, with
+\[
+  \lim_{A\downarrow 2/7}\alpha^{*}(A)=1,
+  \qquad
+  \lim_{A\uparrow 10/19}\alpha^{*}(A)=0 .
+\]
+\end{Theorem}
+
+\begin{proof}
+\textls[-35]{This is Theorem~\ref{thm:general-atlas} (c) at $c_{T}=-1/4<0$. The explicit forms
+Equation~\eqref{eq:R} are equalities of rational functions obtained by substituting Equation~\eqref{eq:slice};
+they are recorded because the proof objects of Section~\ref{sec:certificates} audit them, and
+they were verified symbolically.}
+\end{proof}
+
+\textls[-15]{Figure~\ref{fig:atlas} is drawn from the closed form; no sampled grid establishes any
+boundary in it.}
+
+\begin{figure}[H]
+\includegraphics[width=0.65\textwidth]{fig02_stability_atlas.pdf}
+\caption{{The benchmark} 
+ atlas of Theorem~\ref{thm:atlas} from the closed form Equation~\eqref{eq:alphastar};
+landmarks at $2/23$, $2/7$, $10/19$, $2/3$. Hatched: the region $\mathcal{W}$ of
+Corollary~\ref{cor:wedge}, where $E^{*}$ is stable and the memoryless map is unstable for
+every $\varepsilon>0$. Open circle: the critical point of Proposition~\ref{prop:critical} (i).
+{{Analytic content.}
+}}
+\label{fig:atlas}
+\end{figure}
+
+\begin{Remark}[the benchmark point]\label{rem:baseline}
+At $A=3/10$ one gets the exact values $T=1/24$, \linebreak  $D=11/60$, $\Delta=-2107/2880<0$, so case
+(d) applies with
+\[
+  \upmu_{\pm} = \tfrac{1}{48} \pm i\,\tfrac{1}{2}\sqrt{\tfrac{2107}{2880}},
+  \qquad \alpha^{*}(3/10)=0.969012276152\ldots
+\]
+
+In particular $\Real\upmu=1/48>0$: classical linear intuition reads this equilibrium as
+unstable. Since the benchmark order is $\alpha=9/10<\alpha^{*}(3/10)$, the Caputo
+equilibrium is in fact locally asymptotically stable. This single point is an illustration;
+the content is the region.
+\end{Remark}
+
+Table~\ref{tab:scope} records the scope of every statement in the paper.
+
+\begin{table}[H]
+\caption{Scope of every statement in the paper: what it asserts, for which parameters, and
+what kind of evidence supports it. ``Corroboration'' is finite-horizon numerics and is never
+offered as proof.\label{tab:scope}}
+
+
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+\footnotesize
+\begin{tabularx}{\fulllength}{cCCC}
+\toprule
+\textbf{Statement} & \textbf{Parameter Scope} & \textbf{What is Asserted} & \textbf{Evidence} \\
+\midrule
+Theorems~\ref{thm:general} and \ref{thm:boundary} & whole family & closed-form equilibria, $(T,D)$ reduction & theorem; symbolic check \\
+\midrule
+Theorem~\ref{thm:classification} and Proposition~\ref{prop:critical} & whole family & Matignon classification; what the boundaries decide & theorem \\
+\midrule
+Theorem~\ref{thm:general-atlas}, Corollary~\ref{cor:open} & every set with $c_{T}<0$ (case (d)~otherwise) & six-row atlas, $\alpha^{*}$ strictly decreasing, open in parameter space & theorem; symbolic check \\
+\midrule
+Theorems~\ref{thm:atlas} and \ref{thm:monotone} & benchmark & rational breakpoints, explicit $\alpha^{*}$ & theorem; machine audit (Section~\ref{sec:certificates}) \\
+\midrule
+Theorem~\ref{thm:inversion}, Proposition~\ref{prop:onestep} & any equilibrium meeting (i)--(ii) & memoryless maps invert the verdict & theorem \\
+\midrule
+Corollaries~\ref{cor:wedge} and~\ref{cor:general-wedge} & benchmark/every set with $c_{T}<0$ & explicit region of inversion & theorem \\
+\midrule
+Theorem~\ref{thm:gl-implicit}, Proposition~\ref{prop:gl-explicit} & linear test equation, every $\upmu$ & Gr\"unwald--Letnikov schemes are verdict-faithful & theorem (Appendix~\ref{app:proofs}) \\
+\midrule
+Section~\ref{sec:global}, Proposition~\ref{prop:basins} & whole family & positivity, extinction strip, ultimate bound, global existence; what is not proved & theorem \\
+\midrule
+Section~\ref{sec:numerics} & benchmark, Sets II--III, random~ensemble & finite-horizon trajectories, convergence near $\alpha^{*}$ & corroboration only \\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\end{table}
+
+%=====================================================================
+\section{Step-Size-Independent Verdict Inversion}\label{sec:inversion}
+%=====================================================================
+
+\textls[-15]{We now make precise the memoryless-surrogate failure described in the introduction, and
+then place it in the dichotomy it belongs to. The object of Section~\ref{sec:memoryless} is a
+discrete map that discards the fractional history; it is not proposed as an integrator for
+Equation~\eqref{eq:model}. Proper fractional schemes retain the history, and their stability theory is
+developed \cite{Lubich1986,Cermak2013,Garrappa2010,CressonSzafranska2017};
+Section~\ref{sec:faithful} proves what the two simplest of them do on the same problem. One
+terminology point: fast solvers that approximate the fractional kernel by a sum of
