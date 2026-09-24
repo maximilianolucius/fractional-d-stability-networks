@@ -497,7 +497,8 @@
             {\mask@cite<>}%
     }%
     \def\mask@cite<##1>{%
-        \@ifnextchar[%      % ]            {\mask@@cite<##1>}%
+        \@ifnextchar[%      % ]
+            {\mask@@cite<##1>}%
             {\mask@@cite<##1>[]}%
     }%
     \def\mask@@cite<##1>[##2]##3{%
@@ -996,7 +997,8 @@
 \providecommand\bibstyle@apacite{%
     \renewcommand{\BBAY}{,}%
     \renewcommand{\BBC}{;}%
-    \renewcommand{\BBYY}{,}%    \bibpunct[\BBN ]{\BBOP }{\BBCP }{\BBC }{a}{\BBAY }{\BBYY }%
+    \renewcommand{\BBYY}{,}%
+    \bibpunct[\BBN ]{\BBOP }{\BBCP }{\BBC }{a}{\BBAY }{\BBYY }%
     \setlength{\bibhang}{2.5em}%
     \setlength{\bibsep}{0pt}%
 }
@@ -1495,7 +1497,8 @@
     \if@APAC@index@package
         \RequirePackage{index}[1995/09/28]
         \newindex{autx}{adx}{and}{\authorindexname}
-        \DeclareRobustCommand{\AX}[1]{%          \if@filesw{%
+        \DeclareRobustCommand{\AX}[1]{%
+          \if@filesw{%
             \protected@write\@auxout{}{%
               \string\protected@write\string\tf@autx{}{%
               \string\string\string
@@ -1994,7 +1997,8 @@
 \def\@mb@citenamelist{%
   cite,fullcite,shortcite,citeNP,fullciteNP,shortciteNP,%
   citeA,fullciteA,shortciteA,citeauthor,fullciteauthor,shortciteauthor,%
-  citeauthorNP,fullciteauthorNP,shortciteauthorNP,%  citeyear,citeyearNP,nocite,nocitemeta,%
+  citeauthorNP,fullciteauthorNP,shortciteauthorNP,%
+  citeyear,citeyearNP,nocite,nocitemeta,%
   maskcite,maskfullcite,maskshortcite,maskciteNP,maskfullciteNP,%
   maskshortciteNP,maskciteA,maskfullciteA,maskshortciteA,%
   maskciteauthor,maskfullciteauthor,maskshortciteauthor,%

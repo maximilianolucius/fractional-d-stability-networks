@@ -997,6 +997,7 @@ FUNCTION {change.add.to.year}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 FUNCTION {definitive.cite.num.names.1.or.2}
 {   %
   numnames  numnames.old  =
@@ -1996,7 +1997,8 @@ FUNCTION {make.sort.title}
   'title.sort.label :=
   title.sort.label 'sort.key$ :=
 }
-FUNCTION {make.title.number}{ title.sort.label  old.label  =
+FUNCTION {make.title.number}
+{ title.sort.label  old.label  =
     {
       old.number  'title.number :=
     }
@@ -2995,7 +2997,8 @@ FUNCTION {format.editor.names}
     %
     % Format first editor
     %
-  field  #1  format.editor.name    %
+  field  #1  format.editor.name
+    %
   numnames  #1  =
     'skip$
     { format.num.names  #1  =
@@ -3994,7 +3997,8 @@ FUNCTION {periodical}
   if$
     %
     % format journal name, volume and issue number, and pages
-    %   and check if journal not empty    %
+    %   and check if journal not empty
+    %
   format.journal.vol.num.pages.check
     %
     % if not empty, insert howpublished.
@@ -4993,4 +4997,5 @@ EXECUTE { begin.bib }
 ITERATE { write.bbl.entry }
 EXECUTE { end.bib }
 
-%%%% End of file `apacite.bst'.
+%%
+%% End of file `apacite.bst'.

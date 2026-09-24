@@ -497,7 +497,8 @@ FUNCTION {format.number.series}
 
 FUNCTION {format.edition}
 { edition empty$
-    { "" }    { output.state mid.sentence =
+    { "" }
+    { output.state mid.sentence =
 	{ edition "l" change.case$ " ed." * }
 	{ edition "t" change.case$ " ed." * }
       if$
@@ -996,7 +997,8 @@ FUNCTION {misc}
 { output.bibitem
   format.authors output
   title howpublished new.block.checkb
-  format.title output  howpublished new.block.checka
+  format.title output
+  howpublished new.block.checka
   howpublished output
   format.bdate output
   format.eprint output
@@ -1340,4 +1342,5 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
 

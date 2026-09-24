@@ -20,8 +20,7 @@
 %%%%		v4.0 layout change December 2020
 %%%%             v5.0 layout change December 2024
 %%%%             v6.0 layout change December 2025
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% IDENTIFICATION
 \NeedsTeXFormat{LaTeX2e}
@@ -497,7 +496,8 @@
 
 \newcommand{\crefrangeconjunction}{--}
 \newcommand{\fig}[1]{Figure~\ref{#1}}
-\newcommand{\tabref}[1]{Table~\ref{#1}}\newcommand{\sect}[1]{Section~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\sect}[1]{Section~\ref{#1}}
 \newcommand{\app}[1]{Appendix~\ref{#1}}
 \newcommand{\sche}[1]{Scheme~\ref{#1}}
 \newcommand{\cchart}[1]{Chart~\ref{#1}}
@@ -996,7 +996,8 @@
              \vspace{-2pt}
 		}{%
              \vspace{-2pt}
-             }	}
+             }
+	}
 }
 
 % Part 5: Copyright
@@ -1495,7 +1496,8 @@
 				right=2.7cm,
 				top=1.35cm,
 				bottom=1.08cm,
-				includehead,				includefoot]{geometry}
+				includehead,
+				includefoot]{geometry}
       }{
 \isBookContribution{%%
 	\RequirePackage[left=2.05cm,

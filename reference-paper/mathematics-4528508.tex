@@ -497,7 +497,8 @@ is {not} available here: \linebreak  Cong and Tuan~\emph{\cite{CongTuan2017}} sh
 solutions of a scalar or triangular Caputo system cannot intersect in dimension two or more
 two distinct solutions can meet precisely because two solutions reaching a common point may
 carry different histories, and Equation~\eqref{eq:model} is not triangular. What {is} available
-is a fractional first-contact argument: at a first contact the identity Equation~\eqref{eq:extremum}evaluates the entire history on $[0,t_{*}]$ and supplies the sign needed for a
+is a fractional first-contact argument: at a first contact the identity Equation~\eqref{eq:extremum}
+evaluates the entire history on $[0,t_{*}]$ and supplies the sign needed for a
 contradiction. That is the argument used below, and it needs no viability theorem, no change
 of variables and no extension of the vector field.}
 \end{Remark}
@@ -996,7 +997,8 @@ discrete map that discards the fractional history; it is not proposed as an inte
 Equation~\eqref{eq:model}. Proper fractional schemes retain the history, and their stability theory is
 developed \cite{Lubich1986,Cermak2013,Garrappa2010,CressonSzafranska2017};
 Section~\ref{sec:faithful} proves what the two simplest of them do on the same problem. One
-terminology point: fast solvers that approximate the fractional kernel by a sum ofexponentials and carry the history through an augmented state
+terminology point: fast solvers that approximate the fractional kernel by a sum of
+exponentials and carry the history through an augmented state
 \cite{BaffetHesthaven2017,Jiang2017} store no explicit trajectory history and are sometimes
 described as memory-free. They remain approximations of the nonlocal equation and are not the
 object studied here; our use of ``memoryless'' is strict, the map $I+\varepsilon f$
@@ -1495,7 +1497,8 @@ The solver is self-tested before use against facts it cannot fake: at $\alpha=1$
 reproduces $e^{-2}$ for $y'=-y$ to $1.1\times10^{-8}$; for $\Dc{\alpha}y=-y$ it reproduces
 $\Eml{\alpha}(-1)$ to $3.7\times10^{-8}$ at $\alpha=0.5$ and $2.1\times10^{-9}$ at
 $\alpha=0.9$; and the observed order of convergence under successive mesh halving is
-$1.90$, $1.90$, $1.89$. Every panel below states its parameters, initial condition, andmesh; machine-readable data for every plotted point ship with the figure sources.
+$1.90$, $1.90$, $1.89$. Every panel below states its parameters, initial condition, and
+mesh; machine-readable data for every plotted point ship with the figure sources.
 
 \subsection{Crossing the Critical Order}\label{sec:num-crossing}
 
@@ -1994,7 +1997,8 @@ too, reproduces the exact tail whenever it is stable.
 {{Case} $|\arg\upmu|<\alpha\pi/2$.} Let $\xi_{0}=1-z^{1/\alpha}$, the zero of
 $g(\xi)=(1-\xi)^{\alpha}-z$, and put $\kappa=\tfrac12\cos(\arg\upmu/\alpha)\in(0,\tfrac12]$ and
 $\Gamma_{z}=\{\xi:|\xi-\xi_{0}|=\kappa|z|^{1/\alpha}\}$. On $\Gamma_{z}$, $1-\xi=z^{1/\alpha}
-(1+\kappa e^{i\theta})$, so $g(\xi)=z\bigl[(1+\kappa e^{i\theta})^{\alpha}-1\bigr]$ and$|g|\ge c(\alpha,\kappa)|z|$ with $c(\alpha,\kappa)=\min_{\theta}|(1+\kappa e^{i\theta})^{\alpha}-1|>0$
+(1+\kappa e^{i\theta})$, so $g(\xi)=z\bigl[(1+\kappa e^{i\theta})^{\alpha}-1\bigr]$ and
+$|g|\ge c(\alpha,\kappa)|z|$ with $c(\alpha,\kappa)=\min_{\theta}|(1+\kappa e^{i\theta})^{\alpha}-1|>0$
 (the minimum is positive because $(1+\kappa e^{i\theta})^{\alpha}=1$ forces
 $1+\kappa e^{i\theta}=1$). Also $|g_{e}-g|=|z||1-\xi|\le(1+\kappa)|z|^{1+1/\alpha}$ on
 $\Gamma_{z}$, which is smaller than $c(\alpha,\kappa)|z|$ once $|z|^{1/\alpha}<c/(1+\kappa)$.
