@@ -1,10 +1,10 @@
 # Previous accepted paper — format reference
 
-This directory contains the complete source package of the previously accepted paper:
+This directory contains the publication-format reference extracted from the previously accepted paper package:
 
 **Exact Stability Atlases and a Memoryless-Surrogate Failure Theorem for a Caputo Allee Predator-Prey Model**
 
-The package is retained as the **format and editorial-style reference** for the new `fractional-d-stability-networks` research project. It includes the accepted MDPI *Mathematics* LaTeX source, the journal class/definitions, publication figures, and the compiled PDF supplied by the authors.
+The directory is retained as the **format and editorial-style reference** for the new `fractional-d-stability-networks` research project. GitHub contains the accepted MDPI *Mathematics* LaTeX source, the class/bibliography definitions needed for reuse, publication figures, required converted logo assets, and the compiled PDF. The original uploaded ZIP is intentionally not duplicated in GitHub; its SHA-256 checksum is retained for provenance.
 
 ## Purpose in this repository
 
