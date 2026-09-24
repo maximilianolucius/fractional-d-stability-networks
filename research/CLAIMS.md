@@ -14,7 +14,7 @@ The baseline audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is super
 | C-06 | perturbational robustness / interior of fractional D-stability | CONCEPT HAS CLASSICAL PRIOR ART; FRACTIONAL NON-HURWITZ VERSION MAY BE NEW | PARTIAL | Hartfiel 1980; Abed 1986; Lee–Edgar 2001; Casasanta–Simpson-Porco 2026 |
 | C-07 | exact 2×2 classification of F_alpha; no open purely-fractional separation in n=2 | STRUCTURAL RESULT; NOVELTY SECONDARY / STILL AUDITING | **THEOREM — analytic proof in reopened audit** | trace/determinant scaling |
 | C-08 | min dimension with nonempty interior of P_alpha equals 3 for 0<alpha<=2/3 | **STRONG NOVELTY CANDIDATE — NOT FROZEN** | **THEOREM — analytic proof modulo Kellogg P-matrix wedge theorem** | Kellogg P-matrix spectral wedge + C-07 |
-| C-09 | same dimension-threshold result for every 0<alpha<1 | **HIGHEST-VALUE OPEN TARGET** | OPEN for 2/3<alpha<1 | compactified diagonal orbit + boundary-face analysis |
+| C-09 | min dimension with nonempty interior of P_alpha equals 3 for every 0<alpha<1 | **STRONG NOVELTY CANDIDATE — TARGETED AUDIT REQUIRED** | **THEOREM — internal analytic proof complete** | C-07 + C-08 + cubic angular certificate + uniform AM-GM diagonal-orbit bound; see `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
 | C-10 | exact 3×3 characterization of F_alpha for 2/3<alpha<1 | POTENTIALLY TITLE-WORTHY | OPEN | fractional analogue of Cain + Kushel forbidden-boundary framework |
 
 ## Current objects
@@ -86,21 +86,26 @@ for every 0 < α ≤ 2/3.
 
 **Important:** this is an internal analytic theorem result; the **novelty claim remains under active literature audit**.
 
-## C-09/C-10 — current proof frontier
+## C-09 — dimension threshold now internally proved for all 0<α<1
 
-The unresolved regime is
+`research/THEOREM_C09_DIMENSION_THRESHOLD.md` gives an analytic proof that
 
 ```text
-n = 3
-2/3 < α < 1.
+min { n : int P_α^(n) != empty } = 3
+for every 0 < α < 1.
 ```
 
-Targets:
+For `2/3<α<1`, the proof uses a positive-coefficient cubic angular certificate
 
-1. prove int P_α^(3) != empty for every 0 < α < 1; or
-2. derive an exact 3×3 criterion for F_α in the high-order regime.
+```text
+(a_D b_D)/c_D > (1 - 2 cos(απ/2))^2
+```
 
-Ordinary continuity at fixed D is insufficient; the proof must control degenerate diagonal directions where ratios d_i/d_j tend to 0 or infinity.
+and a uniform AM-GM lower bound over all positive diagonal scalings. The proof status is upgraded to THEOREM internally; the novelty status is not frozen until the targeted audit in `research/NOVELTY_FOLLOWUP_C09_TASK.md` is completed.
+
+## C-10 — remaining exact-characterization frontier
+
+An exact necessary-and-sufficient 3×3 characterization of `F_α` remains OPEN and could strengthen the paper beyond the dimension-threshold theorem.
 
 ## Q1 gate
 
