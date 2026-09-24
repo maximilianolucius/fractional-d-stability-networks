@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[numbers]{natbib}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\title{Fractional D-Stability in Ecological Networks:\\Topology, Spectral Geometry, and Purely Fractional Stabilization}
+\author{Maximiliano Lucius}
+\date{Working manuscript}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study classes of fractional-order ecological networks rather than a single model or a fixed collection of topologies. For commensurate Caputo systems ${}^C D^\alpha x=F_G(x;\theta)$, we characterize stability through the angular geometry of the equilibrium Jacobian spectrum and isolate parameter regions in which memory stabilizes equilibria that are unstable in the corresponding first-order dynamics. The manuscript is organized to separate general structural results, graph-dependent consequences, and reproducible numerical evidence. This file is an initial repository scaffold and must be replaced or expanded by the current research manuscript before submission.
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-framework}
+\input{sections/03-main-results}
+\input{sections/04-computational-protocol}
+\input{sections/05-experiments}
+\input{sections/06-discussion}
+\input{sections/07-conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
