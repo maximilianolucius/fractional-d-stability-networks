@@ -4,9 +4,9 @@
 
 **Repository:** `maximilianolucius/fractional-d-stability-networks`
 
-**Expected public URL:** `https://github.com/maximilianolucius/fractional-d-stability-networks`
+**Public URL:** `https://github.com/maximilianolucius/fractional-d-stability-networks`
 
-Once the GitHub repository exists, an agent can access it in any of these ways:
+The public repository is live. An agent can access it in any of these ways:
 
 ```bash
 git clone https://github.com/maximilianolucius/fractional-d-stability-networks.git
