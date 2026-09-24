@@ -6,37 +6,33 @@ Use this table to prevent a benchmark, a prior-art corollary, or finite computat
 
 | Claim ID | Whole matrix/model family | Family under conditions | One-parameter slice | Benchmark only | Certified box only | Numerical observation only |
 |---|---:|---:|---:|---:|---:|---|
-| C-01 | ✓ imported Matignon theorem (with its hypotheses) |  |  |  |  |  |
+| C-01 | imported Matignon theorem |  |  |  |  |  |
 | C-02 | DERIVABLE BUT NOT NOVEL |  |  | examples only |  |  |
 | C-03 | definition only; no theorem yet |  |  |  |  |  |
 | C-04 | generalized-D-stability framework already known | exact low-dimensional subclasses may be new |  |  |  | sampler = falsification only |
 | C-05 | no general theorem | single cycle substantially occupied by Siami; multi-cycle/cactus still open if non-reducible | possible | possible | possible | exploratory |
 | C-06 | classical strong/robust D-stability known | fractional genuinely non-Hurwitz interior is project target | possible | possible | possible | exploratory |
-| C-07 | **THEOREM for all real 2x2 matrices and all 0<alpha<1** |  |  |  |  |  |
-| C-08 | **THEOREM: dimension-three open separation for 0<alpha<=2/3** | explicit strict P-matrix neighborhood | (A_\gamma) is witness/center, not the whole theorem |  |  |  |
-| C-09 | OPEN for 2/3<alpha<1 | candidate neighborhoods around structured 3x3 centers | cycle center may guide proof |  | possible | sampler only for counterexample hunting |
-| C-10 | OPEN exact 3x3 characterization | target: explicit cubic/principal-minor criterion | boundary-ray parameterizations useful |  | possible | exploratory |
+| C-07 | **THEOREM for all real 2×2 matrices and all 0<α<1** |  |  |  |  |  |
+| C-08 | **THEOREM: dimension-three open separation for 0<α<=2/3** | explicit strict P-matrix neighborhood | A_γ is witness/center, not the whole theorem |  |  |  |
+| C-09 | OPEN for 2/3<α<1 | candidate neighborhoods around structured 3×3 centers | cycle center may guide proof |  | possible | sampler only for counterexample hunting |
+| C-10 | OPEN exact 3×3 characterization | target: explicit cubic/principal-minor criterion | boundary-ray parameterizations useful |  | possible | exploratory |
 
 ## Current hard boundary
 
 The strongest proved project statement is presently:
 
-[
-min{n:
-operatorname{int}mathcal P_alpha^{(n)}
-eqarnothing}
-=3
-qquad
-(0<alphale2/3),
-]
+```text
+min { n : int P_α^(n) != empty } = 3
+for every 0 < α <= 2/3.
+```
 
-with proof in `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
+Proof: `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
 
 The range
 
-[
-2/3<alpha<1
-]
+```text
+2/3 < α < 1
+```
 
 is **not proved**. No title, abstract, conclusion, or ecological generalization may silently extrapolate C-08 into that range.
 
@@ -46,4 +42,4 @@ A theorem whose only mathematical content is a fractional secant condition on a 
 
 ## Robustness restriction
 
-"Open", "robust", "strong D-stable", or "uniform margin" language must cite and distinguish Hartfiel/Abed/Lee–Edgar and current robust-D-stability work. The project contribution, if any, must be specific to the Matignon angular region and the genuinely non-Hurwitz class (mathcal P_alpha).
+"Open", "robust", "strong D-stable", or "uniform margin" language must cite and distinguish Hartfiel/Abed/Lee–Edgar and current robust-D-stability work. The project contribution, if any, must be specific to the Matignon angular region and the genuinely non-Hurwitz class P_α.
