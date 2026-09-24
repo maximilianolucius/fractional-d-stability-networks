@@ -1,107 +1,84 @@
-# Novelty audit task
+# Novelty audit task — REOPENED by Chief Researcher
+
+**Status:** ACTIVE  
+**Reopened:** 2026-09-24  
+**Controlling file:** `research/CHIEF_RESEARCH_DIRECTION_2026-09-24.md`
 
 ## Objective
 
-Determine whether the proposed research direction contains enough **mathematical novelty** for a strong journal submission, and identify the exact theorem-level contribution that should become the center of the paper.
+Perform a theorem-level novelty re-audit before any manuscript drafting or proof campaign. The audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is a baseline, not a final verdict.
 
-The controlling publication directives are in `../agent_directives_publishable_first_submission.md`. In particular, the audit must follow the rule: **find the theorem before writing the paper**.
+Read the Chief direction file first.
 
-## Candidate research question
+## Mandatory close prior art
 
-For a graph-indexed family of commensurate Caputo systems
+Retrieve and compare exact theorems/equations from:
 
-```math
-{}^C D^\alpha x = F_G(x;\theta), \qquad 0<\alpha\le 1,
-```
+1. Siami, "Stability and Robustness Analysis of Commensurate Fractional-order Networks", arXiv:2011.04204 / IEEE TCNS — generalized fractional secant condition for a single-circuit digraph.
+2. Kushel, "Some bounds for determinants of relatively D-stable matrices", LAA 656 (2023), DOI 10.1016/j.laa.2022.09.018 / arXiv:2205.10823 — relative D-stability and sector-gap results.
+3. Abed, "Strong D-stability", Systems & Control Letters 7(3) (1986), DOI 10.1016/0167-6911(86)90116-7 — perturbational robustness/interior.
+4. Revisit Kushel 2019 and Kushel–Pavani 2020/2021 in light of these references.
 
-with equilibrium Jacobian
+No claim involving "fractional secant criterion", "single cycle", "cactus", "sector gap", "uniform angular margin", "openness", or "strong fractional D-stability" may be promoted before these comparisons.
 
-```math
-J_G = D F_G(x^*),
-```
+## Central objects
 
-study parameter regimes where the fractional system is asymptotically stable under the Matignon sector condition while the corresponding first-order system is not Hurwitz stable. A candidate region is
+\[
+\Sigma_\alpha=\{z\ne0:|\arg z|>\alpha\pi/2\},
+\]
 
-```math
-\mathcal S_\alpha(G)=
-\left\{\theta:
-|\arg\lambda_i(J_G)|>\frac{\alpha\pi}{2}\ \forall i,
-\quad \max_i\Re\lambda_i(J_G)>0
-\right\}.
-```
+\[
+\mathcal F_\alpha
+=
+\{A:\sigma(DA)\subset\Sigma_\alpha\ \forall D\succ0\},
+\]
 
-The project also asks whether positive diagonal rescaling `D J_G` creates a useful fractional analogue or extension of classical matrix D-stability, and whether graph topology controls that property.
+\[
+\mathcal P_\alpha
+=
+\mathcal F_\alpha\setminus\mathcal D_H.
+\]
 
-## Do not assume novelty
+The novelty question is exact mathematics for the genuinely non-Hurwitz part, not the definition.
 
-The following are **not** enough by themselves:
+## Required low-dimensional audit
 
-- applying Matignon's criterion to a new ecological model;
-- scanning several network topologies numerically;
-- combining fractional derivatives and ecological networks;
-- finding one matrix/parameter benchmark stabilized by `alpha < 1`;
-- finite sampling over positive diagonal matrices;
-- renaming a known sector-stability notion as fractional D-stability.
+Independently derive/prove or refute and search prior art for:
 
-The audit must determine whether a genuinely new theorem remains after those standard ingredients are removed.
+> For real `A in R^{2x2}` and every `0<alpha<1`, `A in F_alpha` iff `det(A)>0` and `a_11<=0, a_22<=0`. If true, determine precisely when A is classically D-stable and whether `P_alpha` has empty interior in dimension two.
 
-## Literature searches to cover
+## Required questions
 
-At minimum, search combinations and synonyms around:
-
-1. `fractional-order ecological networks stability topology`;
-2. `Caputo ecological network Jacobian Matignon stability`;
-3. `fractional-order complex networks sector stability`;
-4. `fractional D-stability matrix` / `D-stability fractional systems`;
-5. `diagonal stability fractional-order systems`;
-6. `positive diagonal scaling sector stable matrices`;
-7. `D-stability sector stability` / `D-stable matrices sectors`;
-8. `robust sector stability diagonal scaling`;
-9. `community matrix fractional ecology stability`;
-10. `fractional stabilization unstable equilibrium order alpha`;
-11. `fractional-order stabilization by derivative order`;
-12. graph/motif spectral results that may imply the proposed claims without fractional-specific mathematics.
-
-Also inspect the terminology of **D-stability**, **diagonal stability**, **multiplicative D-stability**, **sector stability**, **D-alpha stability**, **Schur/Hurwitz D-stability**, and any existing fractional generalizations. Do not treat terminological mismatch as novelty.
-
-## Questions the audit must answer
-
-1. What is the closest existing mathematical object to the proposed `\mathcal S_\alpha(G)`?
-2. Is “stable for fractional order but unstable at order 1” already a standard/known phenomenon? If yes, what part could still be new?
-3. Has classical D-stability already been generalized to sectors, cones, fractional-order systems, or positive diagonal rescalings?
-4. For `J = diag(x^*) A` in generalized Lotka--Volterra systems, do existing D-stability/diagonal-stability theorems already settle the proposed ecological interpretation?
-5. Are there topology-to-spectrum theorems that would make the network contribution an immediate corollary?
-6. Can the candidate contribution be raised from an example to a theorem over an open matrix/parameter family?
-7. Can one derive necessary/sufficient conditions, sharp boundaries, motif obstructions, or an exact classification that appears absent from the literature?
-8. Is there a nontrivial separation theorem between integer-order Hurwitz D-stability and fractional sector D-stability?
-9. Is the proposed concept invariant under the relevant ecological scalings, permutations, similarity transformations, or row/column positive diagonal scalings?
-10. What is the smallest theorem strong enough to support a title/abstract without overselling standard machinery?
-
-## Evidence standard
-
-For each candidate novelty claim, identify the closest paper and compare exact hypotheses/conclusions. Prefer theorem numbers and equations when available. Separate:
-
-- `KNOWN/STANDARD`;
-- `CLOSE BUT NOT EQUIVALENT`;
-- `APPARENT GAP — NEEDS PROOF`;
-- `NEW THEOREM CANDIDATE`;
-- `OPEN/UNCERTAIN`.
-
-Do not use “to the best of our knowledge” as a substitute for a comparison matrix.
+1. Does Siami quantify over the same positive diagonal orbit `DA`?
+2. Can a proposed single-cycle theorem be obtained from Siami by specialization or transformation?
+3. Does Siami allow the right-half-plane Matignon sliver?
+4. What exact conic sector does Kushel call relatively D-stable, and how does it compare with `Sigma_alpha`?
+5. Does Kushel 2023 already give the proposed uniform sector/angular gap?
+6. Does Abed's strong D-stability settle the open-set idea after region substitution, or is non-convexity genuinely new?
+7. Is `int(P_alpha)=empty` for n=2, and is that known?
+8. Is `int(P_alpha)!=empty` for n=3? Do not infer from finite sampling.
+9. Which motif/topology theorem remains genuinely unoccupied?
+10. What minimum theorem package is Q1-level?
 
 ## Deliverables
 
-Create/update:
+Update:
 
-- `research/NOVELTY_REPORT.md`;
-- `research/NOVELTY_MATRIX.md`;
-- `research/CLAIMS.md`;
-- `research/SCOPE_MATRIX.md` if scope changes;
-- optionally `research/LITERATURE.bib` or a literature ledger with DOI/URL/theorem notes.
+- `research/NOVELTY_REPORT.md`
+- `research/NOVELTY_MATRIX.md`
+- `research/CLAIMS.md`
+- `research/SCOPE_MATRIX.md`
+- `research/novelty/novelty-audit.md`
 
-End the report with:
+Create:
 
-1. the strongest defensible novelty in <=3 sentences;
-2. the strongest theorem that still needs to be proved;
-3. the main prior-art risk;
-4. whether the research direction should proceed unchanged, be narrowed, or be mathematically reframed.
+- `research/novelty/REOPENED_AUDIT_2026-09-24.md` with theorem-by-theorem Siami/Kushel/Abed comparison.
+
+End `NOVELTY_REPORT.md` with:
+
+1. strongest novelty surviving the reopened audit (<=3 sentences);
+2. exact theorem target;
+3. prior-art result most likely to kill it;
+4. verdict: `GO`, `GO-NARROWED`, or `NO-GO/REFRAME`.
+
+Do not draft the manuscript. Numerical sampling is falsification only.
