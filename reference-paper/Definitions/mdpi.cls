@@ -497,8 +497,7 @@
 
 \newcommand{\crefrangeconjunction}{--}
 \newcommand{\fig}[1]{Figure~\ref{#1}}
-\newcommand{\tabref}[1]{Table~\ref{#1}}
-\newcommand{\sect}[1]{Section~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}\newcommand{\sect}[1]{Section~\ref{#1}}
 \newcommand{\app}[1]{Appendix~\ref{#1}}
 \newcommand{\sche}[1]{Scheme~\ref{#1}}
 \newcommand{\cchart}[1]{Chart~\ref{#1}}
@@ -997,4 +996,877 @@
              \vspace{-2pt}
 		}{%
              \vspace{-2pt}
-             }
+             }	}
+}
+
+% Part 5: Copyright
+\newcommand{\leftcolumnCright}{
+\isPreprints{}{%
+	\leftcolFont
+	\raggedright
+	\cright
+     }
+}
+
+% Content of the left column. The marginnote with this content will be placed it at the very top of the first page to have a fixed reference point
+\newcommand{\contentleftcolumn}{%
+       \ifthenelse{\equal{\@arttype}{Supfile} 
+       \OR \equal{\@journal}{preprints} 
+       \OR \equal{\@journal}{preprintschicago}
+       \OR \equal{\@journal}{preprintsapa}
+              }{
+          }{%
+	\ifthenelse{\equal{\@status}{submit}}{%
+		}{\leftcolumnUpdatelogo}             %1
+      \leftcolExternalEditor                            %2
+	\leftcolDates		                                 %3
+	\leftcolumnCorrstatement 			 %4
+	\leftcolumnCright 		                    %5
+            }
+}
+
+% Placing on the left column
+\newlength{\MyLen} % For length of the left column content
+\newsavebox{\MyBox} % A box is needed to measure the length (= height) of the left column content
+
+\newcommand{\calculateMyLen}{ % The calculation needs to be done after begin document, therefore this command is executed at \AtBeginDocument
+	\savebox{\MyBox}{ % All this savebox and parbox is apparently needed to measure the length (= height) of the text
+		\parbox[l]{\leftcolumnlength}{ %This is the width of the left column, defined above at "Dimensions" and "Layout"
+			\contentleftcolumn
+		}
+	}
+	\settototalheight{\MyLen}{\usebox{\MyBox}} % Use the length (= height) of the box to assign this value to \MyLen (this can be queried in .tex by \the\MyLen)
+	\setlength{\MyLen}{\textheight-\MyLen-12pt} % Change \MyLen to be \textheight minus \MyLen so that the resulting value can be used to alig the left column to the bottom of \textheight. Then substract 12pt to make the bottom alignment
+}
+
+% Left column split options for long titles/author lists
+% Make new command for deciding for the split option
+\def\@leftcolumnsplit{}
+\newcommand{\leftcolumnsplit}[1]{\gdef\@leftcolumnsplit{#1}}
+
+% Split option 1	
+\newcommand{\OptionOneA}{
+	\leftcolExternalEditor %1
+	\leftcolDates\vspace{-2pt} %2
+}
+		
+\newcommand{\OptionOneB}{
+	\leftcolumnCright %3
+}
+
+% Split option 2	
+\newcommand{\OptionTwoA}{
+	\leftcolExternalEditor\vspace{-10pt} %1
+}
+
+\newcommand{\OptionTwoB}{
+	\leftcolDates\vspace{-2pt} %2
+	\vspace{6pt}\leftcolumnCright %3
+}
+
+% Split option 3
+\newcommand{\OptionThreeA}{
+}
+
+\newcommand{\OptionThreeB}{
+	\leftcolExternalEditor %1
+	\leftcolDates\vspace{-2pt} %2
+	\vspace{6pt}\leftcolumnCright %3
+}
+
+%%%% Maketitle part 2
+\newcommand{\maketitlen}{%
+	\isBookContribution{\vspace{12pt}}{%
+	\begin{flushleft}
+	\begin{spacing}{1.35}
+	\hyphenpenalty=10000
+	\tolerance=1000
+	\fontsize{8}{8}\selectfont
+	{%
+	\ifthenelse{\equal{\firstargument}{1}}{}{%
+	\hang}\@address
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@authornum}{author}}{}{%
+	\ifthenelse{\equal{\@corres}{\@empty}}{}{%
+	\hang\textbf{*} \tabto{\dist} \@corres}
+	\par
+	}
+	}%
+	{%
+	\ifthenelse{\equal{\@conference}{\@empty}}{}{%
+	\hang$^{\dagger}$ \tabto{\dist} This paper is an extended version of our paper published in\space \@conference.}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@firstnote}{\@empty}}{}{%
+	\hang\ifthenelse{\equal{\@conference}{\@empty}}{$^\dagger$}{$^\ddagger$} \tabto{\dist} \@firstnote}	
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@secondnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\ddagger}$}{$^{\S}$} \tabto{\dist} \@secondnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@thirdnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\S}$}{$^{\|}$} \tabto{\dist} \@thirdnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@fourthnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\|}$}{$^\P$} \tabto{\dist} \@fourthnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@fifthnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\P}$}{**} \tabto{\dist} \@fifthnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@sixthnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{**}{$^{\dagger\dagger}$} \tabto{\dist} \@sixthnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@seventhnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\dagger\dagger}$}{$^{\ddagger\ddagger}$} \tabto{\dist} \@seventhnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@eighthnotes}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\ddagger\ddagger}$}{$^{\S\S}$} \tabto{\dist} \@eighthnotes}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@ninethnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\S\S}$}{$^{\|\|}$} \tabto{\dist} \@ninethnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@tenthnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\|\|}$}{$^{\P\P}$} \tabto{\dist} \@tenthnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@eleventhnote}{\@empty}}{}{%
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\P\P}$}{***} \tabto{\dist} \@eleventhnote}
+	\par
+	}%
+	{%
+	\ifthenelse{\equal{\@LSID}{\@empty}}{}{%
+	\vskip12pt \@LSID}
+	\par
+	}%
+	\end{spacing}
+	\end{flushleft}
+}
+}
+
+%%%% Abstract, keywords, journal data, PACS, MSC, JEL
+\newcommand{\abstractkeywords}{
+\isMonograph{}{\vspace{-8pt}
+% For journal Applied Sciences:
+\ifthenelse{\equal{\@featuredapplication}{\@empty}}{
+	}{%
+	\noindent\textbf{Featured Application\vspace{6pt}\\}\@featuredapplication
+	\vspace{12pt}
+	\par
+}	
+%
+%10
+\ifthenelse{\equal{\@simplesumm}{\@empty}}{}{
+	\noindent\textbf{Simple Summary\vspace{6pt}\\}\@simplesumm
+	\vspace{12pt}
+	\par
+}
+\ifthenelse{\equal{\@addhighlights}{\@empty}}{}{
+	\noindent\textbf{Highlights\vspace{-6pt}\\}\addhighlights % redefined in .tex to use itemize
+	\vspace{12pt}
+	\par
+}
+\ifthenelse{\equal{\@abstract}{\@empty}}{}{
+	\noindent\textbf{Abstract\vspace{6pt}\\}\@abstract
+	\vspace{12pt}
+	\par
+}
+\ifthenelse{\equal{\@encyclopediadef}{\@empty}}{}{
+	\noindent\textbf{Definition\vspace{6pt}\\}\@encyclopediadef
+	\vspace{12pt}
+	\par
+}
+%10
+% For journal Data:
+\ifthenelse{\equal{\@dataset}{\@empty}}{}{
+	\noindent\textbf{Dataset:\space}\@dataset
+	\vspace{12pt}
+	\par
+}
+%
+%For journal Data:
+\ifthenelse{\equal{\@datasetlicense}{\@empty}}{}{
+	\noindent\textbf{Dataset License:\space}\@datasetlicense
+	\vspace{12pt}
+	\par
+}
+%
+%11
+\ifthenelse{\equal{\@keyword}{\@empty}}{}{
+	\noindent\textbf{Keywords:\space}\@keyword
+	\vspace{12pt}
+	\par
+}
+%11
+%For journal Toxins:
+\ifthenelse{\equal{\@keycontribution}{\@empty}}{}{
+	\noindent\textbf{Key Contribution:\space}\@keycontribution
+	\vspace{12pt}
+	\par
+}
+%11
+%12
+\ifthenelse{\equal{\@pacs}{\@empty}}{}{
+	\noindent\textbf{PACS:\space}\@pacs
+	\vspace{12pt}
+	\par
+}
+%12
+%13
+\ifthenelse{\equal{\@msc}{\@empty}}{}{
+	\noindent\textbf{MSC:\space}\@msc
+	\vspace{12pt}
+	\par
+}
+%13
+%14
+\ifthenelse{\equal{\@jel}{\@empty}}{}{
+	\noindent\textbf{JEL Classification:\space}\@jel
+	\vspace{12pt}
+	\par
+}
+%14
+\vspace{4pt}
+\isBookContribution{}{\hrule}
+\vspace{12pt}
+\normalsize
+}
+} % For Monograph, remove front part
+
+%%%% Print maketitle and abstractkeywords
+\ifthenelse{\equal{\@arttype}{Supfile}}{
+	\AfterEndPreamble{
+		\maketitle
+		\let\maketitle\relax
+		\ifthenelse{\equal{\@status}{submit}}{\linenumbers}{}
+		}%
+	}{
+	\AfterEndPreamble{
+		\maketitle
+		\let\maketitle\relax
+		\maketitlen
+		\let\maketitlen\relax
+		\ifthenelse{\equal{\@status}{submit}}{\linenumbers}{}
+		\abstractkeywords
+	}%
+}
+	
+\AtBeginDocument{
+	\calculateMyLen
+	\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+	\cleverefDefinitions
+      %%%% URL
+      \RequirePackage{url}
+      \urlstyle{same}
+     % Line breaks in URL
+     \def\UrlDigits{\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0}
+     \g@addto@macro{\UrlBreaks}{\UrlOrds}
+     \g@addto@macro{\UrlBreaks}{\UrlDigits}
+}
+
+%%%% Font size in Tables and watermark in arttype retraction
+\AtEndPreamble{
+	\def\@tablesize{}
+	\newcommand{\tablesize}[1]{\gdef\@tablesize{#1}}
+	\let\oldtabularx\tabularx
+	\renewcommand{\tabularx}{\ifthenelse{\equal{\@tablesize}{\@empty}}{}{\@tablesize}\oldtabularx}
+	\printretraction
+}
+
+%%%% Table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Dots between section title and page number
+\renewcommand{\numberline}[1]{#1.~\space} % Increase space between number and title
+
+%%%% Section headings
+\setcounter{secnumdepth}{4} % Default: 3 in the article class. To get paragraphs numbered and counted, increase the default value of secnumdepth to 4
+
+\isMonograph{%
+	\titleformat {\section} [block] {\raggedright \fontsize{18}{18}\selectfont\bfseries} {\thesection.\space} {0pt} {}
+	\titlespacing {\section} {0pt} {12pt} {8pt}
+	}{
+	\titleformat {\section} [block] {\raggedright \fontsize{12}{12}\selectfont\bfseries} {\thesection.\space} {0pt} {}
+	\titlespacing {\section} {0pt} {12pt} {3pt}
+}
+
+\titleformat {\subsection} [block] {\raggedright \fontsize{10}{10}\selectfont\itshape} {\thesubsection.\space} {0pt} {}
+\titlespacing {\subsection} {0pt} {12pt} {3pt}
+
+\titleformat {\subsubsection} [block] {\raggedright \fontsize{10}{10}\selectfont} {\thesubsubsection.\space} {0pt} {}
+\titlespacing {\subsubsection} {0pt} {12pt} {3pt}
+
+\titleformat {\paragraph} [block] {\raggedright \fontsize{10}{10}\selectfont} {} {0pt} {}
+\titlespacing {\paragraph} {0pt} {12pt} {3pt}
+
+%%%% Special section title style for back matter
+\newcommand{\supplementary}[1]{
+\par\vspace{6pt}\noindent{\fontsize{9}{11.5}\selectfont\textbf{Supplementary Materials:} {#1}\par}}
+
+\newcommand{\authorcontributions}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Author Contributions:} {#1}\par}}
+
+\newcommand{\funding}[1]{
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Funding:} {#1}\par}}
+
+\newcommand{\institutionalreview}[1]{
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Institutional Review Board Statement:} {#1}\par}}
+
+\newcommand{\informedconsent}[1]{
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Informed Consent Statement:} {#1}\par}}
+
+\newcommand{\dataavailability}[1]{
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Data Availability Statement:} {#1}\par}}
+
+\newcommand{\durcstatement}[1]{% For journal Drones
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{DURC Statement:} {#1}\par}}
+
+\newcommand{\publicinvolvement}[1]{% For journal Nursing Reports
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Public Involvement Statement:} {#1}\par}}
+
+\newcommand{\guidelinesstandards}[1]{% For journal Nursing Reports
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Guidelines and Standards Statement:} {#1}\par}}
+
+\newcommand{\acknowledgments}[1]{
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Acknowledgments:} {#1}\par}}
+
+\newcommand{\conflictsofinterest}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Conflicts of Interest:} {#1}\par}}
+
+\newcommand{\entrylink}[1]{% For journal Encyclopedia
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Entry Link:} {#1}\par}}
+
+\newcommand{\useofartificialintelligence}[1]{% For journal Nursing Reports
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Use of Artificial Intelligence:} {#1}\par}}
+
+\newcommand{\reviewreports}[1]{%
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Review Reports:} {#1}\par}}
+
+\newcommand{\abbreviations}[2]{\vspace{12pt}\noindent{\fontsize{12}{12}\selectfont\textbf{#1}}{%
+\par\vspace{3pt}\hspace{-0.85cm}{\fontsize{9}{11.2}\selectfont #2}\par}}
+
+% Standby command for adding paragraph in back matter part
+\newcommand{\specialsection}[2]{%
+\vspace{12pt}\noindent{\selectfont\textbf{#1}\par\vspace{6pt}\noindent {\fontsize{9}{9}\selectfont #2}\par}}
+
+% Command for author's biography
+\newcommand{\bio}[2]{%
+\noindent{#1}\hspace{1.1cm}\noindent {\fontsize{9}{11.2}\selectfont \pbox[b]{13.86cm}{#2}}\par\vspace{6pt}}
+
+% Use for special paragraph requirement in back matter
+\newcommand{\backnotes}[2]{
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{#1:} {#2}\par}}
+
+%%%%% Defines the appendix
+\def\@appendixtitles{}
+\newcommand{\appendixtitles}[1]{\gdef\@appendixtitles{#1}}
+
+\def\@appendixsections{}
+\newcommand{\appendixsections}[1]{\gdef\@appendixsections{#1}}
+
+\def\@appendixstart{}
+\newcommand{\appendixstart}[1]{\gdef\@appendixstart{#1}}
+
+\renewcommand{\appendixstart}{%
+\setcounter{section}{0}%
+\setcounter{subsection}{0}%
+\setcounter{subsubsection}{0}%
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{scheme}{0}
+\setcounter{chart}{0}
+\setcounter{boxenv}{0}
+\setcounter{equation}{0}
+\setcounter{theorem}{0}
+\setcounter{lemma}{0}
+\setcounter{corollary}{0}
+\setcounter{proposition}{0} 
+\setcounter{characterization}{0} 
+\setcounter{property}{0} 
+\setcounter{problem}{0} 
+\setcounter{example}{0} 
+\setcounter{examplesanddefinitions}{0} 
+\setcounter{remark}{0} 
+\setcounter{definition}{0} 
+\setcounter{hypothesis}{0}
+\setcounter{notation}{0}
+\setcounter{algorithm}{0}
+\setcounter{graph}{0}
+}
+
+\RequirePackage{alphalph} % Provide double letters numbers
+\renewcommand{\appendix}{%
+%
+\gdef\thesection{\@Alph\c@section}%
+\gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+
+\titleformat {\section} [block] {\raggedright\bfseries\fontsize{12}{12}\selectfont} {\fontsize{12}{12}\selectfont\bfseries%
+	\ifthenelse{\equal{\@appendixtitles}{yes}}{%
+		\appendixname~\thesection.%
+		}{%
+		\appendixname~\thesection~%
+		}
+	} {0pt} {}
+\titlespacing {\section} {0pt} {12pt} {3pt}
+%
+\titleformat {\subsection} [block] {\raggedright\itshape} {%
+	\ifthenelse{\equal{\@appendixtitles}{yes}}{%
+		\appendixname~\thesubsection.%
+		}{%
+		\appendixname~\thesubsection%
+		}
+	} {0pt} {}
+\titlespacing {\section} {0pt} {12pt} {3pt}
+%
+\titleformat {\subsubsection} [block] {\raggedright\selectfont} {%
+	\ifthenelse{\equal{\@appendixtitles}{yes}}{%
+		\appendixname~\thesubsubsection.%
+		}{%
+		\appendixname~\thesubsubsection%
+		}
+	} {0pt} {}
+\titlespacing {\section} {0pt} {12pt} {3pt}
+%
+\@addtoreset{section}{part}
+\renewcommand{\thesection}{\@Alph\c@section}% for hyperref
+\setcounter{section}{0}
+\@addtoreset{subsection}{part}
+\renewcommand{\thesubsection}{\@Alph\c@section.\@arabic\c@subsection}% for hyperref
+\setcounter{subsection}{0}
+\csname appendixmore\endcsname
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thescheme}{A\arabic{scheme}}
+\renewcommand{\thechart}{A\arabic{chart}}
+\renewcommand{\theboxenv}{A\arabic{boxenv}}
+\renewcommand{\theequation}{A\arabic{equation}}
+\renewcommand{\thetheorem}{A\arabic{theorem}}
+\renewcommand{\thelemma}{A\arabic{lemma}}
+\renewcommand{\thecorollary}{A\arabic{corollary}}
+\renewcommand{\theproposition}{A\arabic{proposition}} 
+\renewcommand{\thecharacterization}{A\arabic{characterization}}
+\renewcommand{\theproperty}{A\arabic{property}}
+\renewcommand{\theproblem}{A\arabic{problem}}
+\renewcommand{\theexample}{A\arabic{example}}
+\renewcommand{\theexamplesanddefinitions}{A\arabic{examplesanddefinitions}}
+\renewcommand{\theremark}{A\arabic{remark}}
+\renewcommand{\thedefinition}{A\arabic{definition}}
+\renewcommand{\thehypothesis}{A\arabic{hypothesis}}
+\renewcommand{\thenotation}{A\arabic{notation}}
+\renewcommand{\thealgorithm}{A\arabic{algorithm}}
+\renewcommand{\thegraph}{A\arabic{graph}}
+}
+
+%%%% Dimensions
+%% Width of left column = marginparwidth
+\newlength{\leftcolumnlength}
+\setlength{\leftcolumnlength}{4.1cm}
+
+%% Width of left column plus marginsep
+\newlength{\extralength}
+\setlength{\extralength}{4.61cm} % = 0.51 cm + 4.1 cm (= marginparwidth + marginparsep)
+
+%% Width of the page minus the margins
+\newlength{\fulllength}
+\setlength{\fulllength}{21 cm - 1.27 cm - 1.27 cm}
+
+%%%% Layout
+\isPreprints{%
+	\RequirePackage[left=2.7cm,
+				right=2.7cm,
+				top=1.35cm,
+				bottom=1.08cm,
+				includehead,				includefoot]{geometry}
+      }{
+\isBookContribution{%%
+	\RequirePackage[left=2.05cm,
+					right=2.05cm,
+					top=1.8cm,
+					bottom=0.75cm,
+					paperwidth=170mm,
+					paperheight=244mm,
+					footskip=20pt,
+					headsep=24pt,
+					includefoot]{geometry}
+	}{
+	\RequirePackage[left=5.87cm, %1.27 cm + 0.51 cm + 4.1 cm = 5.87 cm (= 1.27 cm + marginparwidth + marginparsep)
+				marginparwidth=4.1cm,
+				marginparsep=0.51cm,
+				right=1.27cm,
+				top=1.27cm,
+				bottom=1.08cm,
+				footskip=36pt,
+				headsep=24pt,
+				includehead,
+				includefoot]{geometry}
+      }
+}
+
+\isPreprints{}{%
+\fancyheadoffset[L]{\extralength} % Header into the margin
+\isBookContribution{%
+	}{%
+	\fancyfootoffset[L]{\extralength}%
+    }
+} % Footer into the margin
+
+%%%% Commands for landscape page
+\newcommand{\startlandscape}{%
+\isPreprints{%
+	\clearpage
+	\paperwidth=\pdfpageheight
+	\paperheight=\pdfpagewidth
+	\pdfpageheight=\paperheight
+	\pdfpagewidth=\paperwidth
+	\newgeometry{layoutwidth=297mm, layoutheight=210 mm, left=1.27cm, right=1.27cm, top=1.27cm, bottom=1.08cm, includehead, includefoot}
+	\fancyheadoffset{0pt}
+	\captionsetup{margin={0cm,0cm}}
+      }{%
+	\clearpage
+	\paperwidth=\pdfpageheight
+	\paperheight=\pdfpagewidth
+	\pdfpageheight=\paperheight
+	\pdfpagewidth=\paperwidth
+	\newgeometry{layoutwidth=297mm, layoutheight=210 mm, left=1.27cm, right=1.27cm, top=1.27cm, bottom=1.08cm, includehead, includefoot}
+	\fancyheadoffset{0pt}
+	\captionsetup{margin={4.6cm,0cm}}
+	}
+}
+
+\newcommand{\finishlandscape}{%
+	\clearpage 
+	\paperwidth=\pdfpageheight
+	\paperheight=\pdfpagewidth
+	\pdfpageheight=\paperheight
+	\pdfpagewidth=\paperwidth
+	\restoregeometry
+	\fancyheadoffset[L]{\extralength}
+	\captionsetup{margin={0cm,0cm}}
+}
+
+%%%% Figures and tables
+\RequirePackage{newfloat}
+\DeclareFloatingEnvironment[]{listing}
+\DeclareFloatingEnvironment[name=Box]{boxenv}	
+\DeclareFloatingEnvironment[]{chart}
+\DeclareFloatingEnvironment[]{scheme}
+\DeclareFloatingEnvironment[]{figurewide}
+\DeclareFloatingEnvironment[]{graph}
+
+\RequirePackage{caption}
+\isPreprints{%
+\captionsetup[figure]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[scheme]{position=bottom,	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[listing]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[chart]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[table]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[boxenv]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=on, justification=justified}
+
+\captionsetup[graph]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=on, justification=justified}
+}{
+\captionsetup[figure]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[scheme]{position=bottom,	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[listing]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[chart]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[table]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[boxenv]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
+
+\captionsetup[graph]{position=bottom, 	labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, belowskip=-6pt, singlelinecheck=off, justification=justified}
+}
+
+%% For table footnotes
+\newsavebox{\@justcentbox}
+\newcommand{\justifyorcenter}[1]{
+\sbox \@justcentbox{#1}
+\ifdim \wd \@justcentbox >\hsize #1
+\else \centerline{#1} \fi
+}
+
+%% For text alignment in tables
+\renewcommand\tabularxcolumn[1]{m{#1}} % vertical centering
+\newcolumntype{C}{>{\centering\arraybackslash}X} % centered text in C columns
+\newcolumntype{L}{>{\raggedright\arraybackslash}X} % centered text in L columns
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X} % centered text in R columns
+
+%%%% Bullet lists
+\setitemize{topsep=3pt,parsep=0pt,itemsep=0pt,leftmargin=*,labelsep=5.5mm,align=parleft}
+\setenumerate{topsep=3pt,parsep=0pt,itemsep=0pt,leftmargin=*,labelsep=5.5mm,align=parleft}
+\setlist[description]{itemsep=0mm}
+
+%%%% Quote environment
+\renewenvironment{quote}{
+	\list{}{
+		\listparindent=0pt
+		\leftmargin=0.75cm
+		\rightmargin=0.75cm
+		\topsep=3pt
+		\parsep=3pt
+	}%
+	\item\relax
+	}
+	{\endlist}
+
+%%%% Supplementary file
+\ifthenelse{\equal{\@arttype}{Supfile}}{
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+	\renewcommand{\thetable}{S\arabic{table}}%
+	}{}%
+
+%% Link to supplementary material: www.mdpi.com/ISSN-number/volume-number/issue-number/article-number	
+\newcommand{\linksupplementary}[1]{\url{https://www.mdpi.com/article/\@doinum/#1}}
+
+%%%% Header and footer (all pages except the first)
+\renewcommand\headrule{} %% set line (from fancyhdr) in header to nothing
+
+\pagestyle{fancy}
+\lhead{
+	\ifthenelse{\equal{\@journal}{preprints}%
+	\OR \equal{\@journal}{preprintschicago}
+	\OR \equal{\@journal}{preprintsapa}
+	\OR \equal{\@arttype}{Book}
+	\OR \equal{\@arttype}{Monograph}}{%
+		}{%
+		\fontsize{8}{8}\selectfont%
+		\ifthenelse{\equal{\@status}{submit}}{%
+		      \vspace{2pt}Version {\@ \today} submitted to {\em \journalname}%
+			}{%
+			\ifthenelse{\equal{\@arttype}{Supfile}}{%
+			{\em \journalname} {\bfseries \@pubyear}, {\em \@pubvolume}, %
+			\ifthenelse{\equal{\@continuouspages}{\@empty}}{%
+				\@articlenumber. %
+				}{%
+				S\@firstpage\ifnumcomp{\getpagerefnumber{LastPage}}{=}{\@firstpage}{}{--S\pageref*{LastPage}}. %
+				}%
+			{\url{https://doi.org/\@doinum}}%
+			}{%
+			{\null\vspace{2pt}\em\journalname\ }{\bfseries\@pubyear}, {\em \@pubvolume}%
+			\ifthenelse{\equal{\@continuouspages}{\@empty}}{%
+				, \@articlenumber%
+				}{}%
+			}%
+			}\\%
+			\isPreprints{}{%
+			\rule{\fulllength}{0.4pt}%
+			}%
+		}%
+	}
+	
+\rhead{%
+    \isBookContribution{}{%
+	\ifthenelse{\equal{\@arttype}{Supfile}}{%
+		\fontsize{8}{8}\selectfont S\thepage{} of S\pageref*{LastPage}%
+		}{%
+		\ifthenelse{\equal{\@continuouspages}{\@empty}}{%
+			\fontsize{8}{8}\selectfont\thepage{} of \pageref*{LastPage}%
+			}{%
+			\fontsize{8}{8}\selectfont\thepage%
+		}%
+		}\\%
+		\isPreprints{}{%
+		\rule{\fulllength}{0.4pt}%
+            }%
+	}%
+}
+
+\cfoot{%
+	\isBookContribution{%
+		\fontsize{8}{8}\selectfont\thepage
+		}{%
+	}
+}
+
+\isBookContribution{%
+    }{%
+      \isPreprints{}{%
+        \rfoot{%
+	   \fontsize{8}{8}\selectfont%
+	  {\url{https://doi.org/\@doinum}}%
+     }
+  }
+}
+
+%%%% Article type "Retraction"
+\def\@retractiondate{}% Date that the retraction notice was published
+\newcommand{\retractiondate}[1]{\gdef\@retractiondate{#1}}
+\def\@retractionnoticeyear{}% Year in which the retraction notice was published
+\newcommand{\retractionnoticeyear}[1]{\gdef\@retractionnoticeyear{#1}}
+\def\@retractionnoticevolume{} % Volume in which the retraction notice was published
+\newcommand{\retractionnoticevolume}[1]{\gdef\@retractionnoticevolume{#1}}
+\def\@retractionnoticeidnumber{}% Article Number in which the retraction notice was published
+\newcommand{\retractionnoticeidnumber}[1]{\gdef\@retractionnoticeidnumber{#1}}
+\def\@retractionnoticedoi{}  % DOI published retraction notice
+\newcommand{\retractionnoticedoi}[1]{\gdef\@retractionnoticedoi{#1}}
+\newcommand{\printretraction}{
+\ifthenelse{\equal{\@retractiondate}{\@empty}}{}{%
+	\RequirePackage{draftwatermark}
+	\SetWatermarkText{RETRACTED}
+	\SetWatermarkScale{0.8}
+	\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[L]{
+		\footnotesize%
+		\st{\mbox{\textit{\journalname} \textbf{\@pubyear}, \textit\@pubvolume, }}%
+		\ifthenelse{\equal{\@continuouspages}{\@empty}}{%
+			\st{\@articlenumber}%
+			}{%
+			\st{\@firstpage}\ifnumcomp{\getpagerefnumber{LastPage}}{=}{\@firstpage}{}{\st{--\mbox{\pageref*{LastPage}}}}%
+			}%
+		\\This paper has been retracted. A retraction notice was published on \@retractiondate{} %
+		in \textit{\@journalfull} \textbf{\@retractionnoticeyear}, \textit{\@retractionnoticevolume}, \@retractionnoticeidnumber. https://doi.org/\@retractionnoticedoi
+	}%
+	\fancyfoot[R]{
+		\footnotesize%
+		\st{{%
+		\href{https://doi.org/\@doinum}%
+		{https://doi.org/\@doinum}}}%
+	}%
+	\renewcommand{\footrulewidth}{0.4pt}%
+	}
+   }
+}
+
+%%%% Bibliography
+\renewcommand\bibname{References} % Backwards compatibility for book production
+\renewcommand\@biblabel[1]{#1.\hfill}
+\def\thebibliography#1{
+\emergencystretch 2em
+\titleformat {\section} [block] {\raggedright \fontsize{12}{12}\selectfont\bfseries} {} {0pt} {}
+     \isBookContribution{}{% to remove the sectin from the TOC in books
+	\section{\@reftitle}
+}
+\fontsize{9}{11}\selectfont
+\list{{\arabic{enumi}}}{\def\makelabel##1{\hss{##1}}
+\topsep=0\p@
+\parsep=0\p@
+\partopsep=0\p@
+\itemsep=0\p@
+\labelsep=1.5mm
+\isAPAandChicago{%
+	\ifthenelse{\equal{\@externalbibliography}{\@empty}}{%
+		\itemindent=-7.7mm
+		}{%
+		\itemindent=-3.3mm}%
+		}{%
+	\itemindent=0\p@}
+\settowidth\labelwidth{\footnotesize[#1]}%
+\leftmargin\labelwidth
+\advance\leftmargin\labelsep
+\usecounter{enumi}}
+}
+\let\endthebibliography=\endlist
+
+%%%% Publisher's note
+\newcommand{\PublishersNote}{
+\null\par\noindent\fontsize{9}{11}\selectfont\textbf{Disclaimer/Publisher's Note:} The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+}
+
+%%%% Copyright info
+\newcommand{\cright}{%
+        \ifthenelse{\equal{\@arttype}{Supfile}}{%
+		}{%
+		\ifthenelse{\equal{\@status}{submit}}{%
+		\fontdimen2\font=1.2pt
+			\raggedright\textbf{Copyright: }\copyright{} {\@ \the\year} by the \@authornum. %
+			Submitted to {\em\journalname} for possible open access publication under the terms and %
+                   conditions of the %
+			}{%
+			{\raggedright\textbf{Copyright:} \copyright \ {\@copyrightyear} by the \@authornum. %
+                    \ifthenelse{\equal{\@societyowner}{}}{}{%
+                    Published by MDPI on behalf of the {\@societyowner}.} 
+			 Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms %
+                    and conditions of the %
+			  }
+		   }%
+                \ifthenelse{\equal{\@journal}{ijtpp}}{%
+                \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution %
+                (CC BY-NC-ND) license}}{\href{https://creativecommons.org/licenses/by/4.0/}%
+                {Creative Commons Attribution (CC~BY) license}}. 
+	}
+}
+	
+%%%% For tables XML2PDF
+\RequirePackage{seqsplit} % Use for split table column
+  \newlength{\cellWidtha}
+  \newlength{\cellWidthb}
+  \newlength{\cellWidthc}
+  \newlength{\cellWidthd}
+  \newlength{\cellWidthe}
+  \newlength{\cellWidthf}
+  \newlength{\cellWidthg}
+  \newlength{\cellWidthh}
+  \newlength{\cellWidthi}
+  \newlength{\cellWidthj}
+  \newlength{\cellWidthk}
+  \newlength{\cellWidthl}
+  \newlength{\cellWidthm}
+  \newlength{\cellWidthn}
+  \newlength{\cellWidtho}
+  \newlength{\cellWidthp}
+  \newlength{\cellWidthq}
+  \newlength{\cellWidthr}
+  \newlength{\cellWidths}
+  \newlength{\cellWidtht}
+  \newlength{\cellWidthu}
+  \newlength{\cellWidthv}
+  \newlength{\cellWidthw}
+  \newlength{\cellWidthx}
+  \newlength{\cellWidthy}
+  \newlength{\cellWidthz}
+  \newlength{\cellWidthA}
+  \newlength{\cellWidthB}
+  \newlength{\cellWidthC}
+  \newlength{\cellWidthD}
+  \newlength{\cellWidthE}
+  \newlength{\cellWidthF}
+  \newlength{\cellWidthG}
+  \newlength{\cellWidthH}
+  \newlength{\cellWidthI}
+  \newlength{\cellWidthJ}
+  \newlength{\cellWidthK}
+  \newlength{\cellWidthL}
+  \newlength{\cellWidthM}
+  \newlength{\cellWidthN}
+  \newlength{\cellWidthO}
+  \newlength{\cellWidthP}
+  \newlength{\cellWidthQ}
+  \newlength{\cellWidthR}
+  \newlength{\cellWidthS}
+  \newlength{\cellWidthT}
+  \newlength{\cellWidthU}
+  \newlength{\cellWidthV}
+  \newlength{\cellWidthW}
+  \newlength{\cellWidthX}
+  \newlength{\cellWidthY}
+  \newlength{\cellWidthZ}
+ \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp} % For table column setting in XML2PDF
+
+\endinput
