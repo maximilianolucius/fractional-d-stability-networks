@@ -1,0 +1,7 @@
+experiment: spectral-demo
+alpha: 0.8
+seed: 0
+matrix:
+  - [0.1, -1.0]
+  - [1.0, 0.1]
+notes: "Toy matrix exhibiting purely fractional stabilization."
