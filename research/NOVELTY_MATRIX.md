@@ -55,3 +55,25 @@ either by proving the same dimension threshold or by deriving an exact 3×3 char
 ## Audit rule
 
 No claim is marked novel because an identical phrase was not found. The final verdict must show that the theorem's quantifier structure and conclusion are not recoverable from Siami, Kushel/Kushel–Pavani, classical low-dimensional D-stability, or strong-D-stability theory.
+
+
+## C-09 targeted-audit additions
+
+| Reference | Exact occupied result | What it does not supply for C-09 |
+|---|---|---|
+| Cermak & Nechvatal 2017, *Nonlinear Dynamics* 87:939-954, DOI 10.1007/s11071-016-3090-9 | Optimal fractional Routh-Hurwitz conditions: necessary/sufficient root localization in the Matignon sector | no all-positive-diagonal orbit, no interior of F_alpha\\D_H, no minimum-dimension theorem |
+| Bourafa, Abdelouahab & Moussaoui 2020, *Chaos Solitons Fractals* 133:109623, DOI 10.1016/j.chaos.2020.109623 | Props. 1-3 give explicit n=2/n=3 fractional coefficient criteria; Prop. 3 is exact in the cubic negative-discriminant case | fixed characteristic polynomial only; no diagonal-orbit quantifier or robust separation theorem |
+| Cain 1984, *Inside the D-stable matrices*, LAA 56:237-243 | low-dimensional/topological interior results for classical D-stability | half-plane D-stability only; no genuinely fractional difference class |
+| Kushel 2023, LAA 656:9-26 | relative D-stability in a conic sector around the negative real axis; determinant/sector-gap estimates | does not admit the right-half-plane Matignon sliver and does not state the C-09 dimension theorem |
+| Siami 2020/2021 | fractional cyclic secant condition on a structured single-cycle family | no full-dimensional open ball in unrestricted 3x3 matrix space; no minimum-dimension theorem |
+
+### Targeted conclusion
+
+The fixed-cubic and single-cycle ingredients are occupied. The quantified theorem
+
+```text
+min { n : int(F_alpha^(n) \\ D_H^(n)) != empty } = 3
+for every 0<alpha<1
+```
+
+was not located in the audited literature and is marked **NOVELTY SURVIVES**, subject to a final independent pre-submission audit.
