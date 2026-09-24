@@ -1,16 +1,49 @@
 # Scope matrix
 
-Use this table to prevent a benchmark or finite computation from being promoted into a general theorem.
+Use this table to prevent a benchmark, a prior-art corollary, or finite computation from being promoted into a general theorem.
 
-**Updated 2026-09-24** after the novelty audit (`NOVELTY_REPORT.md`): C-02 demoted to standard/derivable; C-06 split into a trivial fixed-D part and an open uniform-over-D part; C-04 restricted to the non-convex purely fractional zone, since convex-region sufficient conditions are prior art (Kushel–Pavani 2021).
+**Updated 2026-09-24 — second-pass reopened audit.** The previous statement that existing literature was blind to the non-convex Matignon complement is withdrawn. Siami substantially occupies the single-cycle fractional secant target; Kushel/Kushel–Pavani supply generalized-D-stability and forbidden-boundary machinery; Abed and successors occupy the classical robustness/interior concept.
 
 | Claim ID | Whole matrix/model family | Family under conditions | One-parameter slice | Benchmark only | Certified box only | Numerical observation only |
 |---|---:|---:|---:|---:|---:|---|
-| C-01 | ✓ (subject to imported theorem hypotheses: commensurate Caputo, linearization validity, boundary/Jordan case) |  |  |  |  |  |
-| C-02 | DERIVABLE BUT NOT NOVEL — corollary of Matignon 1996 + monotonicity (Brandibur et al. 2021, Remark 4); motivation only |  |  | `tests/test_spectral.py` instance |  |  |
+| C-01 | ✓ imported Matignon theorem (with its hypotheses) |  |  |  |  |  |
+| C-02 | DERIVABLE BUT NOT NOVEL |  |  | examples only |  |  |
 | C-03 | definition only; no theorem yet |  |  |  |  |  |
-| C-04 | target: structured graph classes only (general case open even at α=1) | target: non-convex sliver zone with uniform margin | possible | possible | possible | current sampler = falsification only |
-| C-05 | target: explicit class (cactus/cyclic first), necessary-and-sufficient motif condition | possible | possible | possible | possible | exploratory |
-| C-06 | fixed-D openness: derivable (eigenvalue continuity), not a contribution | uniform-over-`𝒟⁺` margin: target, OPEN | possible | possible | possible | exploratory |
+| C-04 | generalized-D-stability framework already known | exact low-dimensional subclasses may be new |  |  |  | sampler = falsification only |
+| C-05 | no general theorem | single cycle substantially occupied by Siami; multi-cycle/cactus still open if non-reducible | possible | possible | possible | exploratory |
+| C-06 | classical strong/robust D-stability known | fractional genuinely non-Hurwitz interior is project target | possible | possible | possible | exploratory |
+| C-07 | **THEOREM for all real 2x2 matrices and all 0<alpha<1** |  |  |  |  |  |
+| C-08 | **THEOREM: dimension-three open separation for 0<alpha<=2/3** | explicit strict P-matrix neighborhood | (A_\gamma) is witness/center, not the whole theorem |  |  |  |
+| C-09 | OPEN for 2/3<alpha<1 | candidate neighborhoods around structured 3x3 centers | cycle center may guide proof |  | possible | sampler only for counterexample hunting |
+| C-10 | OPEN exact 3x3 characterization | target: explicit cubic/principal-minor criterion | boundary-ray parameterizations useful |  | possible | exploratory |
 
-`TBD`/target rows must not enter the abstract, title, or conclusions until the corresponding theorem in `CLAIMS.md` is PROVED.
+## Current hard boundary
+
+The strongest proved project statement is presently:
+
+[
+min{n:
+operatorname{int}mathcal P_alpha^{(n)}
+eqarnothing}
+=3
+qquad
+(0<alphale2/3),
+]
+
+with proof in `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
+
+The range
+
+[
+2/3<alpha<1
+]
+
+is **not proved**. No title, abstract, conclusion, or ecological generalization may silently extrapolate C-08 into that range.
+
+## Single-cycle restriction
+
+A theorem whose only mathematical content is a fractional secant condition on a one-cycle network is not an approved novelty target because Siami 2020/2021 already proves the relevant fractional cyclic stability condition, and the key cycle ratio is invariant under positive left-diagonal row scaling.
+
+## Robustness restriction
+
+"Open", "robust", "strong D-stable", or "uniform margin" language must cite and distinguish Hartfiel/Abed/Lee–Edgar and current robust-D-stability work. The project contribution, if any, must be specific to the Matignon angular region and the genuinely non-Hurwitz class (mathcal P_alpha).
