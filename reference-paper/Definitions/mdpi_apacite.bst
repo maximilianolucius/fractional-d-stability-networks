@@ -997,3 +997,4000 @@ FUNCTION {change.add.to.year}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+FUNCTION {definitive.cite.num.names.1.or.2}
+{   %
+  numnames  numnames.old  =
+    {   %
+        % Same number of names: ambiguity could arise. Check whether current
+        % and previous have the same author(s).
+        %
+      aut1f aut1f.old =
+        {   %
+            % Same first author: if the second author is also the same or if
+            % there is only one author, a's and b's should be added.
+            %
+          aut2  aut2.old  =
+            numnames  #2  =
+              and
+                %
+          numnames  #1  =
+            or
+            {   %
+                % Same author(s): add to year.
+                %
+              change.add.to.year
+            }
+            {   %
+                % Different second author: no ambiguity possible.
+                %
+              skip$
+            }
+          if$
+        }
+        {   %
+            % Different first author: no ambiguity possible.
+            %
+          skip$
+        }
+      if$
+    }
+    {   %
+        % Different number of names: no ambiguity possible.
+        %
+      skip$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {definitive.cite.num.names.3.or.more}
+{   %
+    % Check whether current and previous have the same first author.
+    %
+  aut1f aut1f.old =
+    {   %
+        % Same first author: check second author
+        %
+      aut2 aut2.old =
+        {   %
+            % Same 1st & 2nd author: check 3rd.
+            %
+          aut3 aut3.old =
+            {   %
+                % Same 1st-3rd authors: check 4th.
+                %
+              numnames.old #3 =
+                { numnames #3 =
+                    {   %
+                        % Both current and previous have 3 authors, which are
+                        % the same, so both have identical author-year
+                        % combinations, so ambiguity should be resolved by
+                        % a's and b's. Check whether more authors were
+                        % necessary for previous one.
+                        %
+                      change.add.to.year
+                      cite.num.names.short  cite.num.names.old  <
+                        { cite.num.names.old
+                            'cite.num.names.short :=
+                        }
+                        'skip$
+                      if$
+                    }
+                    {   %
+                        % Previous has 3 authors, current has more, with same
+                        % first 3, so at least 4 must be used for current to
+                        % make a difference.
+                        %
+                      cite.num.names.short  #4  <
+                        { #4  'cite.num.names.short := }
+                        'skip$
+                      if$
+                    }
+                  if$
+                }
+                { numnames #3 =
+                    {   %
+                        % Current has 3 authors, previous has more, with same
+                        % first 3, so all 3 of current must be used.
+                        %
+                      numnames  'cite.num.names.short :=
+                    }
+                    {   %
+                        % Same 1st-3rd author and both current and previous
+                        % have at least 4 authors: check 4th.
+                        %
+                      aut4 aut4.old =
+                        {   %
+                            % Same 1st-4th authors: check 5th.
+                            %
+                          numnames.old #4 =
+                            { numnames #4 =
+                                {   %
+                                    % Both current and previous have 4 authors,
+                                    % which are the same, so both have
+                                    % identical author-year combinations, so
+                                    % ambiguity should be resolved by a's and
+                                    % b's. Check whether more authors were
+                                    % necessary for previous one.
+                                    %
+                                  change.add.to.year
+                                  cite.num.names.short cite.num.names.old  <
+                                    { cite.num.names.old
+                                        'cite.num.names.short :=
+                                    }
+                                    'skip$
+                                  if$
+                                }
+                                {   %
+                                    % Previous has 4 authors, current has more,
+                                    % with same first 4, so at least 5 must be
+                                    % used for current to make a difference.
+                                    %
+                                  cite.num.names.short  #5  <
+                                    { #5  'cite.num.names.short := }
+                                    'skip$
+                                  if$
+                                }
+                              if$
+                            }
+                            { numnames #4 =
+                                {   %
+                                    % Current has 4 authors, previous has more,
+                                    % with same first 4, so all 4 of current
+                                    % must be used.
+                                    %
+                                  numnames  'cite.num.names.short :=
+                                }
+                                {   %
+                                    % Same 1st-4th author and both current and
+                                    % previous have at least 5 authors: check
+                                    % 5th.
+                                    %
+                                  aut5 aut5.old =
+                                    {   %
+                                        % Same 1st-5th authors: check 6th.
+                                        %
+                                      numnames.old #5 =
+                                        { numnames #5 =
+                                            {   %
+                                                % Both current and previous
+                                                % have 5 authors, which are the
+                                                % same, so both have identical
+                                                % author-year combinations, so
+                                                % ambiguity should be resolved
+                                                % by a's and b's. Check whether
+                                                % more authors were necessary
+                                                % for previous one.
+                                                %
+                                              change.add.to.year
+                                              cite.num.names.short
+                                                cite.num.names.old  <
+                                                { cite.num.names.old
+                                                    'cite.num.names.short  :=
+                                                }
+                                                'skip$
+                                              if$
+                                            }
+                                            {   %
+                                                % Previous has 5 authors,
+                                                % current has more, with same
+                                                % first 5, so at least 6 must
+                                                % be used for current to make
+                                                % a difference.
+                                                %
+                                              cite.num.names.short #6 <
+                                                { #6 'cite.num.names.short := }
+                                                'skip$
+                                              if$
+                                            }
+                                          if$
+                                        }
+                                        { numnames #5 =
+                                            {   %
+                                                % Current has 5 authors,
+                                                % previous has more, with same
+                                                % first 5, so all 5 of current
+                                                % must be used.
+                                                %
+                                              numnames 'cite.num.names.short :=
+                                            }
+                                            {   %
+                                                % Same 1st-5th author and both
+                                                % current and previous have at
+                                                % least 6 authors. If one has
+                                                % 6 authors and the other has
+                                                % more or the 6th is different,
+                                                % 6 should be used (which is
+                                                % the maximum).
+                                                %
+                                              numnames #6 >
+                                                numnames.old #6 =
+                                                  and
+                                                %
+                                              numnames #6 =
+                                                numnames.old #6 >
+                                                  and
+                                                %
+                                              or
+                                                %
+                                              aut6 aut6.old =
+                                                not
+                                                %
+                                              or
+                                                { #6 cite.num.names.short <
+                                                    { #6
+                                                        'cite.num.names.short
+                                                          :=
+                                                    }
+                                                    'skip$
+                                                  if$
+                                                }
+                                                {   %
+                                                    % The first 6 authors are
+                                                    % the same and either both
+                                                    % have 6 or both have more.
+                                                    % So for all practical
+                                                    % purposes they have
+                                                    % identical author-year
+                                                    % combination, so ambiguity
+                                                    % should be resolved by a's
+                                                    % and b's. Check whether
+                                                    % more authors were
+                                                    % necessary for previous
+                                                    % one.
+                                                    %
+                                                  change.add.to.year
+                                                  cite.num.names.short
+                                                    cite.num.names.old
+                                                      <
+                                                    { cite.num.names.old
+                                                        'cite.num.names.short
+                                                          :=
+                                                    }
+                                                    'skip$
+                                                  if$
+                                                }
+                                              if$
+                                            }
+                                          if$
+                                        }
+                                      if$
+                                    }
+                                    {   %
+                                        % Different 5th author: citing 5 authors is
+                                        % sufficient for this comparison.
+                                        %
+                                      cite.num.names.short #5 <
+                                        { #5 'cite.num.names.short := }
+                                        'skip$
+                                      if$
+                                    }
+                                  if$
+                                }
+                              if$
+                            }
+                          if$
+                        }
+                        {   %
+                            % Different 4th author: citing 4 authors is
+                            % sufficient for this comparison.
+                            %
+                          cite.num.names.short #4 <
+                            { #4 'cite.num.names.short := }
+                            'skip$
+                          if$
+                        }
+                      if$
+                    }
+                  if$
+                }
+              if$
+            }
+            {   %
+                % Different 3rd author: citing 3 authors is sufficient for this
+                % comparison.
+                %
+              cite.num.names.short #3 <
+                { #3 'cite.num.names.short := }
+                'skip$
+              if$
+            }
+          if$
+        }
+        {   %
+            % Different 2nd author: citing 2 authors is sufficient for this
+            % comparison.
+            %
+          cite.num.names.short #2 <
+            { #2 'cite.num.names.short := }
+            'skip$
+          if$
+        }
+      if$
+    }
+    {   %
+        % Different first author: no ambiguity, move to next entry.
+        %
+      skip$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {definitive.cite.num.names.field}
+{ 'field :=
+  field num.names$  'numnames :=
+    %
+    % Format authors
+    %
+  format.6.authors
+    %
+    % Now compare authors with authors of previous entry.
+    %
+  cite.num.names.short   numnames.old    >
+    {   %
+        % The previous entry has less authors than already defined
+        % necessary to be cited. No ambiguity is possible and we're ready.
+        %
+      skip$
+    }
+    {   %
+        % Both previous and current entry have at least one author .
+        %
+      year.label   year.label.old  =
+        {   %
+            % Same year label: possibly ambiguous citation.
+            %
+            % First check: current and/or previous have 1 or
+            % 2 authors.
+            %
+          numnames  #3  <
+            numnames.old  #3  <
+              or
+               %
+            { definitive.cite.num.names.1.or.2 }
+            { definitive.cite.num.names.3.or.more }
+          if$
+        }
+        {   %
+            % Different year label: everything's fine,
+            % move to next entry.
+            %
+          skip$
+        }
+      if$
+    }
+  if$
+    %
+    % If during the previous process the name maximum is exceeded
+    % (which was not checked), correct this. NOTE: If the name
+    % maximum is smaller than 6, this could lead to ambiguous
+    % citations if, e.g., the year and the first 5 authors are
+    % the same, but the 6th author is different.
+    %
+  cite.num.names.short   name.max   >
+    { name.max  'cite.num.names.short  := }
+    'skip$
+  if$
+    %
+    % For a "full" cite, the number of names should always be at least
+    % as large as for a "short" cite.
+    %
+  cite.num.names.full   cite.num.names.short   <
+    { cite.num.names.short 'cite.num.names.full := }
+    'skip$
+  if$
+    %
+    % Update "old" variables for next entry.
+    %
+  update.cite.num.names
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {definitive.cite.no.names}
+{   %
+    % The formatted field that acts as author is on top
+    % of the stack.
+      'aut1f :=
+  ""  'aut2 :=
+  ""  'aut3 :=
+  ""  'aut4 :=
+  ""  'aut5 :=
+  ""  'aut6 :=
+  #1  'numnames  :=
+    %
+  year.label   year.label.old  =
+    {   %
+        % Same year label: possibly ambiguous citation.
+        %
+      definitive.cite.num.names.1.or.2
+    }
+    {   %
+        % Different year label: everything's fine,
+        % move to next entry.
+        %
+      skip$
+    }
+  if$
+    %
+    % Update "old" variables for next entry.
+    %
+  update.cite.num.names
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {definitive.cite.num.names}
+{   %
+    % Check whether author or editor or other field acts as author.
+    % Number of names is only relevant with author or editor.
+    %
+  firstkey empty$ not
+    { firstkey  sortify  remove.spaces  definitive.cite.no.names }
+    { key empty$ not
+        { key  sortify  remove.spaces  definitive.cite.no.names }
+        {   %
+            % No key or firstkey, so find out which field
+            % to use as author.
+            %
+            % Check reference type:
+            %   if result is 1 then possibly editor acts as author
+            %                2 then editor does not act as author
+            %                3 then key should have been used
+            %                0 then unknown reference type
+          ref.type  #2 =
+            {   %
+                % Format first author with and without initials
+              author empty$
+                { title.sort.label  definitive.cite.no.names }
+                { author  definitive.cite.num.names.field }
+              if$
+            }
+            {   %
+                % Format first author with and without initials
+              author empty$
+                { editor empty$
+                    { title.sort.label  definitive.cite.no.names }
+                    { editor definitive.cite.num.names.field }
+                  if$
+                }
+                { author definitive.cite.num.names.field }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.tentative.year.sort.label}
+{   %
+    % Implicit or explicit ``no date'' is put at the front
+    % (the year zero; years B.C. will imply complications)
+    % because these are possibly old works.
+    % ``In press'' is put at the end.
+    %
+  year empty$
+    { "0000" 'year.label := }
+    { year "\bibnodate" =
+      year "l" change.case$ "no date" = or
+      year "l" change.case$ "n.d."    = or
+        { "0000" 'year.label := }
+        { year "\BIP" =
+          year "l" change.case$ "in press"    =  or
+          year "l" change.case$ "forthcoming" =  or
+            { "9999" 'year.label := }
+            {   % It is not checked whether the year field
+                % makes sense.
+              year  sortify  remove.spaces  'year.label :=
+            }
+          if$
+        }
+      if$
+    }
+  if$
+    %
+    % Push year sort label on the stack
+  year.label
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {month.number.day}
+{ month empty$
+    { "" }
+    { month sortify remove.spaces
+        %
+        % Add the day when available.
+      day empty$
+        'skip$
+        { "/" *
+          day  sortify  remove.spaces  *
+        }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.name.sort.label}
+{   %
+    % Author or editor-acting-as-author available.
+    % => Make tentative "short cite with initials" author
+    %    label (L1) of one of the forms
+    %     "Last1  F1"
+    %     "Last1  F1   Last2"
+    %     "Last1  F1   zzzz"  ("zzzz" representing et~al.)
+    % => If more than 2 'authors': make label (L2) for 2nd-6th authors
+    %    of one of the forms
+    %     "Last2   Last3"
+    %     "Last2   Last3   Last4"
+    %     "Last2   Last3   Last4   Last5"
+    %     "Last2   Last3   Last4   Last5   Last6"
+    %     "Last2   Last3   Last4   Last5   Last6   zzzz"
+    %
+    % Then format year label (L3) of one of the forms:
+    %     "0000"  (missing year or explicit 'no date')
+    %     "9999"  ('in press')
+    %     year    (otherwise; don't use originalyear here yet)
+    %
+    % From earlier sorting of titles, we have title number. Convert
+    % to string, which gives title label (L4) .
+    %
+    % Then tentative sorting label (author.year.sort.label) is a
+    % concatenation of
+    %     L1
+    %     "    "
+    %     L3
+    %     "    "
+    %     L2
+    %     "    "
+    %     L4
+    %
+    % The name field is on top of the stack.
+  'field :=
+    %
+    % numnames is the total number of names contained in field
+  field num.names$ 'numnames :=
+    %
+    % Format first author
+  field  #1  sort.name.format  format.name$
+    %
+    % Format the second author if there are two, or else "zzzz" = et~al.
+  numnames #1 =
+    'skip$
+    { numnames #2 =
+        {   %
+            % Two authors: format second author
+          field  #2  "{ll{}}"  format.name$  's :=
+          s "others" =
+            { "   zzzz" * }    % Add "et~al."-substitute
+            { "   " * s * }    % Add second author
+          if$
+        }
+        { "   zzzz" * } % 3 or more authors: add "et~al."-substitute
+      if$
+    }
+  if$
+  "    "  *                          % Add spaces
+  make.tentative.year.sort.label *   % Add year (L3).
+  "    "  *                          % Add spaces
+    %
+    % Now build up L2 if applicable
+  numnames #3 <
+    'skip$
+    {   %
+        % Treat last author slightly differently
+      numnames name.max >
+        { name.max  'lastname  :=
+          "   zzzz"                 % Push "et~al."-substitute on stack
+        }
+        { numnames  'lastname  :=
+          ""                        % Push empty string on stack
+        }
+      if$
+        %
+        % Names 2 to "last" - 1
+      ""                            % Push empty string on stack
+      #2 'nameptr :=
+      { nameptr lastname < }
+        {   % Add name no. nameptr
+          field  nameptr  "{ll{}}"  format.name$ *
+          "   " *
+          nameptr #1 +  'nameptr :=
+        }
+      while$
+        %
+        % "Last" author
+      field  lastname  "{ll{}}"  format.name$  's :=
+      s "others" =
+        { "zzzz" * }    % Add "et~al."-substitute
+        { s * }         % Add last author
+      if$
+        %
+      swap$ *  % Add the previously formatted empty string or
+               % "et~al."-substitute if there are many authors.
+      *        % Add L2 to the earlier labels.
+    }
+  if$
+    %
+  "    "  *                          % Add spaces
+  title.number  conv.int.to.str  *   % Add sorted title number (L4).
+  sortify                            % Clean up and convert to lowercase
+  "    "  *                          % Add spaces
+  month.number.day  *                % Add month and day when available
+  'author.year.sort.label :=         % Assign result to sort label.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.field.year.sort.label}
+{   %
+    % 'field' acts as first author (L1), subsequent authors
+    % are empty (L2).
+    %
+    % Then format year label (L3) of one of the forms:
+    %     "0000"  (missing year or explicit 'no date')
+    %     "9999"  ('in press')
+    %     year    (otherwise; don't use originalyear here yet)
+    %
+    % From earlier sorting of titles, we have title number. Convert
+    % to string, which gives title label (L4) .
+    %
+    % Then tentative sorting label (author.year.sort.label) is a
+    % concatenation of
+    %     L1
+    %     "    "
+    %     L3
+    %     "    "
+    %     L2
+    %     "    "
+    %     L4
+    %
+    % 'field' is on top of the stack. It is already supposed to be cleaned
+    % (i.e., sortified and space-removed), so this is already L1.
+  "    "  *                          % Add spaces to L1
+  make.tentative.year.sort.label *   % Add year (L3).
+  "    "  *                          % Add spaces
+  "    "  *                          % L2 is empty, add spaces
+  title.number  conv.int.to.str  *   % Add sorted title number (L4).
+  sortify                            % Clean up and convert to lowercase
+  "    "  *                          % Add spaces
+  month.number.day  *                % Add month and day when available
+  'author.year.sort.label :=         % Assign result to sort label.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.author.editor.sort.label}
+{ author empty$
+    { editor empty$
+        {   %
+            % Use what has previously been stored in title.sort.label
+            % as author substitute .
+          title.sort.label   make.field.year.sort.label
+        }
+        { editor make.name.sort.label }
+      if$
+    }
+    { author make.name.sort.label }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.author.sort.label}
+{ author empty$
+    {   %
+        % Use what has previously been stored in title.sort.label
+        % as author substitute .
+      title.sort.label   make.field.year.sort.label
+    }
+    { author make.name.sort.label }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.tentative.sort.label}
+{   %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % General strategy:
+    %
+    % Ordinary situation: author or editor-acting-as-author
+    % available.
+    % => Make tentative "short cite with initials" author
+    %    label (L1) of one of the forms
+    %     "Last1  F1"
+    %     "Last1  F1   Last2"
+    %     "Last1  F1   zzzz"  ("zzzz" representing et~al.)
+    % => If more than 2 'authors': make label (L2) for 2nd-6th authors
+    %    of one of the forms
+    %     "Last2   Last3"
+    %     "Last2   Last3   Last4"
+    %     "Last2   Last3   Last4   Last5"
+    %     "Last2   Last3   Last4   Last5   Last6"
+    %     "Last2   Last3   Last4   Last5   Last6   zzzz"
+    % When key is available (overrules author and editor fields):
+    % => L1 = key, L2 = ""
+    % No author, editor, and key: define title or substitute as key
+    % and format as key.
+    %
+    % Then format year label (L3) of one of the forms:
+    %     "0000"  (missing year or explicit 'no date')
+    %     "9999"  ('in press')
+    %     year    (otherwise; don't use originalyear here yet)
+    %
+    % From earlier sorting of titles, we have title number. Convert
+    % to string, which gives title label (L4) .
+    %
+    % Then tentative sorting label (author.year.sort.label) is a
+    % concatenation of
+    %     L1
+    %     "    "
+    %     L3
+    %     "    "
+    %     L2
+    %     "    "
+    %     L4
+    %
+    % This can then be sorted, from which it can be derived
+    % whether initials are necessary, how many names must
+    % be used for short and full citations, and whether "a"'s and
+    % "b"'s etc. are necessary behind the year labels.
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % key and firstkey overrule author information
+    %
+  firstkey empty$ not
+    { key empty$ not
+        {   %
+            % Both key and firstkey available:
+            % for sorting and checking initials, treat key as last
+            % name and firstkey as initials.
+            %
+          key       sortify  remove.spaces
+          "  " *
+          firstkey  sortify  remove.spaces *
+          make.field.year.sort.label
+        }
+        { firstkey  sortify  remove.spaces make.field.year.sort.label }
+      if$
+    }
+    { key empty$ not
+        { key   sortify  remove.spaces make.field.year.sort.label }
+        {   %
+            % No key or firstkey, so find out which field
+            % to use as author.
+            %
+            % Check reference type:
+            %   if result is 1 then possibly editor acts as author
+            %                2 then editor does not act as author
+            %                3 then key should have been used
+            %                0 then unknown reference type
+          ref.type
+          duplicate$ #1 =
+            { pop$
+              make.author.editor.sort.label
+            }
+            { duplicate$ #2 =
+                { pop$
+                  make.author.sort.label
+                }
+                { #3 =
+                    { "no key in " cite$ * warning$
+                      make.author.editor.sort.label
+                    }
+                    { make.author.editor.sort.label }
+                  if$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+    %
+  author.year.sort.label  'sort.key$ :=
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.definitive.name.sort.label}
+{   %
+    % Author or editor-acting-as-author available.
+    % => Make author-with-initials label (L1) of one of the forms
+    %     "Last1  F1   Last2  F2   ...   LastN  FN"
+    %     "Last1  F1   Last2  F2   ...   Last6  F6   zzzz"
+    %     (where N <= 6 is the total number of authors, and
+    %      "zzzz" represents et~al. if there are more than 6 authors)
+    % No author, editor, and key: define title or substitute as sort key.
+    %
+    % The name field is on top of the stack.
+  'field :=
+    %
+    % numnames is the total number of names contained in field
+  field num.names$ 'numnames :=
+    %
+    % If there are more than 6 authors, only 6 are mentioned.
+  numnames  name.max  >
+    { name.max  'format.num.names  := }
+    { numnames  'format.num.names  := }
+  if$
+    % Initialize stack with empty string
+  ""
+    %
+    % Cycle over authors.
+  #1  'nameptr  :=
+    { nameptr  format.num.names  < }
+    { % Format author and add spaces
+       field  nameptr  sort.name.format  format.name$  *
+       "   " *
+       nameptr #1 + 'nameptr :=
+    }
+  while$
+    % Format last author that must be formatted
+  field  nameptr  sort.name.format  format.name$  *
+    % Add et~al. if necessary
+  nameptr numnames  <
+    { "   zzzz" * }
+    'skip$
+  if$
+  sortify                            % Clean up and change case
+  "    "  *                          % Add spaces
+  year.label *                       % Add year
+  "    "  *                          % Add spaces
+  title.number  conv.int.to.str  *   % Add sorted title number
+  "    "  *                          % Add spaces
+  month.number.day  *                % Add month and day when available
+  'author.year.sort.label :=         % Assign result to sort label.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.definitive.field.year.sort.label}
+{   %
+    % 'field' acts as author (L1).
+    %
+    % Then format year label (L2) of one of the forms:
+    %     "0000"  (missing year or explicit `no date')
+    %     "9999"  (`in press')
+    %     year    (otherwise; don't use originalyear here yet)
+    %
+    % From earlier sorting of titles, we have title number. Convert
+    % to string, which gives title label (L3) .
+    %
+    % Then tentative sorting label (author.year.sort.label) is a
+    % concatenation of
+    %     L1
+    %     "    "
+    %     L2
+    %     "    "
+    %     L3
+    %
+    % 'field' is on top of the stack. It is already supposed to be cleaned
+    % (i.e., sortified and space-removed), so this is already L1.
+  "    "  *                          % Add spaces
+  year.label *                       % Add year
+  "    "  *                          % Add spaces
+  title.number  conv.int.to.str  *   % Add sorted title number
+  "    "  *                          % Add spaces
+  month.number.day  *                % Add month and day when available
+  'author.year.sort.label :=         % Assign result to sort label.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.definitive.author.editor.sort.label}
+{ author empty$
+    { editor empty$
+        {   %
+            % Use what has previously been stored in title.sort.label
+            % as author substitute .
+          title.sort.label   make.definitive.field.year.sort.label
+        }
+        { editor  make.definitive.name.sort.label }
+      if$
+    }
+    { author  make.definitive.name.sort.label }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.definitive.author.sort.label}
+{ author empty$
+    {   %
+        % Use what has previously been stored in title.sort.label
+        % as author substitute .
+      title.sort.label   make.definitive.field.year.sort.label
+    }
+    { author  make.definitive.name.sort.label }
+  if$
+}
+FUNCTION {make.final.sort.key}
+{ ref.type  #2 =
+    { make.definitive.author.sort.label }
+    { make.definitive.author.editor.sort.label }
+  if$
+  unsorted
+    { citeorder.sort.label    'sort.key$ := }
+    { author.year.sort.label  'sort.key$ := }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {chop.word}
+{ 's :=
+  'len :=
+  s #1 len substring$ =
+    { s len #1 + global.max$ substring$ }
+    { s }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {chop.articles}
+{ 's :=
+  "a " #2
+    "an " #3
+      "the " #4
+        s
+      chop.word
+    chop.word
+  chop.word
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.sort.title}
+{   %
+    % Remove non-alphanumeric characters and change to lower case .
+  sortify
+    %
+    % Remove "a ", "an ", and "the " from the front .
+  chop.articles #1 entry.max$ substring$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.sort.title}
+{ title empty$
+    { text empty$
+        { type empty$
+            { howpublished empty$
+                { note empty$
+                    { url empty$
+                        { " " }
+                        {url  format.sort.title }
+                      if$
+                    }
+                    { note  format.sort.title }
+                  if$
+                }
+                { howpublished  format.sort.title }
+              if$
+            }
+            { type  format.sort.title }
+          if$
+        }
+        { text format.sort.title }
+      if$
+    }
+    { title  format.sort.title }
+  if$
+  remove.spaces
+  'title.sort.label :=
+  title.sort.label 'sort.key$ :=
+}
+FUNCTION {make.title.number}{ title.sort.label  old.label  =
+    {
+      old.number  'title.number :=
+    }
+    {
+      old.number  #1  +  'title.number :=
+      title.number       'old.number   :=
+      title.sort.label   'old.label    :=
+    }
+  if$
+}
+FUNCTION {make.citeorder.number}
+{ old.number  #1  +  'cite.order :=
+  cite.order       'old.number   :=
+  cite.order conv.int.to.str 'citeorder.sort.label :=
+}
+
+FUNCTION {last.part.name.format.classic} { "{ll}" }
+
+FUNCTION {von.junior.name.format.classic} { "{ vv}{, jj}" }
+
+FUNCTION {last.part.name.format} { "{vv }{ll}" }
+
+FUNCTION {initials.with.space.name.format} { "{f.}" }
+
+FUNCTION {von.last.junior.name.format} { "{vv }{ll}{ jj}" }
+
+FUNCTION {von.junior.name.format} { "{, jj}" }
+
+FUNCTION {one.complete.name.format} { "{vv }{ll}{, jj}{, ff}" }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {string.length}
+{ #0 'pos :=
+  % If the next character exists, i.e., is not empty,
+  % add 1 to the string length.
+  % We cannot use empty$ because " " empty$ is true.
+  { duplicate$ pos #1 + #1 substring$ "" = not }
+    { pos #1 + 'pos := }
+  while$
+  pop$ pos
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {transform.spaces.and.hyphens}
+{ 's :=                    % The original string
+  s string.length 'len :=  % Its length (no. of characters)
+  "" 't :=                 % Initialize the transformed string
+  #1 'pos :=
+  #0 'brace.level :=
+    %
+    % while (pos < len) do
+    %
+  { pos len < }
+    { % First, check whether we are at brace level 0
+      brace.level #0 =
+        {
+          % At least two characters left: check for ". ", ".~", and ".-".
+          % If so, replace and shift two positions.
+          s pos #2 substring$  ". " =
+          s pos #2 substring$  ".~" = or
+            { t ".  " *  't :=
+              pos #2 +  'pos :=
+            }
+            { s pos #2 substring$  ".-" =
+                { t ".-" *  't :=
+                  pos #2 +  'pos :=
+                }
+                { % neither is true, copy one character and shift one position
+                  t   s pos #1 substring$   *   't :=
+                  % Check whether we need to increase brace level.
+                  % Note that this is not sophisticated: it does not capture
+                  % \{, \verb+}+, etc.
+                  % Note also that unbalanced braces cause problems.
+                  s pos #1 substring$ "{" =
+                    { brace.level #1 + 'brace.level := }
+                    'skip$
+                  if$
+                  pos #1 +  'pos :=
+                }
+              if$
+            }
+          if$
+        }
+        { % Not at brace level 0: copy result literally
+          t   s pos #1 substring$   *   't :=
+          % Check whether we need to increase or decrease brace level.
+          % Note that this is not sophisticated: it does not capture
+          % \{, \verb+}+, etc.
+          s pos #1 substring$ "{" =
+            { brace.level #1 + 'brace.level := }
+            { s pos #1 substring$ "}" =
+                { brace.level #1 - 'brace.level := }
+                'skip$
+              if$
+            }
+          if$
+          pos #1 +  'pos :=
+        }
+      if$
+    }
+  while$
+    %
+  pos len =
+    { % Last character, copy
+      t   s pos #1 substring$   *   't :=
+    }
+    { % pos = len + 1, so s ends with ". " or ".-"
+      % This should not have happened, but make the best out of it.
+      % Push last two characters of s on the stack, i.e., ". " or ".-".
+      s len #1 - #2 substring$
+      % Remove ".  " or "\BHBI " from t
+      t text.length$ 'len :=   % Length of t (no. of characters)
+      t #1 len #6 - substring$
+      % Concatenate and assign to t
+      swap$ * 't :=
+    }
+  if$
+    %
+    % Now push the result back on the stack
+  t
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.initials.with.hyphen}
+{ % Format initials.
+  % Call with
+  %   field authornumber format.initials.with.hyphen
+  % e.g.
+  %   author #1 format.initials.with.hyphen
+  % Instead of field, a string may also be used.
+  %
+  % First, format initials in the default way, retaining spaces
+  % and hyphens.
+  initials.with.space.name.format format.name$
+  transform.spaces.and.hyphens
+}
+
+FUNCTION {format.last.part.name}
+{ % Format a name with last.part.name.format,
+  % as part of more complicated things.
+  % Call with
+  %   field authornumber format.last.part.name
+  % e.g.
+  %   author #1 format.last.part.name
+  % Instead of field, a string may also be used.
+  last.part.name.format  format.name$
+}
+
+FUNCTION {format.von.last.junior.name}
+{ % Format a name with von.last.junior.name.format,
+  % for citing or as part of more complicated things.
+  % Call with
+  %   field authornumber format.von.last.junior.name
+  % e.g.
+  %   author #1 format.von.last.junior.name
+  % Instead of field, a string may also be used.
+  von.last.junior.name.format  format.name$
+}
+
+FUNCTION {format.von.junior.name}
+{ % Format a name with von.last.junior.name.format,
+  % for citing or as part of more complicated things.
+  % Call with
+  %   field authornumber format.von.junior.name
+  % e.g.
+  %   author #1 format.von.junior.name
+  % Instead of field, a string may also be used.
+  von.junior.name.format  format.name$
+}
+
+FUNCTION {format.cite.initials.name}
+{ % Format a name for citing with initials.
+  % Call with
+  %   field authornumber format.cite.initials.name
+  % e.g.
+  %   author #1 format.cite.initials.name
+  % Instead of field, a string may also be used.
+  %
+  % First, extract the complete name, format it in the canonical form,
+  % and push on the stack.
+  one.complete.name.format format.name$
+  %
+  % Format the initials and push on the stack.
+  duplicate$ #1 format.initials.with.hyphen
+  %
+  % Format the von-last-junior part and push on the stack.
+  swap$ #1 format.von.last.junior.name
+  %
+  % Connect with "~" hyphen (if they're both non-empty).
+  "~" connect.check
+}
+
+FUNCTION {format.author.name}
+{ % Format an author name for the reference list.
+  % Call with
+  %   field authornumber format.author.name
+  % e.g.
+  %   author #1 format.author.name
+  % Instead of field, a string may also be used.
+  %
+  % First, extract the complete name, format it in the canonical form,
+  % and push on the stack.
+  one.complete.name.format format.name$
+  %
+  % Make two copies of the name, format the last name and push on the stack.
+  duplicate$ duplicate$ #1 format.last.part.name
+  %
+  % Format the initials and push on the stack.
+  swap$ #1 format.initials.with.hyphen
+  %
+  % Connect with last name.
+  connect.with.comma.check
+  %
+  % Format the von-junior part and connect with initials.
+  swap$ #1 format.von.junior.name "" connect.check
+}
+
+FUNCTION {format.editor.name}
+{ % Format a name for the reference list as an editor.
+  % Call with
+  %   field authornumber format.editor.name
+  % e.g.
+  %   author #1 format.editor.name
+  % Instead of field, a string may also be used.
+  %
+  format.cite.initials.name
+}
+
+FUNCTION {format.index.name}
+{ % Format an author name for the index.
+  % Call with
+  %   field authornumber format.index.name
+  % e.g.
+  %   author #1 format.index.name
+  % Instead of field, a string may also be used.
+  %
+  format.author.name
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+FUNCTION {comma.between.two} { ", " } % MDPI Modified
+
+FUNCTION {comma.between.names} { ", " }
+
+FUNCTION {comma.before.last} { ", " }
+
+FUNCTION {dots.before.last} { ", \dots{} " }
+
+FUNCTION {and.before.last} { " \BBA\ " }
+
+FUNCTION {et.al.string.cite} { " et~al." }
+
+FUNCTION {et.al.string} { " et~al." }
+
+FUNCTION {et.al.string.period} { " et~al." }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {add.name.index}
+{   %
+    %
+  make.index
+    { "" * write$ 
+        % Check for corporate author
+      field is.bibcorporate
+        { "\corporateAX{" }
+        { "\AX{" }
+      if$
+      write$
+      field nameptr sort.name.format  format.name$  sortify  write$ newline$
+      "@"  write$
+      field nameptr format.index.name
+      "}"  *   write$ 
+    }
+    { "" * write$  }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.name.cite.label}
+{ 'field  :=
+  'format.num.names  :=
+    %
+  field  num.names$  'numnames :=   % numnames is the total number of names
+                                    %   contained in field
+    %
+    % It is implicit in the APA manual that if "et~al." would refer
+    % to exactly one author, then this author should be named
+    % instead of "et~al."
+    %
+  format.num.names  numnames  #1  -  =
+    { numnames  'format.num.names  := }
+    'skip$
+  if$
+    %
+    % Format first author: with or without initials
+    %
+  #1 'nameptr :=
+  cite.initials  #1  =
+    { field  nameptr  format.cite.initials.name     }
+    { field  nameptr  cite.name.format format.name$ }
+  if$
+  add.name.index  % Add index entry when desired.
+    %
+  numnames  #1  =
+    'skip$
+    { format.num.names  #1  =
+        {   %
+            % First author et~al.
+            %
+          et.al.string.cite write$
+        }
+        { numnames  #2  =
+            {   %
+                % Given that  format.num.names > 1, it is 2.
+                % Format second author.
+                %
+              #2  'nameptr :=
+              field  nameptr  cite.name.format  format.name$  's :=
+                %
+                % Check if 2nd author is explicit "others".
+                % If so, insert "et~al." string.
+                %
+              s "others" =
+                { et.al.string.cite write$ }  % First et~al.
+                {   %
+                    % First \& Second
+                    %
+                  and.before.last write$
+                  s
+                  add.name.index  % Add index entry when desired.
+                }
+              if$
+            }
+            {   %
+                % 3 or more names, 2 or more must be cited
+                %
+                % for nameptr := 2  to  format.num.names - 1  do
+                %
+              #2  'nameptr  :=
+                { nameptr  format.num.names  < }
+                {   %
+                    % Put comma between consecutive authors
+                    %
+                  comma.between.names  write$
+                    %
+                    % Format and add next author
+                    %
+                  field  nameptr  cite.name.format  format.name$
+                  add.name.index  % Add index entry when desired.
+                    %
+                    % Move to next author
+                    %
+                  nameptr  #1  +  'nameptr :=
+                }
+              while$
+                %
+                % nameptr  =  format.num.names
+                % Format this author.
+                %
+              field  nameptr  cite.name.format  format.name$  's :=
+                %
+              format.num.names  numnames  =
+                {   %
+                    % This is also the last author. Add (optional) comma.
+                    %
+                  comma.before.last  write$
+                    %
+                    % Check if this author is explicit "others".
+                    % If so, insert "et~al." string.
+                    %
+                  s "others" =
+                    { et.al.string.cite  write$ }
+                    { and.before.last    write$
+                      s
+                      add.name.index  % Add index entry when desired.
+                    }
+                  if$
+                }
+                {   %
+                    % This is not the last author.
+                    % Add comma, author name, and "et~al."
+                    %
+                  comma.between.names  write$
+                  s
+                  add.name.index  % Add index entry when desired.
+                    %
+                  comma.before.last  et.al.string.cite  *  write$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.title.cite.label}
+{   %
+    % Formatting: check if formatted as article title or
+    % as book title, and insert this formatting.
+    %
+  is.atype
+    { "\APACciteatitle {" }
+    { "\APACcitebtitle {" }
+  if$
+    %
+  title empty$
+    { text empty$
+        { type empty$
+            { howpublished empty$
+                { note empty$
+                    { url empty$
+                        { cite$ }
+                        { url   }
+                      if$
+                    }
+                    { note  }
+                  if$
+                }
+                { howpublished }
+              if$
+            }
+            { type }
+          if$
+        }
+        { text }
+      if$
+    }
+    { title }
+  if$
+    %
+    % Connect with formatting.
+    %
+  * "}" *
+    %
+    % Write to output
+    %
+  write$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.author.editor.cite.label}
+{ author empty$
+    { editor empty$
+        {   %
+            % No author or editor:
+            % Use title or other description as citation label.
+            %
+          make.title.cite.label
+          "}{"  write$ 
+          make.title.cite.label
+        }
+        { cite.num.names.full   editor  make.name.cite.label
+          "}{"  write$ 
+          cite.num.names.short  editor  make.name.cite.label
+        }
+      if$
+    }
+    { cite.num.names.full   author  make.name.cite.label
+      "}{"  write$ 
+      cite.num.names.short  author  make.name.cite.label
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.author.cite.label}
+{ author empty$
+    {   %
+        % No author:
+        % Use title or other description as citation label.
+        %
+      make.title.cite.label
+      "}{"  write$ 
+      make.title.cite.label
+    }
+    { cite.num.names.full   author  make.name.cite.label
+      "}{"  write$ 
+      cite.num.names.short  author  make.name.cite.label
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.definitive.year.supplement}
+{   %
+    % Add "a", "b", etc. when necessary.
+    %
+  add.to.year  #0  =
+    { "" }
+    { "{\protect "
+      year empty$
+        { "\BCntND " * }
+        { year "\bibnodate" =
+          year "l" change.case$ "no date" = or
+          year "l" change.case$ "n.d."    = or
+            { "\BCntND " * }
+            { year "\BIP" =
+              year "l" change.case$ "in press"    =  or
+              year "l" change.case$ "forthcoming" =  or
+                { "\BCntIP " * }
+                { "\BCnt " * }
+              if$
+            }
+          if$
+        }
+      if$
+      "{" * add.to.year int.to.str$ * "}}" *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {protect.year}
+{ year empty$
+    { "{\protect \bibnodate {}}" }
+    { year "\bibnodate" =
+      year "l" change.case$ "no date" = or
+      year "l" change.case$ "n.d."    = or
+        { "{\protect \bibnodate {}}" }
+        { year "\BIP" =
+          year "l" change.case$ "in press"    =  or
+          year "l" change.case$ "forthcoming" =  or
+            { "{\protect \BIP {}}" }
+            { year }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.definitive.year.label} % MDPI Modified
+{ "{" 
+  originalyear empty$
+    { protect.year }
+    { originalyear "\bibnodate" =    % date of original publication unknown
+      originalyear "l" change.case$ "no date" = or
+      originalyear "l" change.case$ "n.d."    = or
+        { translator empty$
+            { protect.year }
+            { "{\protect \BTRANSL {}}~" protect.year * }
+          if$
+        }
+        { year empty$
+            { originalyear "/{\protect \bibnodate {}}"   * }  % 1923/n.d.
+            { originalyear year =
+                { protect.year }
+                { originalyear  "/"  *  protect.year * }    % 1923/1961
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+  * "}" * write$
+    %
+    % Add "a", "b", etc. when necessary.
+    %
+  "{\protect \APACexlab {" "}}"
+  make.definitive.year.supplement enclose.check
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {make.cite.labels}
+{ newline$
+    %
+    % Write a few lines for testing purposes.
+    %
+  test
+    { "\bibitem[] {} \fullciteA {" cite$ * "}" *  write$ newline$
+      "\bibitem[] {} \citeA {"     cite$ * "}" *  write$ newline$
+    }
+    'skip$
+  if$
+    %
+  "\bibitem[\protect\citeauthoryear{" write$ 
+    %
+    % When key or firstkey is available, this takes precedence.
+    %
+  firstkey  empty$  not
+    {   %
+        % Full cite: firstkey.
+        %
+      firstkey  write$
+      "}{"     write$
+        %
+        % Short cite: if key is not empty and cite.initials is 0,
+        % then key, else firstkey.
+        %
+      cite.initials  #0  =
+        key empty$ not
+          and
+        { key      }
+        { firstkey }
+      if$
+      write$
+    }
+    { key empty$ not
+        {   %
+            % No firstkey, but key available:
+            % Both full and short labels are key.
+            %
+          key    write$
+          "}{"  write$ 
+          key    write$
+        }
+        {   % No key or firstkey, so find out which field
+            % to use as author.
+            %
+            % Check reference type:
+            %   if result is 1 then possibly editor acts as author
+            %                2 then editor does not act as author
+            %                3 then key should have been used
+            %                0 then unknown reference type
+          ref.type  #2  =
+            { make.author.cite.label }
+            { make.author.editor.cite.label }
+          if$
+        }
+      if$
+    }
+  if$
+  "}{"  write$ 
+    %
+    % Make year label that's used for citations
+    %
+  make.definitive.year.label  write$
+  "}]{"                      write$ 
+  cite$                       write$
+  "} "                        write$ 
+  % author.year.sort.label      write$ % for testing purposes
+  % year.label                  write$ % for testing purposes
+    %
+    % If the item is used in a meta-analysis, indicate this with
+    % a star.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {editor.postfix}
+{ editor num.names$ #1 >
+    { "(\BEDS)" }
+    { "(\BED)"  }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {editor.trans.postfix}
+{ editor num.names$ #1 >
+    { "(\BEDS{} \BAnd{} \BTRANSS)" }
+    { "(\BED{} \BAnd{} \BTRANS)"   }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % "(Trans.)" postfix
+    % translator must not be empty
+    %
+FUNCTION {trans.postfix}
+{ translator num.names$ #1 >
+    { "(\BTRANSS)" }
+    { "(\BTRANS)" }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {authors.editors.reflist.apa5}
+{ 'field  :=
+  'dot    :=
+    %
+  field  num.names$  'numnames :=   % numnames is the total number of names
+                                    %   contained in field
+  numnames  'format.num.names  :=   % Format all authors
+  format.num.names   name.max  >    % Unless this exceeds the maximum of 6.
+    { dot
+        { name.max             'format.num.names := } % Format 6 authors
+        { cite.num.names.full  'format.num.names := } % Format 1 editor
+      if$
+    }
+    'skip$
+  if$
+    %
+    % Enclose authors in APACrefauthors environment to allow crude style
+    % options in \LaTeX.
+	newline$
+    %
+    % It is kind of explicit in the APA manual that if "et~al." would
+    % refer to exactly one author (the 7th), then this author should
+    % still be replaced by "et~al.", unlike with citations.
+    % So format.num.names is not adapted.
+    %
+    % Format first author
+    %
+  #1  'nameptr :=
+  field  nameptr  format.author.name
+    %
+    % Add period if required and if this is the only author.
+    %
+  numnames  #1  =
+    dot
+    and
+    { add.period$ }
+    'skip$
+  if$
+  add.name.index  % Add index entry when desired.
+    %
+  numnames  #1  =
+    'skip$
+    { format.num.names  #1  =
+        {   %
+            % First author et~al.
+            %
+          comma.between.two
+            %
+            % Add period if required.
+            %
+          dot
+            { et.al.string.period * }
+            { et.al.string * }
+          if$
+          write$
+        }
+        { numnames  #2  =
+            {   %
+                % Given that  format.num.names > 1, it is 2.
+                %
+              comma.between.two  write$
+                %
+                % Format second author.
+                %
+              #2  'nameptr :=
+              field  nameptr  format.author.name  's :=
+                %
+                % Check if 2nd author is explicit "others".
+                % If so, insert "et~al." string.
+                %
+              s "others" =
+                {   %
+                    % First et~al.
+                    % Add period if required.
+                    %
+                  dot
+                    { et.al.string.period }
+                    { et.al.string }
+                  if$
+                  write$
+                }
+                {   %
+                    % First \& Second
+                    %
+                  and.before.last write$
+                    %
+                    % Add period if required.
+                    %
+                  dot
+                    { s add.period$ }
+                    { s }
+                  if$
+                  add.name.index  % Add index entry when desired.
+                }
+              if$
+            }
+            {   %
+                % 3 or more names, 2 or more must be cited
+                %
+                % for nameptr := 2  to  format.num.names - 1  do
+                %
+              #2  'nameptr  :=
+                { nameptr  format.num.names  < }
+                {   %
+                    % Put comma between consecutive authors
+                    %
+                  comma.between.names  write$
+                    %
+                    % Format and add next author
+                    %
+                  field  nameptr  format.author.name
+                  add.name.index  % Add index entry when desired.
+                    %
+                    % Move to next author
+                    %
+                  nameptr  #1  +  'nameptr :=
+                }
+              while$
+                %
+                % nameptr  =  format.num.names
+                % Format this author.
+                %
+              field  nameptr  format.author.name  's :=
+                %
+              format.num.names  numnames  =
+                {   %
+                    % This is also the last author. Add (optional) comma.
+                    %
+                  comma.before.last  write$
+                    %
+                    % Check if this author is explicit "others".
+                    % If so, insert "et~al." string.
+                    %
+                  s "others" =
+                    {   %
+                        % Add period if required.
+                        %
+                      dot
+                        { et.al.string.period }
+                        { et.al.string }
+                      if$
+                      write$
+                    }
+                    { and.before.last  write$
+                        %
+                        % Add period if required.
+                        %
+                      dot
+                        { s add.period$ }
+                        { s }
+                      if$
+                      add.name.index  % Add index entry when desired.
+                    }
+                  if$
+                }
+                {   %
+                    % This is not the last author.
+                    % Add comma, author name, and "et~al."
+                    %
+                  comma.between.names  write$
+                  s
+                  add.name.index  % Add index entry when desired.
+                    %
+                  comma.before.last
+                    %
+                    % Add period if required.
+                    %
+                  dot
+                    { et.al.string.period * }
+                    { et.al.string * }
+                  if$
+                  write$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {authors.reflist.apa6}
+{ 'field  :=
+  'dot    :=
+  field  num.names$  'numnames :=
+  numnames  #20  >
+    { #20        'format.num.names := }
+    { numnames  'format.num.names := }
+  if$
+  newline$
+  #1  'nameptr :=
+  field  nameptr  format.author.name
+  numnames  #1  =
+    { dot
+        { add.period$ }
+        'skip$
+      if$
+      add.name.index
+    }
+    { add.name.index
+      numnames  #2  =
+        { comma.between.two write$
+          #2  'nameptr :=
+          field  nameptr  format.author.name  's :=
+          s "others" =
+            { "`others' not consistent with 6th ed. of the APA Manual"
+              warning$
+              dot
+                { et.al.string.period }
+                { et.al.string }
+              if$
+              write$ newline$
+            }
+            { and.before.last write$
+              dot
+                { s add.period$ }
+                { s }
+              if$
+              add.name.index
+            }
+          if$
+        }
+        { %% for nameptr := 20  to  format.num.names - 1  do
+          #2  'nameptr  :=
+            { nameptr  format.num.names  < }
+            { comma.between.names write$
+              field  nameptr  format.author.name
+              add.name.index
+              nameptr  #1  +  'nameptr :=
+            }
+          while$
+          field  numnames  format.author.name  's :=
+          format.num.names  numnames  =
+            { comma.before.last write$
+              s "others" =
+                { "`others' not consistent with 6th ed. of the APA "
+                  "Manual" *
+                  warning$
+                  dot
+                    { et.al.string.period }
+                    { et.al.string }
+                  if$
+                  write$
+                }
+                { and.before.last  write$
+                  dot
+                    { s add.period$ }
+                    { s }
+                  if$
+                  add.name.index
+                }
+              if$
+            }
+            { dots.before.last write$
+              s
+              add.name.index
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.author.names}
+{ 'field  :=
+  'dot    :=
+  dot
+    { dot  field  authors.reflist.apa6 }
+    { dot  field  authors.editors.reflist.apa5 }
+  if$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.authors}
+{ #1 author format.author.names }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.editors.as.authors}
+{ #0  editor  format.author.names
+  "\ " editor.postfix * add.period$ write$ newline$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.ed.trans.as.authors}
+{ #0  editor  format.author.names
+  "\ " editor.trans.postfix * add.period$ write$ newline$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.editor.names}
+{ 'field  :=
+    %
+  field  num.names$  'numnames :=   % numnames is the total number of names
+                                    %   contained in field
+  numnames  'format.num.names  :=   % Format all authors
+  format.num.names   name.max  >    % Unless this exceeds the maximum of 6.
+    { #1 'format.num.names := }     % Then it becomes 1 (First et~al.)
+    'skip$
+  if$
+    %
+    % Format first editor
+    %
+  field  #1  format.editor.name    %
+  numnames  #1  =
+    'skip$
+    { format.num.names  #1  =
+        { et.al.string * } % First editor et~al., no comma.
+        { numnames  #2  =
+            {   %
+                % Given that  format.num.names > 1, it is 2.
+                % No comma. Format second editor.
+                %
+              field  #2  format.editor.name  's :=
+                %
+                % Check if 2nd editor is explicit "others".
+                % If so, insert "et~al." string.
+                %
+              s "others" =
+                { et.al.string  * }          % First et~al.
+                { and.before.last  *  s * }  % First \& Second
+              if$
+            }
+            {   %
+                % 3 or more names, 2 or more must be cited
+                %
+                % for nameptr := 2  to  format.num.names - 1  do
+                %
+              #2  'nameptr  :=
+                { nameptr  format.num.names  < }
+                {   %
+                    % Put comma between consecutive editors
+                    %
+                  comma.between.names  *
+                    %
+                    % Format and add next editor
+                    %
+                  field  nameptr  format.editor.name  *
+                    %
+                    % Move to next editor
+                    %
+                  nameptr  #1  +  'nameptr :=
+                }
+              while$
+                %
+                % nameptr  =  format.num.names
+                % Format this editor.
+                %
+              field  nameptr  format.editor.name  's :=
+                %
+              format.num.names  numnames  =
+                {   %
+                    % This is also the last editor. Add (optional) comma.
+                    %
+                  comma.before.last  *
+                    %
+                    % Check if this editor is explicit "others".
+                    % If so, insert "et~al." string.
+                    %
+                  s "others" =
+                    { et.al.string     *     }
+                    { and.before.last  * s * }
+                  if$
+                }
+                {   %
+                    % This is not the last editor.
+                    % Add comma, editor name, and "et~al."
+                    %
+                  comma.between.names  * s *
+                  comma.before.last    * et.al.string  *
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format editors in case editors do not act as authors
+    % (such as reference to chapter in edited book)
+    %
+    % L. W. Poon (Ed.)                         (1 editor)
+    %    or
+    % A. S. Gurman \& D. P. Kniskern (Eds.)    (2 editors)
+    %    or
+    % L. Poon, A. Jones, \& D. P. Smith (Eds.) (>2 editors)
+    %
+    % editor must not be empty
+    %
+FUNCTION {format.editors.in.line}
+{ editor           format.editor.names
+  editor.postfix   connect.with.space.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format editors in case editors are also translators
+    % and do not act as authors
+    % (such as reference to chapter in edited book
+    %  of translated articles)
+    %
+    % L. W. Poon (Ed. and Trans.)                         (1 editor)
+    %    or
+    % A. S. Gurman \& D. P. Kniskern (Eds. and Trans.)    (2 editors)
+    %    or
+    % L. Poon, A. Jones, \& D. P. Smith (Eds. and Trans.) (>2 editors)
+    %
+    % editor must not be empty
+    %
+FUNCTION {format.editors.trans.in.line}
+{ editor                 format.editor.names
+  editor.trans.postfix   connect.with.space.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format translators in case translators act as editors
+    % (such as reference to chapter in translated book)
+    %
+    % L. W. Poon (Trans.)                         (1 translator)
+    %    or
+    % A. S. Gurman \& D. P. Kniskern (Trans.)    (2 translators)
+    %    or
+    % L. Poon, A. Jones, \& D. P. Smith (Trans.) (>2 translators)
+    %
+    % translator must not be empty
+    %
+FUNCTION {format.translators.in.line}
+{ translator      format.editor.names
+  trans.postfix   connect.with.space.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format translators in case translator does not act as editor
+    % (such as reference to translated book)
+    %
+    % L. Solotaroff, Trans.
+    %
+FUNCTION {format.translators.in.paren.check}
+{ translator empty$
+    { "" }
+    { translator format.editor.names
+      translator num.names$ #1 >
+        { ", \BTRANSS{}" * }
+        { ", \BTRANS{}" * }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format editors and translators in case neither act as editor
+    % (such as reference to edited or translated book with a
+    % a single author)
+    %
+    % L. Solotaroff, Ed.
+    % L. Solotaroff, Ed. \& Trans.
+    % L. Solotaroff, Trans.
+    % L. Solotaroff, Ed. \& S. Prokofieff, Trans.
+    %
+FUNCTION {format.editors.translators.in.paren.check}
+{ editor empty$
+    { translator empty$
+        { "" }
+        { translator format.editor.names
+          translator num.names$ #1 >
+            { ", \BTRANSS{}" * }
+            { ", \BTRANS{}" * }
+          if$
+        }
+      if$
+    }
+    { editor format.editor.names
+      editor num.names$ #1 >
+        { ", \BEDS{}" * }
+        { ", \BED{}" * }
+      if$
+      translator empty$
+        'skip$
+        { editor translator =
+            { editor num.names$ #1 >
+                { " \BAnd{} \BTRANSS" * }
+                { " \BAnd{} \BTRANS" * }
+              if$
+            }
+            { " \BAnd{} " *
+              translator format.editor.names *
+              translator num.names$ #1 >
+                { ", \BTRANSS{}" * }
+                { ", \BTRANS{}" * }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % translator of article
+    %
+FUNCTION {format.atrans.check}
+{ format.translators.in.paren.check   parenthesize.check }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format "In editor (Ed.), "
+    %
+FUNCTION {format.in.editors}
+{ "\BIn{} "
+  editor empty$
+    'skip$
+    { format.editors.in.line * ", " * }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format "In translator (Trans.),"
+    %
+FUNCTION {format.in.trans}
+{ "\BIn{} "
+  translator empty$
+    'skip$
+    { format.translators.in.line * ", " * }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format "In editor (Ed. and Trans.)"
+    %  or "In editor (Ed.)" if editor not equal to translator
+    %
+FUNCTION {format.in.editors.trans}
+{ "\BIn{} "
+  editor empty$
+    { translator empty$
+        'skip$
+        { format.translators.in.line * ", " * }
+      if$
+    }
+    { translator empty$
+        { format.editors.in.line * }
+        { editor translator =
+            { format.editors.trans.in.line * }
+            { format.editors.in.line * }
+          if$
+        }
+      if$
+      ", " *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.year.check}
+{ "\APACrefYear{"
+  protect.year *
+    %
+    % Add "a", "b", etc. when necessary.
+    %
+  make.definitive.year.supplement *
+  "}" *
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+FUNCTION {format.year.month.day.check}
+{ "\APACrefYearMonthDay{"
+  protect.year *
+    %
+    % Add "a", "b", etc. when necessary.
+    %
+  make.definitive.year.supplement *
+  "}{" *
+    %
+    % Add month and day when present.
+    %
+  month empty$
+    'skip$
+    { month * }
+  if$
+  "}{" *
+  day empty$
+    'skip$
+    { day * }
+  if$
+  "}" *
+}
+
+FUNCTION {format.atitle.no.dot}
+{}
+
+FUNCTION {format.atitle.dot}
+{add.period$
+}
+
+FUNCTION {format.atitle.connect}
+{ swap$
+  duplicate$ empty$
+    { pop$
+      format.atitle.dot
+    }
+    { swap$
+      format.atitle.no.dot
+      swap$ connect.with.space.check
+      add.period$
+    }
+  if$
+}
+
+FUNCTION {format.btitle.no.dot}
+{ duplicate$ empty$
+    { pop$
+      ""
+    }
+    { duplicate$
+      % Two arguments: Title twice: (1) don't change case; (2) change case
+      "\APACrefbtitle {" swap$ * "} {" * swap$
+      "t" change.case$
+      * "}" *
+    }
+  if$
+}
+
+FUNCTION {format.btitle.dot}
+{ duplicate$ empty$
+    { pop$
+      ""
+    }
+    { add.period$ format.btitle.no.dot }
+  if$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title of book and similar
+    % field must be on top of stack
+    % second element on stack must be connected:
+    %   if that is empty, then btitle.dot
+    %   else btitle.no.dot, connect, and add period
+    %
+FUNCTION {format.btitle.connect}
+{ swap$
+  duplicate$ empty$
+    { pop$
+      format.btitle.dot
+    }
+    { swap$
+      format.btitle.no.dot
+      swap$   connect.with.space.check
+      add.period$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title of book and similar
+    % field must be on top of stack
+    % second element on stack must be connected
+    %
+FUNCTION {format.btitle.connect.no.dot}
+{ swap$
+  duplicate$ empty$
+    { pop$
+      format.btitle.no.dot
+    }
+    { swap$
+      format.btitle.no.dot
+      swap$   connect.with.space.check
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format englishtitle (of nonenglish article, etc.)
+    %
+FUNCTION {format.aetitle.check}
+{ englishtitle empty$
+    { "" }
+    { % Two arguments: Title twice: (1) don't change case; (2) change case
+      "\APACrefaetitle {" englishtitle * "} {" *
+                         englishtitle "t" change.case$ * "}" *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format englishtitle (of nonenglish book, etc.)
+    %
+FUNCTION {format.betitle.check}
+{ englishtitle empty$
+    { "" }
+    { % Two arguments: Title twice: (1) don't change case; (2) change case
+      "\APACrefbetitle {" englishtitle * "} {" *
+                         englishtitle "t" change.case$ * "}" *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format type (of article, etc.)
+    %
+FUNCTION {format.atype.check}
+{ type bracket.check }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format title and englishtitle (of article, etc.)
+    %
+FUNCTION {format.atitle.check}
+{ format.aetitle.check
+  title format.atitle.connect
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format title, englishtitle, and type
+    % (of article, etc.)
+    %
+FUNCTION {format.atitle.type.check}
+{ format.aetitle.check
+  format.atype.check   connect.with.space.check
+  title format.atitle.connect
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format title, englishtitle,
+    % and translator (of article, etc.)
+    %
+FUNCTION {format.atitle.trans.check}
+{ format.aetitle.check
+  format.atrans.check  connect.with.space.check
+  title format.atitle.connect
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format title, englishtitle, type,
+    % and translator (of article, etc.)
+    %
+FUNCTION {format.atitle.type.trans.check}
+{ format.aetitle.check
+  format.atype.check   connect.with.space.check
+  format.atrans.check  connect.with.space.check
+  title format.atitle.connect
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format journal, volume, number and pages
+    % call with
+    %   formatted.pages format.journal.vol.num.pages.check
+    %
+FUNCTION { format.journal.vol.num.pages.check }
+{ "journal" journal warning.if.empty
+  duplicate$ empty$
+  journal    empty$ and
+  volume     empty$ and
+  number     empty$ and
+    { pop$ "" }
+    { "\APACjournalVolNumPages{" journal "" connect.check
+      "}{" *                     volume  "" connect.check
+      "}{" *                     number  "" connect.check
+      "}{" *                     swap$   "" connect.check
+      "}"  *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % volume of book, checks whether
+    % "Volume" or "Volumes"
+    %
+    % call with
+    %   field format.bvolume.check
+    %
+FUNCTION {format.bvolume.check}
+{ duplicate$ empty$
+    'skip$
+    { duplicate$ multi.result.check
+        { "\BVOLS" swap$ tie.or.space.connect }
+        { "\BVOL"  swap$ tie.or.space.connect }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % edition of book, must not be empty
+    % call with
+    %   field format.edition.check
+    %
+FUNCTION {format.edition.check}
+{ duplicate$ empty$
+    'skip$
+    { "\PrintOrdinal{" swap$ * "}" *
+      "\BEd" connect.with.space.check
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % volume and edition of book
+    %
+FUNCTION {format.bvol.edition.check}
+{ edition format.edition.check
+  volume  format.bvolume.check
+  connect.with.comma.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % volume and edition of book
+    %
+FUNCTION {format.bvol.edition}
+{ format.bvol.edition.check
+  parenthesize.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % volume and edition and translator of translated book
+    %
+FUNCTION {format.bvol.edition.trans}
+{ format.bvol.edition.check
+  format.translators.in.paren.check connect.with.semicolon.check
+  parenthesize.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % volume, edition, editor, and translator of (translated) book
+    %
+FUNCTION {format.bvol.edition.editor.trans}
+{ format.bvol.edition.check
+  format.editors.translators.in.paren.check connect.with.semicolon.check
+  parenthesize.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % formats pages by first checking if 1 or more pages
+    % and prefixing pages with "p." or "pp." (these strings
+    % are given in the commands \BPG and \BPGS, respectively),
+    % whichever is applicable, and do a tie or space connect
+    %
+    % call with
+    %   field format.bpages.check
+    %
+FUNCTION {format.bpages.check}
+{ duplicate$ empty$
+    'skip$
+    { duplicate$ multi.result.check
+        { "\BPGS" swap$ tie.or.space.connect }
+        { "\BPG~" swap$ * }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % formats chapters by first checking if 1 or more chapters
+    % and prefixing pages with "chap." (this string
+    % is given in the commands \BCHAP and \BCHAPS, respectively),
+    % whichever is applicable, and do a tie or space connect
+    %
+    % call with
+    %   field format.bchapter.check
+    %
+FUNCTION {format.bchapter.check}
+{ duplicate$ empty$
+    'skip$
+    { duplicate$ multi.result.check
+        { "\BCHAPS" swap$ tie.or.space.connect }
+        { "\BCHAP"  swap$ tie.or.space.connect }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % volume, edition, and pages or chapter of article in book etc.
+    %
+FUNCTION {format.bvol.edition.pages}
+{ format.bvol.edition.check
+  pages empty$
+    { chapter format.bchapter.check  connect.with.comma.check }
+    { pages   format.bpages.check    connect.with.comma.check }
+  if$
+  parenthesize.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title, volume, edition of book
+    %
+FUNCTION {format.btitle.vol.edition}
+{ format.betitle.check
+  format.bvol.edition  connect.with.space.check
+  title  format.btitle.connect.no.dot
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title, volume, edition, and translator of book
+    %
+FUNCTION {format.btitle.vol.edition.trans}
+{ format.betitle.check
+  format.bvol.edition.trans  connect.with.space.check
+  title  format.btitle.connect.no.dot
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title, volume, edition, editor, and translator of book
+    %
+FUNCTION {format.btitle.vol.edition.editor.trans}
+{ format.betitle.check
+  format.bvol.edition.editor.trans  connect.with.space.check
+  title  format.btitle.connect.no.dot
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format address and publisher of book etc.
+    %
+    % New York: Wiley
+    %      or
+    % Wiley      (if address empty)
+    %      or
+    % New York   (if publisher empty)
+    %
+FUNCTION {format.address.publisher}
+{   %
+    % If publisher = author or publisher = "author" or publisher = "Author"
+    % then hand over the final choice how to format this to \LaTeX.
+    % (I could imagine similar code for editors, but the APA manual does
+    % not mention it and then we'd have to check whether the editor is in
+    % the author position, so let's keep it simple until someone complains.)
+    %
+  author empty$
+  publisher empty$ or
+    { publisher "\APACaddressPublisher{" }
+    { author   publisher =
+      "author" publisher =  or
+      "Author" publisher =  or
+        { author    "\APACaddressPublisherEqAuth{" }
+        { publisher "\APACaddressPublisher{"       }
+      if$
+    }
+  if$
+  address "" connect.check  "}{" *
+    % Recover publisher that was pushed onto the stack previously.
+  swap$   "" connect.check  "}"  *
+}
+
+FUNCTION {format.address.publisher.check}
+{ publisher empty$
+  address   empty$
+  and
+    'skip$
+    {
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.address.publisher
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format number as in reports: No. 2017
+    % call with
+    %   field format.rnumber.check
+    %
+FUNCTION {format.rnumber.check}
+{ duplicate$ empty$
+    'skip$
+    { duplicate$ multi.result.check
+        { "Nos." swap$ tie.or.space.connect }
+        { "No."  swap$ tie.or.space.connect }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format type and number of a standalone item
+    % call with
+    %   format.type.number
+    %
+FUNCTION { format.type.number }
+{ type empty$
+    { type.2 }
+    { type   }
+  if$
+  number empty$
+    { bracket.check }
+    { number format.rnumber.check connect.with.space.check
+      parenthesize.check
+    }
+  if$
+}
+
+FUNCTION {format.howpublished}
+{ howpublished empty$
+    'skip$
+    { % clear the stack
+      duplicate$ empty$
+        'pop$
+        { output.dot.new.block }
+      if$
+      "\APAChowpublished {" howpublished * "}" *
+    }
+  if$
+}
+FUNCTION {output.howpublished}
+{ howpublished empty$
+    'skip$
+    { "\APAChowpublished {" howpublished * "}" *
+      output.dot.new.block
+    }
+  if$
+}
+FUNCTION {howpublished.block}
+{ howpublished empty$
+    'skip$
+    { start.new.block
+      "\APAChowpublished {" howpublished * "}" *
+      output.dot.end.block
+    }
+  if$
+}
+
+FUNCTION {begin.end.url.env}
+{ "Available online: " % MDPI modified
+  urldate empty$
+    { " (accessed on)." }
+    { " (accessed on " urldate * ")." * } % MDPI modified
+  if$
+}
+
+FUNCTION {begin.end.doi.env}
+{ "" % MDPI modified
+  ""
+}
+
+FUNCTION {begin.end.msg.env}
+{ "\begin{APACrefURLmsg} "
+  " \end{APACrefURLmsg} "
+}
+FUNCTION {format.url}
+{ type.2 empty$
+    { begin.end.url.env }
+    { type.2 "\bibmessage" =
+        { begin.end.msg.env }
+        { begin.end.url.env }
+      if$
+    }
+  if$
+  "\url{" url * "}" *
+  enclose.check
+}
+FUNCTION {url.block}
+{ doi empty$
+    { url empty$
+        'skip$
+        { start.new.block
+          format.url
+          output.end.block
+        }
+      if$
+    }
+    'skip$
+  if$
+}
+FUNCTION {format.doi}
+{ begin.end.doi.env
+  "{\url{https://doi.org/" doi * "}}." * % MDPI modified
+  enclose.check
+}
+FUNCTION {doi.block}
+{ doi empty$
+    'skip$
+    { start.new.block
+      format.doi
+      output.end.block
+    }
+  if$
+}
+FUNCTION {format.note}
+{ "\APACrefnote{"  "}"  note  enclose.check }
+FUNCTION {note.block}
+{ note empty$
+    'skip$
+    { start.new.block
+      format.note
+      output.end.block
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format original year of publication and note
+    % (reprint or translation)
+    %
+FUNCTION {format.orig.year.note}
+{ originalyear empty$
+    { format.note }
+    { "\APACorigyearnote{"
+      originalyear    "" connect.check "}{" *
+      note            "" connect.check "}"  *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format original journal of publication and note
+    % (reprint or translation)
+    %
+FUNCTION {format.orig.journal.note}
+{ "\APACorigjournalnote{"
+  originalyear    "" connect.check "}{" *
+  originaljournal "" connect.check "}{" *
+  originalvolume  "" connect.check "}{" *
+  originalnumber  "" connect.check "}{" *
+  originalpages   "" connect.check "}{" *
+  note            "" connect.check "}"  *
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format original book of publication and note
+    % (reprint or translation)
+    %
+FUNCTION {format.orig.book.note}
+{ "\APACorigbooknote{" originalyear  ""  connect.check "}{" *
+    %
+  originaleditor empty$
+    'skip$
+    { originaleditor num.names$ #1 >
+        { "\APACorigEDS {" * originaleditor format.editor.names * "}" * }
+        { "\APACorigED {"  * originaleditor format.editor.names * "}" * }
+      if$
+    }
+  if$
+    %
+  "}{" *
+  originalbooktitle format.btitle.no.dot "" connect.check "} {" *
+  originaledition   format.edition.check "" connect.check "} {" *
+  originalvolume    format.bvolume.check "" connect.check "} {" *
+  originalpages     format.bpages.check  "" connect.check "} {" *
+  originaladdress   "" connect.check "} {" *
+  originalpublisher "" connect.check "} {" *
+  note              "" connect.check "}"  *
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format information about original publication of reprint
+    % and format optional note
+    %
+FUNCTION {format.orig.note}
+{ originaljournal empty$
+    { originalbooktitle empty$
+        { note empty$
+            { originalyear empty$
+                'skip$
+                { originalyear "\bibnodate" =
+                  originalyear "l" change.case$ "no date" = or
+                  originalyear "l" change.case$ "n.d."    = or
+                    'skip$
+                    { output.new.block
+                      format.orig.year.note
+                    }
+                  if$
+                }
+              if$
+            }
+            { output.new.block
+              format.orig.year.note
+            }
+          if$
+        }
+        { output.new.block
+          format.orig.book.note
+        }
+      if$
+    }
+    { output.new.block
+      format.orig.journal.note
+    }
+  if$
+}
+FUNCTION {fin.entry}
+{ doi empty$
+    'skip$
+    { output.new.block
+      format.doi
+    }
+  if$
+  output.end.block
+%  "\PrintBackRefs{\CurrentBib}" write$ newline$
+  test
+    { "\vspace{\baselineskip}" write$ newline$ }
+    'skip$
+  if$
+}
+FUNCTION {fin.entry.2}
+{ doi.block
+ % "\PrintBackRefs{\CurrentBib}" write$ newline$
+  test
+    { "\vspace{\baselineskip}" write$ newline$ }
+    'skip$
+  if$
+}
+FUNCTION {periodical}
+{
+  author empty$
+        %
+        % no author: possibly special issue with editors as authors
+        % (APA manual, ex. 11, p. 121)
+        %
+    { editor empty$
+            %
+            % no author or editor: title serves as author.
+            % title formatted as article title (APA manual not consistent in this,
+            % compare statement on p. 119: ``treat as book title'' and
+            % example 8, p. 121: no underlining => article title)
+            %
+        { format.atitle.type.trans.check output.new.block
+            %
+            % now formatted date on top of stack
+            %
+          output.dot.new.block
+        }
+            %
+            % format editor and year, and check if year is present
+            % format article title and check if title or type present
+            %
+        { format.editors.as.authors   start.new.block
+            %
+            % now formatted date on top of stack
+            %
+          output.dot.new.block
+          format.atitle.type.trans.check output.new.block
+        }
+      if$
+    }
+        %
+        % format author and year, and check if year is present
+        % format article title and check if title or type present
+        %
+    { format.authors   start.new.block
+            %
+            % now formatted date on top of stack
+            %
+      output.dot.new.block
+      format.atitle.type.trans.check output.new.block
+    }
+  if$
+    %
+    % format journal name, volume and issue number, and pages
+    %   and check if journal not empty    %
+  format.journal.vol.num.pages.check
+    %
+    % if not empty, insert howpublished.
+    % (used if article is retrieved from the internet)
+    %
+  format.howpublished  add.period$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+    %
+    % possible reprint and optional note
+    %
+  format.orig.note
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % journal article
+    %
+FUNCTION {article}
+{ pages  format.year.month.day.check  periodical }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % magazine article
+    %
+FUNCTION {magazine}
+{ pages  format.year.month.day.check  periodical }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % newspaper article
+    %
+FUNCTION {newspaper}
+{ pages  format.bpages.check  format.year.month.day.check  periodical }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % (translation of) entire book
+    %
+FUNCTION {book}
+{     %
+      % author or editor,
+      % year, title, englishtitle, translator
+      %
+  author empty$
+        %
+        % no author: possibly edited book with editors as authors
+        %
+    { editor empty$
+            %
+            % no author or editor: title serves as author.
+            % title formatted as book title
+            %
+        { format.btitle.vol.edition.trans
+          format.type.number               connect.with.space.check
+          output.dot.new.block
+          format.year.check                add.period$
+        }
+            %
+            % format editor and year, and check if year is present
+            % format booktitle, volume, and edition and check if title present
+            %
+        { translator empty$
+            { format.editors.as.authors  start.new.block
+              format.year.check          output.dot.new.block
+              format.btitle.vol.edition
+            }
+                %
+                % format translator correctly
+                %
+            { translator editor =
+              not
+                { format.editors.as.authors        start.new.block
+                  format.year.check                output.dot.new.block
+                  format.btitle.vol.edition.trans
+                }
+                { format.ed.trans.as.authors  start.new.block
+                  format.year.check           output.dot.new.block
+                  format.btitle.vol.edition
+                }
+              if$
+            }
+          if$
+          format.type.number     connect.with.space.check
+          add.period$
+        }
+      if$
+    }
+        %
+        % format author and year, and check if year is present
+        % format booktitle, volume, and edition and check if title present
+        %
+    { format.authors                          start.new.block
+      format.year.check                       output.dot.new.block
+      format.btitle.vol.edition.editor.trans
+      format.type.number                      connect.with.space.check
+      add.period$
+    }
+  if$
+      %
+      % format address and publisher
+      %
+  format.address.publisher.check
+      %
+      % if not empty, insert howpublished.
+      % (used if book is retrieved from the internet)
+      %
+  format.howpublished  add.period$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+      %
+      % format original publication (of reprint/translation)
+      % and optional note
+      %
+  format.orig.note
+  fin.entry
+}
+FUNCTION {incollection}
+{ author empty$
+    { editor.ne.trans
+        { format.atitle.type.trans.check }
+        { format.atitle.type.check }
+      if$
+      output.new.block
+      format.year.month.day.check   add.period$
+    }
+    { format.authors                start.new.block
+      format.year.month.day.check   output.dot.new.block
+      editor.ne.trans
+        { format.atitle.type.trans.check }
+        { format.atitle.type.check }
+      if$
+    }
+  if$
+  editor     empty$
+  translator empty$ and
+  edition    empty$ and
+  volume     empty$ and
+  pages      empty$ and
+  chapter    empty$ and
+  booktitle  empty$ and
+    'skip$
+    {
+      output.new.block
+      format.in.editors.trans
+      format.bvol.edition.pages
+      booktitle  format.btitle.connect * add.period$
+    }
+  if$
+  format.address.publisher.check
+  format.howpublished  add.period$
+  url empty$
+    'skip$
+    {
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+  format.orig.note
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % technical report number
+    %
+FUNCTION {format.tr.number}
+{ type empty$
+    { "\BTR{}" }
+    { type "\bibnotype" =
+        { ""   }
+        { type }
+      if$
+    }
+  if$
+  number format.rnumber.check   connect.with.space.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title, volume, edition, report number
+    %
+FUNCTION {format.tr.title.number}
+{ format.betitle.check
+    % Single out the situation in which there is no number
+    % and type = {\bibnotype}, i.e., no type as well.
+    % (Why not use book then?)
+  type empty$
+    { % Now, we're in the regular situation with at least a
+      % number, a type, a volume, or an edition.
+      "\APACbVolEdTR{" format.bvol.edition.check * "}{" *
+      format.tr.number *  "}" *
+    }
+    { type "\bibnotype" =
+        number empty$
+          volume empty$
+            edition empty$
+            and
+          and
+        and
+        { "" }
+        { % Now, we're in the regular situation with at least a
+          % number, a type, a volume, or an edition.
+          "\APACbVolEdTR {" format.bvol.edition.check * "}{" *
+          format.tr.number *  "}" *
+        }
+      if$
+    }
+  if$
+  connect.with.space.check
+  title  format.btitle.connect
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % format address and institution of reports etc.
+    %
+    % Washington, DC: National Institute of Education
+    %      or
+    % National Institute of Education (if address empty)
+    %
+    % warning if no institution
+    %
+FUNCTION {format.address.institution.check}
+{ url empty$
+  doi empty$ and
+    { "institution" institution warning.if.empty
+      "address"     address     warning.if.empty
+    }
+    'skip$
+  if$
+  institution empty$
+  address     empty$
+  and
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+        %
+        % If institution = author or institution = "author"
+        % or institution = "Author" then hand over the final choice how to
+        % format this to \LaTeX. See also format.address.publisher
+        %
+      author empty$
+      institution empty$ or
+        { institution "\APACaddressInstitution{" }
+        { author   institution =
+          "author" institution =  or
+          "Author" institution =  or
+            { author      "\APACaddressInstitutionEqAuth{" }
+            { institution "\APACaddressInstitution{"       }
+          if$
+        }
+      if$
+      address "" connect.check  "}{" *
+        % Recover institution that was pushed onto the stack previously.
+      swap$   "" connect.check  "}"  *
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % reports
+    %
+FUNCTION {techreport}
+{ author empty$
+        %
+        % no author: possibly edited report with editors as authors
+        %
+    { editor empty$
+            %
+            % no author or editor: title serves as author.
+            % title formatted as book title
+            %
+        { format.tr.title.number      output.dot.new.block
+          format.year.month.day.check add.period$
+        }
+            %
+            % format editor and year, and check if year is present
+            % format report title and check if title present
+            % format volume, edition, type, and number
+            %
+        { format.editors.as.authors   start.new.block
+          format.year.month.day.check output.dot.new.block
+          format.tr.title.number      add.period$
+        }
+      if$
+    }
+        %
+        % format author and year, and check if year is present
+        % format report title and check if title present
+        % format volume, edition, type, and number
+        %
+    { format.authors              start.new.block
+      format.year.month.day.check output.dot.new.block
+      format.tr.title.number      add.period$
+    }
+  if$
+    %
+    % format address and institution, check if institution present
+    %
+  format.address.institution.check
+    %
+    % if not empty, insert howpublished.
+    % (used if report is retrieved from the internet)
+    %
+  format.howpublished add.period$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+    %
+    % format optional note
+    %
+  note empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.note
+    }
+  if$
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % (translated) article or chapter in report
+    %
+FUNCTION {intechreport}
+{ author empty$
+        %
+        % no author: title serves as author.
+        % title formatted as article title (APA manual not consistent in this,
+        % compare statement on p. 119: ``treat as book title'' and
+        % example 8, p. 121: no underlining => article title)
+        %
+    { editor.ne.trans
+        { format.atitle.trans.check }
+        { format.atitle.check }
+      if$
+      output.new.block
+      format.year.month.day.check output.dot.new.block
+    }
+        %
+        % format author and year, and check if year is present
+        % format article title and check if title or type present
+        %
+    { format.authors                start.new.block
+      format.year.month.day.check   output.dot.new.block
+      editor.ne.trans
+        { format.atitle.trans.check }
+        { format.atitle.check }
+      if$
+      output.new.block
+    }
+  if$
+      %
+      % format "In " editor " (Ed. \& Trans.), "
+      % booktitle, volume, edition, pages
+      %
+  format.in.editors.trans
+      %
+      % volume, edition, report type and number, pages
+      %
+  "\APACbVolEdTRpgs {" format.bvol.edition.check * "} {" *
+  format.tr.number *
+  "} {" * pages format.bpages.check *
+  "}" *
+      %
+  booktitle format.btitle.connect *
+  add.period$
+      %
+      % format address and publisher
+      %
+  format.address.institution.check
+    %
+    % if not empty, insert howpublished.
+    % (used if report is retrieved from the internet)
+    %
+  format.howpublished add.period$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+      %
+      % format original publication (of reprint/translation)
+      % and optional note
+      %
+  format.orig.note
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % papers presented at conferences etc.
+    %
+FUNCTION {lecture}
+{ author empty$
+    { "author" author warning.if.empty }
+    { format.authors  start.new.block  }
+  if$
+      %
+      % format year, month, and day, and check if year present
+      % format title and check if title present
+      % format howpublished and check if howpublished present
+      %
+  format.year.month.day.check output.dot.new.block
+  symposium empty$
+    { format.betitle.check
+      title  format.btitle.connect  output.new.block
+      howpublished empty$
+        { "symposium and howpublished missing in " cite$ * warning$
+          ""
+        }
+        { "\APAChowpublished {" howpublished * "}" * }
+      if$
+      address connect.with.comma.check
+    }
+    { format.atitle.type.check output.new.block
+      "\BIn{} "
+      chair empty$
+        'skip$
+        { chair  format.editor.names
+          chair num.names$ #1 >
+            { "(\BCHAIRS)" }
+            { "(\BCHAIR)" }
+          if$
+          connect.with.space.check * ", " *
+        }
+      if$
+      symposium format.btitle.no.dot *
+      format.howpublished
+      address connect.with.comma.check
+    }
+  if$
+  add.period$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+      %
+      % format optional note
+      %
+  note empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.note
+    }
+  if$
+  fin.entry
+}
+
+FUNCTION {format.ttitle.type.school}
+{ doi empty$ not
+  url empty$ not or
+  howpublished empty$ not or
+    { pop$ }
+    { swap$ pop$ }
+  if$
+  type empty$
+    'skip$
+    { type "\bibnotype" =
+        { pop$
+          ""
+        }
+        { pop$
+          type
+        }
+      if$
+    }
+  if$
+  duplicate$ empty$
+  doi empty$
+    url empty$ and
+    howpublished empty$ and
+  address empty$
+    school empty$ and or and
+    { 'pop$
+      title empty$ not
+      englishtitle empty$ not or
+        { start.new.block }
+        'skip$
+      if$
+      ""
+    }
+    { start.new.block
+      "\APACtypeAddressSchool {" swap$ * "}{" *
+      doi empty$
+      url empty$ and
+      howpublished empty$ and
+        { "}{}" * }
+        { address "" connect.check "}{" *
+          school  "" connect.check "}" *
+        }
+      if$
+    }
+  if$
+  format.betitle.check swap$
+  connect.with.space.check
+  "title" title warning.if.empty
+  title  format.btitle.connect
+}
+FUNCTION {unpub.address.school.block}
+{ doi empty$
+  url empty$ and
+  howpublished empty$ and
+    { "school" school warning.if.empty
+      school empty$
+      address empty$ and
+        'skip$
+        { start.new.block
+          "\APACaddressSchool {" address "" connect.check "}{" *
+          school "" connect.check "}" *
+          output.dot.end.block
+        }
+      if$
+    }
+    'skip$
+  if$
+}
+FUNCTION {thesis}
+{ journal empty$ not
+    { pop$ pop$
+      article
+    }
+    { author empty$
+        { "author" author warning.if.empty }
+        { format.authors  start.new.block  }
+      if$
+      format.year.check          output.dot.end.block
+      format.ttitle.type.school  output.dot.end.block
+      unpub.address.school.block
+      howpublished.block
+      url.block
+      note.block
+      fin.entry.2
+    }
+  if$
+}
+FUNCTION {phdthesis}
+{ "\BPhD"  "\BUPhD"  thesis }
+FUNCTION {mastersthesis}
+{ "\BMTh"  "\BUMTh"  thesis }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title of something (used in unpublished and misc)
+    % english translation of title
+    % type and number of something
+    %
+FUNCTION {format.btitle.type.num}
+{ format.betitle.check
+  format.bvol.edition  connect.with.space.check
+  format.type.number
+  connect.with.space.check
+  title empty$
+    { add.period$ }
+    { title format.btitle.connect }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title of message or software-related thing (used in misc)
+    % english translation of title
+    % type and number of something
+    %
+FUNCTION {format.mtitle.type.num}
+{ format.aetitle.check
+  format.bvol.edition  connect.with.space.check
+  type.2 "\bibmessage" =
+    { number empty$
+        'skip$
+        { type.2 number tie.or.space.connect
+          bracket.check
+          connect.with.space.check
+        }
+      if$
+    }
+    { format.type.number
+      connect.with.space.check
+    }
+  if$
+  title empty$
+    { add.period$ }
+    { title format.atitle.connect }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % title, english translation of title,
+    % type and number of something (used in misc)
+    %
+FUNCTION {output.misctitle.type.num}
+{ type.2 empty$
+    { format.btitle.type.num }
+    { type.2 "\bibmessage"                    =
+      type.2 "\bibcomputerprogram"            =  or
+      type.2 "\bibcomputerprogrammanual"      =  or
+      type.2 "\bibcomputerprogramandmanual"   =  or
+      type.2 "\bibcomputersoftware"           =  or
+      type.2 "\bibcomputersoftwaremanual"     =  or
+      type.2 "\bibcomputersoftwareandmanual"  =  or
+      type.2 "\bibprogramminglanguage"        =  or
+        { format.mtitle.type.num }
+        { format.btitle.type.num }
+      if$
+    }
+  if$
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % unpublished manuscripts, etc.
+    %
+FUNCTION {unpublished}
+{ check.relevant.fields
+  author empty$
+        %
+        % no author: possibly edited book with editors as authors
+        %
+    { editor empty$
+            %
+            % no author or editor: title serves as author.
+            % title formatted as book title
+            %
+        { format.btitle.type.num       output.new.block
+          format.year.month.day.check  add.period$
+        }
+            %
+            % format editor and year, and check if year is present
+            % format book title, volume, and edition and check if title present
+            %
+        { format.editors.as.authors    start.new.block
+          format.year.month.day.check  output.dot.new.block
+          format.btitle.type.num
+        }
+      if$
+    }
+        %
+        % format author and year, and check if year is present
+        % format book title, volume, and edition
+        % and check if title or type present
+        %
+    { format.authors               start.new.block
+      format.year.month.day.check  output.dot.new.block
+      format.btitle.type.num
+    }
+  if$
+  howpublished empty$
+  organization empty$ and
+  address      empty$ and
+    'skip$
+    { output.new.block
+      "\APAChowpublished{" "}" howpublished enclose.check
+      organization    connect.with.comma.check
+      address         connect.with.comma.check
+      add.period$
+    }
+  if$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+      %
+      % format optional note
+      %
+  note empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.note
+    }
+  if$
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % nonprint media and other things that don't fit
+    %
+FUNCTION {misc}
+{   %
+    % To handle @manual: use type.2 instead of type.
+  type.2 empty$
+  type   empty$ not and
+    { type 'type.2 := }
+    'skip$
+  if$
+    %
+  author empty$
+        %
+        % no author: possibly edited item with editors as authors
+        %
+    { editor empty$
+            %
+            % no author or editor: title/type serves as author.
+            % title formatted as book title
+            %
+            % if no title and no type, howpublished is title
+            %
+        { title  empty$
+          type.2 empty$ and
+            { howpublished empty$
+                { "No author, editor, title, type, and howpublished in "
+                  cite$ * warning$
+                  ""
+                }
+                { "\APAChowpublished{" howpublished * "}" * add.period$ }
+              if$
+              format.year.month.day.check  add.period$
+            }
+            { output.misctitle.type.num    output.new.block
+              format.year.month.day.check  add.period$
+              format.howpublished          add.period$
+            }
+          if$
+        }
+            %
+            % format editor and year, and check if year is present
+            % format book title, volume, and edition and check if title present
+            %
+        { format.editors.as.authors        start.new.block
+          format.year.month.day.check      output.dot.new.block
+          output.misctitle.type.num
+          format.howpublished              add.period$
+        }
+      if$
+    }
+        %
+        % format author and year, and check if year is present
+        % format book title, volume, and edition
+        % and check if title or type present
+        %
+    { format.authors                   start.new.block
+      format.year.month.day.check      output.dot.new.block
+      output.misctitle.type.num
+      format.howpublished              add.period$
+    }
+  if$
+      %
+  address   empty$
+  publisher empty$ and
+      'skip$
+      { % Clear the stack
+        duplicate$ empty$
+          'skip$
+          { output.new.block }
+        if$
+        format.address.publisher add.period$
+      }
+  if$
+      %
+      % format url
+      %
+  url empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.url
+    }
+  if$
+      %
+      % format optional note
+      %
+  note empty$
+    'skip$
+    { % Clear the stack
+      duplicate$ empty$
+        'skip$
+        { output.new.block }
+      if$
+      format.note
+    }
+  if$
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % for legal cases and other cases that need to be
+    % done by hand
+    %
+FUNCTION {literal}
+{ "key"  key  warning.if.empty
+  "text" text warning.if.empty
+  text empty$
+    { "" }
+    { text }
+  if$
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % technical documentation
+    %
+FUNCTION {manual}
+{ %
+  % If type is empty, assume that it is a computer software manual.
+  %
+  type empty$
+    { "\bibcomputersoftwaremanual"  'type.2 := }
+    'skip$
+  if$
+  misc
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % booklet
+    %
+FUNCTION {booklet}
+{ misc }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % part of a book
+    %
+FUNCTION {inbook}
+{ incollection }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % article in proceedings
+    %
+FUNCTION {inproceedings}
+{ incollection }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % article in proceedings (Kopka & Daly, 2004, p. 230)
+    %
+FUNCTION {conference}
+{ inproceedings }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % proceedings
+    %
+FUNCTION {proceedings}
+{ misc }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % unknown types
+    %
+FUNCTION {default.type}
+{ misc }
+
+FUNCTION {initialize}
+{
+  #6  'name.max :=
+%%  #250  'entry.max$ :=
+%%  #5000  'global.max$ :=
+}
+FUNCTION {init.old.number}
+{ #0  'old.number := }
+FUNCTION {init.old.label}
+{ "zzzzzz"   'old.label  := }
+FUNCTION {init.cite.initials.add.to.year}
+{ #0  'cite.initials :=
+  #0  'add.to.year :=
+}
+FUNCTION {move.forward}
+{ #1 'forward := }
+FUNCTION {move.backward}
+{ #0 'forward := }
+FUNCTION {begin.bib}
+{ preamble$ empty$
+    'skip$
+    { preamble$ write$ newline$ }
+  if$
+  "\begin{thebibliography}{999}"  write$ newline$
+}
+FUNCTION {end.bib}
+{ newline$
+  "\end{thebibliography}"  write$ newline$
+}
+FUNCTION {write.bbl.entry}
+{
+  make.cite.labels
+  call.type$
+}
+READ
+EXECUTE { initialize }
+EXECUTE { init.old.number }
+ITERATE { make.citeorder.number }
+ITERATE { make.sort.title }
+SORT
+EXECUTE { init.old.number }
+EXECUTE { init.old.label }
+ITERATE { make.title.number }
+ITERATE { make.tentative.sort.label }
+SORT
+ITERATE { init.cite.initials.add.to.year }
+EXECUTE { init.initials }
+ITERATE { check.add.initials }
+EXECUTE { init.initials }
+REVERSE { check.add.initials }
+ITERATE { tentative.cite.num.names }
+EXECUTE { init.cite.num.names }
+EXECUTE { move.forward }
+ITERATE { definitive.cite.num.names }
+EXECUTE { init.cite.num.names }
+EXECUTE { move.backward }
+REVERSE { definitive.cite.num.names }
+ITERATE { make.final.sort.key }
+SORT
+EXECUTE { begin.bib }
+ITERATE { write.bbl.entry }
+EXECUTE { end.bib }
+
+%%
