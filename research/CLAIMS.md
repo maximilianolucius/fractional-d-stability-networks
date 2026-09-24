@@ -14,7 +14,7 @@ The baseline audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is super
 | C-06 | perturbational robustness / interior of fractional D-stability | CONCEPT HAS CLASSICAL PRIOR ART; FRACTIONAL NON-HURWITZ VERSION MAY BE NEW | PARTIAL | Hartfiel 1980; Abed 1986; Lee–Edgar 2001; Casasanta–Simpson-Porco 2026 |
 | C-07 | exact 2×2 classification of F_alpha; no open purely-fractional separation in n=2 | STRUCTURAL RESULT; NOVELTY SECONDARY / STILL AUDITING | **THEOREM — analytic proof in reopened audit** | trace/determinant scaling |
 | C-08 | min dimension with nonempty interior of P_alpha equals 3 for 0<alpha<=2/3 | **STRONG NOVELTY CANDIDATE — NOT FROZEN** | **THEOREM — analytic proof modulo Kellogg P-matrix wedge theorem** | Kellogg P-matrix spectral wedge + C-07 |
-| C-09 | min dimension with nonempty interior of P_alpha equals 3 for every 0<alpha<1 | **STRONG NOVELTY CANDIDATE — TARGETED AUDIT REQUIRED** | **THEOREM — internal analytic proof complete** | C-07 + C-08 + cubic angular certificate + uniform AM-GM diagonal-orbit bound; see `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
+| C-09 | min dimension with nonempty interior of P_alpha equals 3 for every 0<alpha<1 | **NOVELTY SURVIVES TARGETED AUDIT — PROVISIONAL FLAGSHIP THEOREM** | **THEOREM — internal analytic proof complete** | C-07 + C-08 + cubic angular certificate + uniform AM-GM diagonal-orbit bound; see `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
 | C-10 | exact 3×3 characterization of F_alpha for 2/3<alpha<1 | POTENTIALLY TITLE-WORTHY | OPEN | fractional analogue of Cain + Kushel forbidden-boundary framework |
 
 ## Current objects
@@ -124,3 +124,14 @@ No central-paper drafting until there is:
 - `OPEN` — unresolved.
 
 Finite diagonal sampling is never proof.
+
+
+## Chief decision on C-09
+
+The dedicated audit `research/novelty/C09_TARGETED_AUDIT.md` returns:
+
+```text
+NOVELTY SURVIVES
+```
+
+for the combined dimension/interior theorem. Known ingredients remain imported and must be credited: optimal fractional Routh-Hurwitz theory, Kellogg's P-matrix wedge, generalized/relative D-stability, classical robust/interior D-stability, and Siami's cyclic fractional secant result.
