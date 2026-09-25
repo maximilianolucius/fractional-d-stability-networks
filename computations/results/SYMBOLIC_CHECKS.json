@@ -1,0 +1,26 @@
+{
+  "S1_elasticity": {
+    "E_equals_factorised_form": true,
+    "d_factor1_dr": "K*u/(K*r - u)**2",
+    "d_factor2_dr": "u/(2*r*u + 1)**2",
+    "limit_E_r_to_inf": "3/2",
+    "E_at_b0_(r=2u/K)": "0"
+  },
+  "S2_symmetric_siami": {
+    "sqrt_simplification": "sqrt(u^2+K/3) = sin(theta)/sqrt(3)",
+    "symbolic_difference": "0",
+    "numeric_differences": [
+      3.1900513771304038e-12,
+      -4.053243579892333e-14,
+      -1.492232028459876e-15,
+      -2.0023637928735723e-15
+    ]
+  },
+  "S3_two_thirds": {
+    "27 h(Bc) K^3 series": "81*Bc*K - 27*K + 27",
+    "with Bc = sum(beta)/9": "27 + (81 Bc - 27) K = 27 + (9 sum(beta) - 27) K"
+  },
+  "S4_C14_constant": {
+    "identity_holds": true
+  }
+}

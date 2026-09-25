@@ -21,19 +21,35 @@ import mpmath as mp
 import numpy as np
 
 
-def margins_batch(A: np.ndarray, W: np.ndarray, alpha: np.ndarray) -> np.ndarray:
+def margins_batch(A: np.ndarray, W: np.ndarray, alpha: np.ndarray, rel_tol: float = 1e-10,
+                  return_err: bool = False):
     """Margins for matrices A (N,n,n) at log-diagonals W (N,M,n-1).
 
-    Returns array (N, M).  d = exp([w, 0]).
+    Returns array (N, M) (and, if `return_err`, an a-posteriori float error
+    estimate for the angle of the minimizing eigenvalue).  d = exp([w, 0]).
+
+    Reliability filter: eigenvalues with |lambda| < rel_tol * max|lambda| have
+    float angles dominated by rounding (absolute eigenvalue error ~ eps*||DA||)
+    and are excluded from the minimum.  This only happens at extreme diagonal
+    ratios; those regions are audited separately at high precision.
     """
     N, M, k = W.shape
     n = k + 1
     d = np.exp(np.concatenate([W, np.zeros((N, M, 1))], axis=-1))   # (N,M,n)
     DA = d[:, :, :, None] * A[:, None, :, :]
     lam = np.linalg.eigvals(DA.reshape(-1, n, n)).reshape(N, M, n)
+    mag = np.abs(lam)
+    top = mag.max(axis=-1, keepdims=True)
     ang = np.abs(np.angle(lam))
-    ang = np.where(np.abs(lam) == 0.0, 0.0, ang)
-    return ang.min(axis=-1) - (alpha * np.pi / 2.0)[:, None]
+    ok = mag >= rel_tol * top
+    ang = np.where(ok, ang, np.inf)
+    j = np.argmin(ang, axis=-1)
+    m = np.take_along_axis(ang, j[..., None], -1)[..., 0] - (alpha * np.pi / 2.0)[:, None]
+    if not return_err:
+        return m
+    mj = np.take_along_axis(mag, j[..., None], -1)[..., 0]
+    err = 4e-16 * n * top[..., 0] / np.maximum(mj, 1e-300)
+    return m, err
 
 
 def _grid(n_free: int, half_width: float, step: float) -> np.ndarray:
@@ -131,7 +147,8 @@ def min_margin(A: np.ndarray, alpha, *, half_width: float = 10.0, step: float = 
     j = np.argmin(m, axis=1)
     wbest = w[np.arange(N), j]
     d = np.exp(np.concatenate([wbest, np.zeros((N, 1))], axis=1)) * scale
-    return {"margin": m[np.arange(N), j], "w": wbest, "d": d,
+    _, err = margins_batch(As, wbest[:, None, :], alpha, return_err=True)
+    return {"margin": m[np.arange(N), j], "w": wbest, "d": d, "err": err[:, 0],
             "margin_all_starts": m}
 
 
