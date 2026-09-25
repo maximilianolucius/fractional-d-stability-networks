@@ -1,79 +1,113 @@
-# Closest-work novelty matrix
+# Closest-work novelty matrix — canonical Chief state
 
-**Status:** reopened and updated 2026-09-24 after theorem-level second-pass audit.  
-**Rule:** overlap is compared at the level of hypotheses, quantifiers, conclusions, and stability region — not keywords.
+**Date:** 2026-09-24  
+**Rule:** compare hypotheses, quantifiers, spectral region, matrix dimension, and conclusion. Keyword mismatch is not novelty.
 
-| Reference | Mathematical object | Fractional order | Spectral region | Positive diagonal orbit | Graph / structure | Robust/interior aspect | Relation to current project |
-|---|---|---|---|---|---|---|---|
-| Matignon 1996 (via Brandibur–Garrappa–Kaslik 2021) | commensurate fractional linear systems | yes | `|arg λ|>απ/2` iff | no | none | no | C-01 imported; C-02 is a corollary |
-| Brandibur, Garrappa & Kaslik 2021, *Mathematics* 9:914 | corrected stability theory + α-monotonicity | yes | exact Matignon sector | no | none | no | kills novelty of critical-order/monotonicity claims |
-| Ahmed, El-Sayed & El-Saka 2007, *JMAA* 325 | low-dimensional fractional stability criteria | yes | fractional wedge | no | specific models | no | explicit precedent for fractionally stable / integer-order unstable equilibria |
-| Kushel 2019, *SIAM Review* 61:643, arXiv:1907.07089 | generalized D-stability framework | general | arbitrary spectral region | yes | general | no | F_α is an instance of an existing generalized D-stability concept |
-| Kushel–Pavani 2020, arXiv:2004.11172 | generalized D-stability; forbidden-boundary approach | not specifically fractional | sector/LMI boundaries and complement machinery | yes | general | boundary exclusion | diagonal-orbit boundary machinery already exists |
-| Kushel–Pavani 2021, arXiv:2103.04127 | diagonal region-dominance and applications | yes, Sec. 8 | fractional stability described via complement of a cone; non-LMI aspect acknowledged | yes for theorem-specific diagonal classes | general | some robustness implications | invalidates claim that literature is wholly blind to the non-convex Matignon complement |
-| Kushel 2023, *LAA* 656:9–26, arXiv:2205.10823 | relatively D-stable matrices; determinant bounds; sector gaps | no | sectors / gaps from imaginary axis | yes | D-stable subclasses | uniform sector-gap estimates | "uniform angular gap" alone is not novelty |
-| **Siami 2020/2021**, arXiv:2011.04204 / IEEE TCNS | cyclic interconnected commensurate fractional networks | yes | generalized fractional secant condition | not stated as D-orbit theorem, but cycle ratio invariant under positive row scaling | **single circuit** | H2 robustness also studied | **main killer of single-cycle novelty** |
-| Arcak & Sontag 2006; Arcak 2011 | cyclic / cactus diagonal stability | no | left half-plane | related diagonal-scaling setting | cycles/cactus | no | α=1 structural template |
-| Jeffries–Klee–van den Driessche 1977 | sign stability | no | left half-plane | stronger sign-robustness notion | graph characterization | yes in sign class | topology-to-stability precedent |
-| Berman–Hershkowitz 1983 | diagonal stability on acyclic graph classes | no | left half-plane | yes/related | acyclic graph | no | structural α=1 precedent |
-| Cain / classical low-dimensional D-stability literature | low-dimensional D-stability criteria | no | left half-plane | yes | low-dimensional matrices | some interior/topological implications | model for an exact fractional 3×3 theorem |
-| Hartfiel 1980 | interior of D-stable matrices | no | left half-plane | yes | general | **interior** | openness/interior is classical territory |
-| Abed 1986, *Systems & Control Letters* 7(3):207–212 | **strong D-stability** | no | left half-plane | yes | general | small perturbations remain D-stable | terminology and concept are prior art |
-| Lee & Edgar 2001, *Systems & Control Letters* 44:273–277 | structured-singular-value conditions for strong D-stability | no | left half-plane | yes | general | robust conditions | reinforces that robustness alone is not novelty |
-| Casasanta & Simpson-Porco 2026, arXiv:2603.13608 | Lyapunov characterization of robust (block) D-stability | no | left half-plane | yes | general | necessary-and-sufficient Lyapunov-type characterization | raises standard for any new "strong fractional D-stability" result |
-| Kellogg P-matrix wedge theorem | spectrum of P-matrices | no | `|arg μ| < π-π/n` | preserved by positive diagonal left scaling | principal-minor class | strict inequalities give open class | imported bridge yielding C-08 for α<=2/n; not novelty by itself |
-| Allesina–Tang 2012; Grilli–Rogers–Allesina 2016 | ecological random/community-matrix spectra | no | half-plane | no | interaction type / modularity | ensemble-level | ecology remains application layer |
-| fractional consensus literature | fractional network consensus | yes | sector condition on Laplacian spectrum | no | graph Laplacian | no | occupies generic "graph-indexed fractional stability" language |
+| Reference | Exact occupied territory | Positive diagonal orbit? | Fractional / sector? | Relation to current theorem package |
+|---|---|---:|---:|---|
+| Matignon 1996; Brandibur-Garrappa-Kaslik 2021 | exact commensurate fractional sector criterion; alpha monotonicity | no | yes | C-01 imported; C-02 not novel |
+| Ahmed-El-Sayed-El-Saka 2007 | explicit fractional-stable / integer-unstable low-dimensional equilibria | no | yes | kills novelty of the basic stabilization phenomenon |
+| Cermak-Nechvatal 2017 | optimal fractional Routh-Hurwitz root-location conditions | no | yes | fixed-polynomial component of C-10 is prior art |
+| Bourafa-Abdelouahab-Moussaoui 2020 | explicit n=2/n=3 fractional coefficient criteria; exact cubic angular cases | no | yes | fixed-cubic component prior art; no all-D orbit elimination |
+| Joya-Furuta 1991 | explicit coefficient-space descriptions for polynomial stability in prescribed domains including sectors | no matrix orbit | sector | coefficient-domain predecessor; does not solve DA orbit |
+| Kushel 2019 | general (region, multiplier class, operation)-stability framework | yes | arbitrary region | F_alpha as a concept is not new |
+| Kushel-Pavani 2020 | generalized D-stability; forbidden-boundary principle | yes | LMI/conic and complement machinery | closest abstract framework to C-10; no explicit 3x3 Matignon elimination found |
+| Kushel-Pavani 2021 | diagonal region-dominance; fractional-order applications | yes for specified classes | yes | sufficient-condition prior art |
+| Kushel 2023 | relative D-stability in left-half-plane conic sectors; determinant and sector-gap bounds | yes | sector | sector gap is not novelty; does not include genuinely non-Hurwitz Matignon band |
+| Cain 1976 | complete real 3x3 classical D-stability characterization | yes | half-plane | exact alpha=1 endpoint recovered by C-10 |
+| Bahl-Cain 1977 | complete inertia classifications for diagonal multiples of real 3x3 matrices | yes | half-plane inertia | very close low-dimensional orbit predecessor; does not control eigenvalue angles |
+| Cain 1984; Hartfiel 1980 | topology/interior of classical D-stable matrices | yes | half-plane | interior/robustness concept is classical |
+| Abed 1986; Lee-Edgar 2001 | strong/robust D-stability | yes | half-plane | "strong D-stability" terminology/concept occupied |
+| Kellogg P-matrix wedge theorem | angular spectral bound for P-matrices | preserved by positive row scaling | angular | imported low-order bridge C-08 |
+| Siami 2020/2021 | generalized fractional secant condition for single-circuit networks; necessary in equal-diagonal special case | cycle ratio invariant under row scaling | yes | single-cycle novelty rejected; structured slice of C-10 |
+| Arcak-Sontag 2006; Arcak 2011 | cyclic/cactus diagonal stability via secant-type structure | related | alpha=1 | structural graph precedent |
+| Jeffries-Klee-van den Driessche; Berman-Hershkowitz | sign/graph characterizations of classical stability classes | related | alpha=1 | graph/topology claims require exact fractional distinction |
+| Allesina-Tang; Grilli-Rogers-Allesina | ecological topology/community-matrix spectral stability | no full D orbit | alpha=1 | ecology/topology prior art |
+| classical ecological loop analysis / community-matrix literature | signed feedback loops, principal minors, species-deletion stability | no fractional D theorem | alpha=1 | C-13 must be presented as interpretation of C-10, not generic loop novelty |
 
-## Corrected reading
+## Current project theorem versus nearest precedents
 
-### Occupied territory
+### C-09 — minimum robust genuinely fractional dimension
 
-1. Purely fractional stabilization is standard Matignon geometry.
-2. Generalized fractional D-stability as a concept is occupied by Kushel's framework and fractional applications.
-3. Single-cycle fractional secant conditions are occupied by Siami to a degree that makes the same D-orbit theorem corollary-level.
-4. Robust/strong D-stability terminology and interior questions are classical.
-5. Sector-gap and forbidden-boundary machinery under diagonal scaling already exists.
+Project theorem:
 
-### Strongest surviving candidate
+[
+min{n:operatorname{int}(F_alpha^{(n)}setminus D_H^{(n)})
+eqarnothing}=3
+quad
+orall,0<alpha<1.
+]
 
-```text
-min { n : int(F_α^(n) \ D_H^(n)) != empty } = 3
-for every 0 < α <= 2/3.
-```
+No located prior result combines:
+- all positive diagonal multipliers;
+- the full Matignon region including its right-half-plane sliver;
+- exclusion from classical Hurwitz D-stability;
+- full-dimensional interior;
+- exact lower-dimensional obstruction;
+- minimum dimension 3;
+- every fractional order below one.
 
-This statement is internally proved using the exact 2×2 obstruction plus a 3×3 P-matrix construction. Targeted searches found the ingredients separately but not the combined minimal-dimension theorem.
+**Targeted audit verdict:** NOVELTY SURVIVES.
 
-### Highest-value open extension
+### C-10 — exact 3x3 variational characterization
 
-```text
-2/3 < α < 1
-```
+On the strict-P(-A) full-dimensional stratum, the project reduces the complete positive diagonal orbit to four invariants
 
-either by proving the same dimension threshold or by deriving an exact 3×3 characterization of F_α.
+[
+(eta_{12},eta_{13},eta_{23},kappa)
+]
 
-## Audit rule
+and the simplex threshold
 
-No claim is marked novel because an identical phrase was not found. The final verdict must show that the theorem's quantifier structure and conclusion are not recoverable from Siami, Kushel/Kushel–Pavani, classical low-dimensional D-stability, or strong-D-stability theory.
+[
+T_alpha(eta).
+]
 
+For 2/3<alpha<1,
 
-## C-09 targeted-audit additions
+[
+Ain F_alpha^{(3)}
+iff
+kappa<T_alpha(eta).
+]
 
-| Reference | Exact occupied result | What it does not supply for C-09 |
-|---|---|---|
-| Cermak & Nechvatal 2017, *Nonlinear Dynamics* 87:939-954, DOI 10.1007/s11071-016-3090-9 | Optimal fractional Routh-Hurwitz conditions: necessary/sufficient root localization in the Matignon sector | no all-positive-diagonal orbit, no interior of F_alpha\\D_H, no minimum-dimension theorem |
-| Bourafa, Abdelouahab & Moussaoui 2020, *Chaos Solitons Fractals* 133:109623, DOI 10.1016/j.chaos.2020.109623 | Props. 1-3 give explicit n=2/n=3 fractional coefficient criteria; Prop. 3 is exact in the cubic negative-discriminant case | fixed characteristic polynomial only; no diagonal-orbit quantifier or robust separation theorem |
-| Cain 1984, *Inside the D-stable matrices*, LAA 56:237-243 | low-dimensional/topological interior results for classical D-stability | half-plane D-stability only; no genuinely fractional difference class |
-| Kushel 2023, LAA 656:9-26 | relative D-stability in a conic sector around the negative real axis; determinant/sector-gap estimates | does not admit the right-half-plane Matignon sliver and does not state the C-09 dimension theorem |
-| Siami 2020/2021 | fractional cyclic secant condition on a structured single-cycle family | no full-dimensional open ball in unrestricted 3x3 matrix space; no minimum-dimension theorem |
+The alpha=1 limit is exactly Cain's threshold.
 
-### Targeted conclusion
+Closest ingredients are:
+- fixed-cubic fractional Routh-Hurwitz;
+- general forbidden-boundary D-stability;
+- Cain's exact half-plane solution;
+- Bahl-Cain's exact inertia solution.
 
-The fixed-cubic and single-cycle ingredients are occupied. The quantified theorem
+No located source performs the same Matignon-angle diagonal-orbit elimination.
 
-```text
-min { n : int(F_alpha^(n) \\ D_H^(n)) != empty } = 3
-for every 0<alpha<1
-```
+**Targeted search verdict:** NOVELTY SURVIVES PROVISIONALLY; final independent specialist audit required.
 
-was not located in the audited literature and is marked **NOVELTY SURVIVES**, subject to a final independent pre-submission audit.
+### C-13 — ecological motif layer
+
+C-13 rewrites the C-10 invariants as normalized two-cycle and directed three-cycle feedback coordinates and proves GLV abundance-scaling invariance.
+
+Generic loop analysis is classical. The value is that the exact new matrix threshold acquires a motif-coordinate form.
+
+## Claims explicitly withdrawn
+
+Do not state any of the following:
+
+1. "purely fractional stabilization is new";
+2. "fractional D-stability is a new concept";
+3. "the literature only treats convex regions";
+4. "a fractional secant criterion for one cycle is new";
+5. "uniform angular gap is new";
+6. "strong D-stability is new";
+7. "loops determine stability" as a generic novelty claim.
+
+## Final audit rule
+
+Before submission, the independent novelty verifier must try specifically to recover C-10 from:
+- Bahl-Cain 1977;
+- old inertia-preservation literature;
+- generalized-region D-stability papers;
+- sector-stable polynomial coefficient-domain papers;
+- unpublished/less-visible low-dimensional multiplier-stability results.
+
+Until then, C-10 is a provisional flagship theorem, not a bibliographically final claim.
