@@ -1,0 +1,147 @@
+\section{Geometry and limiting regimes of the threshold}
+
+For \(2/3<\alpha<1\), let
+\[
+F_{\alpha,\beta}(x)
+=
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
+\]
+Introduce logit coordinates
+\[
+x_1=\frac{e^{y_1}}{e^{y_1}+e^{y_2}+1},
+\quad
+x_2=\frac{e^{y_2}}{e^{y_1}+e^{y_2}+1},
+\quad
+x_3=\frac1{e^{y_1}+e^{y_2}+1}.
+\]
+
+\begin{theorem}[Strict logit convexity]
+For every positive \(\beta\), the function
+\[
+y\longmapsto \log F_{\alpha,\beta}(x(y))
+\]
+is globally strictly convex on \(\mathbb R^2\). Consequently the minimizer
+\[
+x^*(\alpha,\beta)
+\]
+is unique and nondegenerate, and \(T_\alpha(\beta)\) depends smoothly on \((\alpha,\beta)\).
+\end{theorem}
+
+The proof uses the elasticity
+\[
+E_\alpha(b)
+=
+\frac{b h_\alpha'(b)}{h_\alpha(b)},
+\]
+for which
+\[
+0<E_\alpha(b)<\frac32,
+\qquad
+\frac{dE_\alpha}{db}>0.
+\]
+
+\subsection{Symmetry and global parametrization}
+
+If
+\[
+\beta_{12}=\beta_{13}=\beta_{23}=b,
+\]
+uniqueness and permutation symmetry imply
+\[
+x^*=(1/3,1/3,1/3),
+\qquad
+T_\alpha(b,b,b)=27h_\alpha(b/3).
+\]
+At \(b=1\), this identity reproduces exactly the single-cycle threshold of \citet{Siami2021}.
+
+At the unique minimizer, setting
+\[
+B=B_\beta(x),
+\qquad
+E=\frac{Bh_\alpha'(B)}{h_\alpha(B)},
+\]
+gives the explicit threshold-surface parametrization
+\[
+\beta_{ij}
+=
+\frac{
+B[1+(2E-3)(1-2x_k)]
+}{
+2E\,x_ix_j
+},
+\qquad
+\{i,j,k\}=\{1,2,3\},
+\]
+together with
+\[
+T_\alpha
+=
+\frac{h_\alpha(B)}{x_1x_2x_3}.
+\]
+
+\subsection{Classical-order limit}
+
+As \(\alpha\to1^-\),
+\[
+T_\alpha(\beta)
+=
+T_1(\beta)+C(\beta)(1-\alpha)+O((1-\alpha)^2),
+\]
+where, with
+\[
+S=\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}},
+\qquad
+G=\sqrt{\beta_{12}\beta_{13}\beta_{23}},
+\]
+\[
+C(\beta)
+=
+\pi S^{3/2}
+\left(
+\frac{S}{\sqrt G}+\sqrt G
+\right)>0.
+\]
+
+\subsection{Low-order transition}
+
+Let
+\[
+K=1-4\cos^2(\alpha\pi/2).
+\]
+As \(\alpha\downarrow2/3\),
+\[
+T_\alpha(\beta)
+=
+\frac{27}{K^3}
++
+\frac{9(\beta_{12}+\beta_{13}+\beta_{23})-27}{K^2}
++
+O(K^{-1}),
+\]
+and
+\[
+x^*(\alpha,\beta)
+=
+(1/3,1/3,1/3)+O(K).
+\]
+
+\subsection{Minimum robust dimension}
+
+Combining the exact \(2\times2\) obstruction with the strict \(3\times3\) band yields the following.
+
+\begin{theorem}[Minimum dimension of robust genuinely fractional separation]
+For every \(0<\alpha<1\),
+\[
+\boxed{
+\min\left\{
+n:
+\operatorname{int}\left(
+\mathcal F_\alpha^{(n)}
+\setminus
+\mathcal D_H^{(n)}
+\right)
+\neq\varnothing
+\right\}=3.
+}
+\]
+\end{theorem}
