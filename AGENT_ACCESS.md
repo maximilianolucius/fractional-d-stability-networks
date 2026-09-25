@@ -84,3 +84,35 @@ Until this proof audit passes:
 - do not convert numerical sampling into proof.
 
 If the proof audit passes, the next stage is manuscript architecture + one final independent specialist novelty audit.
+
+
+---
+
+## PARALLEL AGENT ROLE: HIGH-COMPUTE VALIDATION / DISCOVERY
+
+A compute-intensive campaign is now prepared in:
+
+`research/COMPUTE_AGENT_WAVE1_TASK.md`
+
+Dedicated branch:
+
+`agent/compute-c10-wave1-20260925`
+
+This is intentionally a **large bundled assignment**, not a small utility task. The compute agent should execute P0-P4 completely and P5 if resources permit:
+
+- high-precision regression suite;
+- robust implementation of the exact C-10 simplex threshold;
+- million-scale adversarial validation against direct spectral optimization over the full positive diagonal orbit;
+- quantitative gap analysis for the C-11 sufficient certificate;
+- ecological motif phase datasets;
+- n=4 reconnaissance after the theorem-validation phases.
+
+The compute agent must not edit `paper/`, must not treat finite sampling as proof, and must stop immediately on any persistent counterexample to C-10.
+
+Its required final artifact is:
+
+`research/COMPUTE_WAVE1_FINAL_REPORT.md`
+
+with final status `COMPUTE_PASS`, `COMPUTE_FAIL`, or `PARTIAL/BLOCKED`.
+
+The adversarial proof-verifier lane and compute lane are complementary and may proceed independently. Neither agent should overwrite the other's report.
