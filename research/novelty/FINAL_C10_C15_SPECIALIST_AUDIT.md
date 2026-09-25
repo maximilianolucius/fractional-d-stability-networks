@@ -88,7 +88,7 @@ Kushel–Pavani define multiplicative (𝔇,D)-stability by the same quantifier 
 
 Their Theorem 3.1 is a general forbidden-boundary theorem: region D-stability is equivalent to initial region stability plus exclusion of the region boundary throughout the diagonal orbit.
 
-More importantly, their Theorem 3.3 gives equivalent necessary-and-sufficient conditions for conic relative D-stability **and for the complement of the closed conic sector**. One equivalent condition is
+More importantly, their the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission) gives equivalent necessary-and-sufficient conditions for conic relative D-stability **and for the complement of the closed conic sector**. One equivalent condition is
 
 ```text
 det(A - zD) ≠ 0 and det(A - conjugate(z)D) ≠ 0
@@ -484,7 +484,7 @@ The current-literature sweep did not locate a paper that gives the same real-3×
 
 ## Q2. Is T_α equivalent to a known relative-D-stability determinant bound?
 
-**No equivalence located.** Kushel 2023 gives sufficient relative-D-stability conditions, determinant upper bounds, and sector-gap estimates for selected D-stable classes. It does not give the exact real-3×3 invariant threshold T_α(β). However, Kushel–Pavani Theorem 3.3 is an exact **abstract** forbidden-boundary criterion for the same sign-transformed generalized-D-stability problem. C-10 must be described as explicit elimination of that abstract condition.
+**No equivalence located.** Kushel 2023 gives sufficient relative-D-stability conditions, determinant upper bounds, and sector-gap estimates for selected D-stable classes. It does not give the exact real-3×3 invariant threshold T_α(β). However, Kushel–Pavani the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission) is an exact **abstract** forbidden-boundary criterion for the same sign-transformed generalized-D-stability problem. C-10 must be described as explicit elimination of that abstract condition.
 
 ## Q3. Is C-15 strict convexity/logit geometry already a D-stability or geometric-programming theorem?
 
@@ -496,7 +496,7 @@ The current-literature sweep did not locate a paper that gives the same real-3×
 
 ## Q5. Is there already an exact N&S 3×3 positive-diagonal sector-stability theorem?
 
-**There is an exact general N&S boundary criterion, but no explicit C-10 elimination located.** Kushel–Pavani Theorem 3.3 handles all n abstractly via determinant nonvanishing for every D. Cain solves the α=1 real-3×3 half-plane case explicitly. No audited source supplies the intermediate α-dependent real-3×3 κ<T_α(β) solution.
+**There is an exact general N&S boundary criterion, but no explicit C-10 elimination located.** Kushel–Pavani the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission) handles all n abstractly via determinant nonvanishing for every D. Cain solves the α=1 real-3×3 half-plane case explicitly. No audited source supplies the intermediate α-dependent real-3×3 κ<T_α(β) solution.
 
 ## Q6. Does prior work handle the nonconvex α<1 Matignon region including the RHP sliver?
 
@@ -550,7 +550,7 @@ Do not claim logit or convex optimization methodology itself.
 
 | Risk | Severity | Required mitigation |
 |---|---:|---|
-| Referee says “Kushel–Pavani already gave N&S generalized D-stability” | **HIGH** | Cite Theorem 3.3 explicitly and state that C-10's novelty is exact 3×3 elimination of the universal-D condition |
+| Referee says “Kushel–Pavani already gave N&S generalized D-stability” | **HIGH** | Cite the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission) explicitly and state that C-10's novelty is exact 3×3 elimination of the universal-D condition |
 | Referee says “Cain already minimized over D in 3×3” | **HIGH** | Present Cain as the α=1 endpoint and acknowledge the homogeneous optimization template |
 | Referee says “fixed cubic fractional RH is known” | **HIGH** | Treat h_α as component machinery, not flagship novelty |
 | Referee says “Siami already has the threshold” | **MEDIUM-HIGH** | Show invariant β: Siami is β=(1,1,1), C-10 permits arbitrary realizable positive β |
