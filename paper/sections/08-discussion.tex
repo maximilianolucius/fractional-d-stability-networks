@@ -1,11 +1,165 @@
 \section{Discussion}
+\label{sec:discussion}
 
-The principal result is best interpreted as an explicit low-dimensional solution inside a known generalized-D-stability framework. Generalized multiplicative region D-stability and abstract forbidden-boundary criteria are already available \citep{Kushel2019,KushelPavani2022}; the new step is the complete elimination of the diagonal multiplier for the real \(3\times3\) Matignon problem on the robust strict-P stratum.
+The main result is an explicit low-dimensional solution inside an existing generalized-D-stability framework. The distinction matters for both novelty and interpretation. Generalized multiplicative region stability is classical in concept and was systematized by \citet{Kushel2019}; for conic regions and their complements, \citet{KushelPavani2022} give an abstract forbidden-boundary characterization under all positive diagonal multipliers. Theorem~\ref{thm:C10} does not replace that framework. It solves its real \(3\times3\) Matignon instance explicitly on the full-dimensional strict-\(P(-A)\) stratum.
 
-The relation to classical work is equally direct. Cain's exact real-\(3\times3\) threshold \citep{Cain1976} is recovered at \(\alpha=1\), while Bahl--Cain \citep{BahlCain1977} provides a close exact precursor for inertia preservation under all diagonal multipliers. The fractional problem is stricter than an inertia problem because it must resolve eigenvalue angle within a half-plane. At the structured-network end, the symmetric slice of the threshold reproduces Siami's single-cycle fractional secant condition \citep{Siami2021}; generic positive \(\beta\) triples cannot be reduced to that slice by the relevant diagonal transformations.
+\subsection{Relation to the closest prior work}
 
-Dimension three is special for two reasons. First, it is the smallest dimension in which the fractional-only difference class has nonempty full-dimensional interior. Second, the normalized orbit polynomial is cubic, so the Matignon ray crossing can be solved explicitly and reduced to one scalar threshold. The general simplex reduction persists in higher dimension, but for \(n=4\) the normalized quartic depends on eleven nontrivial orbit invariants and a genuinely richer root-boundary geometry.
+Table~\ref{tab:prior-art} summarizes the structural distinction between the closest results.
 
-The exploratory \(n=4\) computations suggest open genuinely fractional families beyond single cycles, including two three-cycles sharing an edge. Those observations are deliberately excluded from the theorem claims of the present paper. They motivate a separate higher-dimensional programme rather than an expansion of the current manuscript.
+\begin{table}[ht]
+\centering
+\small
+\caption{Closest structural predecessors and the present result.}
+\label{tab:prior-art}
+\begin{tabular}{p{2.5cm}p{2.7cm}p{1.4cm}p{2.1cm}p{4.4cm}}
+\toprule
+Work & Spectral target & Dimension & All \(D\succ0\)? & Role relative to this paper\\
+\midrule
+Cain \citep{Cain1976}
+& Left half-plane
+& \(3\)
+& Yes
+& Complete real-\(3\times3\) classical D-stability criterion; exact \(\alpha=1\) endpoint recovered here.\\[2mm]
 
-The ecological interpretation should likewise be read structurally. The generalized Lotka--Volterra application is not evidence that arbitrary ecological networks satisfy the theorem assumptions. Instead, it identifies exactly which abundance rescalings are irrelevant to the classification and how the matrix invariants translate into normalized pair and directed-cycle feedback coordinates.
+Bahl--Cain \citep{BahlCain1977}
+& Fixed inertia
+& \(3\)
+& Yes
+& Exact algebraic characterization of inertia of diagonal multiples; very close low-dimensional structural predecessor, but does not resolve eigenvalue angle within a half-plane.\\[2mm]
+
+Kushel--Pavani \citep{KushelPavani2022}
+& LMI regions, conic regions and complements
+& General
+& Yes
+& Abstract generalized-D-stability and forbidden-boundary framework; retains the universal diagonal condition rather than eliminating it to four invariants in the generic real-\(3\times3\) case.\\[2mm]
+
+Kushel--Pavani \citep{KushelPavani2021}
+& LMI/conic regions
+& General
+& Yes
+& Diagonal region-dominance sufficient conditions, including fractional-order applications; not an exact real-\(3\times3\) characterization.\\[2mm]
+
+Siami \citep{Siami2021}
+& Fractional angular stability
+& Structured \(n\)
+& Yes
+& Fractional secant condition for a single directed circuit; the uniform \(n=3\) case is recovered as the symmetric slice of \(T_\alpha\).\\[2mm]
+
+Present work
+& Full Matignon reflex sector
+& \(3\)
+& Yes
+& Exact elimination to \((\beta_{12},\beta_{13},\beta_{23},\kappa)\) and the scalar boundary \(\kappa<T_\alpha(\beta)\), plus threshold geometry and dimension-interior consequence.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The comparison with Cain is especially sharp. At \(\alpha=1\), the Matignon region becomes the open left half-plane and
+\[
+T_\alpha(\beta)\to T_1(\beta)
+=
+\left(
+\sqrt{\beta_{12}}+
+\sqrt{\beta_{13}}+
+\sqrt{\beta_{23}}
+\right)^2.
+\]
+For every \(2/3<\alpha<1\),
+\[
+T_\alpha(\beta)>T_1(\beta),
+\]
+so the fractional problem is an exact outward deformation of the classical D-stability boundary rather than an unrelated sufficient criterion.
+
+The comparison with Bahl--Cain is complementary. Inertia records how many eigenvalues lie in each open half-plane and on the imaginary axis. The Matignon problem requires strictly finer angular information because, for \(\alpha<1\), a nonempty sliver of the right half-plane is stable. Hence a fixed-inertia theorem cannot determine membership in \(\mathcal F_\alpha^{(3)}\).
+
+\subsection{Why dimension three is special}
+
+The projective orbit reduction of Lemma~\ref{lem:simplex-reduction} exists in every dimension. What is special in dimension three is the combination of two facts.
+
+First, Theorem~\ref{thm:C09} shows that \(n=3\) is the first dimension in which
+\[
+\mathcal F_\alpha^{(n)}
+\setminus
+\mathcal D_H^{(n)}
+\]
+has nonempty full-dimensional interior. In dimension two, purely fractional D-stability is confined to a codimension-two set.
+
+Second, after orbit normalization the characteristic polynomial is cubic:
+\[
+z^3+z^2+B_\beta(x)z+\kappa x_1x_2x_3.
+\]
+A crossing of a Matignon ray can therefore be solved explicitly and reduced to one scalar boundary function \(h_\alpha\). For \(n=4\), the normalized polynomial becomes
+\[
+z^4+z^3+B_2(x)z^2+B_3(x)z+B_4(x),
+\]
+with eleven nontrivial principal-minor invariants and a three-dimensional simplex. The orbit geometry is still explicit, but the quartic angular boundary depends on more than one normalized coefficient and no analogue of the scalar \(T_\alpha(\beta)\) has yet been obtained.
+
+Exploratory computations suggest open genuinely fractional \(4\times4\) families beyond a single cycle, including two three-cycles sharing an edge. Those observations are intentionally excluded from the theorem claims here. They motivate a separate higher-dimensional problem rather than an expansion of the present manuscript.
+
+\subsection{Robustness versus lower-dimensional boundary strata}
+
+The exact theorem is stated on the strict-\(P(-A)\) stratum because Corollary~\ref{cor:strictP-interior} shows that every full-dimensional interior point must lie there. This is enough to characterize the robust class and to prove Theorem~\ref{thm:C09}. It does not classify every possible lower-dimensional boundary stratum of \(\mathcal F_\alpha^{(3)}\).
+
+This distinction parallels classical work on the interior and strong forms of D-stability \citep{Hartfiel1980,Abed1986}. The present result concerns the open, perturbationally persistent fractional class. Matrices with vanishing signed principal minors may still exhibit special fractional stability, just as the \(2\times2\) purely imaginary family in Section~\ref{sec:dimension-two} does, but those boundary phenomena are not needed for the full-dimensional theory.
+
+\subsection{Interpretation of the fractional band}
+
+The inequality
+\[
+T_1(\beta)<\kappa<T_\alpha(\beta)
+\]
+should not be read merely as a statement that memory stabilizes an unstable matrix. It is stronger in two ways.
+
+First, the right-hand inequality is uniform over the entire positive diagonal orbit:
+\[
+\sigma(DA)\subset\Sigma_\alpha
+\qquad
+\forall D\succ0.
+\]
+Second, the left-hand inequality states that classical Hurwitz D-stability fails somewhere on that same orbit. The genuinely fractional band is therefore an orbit-level separation between two stability notions.
+
+The width
+\[
+W_\alpha(\beta)
+=
+T_\alpha(\beta)-T_1(\beta)
+\]
+quantifies the size of that separation in the determinant coordinate. Theorem~\ref{thm:C14} gives
+\[
+W_\alpha(\beta)
+=
+C(\beta)(1-\alpha)
++
+O((1-\alpha)^2)
+\]
+near integer order, while Theorem~\ref{thm:loworder} shows a universal \(K^{-3}\) expansion of the fractional threshold as \(\alpha\downarrow2/3\). Thus the theory resolves both ends of the high-order regime.
+
+\subsection{Ecological scope}
+
+For a positive generalized Lotka--Volterra equilibrium, Proposition~\ref{prop:GLV-invariance} shows that abundance scaling does not change the classification. This gives a precise sense in which the fractional D-stability property is structural: it depends on normalized interaction feedback rather than on the particular positive equilibrium abundance vector.
+
+The loop variables in Section~\ref{sec:ecology} should nevertheless be interpreted cautiously. Principal-minor/cycle decompositions are classical \citep{Kinkhabwala2015}; our new content is the exact fractional orbit boundary expressed in those coordinates. Moreover, Corollary~\ref{cor:sensitivity} and its \(g_{ij}\) form are partial derivatives in invariant space. A biological parameter change generally moves several invariants simultaneously, so the sign of one partial derivative is not by itself a causal prediction for an intervention.
+
+\subsection{Limitations}
+
+The present theory has five deliberate boundaries.
+
+\begin{enumerate}
+\item \textbf{Commensurate order.}
+The Matignon criterion used here applies to a common fractional order \(\alpha\). Multi-order fractional systems require a different spectral formulation \citep{BrandiburGarrappaKaslik2021}.
+
+\item \textbf{Real matrices.}
+The principal-minor and ecological interpretations are developed for real interaction matrices.
+
+\item \textbf{Full-dimensional classification.}
+The strict-P theorem completely describes the interior but not every lower-dimensional boundary stratum.
+
+\item \textbf{Dimension three.}
+The general simplex reduction extends to higher dimension, but the exact quartic and higher angular geometry remains open.
+
+\item \textbf{Local equilibrium stability.}
+The GLV application concerns linearized asymptotic stability of a positive equilibrium. It does not by itself establish global persistence, feasibility, or nonlinear basin properties.
+\end{enumerate}
+
+These limitations are not defects in the exact three-dimensional theorem; they define the natural continuation of the programme.
