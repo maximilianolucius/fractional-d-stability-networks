@@ -1,0 +1,69 @@
+\section{Computational certification and reproducibility}
+\label{sec:computation}
+
+All principal results are analytic. Computation was used only for adversarial falsification, interval certification, sensitivity checks, and reproducible visualization. Two independent numerical routes were compared: the invariant-space minimization defining \(T_\alpha\), and direct minimization of the spectral Matignon margin over two log-diagonal ratios using eigenvalues of the full matrix \(DA\).
+
+The combined audit comprised \(2.18\times10^6\) adversarial matrix/order cases, \(56{,}234\) multiprecision rechecks of numerically delicate cases, a \(938\)-point threshold atlas, \(35\) canonical witness matrices, \(128{,}000\) floating-point differential checks plus \(2{,}500\) high-precision rechecks, and a final \(135/135\) passing test suite. No genuine discrepancy with Theorem~\ref{thm:C10} or the threshold geometry survived independent high-precision re-evaluation.
+
+Of the \(938\) atlas points, \(903\) were globally certified by interval branch-and-bound without invoking Theorem~\ref{thm:strict-convexity}. For \(35\) extreme-anisotropy points, localization was completed using the already-proved strict-convexity/uniqueness result. The worst reported relative enclosure width was
+\[
+1.1\times10^{-35}.
+\]
+All independent 50-digit optimizer values lay inside their enclosures, and all \(312\) symmetric points contained the exact closed form of Corollary~\ref{cor:symmetric-slice}.
+
+A representative nonsymmetric witness is
+\[
+A=
+\begin{pmatrix}
+-1&-3/2&0\\
+-1/2&-1&-3\\
+-3&0&-2
+\end{pmatrix},
+\qquad \alpha=0.7.
+\]
+It is Hurwitz at \(D=I\), with
+\[
+\max\Re\sigma(A)\approx-0.0789,
+\]
+but the positive diagonal
+\[
+D_H\approx\operatorname{diag}(1.58740,1.58740,0.396850)
+\]
+gives
+\[
+\max\Re\sigma(D_HA)\approx0.0384>0.
+\]
+Thus ordinary stability of \(A\) does not imply Hurwitz D-stability, while Theorem~\ref{thm:C10} still certifies the entire orbit as Matignon-stable at this fractional order.
+
+Robustness was examined on fourteen witnesses with local sensitivity, constrained optimization, global differential evolution, directional root finding, and high-precision refinement. The near-boundary witness W28 reaches the fractional boundary after a max-entry perturbation of approximately
+\[
+1.06\times10^{-3},
+\]
+while generic witnesses have substantially larger margins. Near \(\alpha=2/3\), where finite differences become ill-conditioned because \(T_\alpha=O(K^{-3})\), the \(500\) worst differential cases were recomputed at 40 digits; the identity
+\[
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}
+\]
+then agreed to \(2.4\times10^{-33}\) in the worst recheck.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel09_ecological_band.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel10_pairloop_sensitivity.pdf}
+\end{minipage}
+
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel11_optimizer.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel12_robustness.pdf}
+\end{minipage}
+\caption{Ecological and robustness diagnostics. (a) Exact Cain and fractional loop-space boundaries. (b) A representative exact pair-loop elasticity surface. (c) Evolution of the unique worst-orbit simplex coordinate for \(\beta=(3,0.5,1)\). (d) High-precision max-norm upper bounds to the fractional, Cain, and strict-P boundaries for selected witnesses; missing bars denote boundaries not reached before leaving the admissible stratum.}
+\label{fig:ecology-validation-multipanel}
+\end{figure}
+
+The computational record and exact commands are maintained in the public repository. Computation is not used to infer any theorem from finite sampling; it serves only as independent falsification, certification of representative values, and reproducible corroboration.
