@@ -1,0 +1,282 @@
+\section{Exact three-dimensional Matignon threshold}
+\label{sec:exact-3x3}
+
+Let \(-A\) be strict P and use the notation of Lemma~\ref{lem:simplex-reduction}. For \(D\succ0\),
+\[
+\det(\lambda I-DA)
+=
+\lambda^3+a_D\lambda^2+b_D\lambda+c_D,
+\]
+with
+\[
+a_D=s,\qquad
+b_D=s^2B_\beta(x),\qquad
+c_D=s^3\kappa x_1x_2x_3.
+\]
+
+\subsection{Exact cubic boundary}
+
+\begin{lemma}[Exact cubic Matignon boundary]
+\label{lem:cubic-boundary}
+Let
+\[
+p(\lambda)=\lambda^3+a\lambda^2+b\lambda+c,
+\qquad a,b,c>0,
+\]
+and \(\pi/3<\theta<\pi/2\). Set
+\[
+u=\cos\theta,\qquad K=1-4u^2>0,
+\]
+\[
+r_\theta(a,b)
+=
+\frac{ua+\sqrt{u^2a^2+Kb}}{K},
+\]
+and
+\[
+H_\theta(a,b)
+=
+r_\theta(a,b)^2
+\left(a+2u\,r_\theta(a,b)\right).
+\]
+Then all roots satisfy
+\[
+|\arg\lambda|>\theta
+\]
+if and only if
+\[
+c<H_\theta(a,b).
+\]
+Moreover,
+\[
+H_\theta(sa,s^2b)=s^3H_\theta(a,b).
+\]
+\end{lemma}
+
+\begin{proof}
+A positive-coefficient cubic has no nonnegative real root. A root can therefore leave the open angular region only through one of the rays \(\lambda=re^{\pm i\theta}\), \(r>0\). Substituting \(\lambda=re^{i\theta}\) and dividing the imaginary part by \(r\sin\theta\) gives
+\[
+Kr^2-2uar-b=0,
+\]
+whose unique positive solution is \(r_\theta(a,b)\). The real part then gives
+\[
+c=r^2(a+2ur)=H_\theta(a,b).
+\]
+Thus there is exactly one positive \(c\) at which a ray is touched. For \(c>0\) sufficiently small, one root is a small negative real root and the other two perturb the Hurwitz roots of \(\lambda^2+a\lambda+b\); for \(c\to\infty\), two roots approach the cube-root directions \(\pm\pi/3\), which violate \(\theta>\pi/3\). Hence stability is exactly \(c<H_\theta(a,b)\). Homogeneity follows by \(r_\theta(sa,s^2b)=sr_\theta(a,b)\).
+\end{proof}
+
+For \(2/3<\alpha<1\), put
+\[
+\theta=\frac{\alpha\pi}{2},
+\qquad
+u=\cos\theta,
+\qquad
+K=1-4u^2,
+\]
+and define
+\[
+r_\alpha(b)
+=
+\frac{u+\sqrt{u^2+Kb}}{K},
+\qquad
+h_\alpha(b)
+=
+r_\alpha(b)^2(1+2u\,r_\alpha(b)).
+\]
+
+\subsection{Exact elimination of the diagonal multiplier}
+
+Define
+\[
+\boxed{
+T_\alpha(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+\frac{h_\alpha(B_\beta(x))}
+{x_1x_2x_3}.
+}
+\]
+The minimum is attained in the interior because the numerator has a positive continuous extension to the closed simplex while \(x_1x_2x_3\to0\) on its boundary.
+
+\begin{theorem}[Exact real-\(3\times3\) criterion]
+\label{thm:C10}
+Let \(-A\) be strict P and \(2/3<\alpha<1\). Then
+\[
+\boxed{
+A\in\mathcal F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta).
+}
+\]
+\end{theorem}
+
+\begin{proof}
+For the simplex coordinate \(x\) associated with \(D\),
+\[
+\det(\lambda I-DA)
+=
+\lambda^3+s\lambda^2+s^2B_\beta(x)\lambda
++s^3\kappa x_1x_2x_3.
+\]
+Lemma~\ref{lem:cubic-boundary} and its homogeneity give
+\[
+\sigma(DA)\subset\Sigma_\alpha
+\iff
+\kappa
+<
+\frac{h_\alpha(B_\beta(x))}
+{x_1x_2x_3}.
+\]
+Lemma~\ref{lem:simplex-reduction} identifies positive diagonal ratios with all \(x\in\Delta_2^\circ\), so the inequality holds for every \(D\succ0\) exactly when \(\kappa<T_\alpha(\beta)\).
+\end{proof}
+
+This is an explicit solution of the real three-dimensional Matignon instance of generalized positive-diagonal region stability. The abstract all-\(D\) framework itself is known \citep{Kushel2019,KushelPavani2022}.
+
+\subsection{Interior classification}
+
+\begin{lemma}[\(P_0\) necessity]
+\label{lem:P0}
+If \(A\in\mathcal F_\alpha^{(3)}\), then
+\[
+-a_{ii}\ge0,
+\qquad
+\det A[\{i,j\}]\ge0,
+\qquad
+-\det A>0.
+\]
+\end{lemma}
+
+\begin{proof}
+If \(a_{ii}>0\), keep the \(i\)-th row scaling fixed and send the other two to zero; the limiting matrix has a positive eigenvalue \(d_i a_{ii}\), which persists for nearby positive scalings. If an order-two principal minor is negative, send the remaining row scaling to zero; the limiting \(2\times2\) principal block has eigenvalues of opposite signs. Both contradict Matignon stability. Finally, at \(D=I\), the real eigenvalue of a real cubic must be negative, while the product of the remaining two eigenvalues is positive; hence \(\det A<0\).
+\end{proof}
+
+\begin{corollary}[Strict-P interior]
+\label{cor:strictP-interior}
+If
+\[
+A\in\operatorname{int}\mathcal F_\alpha^{(3)},
+\]
+then \(-A\) is strict P.
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:P0} gives nonnegative signed minors. A vanishing order-one minor can be perturbed immediately to the forbidden sign. A singular \(2\times2\) principal block can likewise be perturbed arbitrarily little to negative determinant: use a first-order adjugate perturbation when the block has rank one, and \(\operatorname{diag}(t,-t)\) when it is zero. Thus no such equality can occur at an interior point; the determinant inequality is already strict.
+\end{proof}
+
+Kellogg's theorem \citep{Kellogg1972} states that every eigenvalue \(\mu\) of a \(3\times3\) strict P-matrix satisfies
+\[
+|\arg\mu|<2\pi/3.
+\]
+Applied to \(-DA\), it yields
+\[
+|\arg\lambda(DA)|>\pi/3.
+\]
+
+\begin{theorem}[Interior of \(\mathcal F_\alpha^{(3)}\)]
+\label{thm:interior-F}
+For \(0<\alpha\le2/3\),
+\[
+\operatorname{int}\mathcal F_\alpha^{(3)}
+=
+\{A:-A\text{ strict P}\}.
+\]
+For \(2/3<\alpha<1\),
+\[
+\operatorname{int}\mathcal F_\alpha^{(3)}
+=
+\{A:-A\text{ strict P},\ \kappa<T_\alpha(\beta)\}.
+\]
+\end{theorem}
+
+\begin{proof}
+For \(\alpha\le2/3\), Kellogg gives sufficiency, Corollary~\ref{cor:strictP-interior} gives necessity, and strict P is open.
+
+For \(\alpha>2/3\), necessity follows from Corollary~\ref{cor:strictP-interior} and Theorem~\ref{thm:C10}. Conversely, near any strict-P matrix the invariants vary continuously and remain in a compact positive box. Since
+\[
+F_{\alpha,\beta}(x)
+\ge
+\frac{h_\alpha(0)}{x_1x_2x_3},
+\]
+all nearby minimizers lie in one compact subset of \(\Delta_2^\circ\); hence \(T_\alpha(\beta)\) is locally continuous. The strict gap \(T_\alpha(\beta)-\kappa>0\) therefore persists under sufficiently small perturbations.
+\end{proof}
+
+\subsection{Cain endpoint and the exact fractional band}
+
+As \(\alpha\to1^-\),
+\[
+h_\alpha(b)\to b,
+\]
+so
+\[
+T_\alpha(\beta)\to
+T_1(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+\frac{B_\beta(x)}{x_1x_2x_3}.
+\]
+Since
+\[
+\frac{B_\beta(x)}{x_1x_2x_3}
+=
+\frac{\beta_{23}}{x_1}
++\frac{\beta_{13}}{x_2}
++\frac{\beta_{12}}{x_3},
+\]
+Cauchy--Schwarz gives
+\[
+\boxed{
+T_1(\beta)
+=
+\left(
+\sqrt{\beta_{12}}
++\sqrt{\beta_{13}}
++\sqrt{\beta_{23}}
+\right)^2.
+}
+\]
+This is exactly Cain's real-\(3\times3\) D-stability boundary \citep{Cain1976}.
+
+\begin{lemma}[Strict fractional expansion of Cain's boundary]
+\label{lem:Talpha-gt-T1}
+For \(2/3<\alpha<1\),
+\[
+T_\alpha(\beta)>T_1(\beta)
+\qquad
+\forall\beta>0.
+\]
+\end{lemma}
+
+\begin{proof}
+For \(r=r_\alpha(b)\),
+\[
+b=Kr^2-2ur,
+\]
+hence
+\[
+h_\alpha(b)-b
+=
+4u^2r^2+2ur(r^2+1)>0.
+\]
+Apply this pointwise to the fractional objective and then minimize.
+\end{proof}
+
+\begin{corollary}[Exact genuinely fractional band]
+\label{cor:exact-band}
+For \(2/3<\alpha<1\),
+\[
+\boxed{
+\operatorname{int}\mathcal P_\alpha^{(3)}
+=
+\{A:-A\text{ strict P},\
+T_1(\beta)<\kappa<T_\alpha(\beta)\}.
+}
+\]
+For \(0<\alpha\le2/3\),
+\[
+\boxed{
+\operatorname{int}\mathcal P_\alpha^{(3)}
+=
+\{A:-A\text{ strict P},\ \kappa>T_1(\beta)\}.
+}
+\]
+\end{corollary}
