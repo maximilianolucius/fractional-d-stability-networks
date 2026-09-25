@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-24  
 **Status:** INTERNAL ANALYTIC THEOREM — exact on the strict-P(-A) stratum  
-**Novelty status:** TARGETED AUDIT REQUIRED  
+**Novelty status:** FINAL SPECIALIST VERDICT — NOVEL WITH NARROWED CLAIM  
 **Scope:** real 3x3 matrices; positive left-diagonal scaling; commensurate order \(0<\alpha<1\)
 
 This result closes the mathematical target posed in \`research/C10_EXACT_3X3_TASK.md\` on the full-dimensional stratum relevant to robust/interior fractional D-stability.
@@ -298,7 +298,7 @@ and
 \kappa x_1x_2x_3.
 \]
 
-Thus the entire positive diagonal orbit, modulo common scaling, has been eliminated in favor of a compact two-dimensional simplex.
+Thus the entire positive diagonal orbit, modulo common scaling, has been eliminated in favor of the open two-dimensional simplex. Its closure is compact, while the threshold objective is coercive at the boundary.
 
 ---
 
@@ -468,7 +468,7 @@ A:
 }
 \]
 
-For the high-order case, strict inequality plus compactness of the normalized simplex supplies a positive margin, so the condition persists under sufficiently small full-matrix perturbations.
+For the high-order case, the open simplex itself is not compact. Instead, the threshold objective extends continuously to (+infty) at the closed-simplex boundary. In a sufficiently small parameter neighborhood of any fixed strict-P matrix, (h_\alpha(B_\beta(x))) has a uniform positive lower bound, so all minimizers lie in one compact sublevel subset of the open simplex. The minimum therefore varies continuously, and the strict inequality (\kappa<T_\alpha(\beta)) persists under sufficiently small full-matrix perturbations.
 
 For the low-order case, the Kellogg P-matrix wedge theorem gives \(\mathcal F_\alpha\) for every strict-P(-A) matrix, while Lemma 2 gives necessity for interior points.
 
