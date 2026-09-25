@@ -2,7 +2,7 @@
 
 Public research repository for the development of an exact theory of **fractional D-stability under positive diagonal scaling**, with a three-species ecological-network / generalized Lotka–Volterra interpretation.
 
-> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: the final specialist novelty audit has passed **with repositioning** and the independent adversarial **proof gate has passed**; the final high-precision compute validation remains outstanding.
+> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: the final specialist novelty audit has passed **with repositioning**, the independent adversarial **proof gate has passed**, and Compute Wave 1 has returned **COMPUTE_PASS**. The project is now in **Q1 manuscript production**.
 
 The repository is public:
 
@@ -442,7 +442,7 @@ The compute branch has completed P0, P1, P3/P3B, P4, P5 and the full float stage
 - C-14 high-precision rate validation down to (1-alpha=10^{-10});
 - exploratory (n=4) reconnaissance.
 
-The remaining compute gate is the high-precision recheck of 56,234 deliberately flagged near-boundary/numerically delicate P2 cases. Until `C10_STRESS_SUMMARY.json` and `C10_WORST_CASES.csv` are committed, Compute Wave 1 is a **strong interim pass**, not final `COMPUTE_PASS`.
+The high-precision recheck is complete: **56,234/56,234** deliberately flagged near-boundary/numerically delicate cases agree with C-10, with **0 genuine counterexamples**. Compute Wave 1 is final `COMPUTE_PASS`.
 
 Chief review: [`research/CHIEF_COMPUTE_WAVE1_INTERIM_REVIEW.md`](research/CHIEF_COMPUTE_WAVE1_INTERIM_REVIEW.md).
 
@@ -612,7 +612,7 @@ Its mathematics does **not** establish novelty for this project.
 [`paper/`](paper/) is still a scaffold. The final manuscript is deliberately **locked** until the following gates are satisfied:
 
 1. adversarial proof audit: **PASSED**;
-2. high-compute wave finds no persistent counterexample;
+2. high-compute wave: **PASSED** with zero genuine counterexamples;
 3. final specialist novelty audit: **PASSED WITH REPOSITIONING**;
 4. exact bibliographic theorem numbers and sign conventions are verified;
 5. all central claims remain independent of finite numerical sampling.
