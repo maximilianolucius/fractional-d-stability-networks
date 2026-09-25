@@ -174,3 +174,46 @@ Despite the title, accessible citation context places this work in the **desired
 No accessible evidence shows the Shao paper quantifying over (DA) for all positive diagonal matrices (D). Therefore it does not presently kill C-10. Full-text verification remains a final pre-submission bibliography task.
 
 Detailed note: `research/novelty/D_STABILITY_TERMINOLOGY_COLLISION.md`.
+
+
+## 2026 current-literature addendum — Kushel recursive framework and exact positioning
+
+A final current-literature sweep through 2026-09-25 adds two points that should be explicit in the manuscript positioning.
+
+### Kushel–Pavani 2021 is the closest generalized-region precedent
+
+Kushel and Pavani define multiplicative \(D\)-stability using arbitrary positive diagonal multipliers and develop \((\mathfrak D,D)\)-stability for unbounded LMI regions. They prove that diagonal \(\mathfrak D\)-dominance can imply preservation of spectral localization under every positive diagonal multiplier.
+
+Their paper also gives sufficient conditions for fractional-order systems through conic-sector localization and diagonal dominance.
+
+This is **direct conceptual prior art** for the phrase "fractional D-stability under positive diagonal scaling" and must be cited prominently.
+
+However, the result is not an exact characterization of the project object:
+
+- their conic LMI sectors are convex sectors around the negative real axis;
+- the project Matignon region for \(0<\alpha<1\),
+  \[
+  |\arg\lambda|>\alpha\pi/2,
+  \]
+  is a nonconvex reflex sector that includes a right-half-plane sliver;
+- their diagonal-dominance conditions are sufficient;
+- they do not give a necessary-and-sufficient real \(3\times3\) principal-minor/orbit criterion;
+- they do not eliminate the full diagonal multiplier to the four-invariant threshold \(T_\alpha(\beta)\).
+
+Thus the correct novelty language is **not** "first fractional D-stability concept". It is the exact low-dimensional solution of a multiplicative generalized-D-stability problem in the full Matignon region.
+
+### Kushel 2026 recursive determinantal framework
+
+Olga Kushel's 2026 preprint, *Recursive determinantal framework for testing D-stability. I* (arXiv:2604.16526), develops a delete/zero recursion based on real and imaginary parts of determinants and obtains a hierarchy of sufficient conditions for classical multiplicative D-stability, expressed through principal minors.
+
+This is relevant as the newest principal-minor D-stability work and should enter the final bibliography audit.
+
+It does **not** presently collide with C-10/C-15:
+
+- spectral target: classical half-plane D-stability;
+- result type: hierarchy of sufficient conditions;
+- no Matignon/reflex-sector exact characterization;
+- no exact four-invariant threshold for \(3\times3\);
+- no C-15 convex threshold geometry.
+
+**2026 update verdict:** no novelty kill found; Kushel–Pavani 2021 should be elevated to closest conceptual predecessor, and Kushel 2026 should be cited as current classical D-stability methodology.
