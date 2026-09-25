@@ -1,0 +1,103 @@
+\section{Positive-diagonal Matignon stability and orbit reduction}
+\label{sec:framework}
+
+For the commensurate Caputo system
+\[
+{}^C D_t^\alpha x=Ax,
+\qquad 0<\alpha<1,
+\]
+asymptotic stability is equivalent to
+\[
+\sigma(A)\subset
+\Sigma_\alpha
+:=
+\{z\neq0:|\arg z|>\alpha\pi/2\}
+\]
+\citep{Matignon1996,BrandiburGarrappaKaslik2021}. Define
+\[
+\mathcal F_\alpha^{(n)}
+=
+\{A:\sigma(DA)\subset\Sigma_\alpha
+\ \forall D\succ0\text{ diagonal}\},
+\]
+\[
+\mathcal D_H^{(n)}
+=
+\{A:DA\text{ Hurwitz }\forall D\succ0\},
+\qquad
+\mathcal P_\alpha^{(n)}
+=
+\mathcal F_\alpha^{(n)}\setminus\mathcal D_H^{(n)}.
+\]
+All interiors are taken in the Euclidean topology of \(\mathbb R^{n\times n}\). Because
+\[
+DA=D(AD)D^{-1},
+\]
+left and right positive-diagonal multiplication are spectrally equivalent. Our Hurwitz sign convention corresponds to Cain's positive-stability convention after replacing his matrix \(M\) by \(-A\) \citep{Cain1976}.
+
+A real matrix is a P-matrix if every principal minor is positive and a \(P_0\)-matrix if every principal minor is nonnegative. Assume \(-A\) is strict P and, in dimension three, write
+\[
+p_i=-a_{ii}>0,
+\qquad
+m_{ij}=\det A[\{i,j\}]>0,
+\qquad
+q=-\det A>0.
+\]
+Define the positive-left-diagonal invariants
+\[
+\beta_{12}=\frac{m_{12}}{p_1p_2},
+\quad
+\beta_{13}=\frac{m_{13}}{p_1p_3},
+\quad
+\beta_{23}=\frac{m_{23}}{p_2p_3},
+\quad
+\kappa=\frac{q}{p_1p_2p_3}.
+\]
+
+\begin{lemma}[Positive-diagonal orbit reduction]
+\label{lem:simplex-reduction}
+Let
+\[
+D=\operatorname{diag}(d_1,d_2,d_3)\succ0,
+\qquad
+s=\sum_{i=1}^3p_id_i,
+\qquad
+x_i=\frac{p_id_i}{s}.
+\]
+Then \(x\in\Delta_2^\circ=\{x_i>0:\sum_i x_i=1\}\), and
+\[
+\det(\lambda I-DA)
+=
+\lambda^3+s\lambda^2+s^2B_\beta(x)\lambda
++s^3\kappa x_1x_2x_3,
+\]
+where
+\[
+B_\beta(x)
+=
+\beta_{12}x_1x_2+
+\beta_{13}x_1x_3+
+\beta_{23}x_2x_3.
+\]
+Conversely every \(x\in\Delta_2^\circ\) arises from a positive diagonal \(D\), uniquely up to common positive scale.
+\end{lemma}
+
+\begin{proof}
+The characteristic coefficients are
+\[
+s=\sum_i p_id_i,
+\qquad
+b_D=\sum_{i<j}m_{ij}d_id_j,
+\qquad
+c_D=qd_1d_2d_3.
+\]
+Substituting \(d_i=sx_i/p_i\) gives
+\[
+b_D=s^2B_\beta(x),
+\qquad
+c_D=s^3\kappa x_1x_2x_3.
+\]
+Conversely \(d_i=sx_i/p_i\) reconstructs \(D\) for any \(s>0\).
+\end{proof}
+
+The radial substitution \(\lambda=sz\) shows that \(s\) changes only eigenvalue magnitudes, not arguments. Thus the full positive-diagonal orbit modulo common scale is exactly the open simplex. The four ratios \((\beta,\kappa)\) are unchanged by positive left-diagonal scaling.
