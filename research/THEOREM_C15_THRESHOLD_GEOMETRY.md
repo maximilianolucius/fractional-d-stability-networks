@@ -483,7 +483,33 @@ E(z_{ij}+z_{ik})
 1+(2E-3)x_i.
 \]
 
-Solving the resulting linear system yields:
+Put (c_E=2E-3). Solving the resulting linear system yields
+
+\[
+z_{ij}
+=
+\frac{1+c_E(1-2x_k)}{2E}.
+\]
+
+Two identities are immediate and will be used in the inverse construction:
+
+\[
+z_{12}+z_{13}+z_{23}
+=
+\frac{3+c_E}{2E}
+=
+1,
+\]
+
+and
+
+\[
+E(z_{ij}+z_{ik})
+=
+1+c_E x_i.
+\]
+
+Therefore
 
 \[
 \boxed{
