@@ -2,7 +2,7 @@
 
 **Branch:** `agent/compute-c10-wave1-20260925`  
 **Date:** 2026-09-25  
-**Final status:** _pending P2 HP stage and P5 — see §11_
+**Final status: COMPUTE_PASS** (C-10, C-09, C-11 soundness, C-14: no counterexample survives high precision)
 
 Evidence labels used throughout: **NUMERICAL** (float64), **HP** (mpmath, digits stated),
 **CERTIFIED** (interval arithmetic, outward rounding), **PROOF SKETCH** (analytic argument written
@@ -35,7 +35,7 @@ project until the Chief/audit accepts it). No computation here is used as proof 
   normalisation from eigenvalues of DA, C-11 Φ minimiser, C-12/C-13 invariance and loop identity,
   C-14 monotonicity/rate, α→2/3 blow-up), `tests/test_c10_numerics.py` (fixed-seed hypothesis
   property tests), `tests/test_p1_structure.py`.
-- **Test suite: see §11 for the final count (all passing).** Label: NUMERICAL/HP corroboration.
+- **Test suite: 121 tests, 121 passed** (`pytest -n 4`, aureus). Label: NUMERICAL/HP corroboration.
 
 ## 3. P1 — the exact threshold T_α(β) (`P1_THRESHOLD_VALIDATION.json`)
 
@@ -112,11 +112,75 @@ non-realizable when G>0.
 
 ## 4. P2 — adversarial validation of C-10
 
-_(filled after the HP stage; see `C10_STRESS_SUMMARY.json`)_
+Scripts: `p2_stress.py` (float), `p2_hp_verify.py`, `p2_hp_controls.py`, `p2_hp_recheck.py`,
+`p2_c5_lemma2_witness.py`, `p2_finalize_summary.py`. Summary: `C10_STRESS_SUMMARY.json`;
+closest-to-boundary cases: `C10_WORST_CASES.csv` (5000 HP cases, full matrices).
+
+**Scale:** 2,060,000 C-10 matrix/α cases + 120,000 control cases = 2,180,000 (float stage 6,143 s wall,
+16 workers); HP stage 56,234 flagged cases (5,425 s wall, 82,442 CPU-s).
+α grid: 0.1, 0.3, 0.6, 2/3, 2/3+1e−7, 2/3+1e−4, 0.7, 0.8, 0.9, 0.95, 0.99, 0.999, 0.9999, plus continuous α
+in M4a/M4d/M4e (α=2/3+10^{−U[1,8]}, 1−10^{−U[1,6]}).
+
+**Direct side (independent of the proof):** min over D of min|arg λ(DA)|−απ/2 with LAPACK eigenvalues
+of the full matrix only — O1 log-grid [−16,16]² step 0.5 + pattern search from 3 separated starts
+(all cases); O2 Nelder–Mead from O1 + 2 random starts (799,898 runs); O3 differential evolution
+(45,460 runs). Random positive-diagonal similarity, permutation and row scaling applied to every
+generated matrix. Float decision tolerance = max(1e−12, 10× a-posteriori eigen-angle error).
+
+| mechanism | cases | theorem: member | float mismatches | near-zero → HP | min |κ/T−1| |
+|---|---|---|---|---|---|
+| M1 entry space (normal / t₁.₅ / sparse) × 13 α | 520,000 | 516,371 | 0 | 0 | 2.3e−5 |
+| M2 invariant coords, κ=T·10^{U[−1,1]} | 300,000 | 192,915 | 0 | 0 | 2.2e−6 |
+| M3 perturbed cyclic witness A_γ | 150,000 | 117,920 | 0 | 0 | 1.3e−5 |
+| M4a κ=T_α(1±10^{−U[1,9]}) | 450,000 | 224,938 | 0 | 24,386 | 1.0e−11 |
+| M4b κ=T₁(1±δ) (Cain boundary) | 100,000 | 98,442 | 0 | 0 | 3.3e−6 |
+| M4c tiny β_ij / tiny κ (minor boundary) | 120,000 | 101,230 | 0 | 1,714 | 1.5e−10 |
+| M4d α=2/3+10^{−U[1,8]} at the boundary | 120,000 | 60,261 | 0 | 22,593 | 7.6e−10 |
+| M4e α=1−10^{−U[1,6]}, inside/at thin band | 180,000 | 119,969 | 0 | 2,474 | 6.8e−12 |
+| M4f extreme β (1e−6…1e6) at the boundary | 120,000 | 59,737 | 0 | 5,079 | 3.2e−8 |
+| C5 control: −A not P₀ or det(−A)≤0 | 60,000 | 0 (Lemma 2) | 0 | 0 | — |
+| C6 control: α=1, κ=T₁(1±δ) (Cain) | 60,000 | 29,747 | 0 | 0 | 1.0e−9 |
+
+- **Float stage: 0 mismatches** in all 2,180,000 cases.
+- **HP stage:** all 56,234 flagged cases (near-zero direct margin or |κ/T−1|<1e−10) recomputed from
+  the exact binary entries: invariants and T_α at 60 digits, mp.eig margins at 40 digits, local mp
+  search from the float direct optimizer and separately from the theorem minimiser.
+  **56,234/56,234 consistent**, and 56,234/56,234 consistent using *only* the independent start.
+  0 escalations to 110 digits were needed. Example extremes (`C10_WORST_CASES.csv`): α=2/3+1.1e−8,
+  κ/T−1=+4.9e−11 → HP min margin −2.9e−19 (unstable, as predicted); κ/T−1=−7.4e−10 → +4.9e−18 (stable).
+- **Theorem minimiser vs direct worst D:** near the boundary (|κ/T−1|<1e−4, 530k cases) the orbit
+  coordinates of the direct optimum agree with the C-10 simplex minimiser x*: median max-abs
+  difference 4e−8…8e−7, p99 ≤ 5.4e−5, max 1.2e−4 (M4d, α→2/3 where the margin is ~K-flat).
+- **Optimizer disagreement** (O2/O3 below O1 by >1e−9): 134 cases (M1 51, M2 2, M4c 81), all far from
+  the boundary; the final margin is the minimum over optimizers, and none changed a classification.
+- Direct-margin distributions per mechanism: `C10_STRESS_SUMMARY.json → mechanisms.*.margin_quantiles_*`.
 
 ## 5. Mismatches / counterexamples
 
-_(filled after the HP stage)_
+**None.** GENUINE_C10_COUNTEREXAMPLES = 0. What had to be ruled out (every item recorded in the JSONs):
+
+1. *Pilot run (before the float reliability filter):* float margin exactly −θ at extreme diagonal
+   ratios (~e^32) — an eigenvalue of size ~1e−14‖DA‖ acquired a spurious positive sign. Fixed by
+   excluding |λ|<1e−10·max|λ| from the float minimum; the excluded region was then audited in mp
+   (item 4).
+2. *HP control sample v1* (1,650 random non-flagged cases): 95 reported inconsistent. Cause: the
+   control protocol started the local mp search at D=I; the C5 controls (outside C-10's hypothesis)
+   need extreme D. Superseded.
+3. *HP control sample v2* (float global start): 117 inconsistent = 31 C5 + 86 strict-P. Recheck
+   (`P2_HP_RECHECK.json`): in all 86 strict-P cases the unbounded mp pattern search had run away to
+   |w|∈[50, 205] (ratios up to e^205) where 40 digits cannot resolve the smallest eigenvalue;
+   re-evaluated at 60+2|w|/ln10 digits (≤240) the margin is positive in 86/86, and a bounded search
+   (|w|≤16, 60 digits) finds 0 negative margins. Several of these were at α=0.1/0.3 where the Kellogg
+   wedge already guarantees membership — consistent with an artefact.
+   The 31 C5 controls: analytic Lemma-2 witnesses (dominant row with a_ii>0; 2×2 block with negative
+   minor; D=I when det A≥0) verified at 150 digits for **150/150** C5 controls in the sample
+   (`P2_C5_LEMMA2_WITNESSES.json`) — Lemma 2 corroborated.
+4. *Extreme-scaling audit:* v1 (60 digits for ratios up to 1e60) gave 127 spurious negatives;
+   v2 at 250 digits with ratios 1e30 and 1e60 in 12 corner patterns: **0 negatives in 1,350
+   strict-P cases**, minimum margin 1.6e−4 (so the orbit boundary region does not hide instabilities).
+
+Lessons: the mp re-verifier must bound the search box or scale precision with |log d|; float eigenvalue
+angles are meaningless below ~1e−10 of the spectral radius.
 
 ## 6. P3 — C-11 conservatism (`C11_GAP_SUMMARY.csv`, `C11_GAP_GRID.csv`, `P3_SLICES.json`)
 
@@ -183,11 +247,33 @@ Certified fraction of the genuinely fractional band: f = (T_Φ−T₁)/(T_α−T
   The *relative* width W/T₁ is not monotone in b.
 - Figures (illustrative only) in `C13_PHASE_DATA/figures/`; plot-ready CSVs separate.
 
-## 10. P5 — n=4 reconnaissance
+## 10. P5 — n=4 reconnaissance (EXPLORATORY)
 
-_(filled after P5)_
+Full write-up: `computations/results/N4_RECON_REPORT.md` (data `N4_RECON.json`). Highlights:
+- single 4-cycle reproduces Siami R₄(α)=sin(απ/2)/sin(απ/2−π/4) and Hurwitz γ=√2 (covered);
+- the C-10 orbit reduction extends verbatim: quartic built from 11 normalised principal-minor
+  invariants on the 3-simplex agrees with eigenvalue margins to 1.5e−13;
+- open genuinely-fractional families beyond single cycles (two 3-cycles sharing an edge; 3-cycle +
+  pendant pair); pendant-coupling sign rule (antagonistic coupling preserved F at all scanned points,
+  mutualistic removed 37%);
+- random strict-P 4×4 (8,000): no non-member for α≤0.75, GF fraction 2.1% → 0.34% as α: 0.75 → 0.99;
+- the DE objective min(m_α,−m₁) turned out to be trivially bounded by (1−α)π/4 for every n and was
+  saturated by both n=3 and n=4 — **uninformative, reported as a negative result**.
 
-## 11. Reproduction commands
+## 11. Final status
+
+| claim | verdict | evidence |
+|---|---|---|
+| C-10 (exact 3×3 criterion) | **COMPUTE_PASS** | 2.06M cases, 0 float mismatches, 56,234/56,234 HP-consistent, 0 after recheck |
+| C-09 (dimension threshold) | COMPUTE_PASS | witness family at 80–110 digits; band nonempty for every β (realizability §3.1f) |
+| C-11 (sufficiency of Φ>ρ) | COMPUTE_PASS (sound); conservative | 0 violations of T_Φ≤T_α in 210k (β,α); band fraction limit 2√(SG)/(S+G) |
+| C-12/C-13 | COMPUTE_PASS | 80-digit invariance tests; 8,100/8,100 phase-region validations |
+| C-14 | COMPUTE_PASS | order-1 convergence, worst rel err 9.2e−8 at 1−α=1e−10; monotone everywhere tested |
+| Lemma 2 (P₀ necessity) | corroborated | 150/150 analytic witnesses at 150 digits |
+
+**Overall: COMPUTE_PASS.** Computations corroborate; they do not replace the proofs.
+
+## 12. Reproduction commands
 
 ```bash
 python3 -m venv venv && venv/bin/pip install -e .[dev] numba sympy
@@ -196,7 +282,11 @@ venv/bin/python computations/scripts/env_info.py
 venv/bin/python computations/scripts/p1_threshold_validation.py  # P1 (~4 min, 16 workers)
 venv/bin/python computations/scripts/symbolic_checks.py
 venv/bin/python computations/scripts/p2_stress.py                # P2 float stage
-venv/bin/python computations/scripts/p2_hp_verify.py             # P2 HP stage
+venv/bin/python computations/scripts/p2_hp_verify.py             # P2 HP stage (flagged cases)
+venv/bin/python computations/scripts/p2_hp_controls.py           # corrected controls + 250-digit audit
+venv/bin/python computations/scripts/p2_hp_recheck.py            # recheck of reported control failures
+venv/bin/python computations/scripts/p2_c5_lemma2_witness.py     # Lemma-2 witnesses for C5 controls
+venv/bin/python computations/scripts/p2_finalize_summary.py      # final accounting
 venv/bin/python computations/scripts/p3_gaps_slices.py           # P3
 venv/bin/python computations/scripts/p3b_c14.py                  # P3B
 venv/bin/python computations/scripts/p4_phase.py                 # P4

@@ -14,11 +14,11 @@ Branch `agent/compute-c10-wave1-20260925`. Updated at every commit. Anyone can r
 | P0 | DONE | `pytest -n 8` | tests/test_high_precision.py, tests/test_c10_numerics.py, results/ENVIRONMENT.json |
 | P1 | DONE | `python computations/scripts/p1_threshold_validation.py` then `symbolic_checks.py` | results/P1_THRESHOLD_VALIDATION.json, P1_CERTIFIED_ANCHORS.csv, SYMBOLIC_CHECKS.json |
 | P2 float | DONE (6143 s; 0 float mismatches in 2.06M C-10 cases + 120k controls) | `python computations/scripts/p2_stress.py` | raw/p2_*.npz, results/P2_RAW_INDEX.json |
-| P2 HP | flagged cases DONE: 56,234/56,234 consistent at 40 digits. v1 control sample (95 "inconsistent", all C5 non-P0 controls, local search from D=I) and v1 extreme audit (60 digits for 1e60 ratios) are PROTOCOL ARTIFACTS; corrected rerun `p2_hp_controls.py` RUNNING | `python computations/scripts/p2_hp_verify.py` | results/C10_STRESS_SUMMARY.json, C10_WORST_CASES.csv |
+| P2 HP | DONE — 56,234/56,234 consistent; control artefacts rechecked (0 genuine); VERDICT COMPUTE_PASS | `p2_hp_verify.py`, `p2_hp_controls.py`, `p2_hp_recheck.py`, `p2_c5_lemma2_witness.py`, `p2_finalize_summary.py` | C10_STRESS_SUMMARY.json, C10_WORST_CASES.csv |
 | P3/P3B | DONE | `p3_gaps_slices.py`, `p3b_c14.py` | C11_GAP_SUMMARY.csv, C14_LIMIT_RATE.csv |
 | P4 | DONE | `p4_phase.py` | C13_PHASE_DATA/ |
 | P5 | DONE | `p5_n4_recon.py` | N4_RECON_REPORT.md |
-| Final report | TODO | | research/COMPUTE_WAVE1_FINAL_REPORT.md |
+| Final report | DONE | | research/COMPUTE_WAVE1_FINAL_REPORT.md |
 
 ## Findings so far (labels: NUMERICAL / CERTIFIED / PROOF SKETCH)
 1. No genuine C-10 mismatch in pilot runs (3.3k cases) nor so far in P2. Float "mismatches" seen in a pilot were
