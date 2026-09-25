@@ -1,15 +1,17 @@
 \documentclass[mathematics,article,submit,pdftex,moreauthors]{Definitions/mdpi}
-\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{amsmath,amssymb,mathtools}
 \usepackage{booktabs,array,graphicx,microtype,xurl}
 \graphicspath{{figures/generated/}}
 \allowdisplaybreaks
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+% The MDPI class defines capitalized theorem environments and their counters.
+% Preserve the manuscript's lowercase environment names without redefining counters.
+\let\theorem\Theorem\let\endtheorem\endTheorem
+\let\proposition\Proposition\let\endproposition\endProposition
+\let\lemma\Lemma\let\endlemma\endLemma
+\let\corollary\Corollary\let\endcorollary\endCorollary
+\let\definition\Definition\let\enddefinition\endDefinition
+\let\remark\Remark\let\endremark\endRemark
 
 \firstpage{1}
 \makeatletter\setcounter{page}{\@firstpage}\makeatother
@@ -47,6 +49,5 @@ $^{2}$ \quad Department of Mathematics, College of Science, University of Bisha,
 \section*{Declaration on Generative AI Use}
 Generative AI tools, including OpenAI ChatGPT, were used to assist with drafting and editing, organization of literature searches, mathematical proof exploration and consistency checking, development and review of symbolic and numerical code, and preparation of reproducibility materials. These tools are not authors. The authors assume responsibility for all content.
 
-\bibliographystyle{Definitions/mdpi}
 \bibliography{references,previous-paper}
 \end{document}
