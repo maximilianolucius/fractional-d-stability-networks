@@ -111,3 +111,13 @@ Before submission, the independent novelty verifier must try specifically to rec
 - unpublished/less-visible low-dimensional multiplier-stability results.
 
 Until then, C-10 is a provisional flagship theorem, not a bibliographically final claim.
+
+
+## Terminology-collision audit
+
+| Reference | “D-stability” meaning | Relation to project |
+|---|---|---|
+| Shao et al. 2017, CCC, DOI 10.23919/ChiCC.2017.8027318 | available citation context indicates desired **D-region / pole-location stability** for fractional linear systems | terminology collision; no evidence of the positive-diagonal multiplier quantifier `sigma(DA)` for every `D>0`; full text remains a pre-submission check |
+| Mohsenipour & Liu 2020, IEEE/CAA JAS 7(3):853–864, DOI 10.1109/JAS.2020.1003159 | robust root-location D-region stability via characteristic-polynomial value sets and zero-exclusion ideas | not multiplicative matrix D-stability; useful neighboring control literature only |
+
+See `research/novelty/D_STABILITY_TERMINOLOGY_COLLISION.md`.
