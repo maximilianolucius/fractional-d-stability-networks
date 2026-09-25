@@ -194,7 +194,11 @@ def main():
                                  "float_mismatch": bool(data[mech]["mismatch"][gi])})
     log("HP cases", len(cases))
     with pool() as P:
-        res = P.map(verify, cases, chunksize=4)
+        res = []
+        for k, r in enumerate(P.imap(verify, cases, chunksize=8)):
+            res.append(r)
+            if k % 2000 == 0:
+                log(f"HP {k}/{len(cases)} {T()} s")
         cres = P.map(verify, controls, chunksize=4)
         ex_cases = controls + [c for c in cases if c["alpha"] < 1][:: max(1, len(cases) // 2000)]
         ex = P.map(extreme_audit, ex_cases, chunksize=8)

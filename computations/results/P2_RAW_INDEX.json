@@ -1,0 +1,35 @@
+{
+  "files": {
+    "M1": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M1.npz",
+    "M2": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M2.npz",
+    "M3": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M3.npz",
+    "M4a": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M4a.npz",
+    "M4b": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M4b.npz",
+    "M4c": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M4c.npz",
+    "M4d": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M4d.npz",
+    "M4e": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M4e.npz",
+    "M4f": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_M4f.npz",
+    "C5": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_C5.npz",
+    "C6": "/home/aureus/fdsn_wave1/repo/computations/raw/p2_C6.npz"
+  },
+  "wall_seconds": 6143.21,
+  "memory": {
+    "self_peak_rss_mb": 508.4,
+    "max_child_peak_rss_mb": 1308.9
+  },
+  "master_seed": 20260925,
+  "job_size": 2000,
+  "plan": {
+    "M1": 520000,
+    "M2": 300000,
+    "M3": 150000,
+    "M4a": 450000,
+    "M4b": 100000,
+    "M4c": 120000,
+    "M4d": 120000,
+    "M4e": 180000,
+    "M4f": 120000,
+    "C5": 60000,
+    "C6": 60000
+  }
+}
