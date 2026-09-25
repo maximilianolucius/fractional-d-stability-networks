@@ -367,9 +367,17 @@ This gives the ecological interpretation:
 
 ---
 
-## 7. Monotonic pair-loop effect at fixed kappa
+## 7. Strict pair-loop monotonicity and exact sensitivity at fixed kappa
 
-For fixed simplex point \(x\), the quantity
+C-15 proves that, for \(2/3<\alpha<1\) and every positive beta triple, the C-10 simplex minimizer
+
+\[
+x^*=x^*(\alpha,\beta)
+\]
+
+is unique, nondegenerate and smooth.
+
+For fixed simplex point \(x\),
 
 \[
 B_\beta(x)
@@ -379,22 +387,58 @@ B_\beta(x)
 \beta_{23}x_2x_3
 \]
 
-is increasing in every \(\beta_{ij}\).
+is strictly increasing in every \(\beta_{ij}\), because every optimizer lies in the open simplex.
 
-The fixed-cubic boundary \(h_\alpha(b)\) is increasing in \(b\). Therefore the exact threshold
+Since \(h_\alpha'(b)>0\), increasing one beta coordinate while holding the other two fixed raises the objective strictly at every simplex point. Therefore
 
 \[
-T_\alpha(\beta)
-=
-\min_x
-\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}
+\boxed{
+\frac{\partial T_\alpha}{\partial\beta_{ij}}>0.
+}
 \]
 
-is nondecreasing in each pair-loop coordinate \(\beta_{ij}\).
+More precisely, the envelope theorem applies because the optimizer is unique and nondegenerate. Let
 
-Thus, **holding the determinant coordinate \(\kappa\) fixed**, making a reciprocal pair more antagonistic (increasing \(\beta_{ij}\)) cannot reduce the admissible fractional D-stability threshold.
+\[
+B^*
+=
+B_\beta(x^*).
+\]
 
-This statement is conditional: changing an ecological interaction generally changes both \(\beta\) and \(\kappa\), so no unconditional causal ecological claim should be made from it.
+Then
+
+\[
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{
+h_\alpha'(B^*)x_i^*x_j^*
+}{
+x_1^*x_2^*x_3^*
+}.
+\]
+
+If \(\{i,j,k\}=\{1,2,3\}\), this simplifies to the exact sensitivity formula
+
+\[
+\boxed{
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}
+>0.
+}
+\]
+
+Thus, **holding the determinant coordinate \(\kappa\) fixed**, making a reciprocal pair more antagonistic (increasing \(\beta_{ij}\)) strictly raises the admissible fractional D-stability threshold.
+
+Equivalently, because
+
+\[
+\beta_{ij}=1-g_{ij},
+\]
+
+the threshold is strictly decreasing in the normalized reciprocal-loop product \(g_{ij}\) at fixed \(\kappa\).
+
+This is a conditional structural statement. Changing an actual ecological coefficient typically changes both \(\beta\) and \(\kappa\), so it must not be presented as an unconditional causal claim about a biological intervention.
 
 ---
 
