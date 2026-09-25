@@ -1,181 +1,217 @@
-# Research status — Chief Researcher update 2026-09-24
+# Research status — Chief Researcher canonical update
 
-## Current scientific thesis
+**Date:** 2026-09-25  
+**State:** theorem package developed; independent adversarial proof audit and heavy compute validation pending.
 
-The project is no longer centered on generic "fractional stabilization on ecological networks".
+## Central objects
 
-For fixed 0<alpha<1 define
+For fixed \(0<\alpha<1\),
 
-[
-Sigma_alpha={z!=0: |arg z|>alpha*pi/2},
-]
-
-[
-F_alpha^(n)
+\[
+\Sigma_\alpha
 =
-{A in R^(n x n): sigma(DA) subset Sigma_alpha for every positive diagonal D},
-]
+\{z\ne0:|\arg z|>\alpha\pi/2\},
+\]
+
+\[
+\mathcal F_\alpha^{(n)}
+=
+\{A\in\mathbb R^{n\times n}:
+\sigma(DA)\subset\Sigma_\alpha
+\text{ for every positive diagonal }D\},
+\]
 
 and
 
-[
-P_alpha^(n)=F_alpha^(n) \ D_H^(n),
-]
+\[
+\mathcal P_\alpha^{(n)}
+=
+\mathcal F_\alpha^{(n)}
+\setminus
+\mathcal D_H^{(n)},
+\]
 
-where D_H is the classical Hurwitz D-stable class.
+where \(\mathcal D_H^{(n)}\) is the classical Hurwitz D-stable class.
 
-The central question is the structure of the genuinely fractional difference class P_alpha.
+The scientific center is the structure of the genuinely fractional difference class \(\mathcal P_\alpha\).
 
-## Flagship theorem — C-09
+## Flagship theorem package
 
-**Proof status:** internal analytic theorem complete.
-**Novelty status:** targeted audit verdict = **NOVELTY SURVIVES**.
+### C-07 — exact 2x2 classification
 
-For every 0<alpha<1,
+For every \(0<\alpha<1\),
 
-[
+\[
+A\in\mathcal F_\alpha^{(2)}
+\iff
+\det A>0,\quad a_{11}\le0,\quad a_{22}\le0.
+\]
+
+Hence \(\operatorname{int}\mathcal P_\alpha^{(2)}=\varnothing\).
+
+### C-10 — exact robust 3x3 characterization
+
+On the full-dimensional strict-P(-A) stratum define
+
+\[
+\beta_{12}=\frac{m_{12}}{p_1p_2},
+\quad
+\beta_{13}=\frac{m_{13}}{p_1p_3},
+\quad
+\beta_{23}=\frac{m_{23}}{p_2p_3},
+\quad
+\kappa=\frac{-\det A}{p_1p_2p_3}.
+\]
+
+For \(2/3<\alpha<1\), the entire positive diagonal orbit reduces exactly to a two-dimensional simplex and
+
+\[
 \boxed{
-min { n : int(P_alpha^(n)) != empty } = 3.
+A\in\mathcal F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta).
 }
-]
+\]
 
-Dimension 2 has only a lower-dimensional boundary separation class; dimension 3 contains a full-dimensional open genuinely fractional class.
+At \(\alpha=1\),
 
-Primary proof file:
-`research/THEOREM_C09_DIMENSION_THRESHOLD.md`.
-
-Novelty audit:
-`research/novelty/C09_TARGETED_AUDIT.md`.
-
-## Structural theorem — C-11
-
-For strict-P(-A) real 3x3 matrices,
-
-[
-Phi(A)
+\[
+T_1(\beta)
 =
-\frac{
-(\sqrt{p_1m_{23}}+\sqrt{p_2m_{13}}+\sqrt{p_3m_{12}})^2
-}{-det A}
+\left(
+\sqrt{\beta_{12}}
++\sqrt{\beta_{13}}
++\sqrt{\beta_{23}}
+\right)^2,
+\]
+
+recovering Cain's exact 3x3 D-stability boundary.
+
+The exact genuinely fractional full-dimensional band is
+
+\[
+\boxed{
+T_1(\beta)<\kappa<T_\alpha(\beta).
+}
+\]
+
+For \(0<\alpha\le2/3\), every strict-P(-A) matrix is fractionally D-stable.
+
+### C-09 — minimum robust dimension
+
+As a consequence of C-07/C-10,
+
+\[
+\boxed{
+\min\left\{
+n:
+\operatorname{int}\mathcal P_\alpha^{(n)}
+\ne\varnothing
+\right\}=3
+\quad
+\forall\,0<\alpha<1.
+}
+\]
+
+### C-11 — simple sufficient certificate
+
+C-11 gives the exact orbit minimum
+
+\[
+\Phi(A)
 =
-\inf_{D>0}\frac{a_Db_D}{c_D}.
-]
+\inf_{D\succ0}\frac{a_Db_D}{c_D}
+\]
 
-Cain's classical strict-P 3x3 D-stability threshold is
+and a simple sufficient high-order certificate. C-10 and the Siami slice show that this scalar certificate is not necessary.
 
-[
-Phi(A)>1.
-]
-
-For 2/3<alpha<1 the project proves the fractional sufficient certificate
-
-[
-Phi(A)>
-(1-2cos(alpha*pi/2))^2
-\Longrightarrow
-A in F_alpha^(3).
-]
-
-The threshold tends to 1 as alpha->1-, recovering the classical Cain boundary.
-
-Primary file:
-`research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md`.
-
-## Ecological bridge — C-12
+### C-12/C-13 — GLV and ecological loops
 
 For a positive GLV equilibrium,
 
-[
-J=diag(x^*)A.
-]
+\[
+J=\operatorname{diag}(x^*)A,
+\]
 
-Because positive left-diagonal multiplication only reparametrizes the orbit,
+membership in \(\mathcal F_\alpha\), \(\mathcal D_H\), and \(\mathcal P_\alpha\) is unchanged.
 
-[
-J in F_alpha iff A in F_alpha,
-]
+The exact 3x3 orbit coordinates have the motif form
 
-[
-J in D_H iff A in D_H,
-]
+\[
+\beta_{ij}
+=
+1-\frac{a_{ij}a_{ji}}{p_ip_j},
+\]
 
 and
 
-[
-J in P_alpha iff A in P_alpha.
-]
+\[
+\kappa
+=
+\beta_{12}+\beta_{13}+\beta_{23}-2-L_3,
+\]
 
-Also Phi(J)=Phi(A).
+where \(L_3\) is total normalized directed three-cycle feedback.
 
-Thus the new matrix classification is invariant to positive equilibrium abundance scaling; the ecological interpretation is structural rather than parameter-fitted.
+### C-14 — quantitative classical limit
 
-## Prior-art boundaries
+For \(2/3<\alpha<1\), \(T_\alpha(\beta)\) is strictly decreasing in \(\alpha\), and
 
-Do not claim novelty for:
-- Matignon stabilization;
-- fractional Routh-Hurwitz criteria;
-- generalized D-stability;
-- relative D-stability / sector gaps;
-- strong D-stability;
-- single-cycle fractional secant conditions;
-- P-matrix spectral wedges;
-- Cain's classical 3x3 D-stability theorem.
+\[
+T_\alpha(\beta)
+=
+T_1(\beta)
++
+C(\beta)(1-\alpha)
++
+O((1-\alpha)^2)
+\]
 
-## Current gates
+as \(\alpha\to1^-\), with explicit \(C(\beta)>0\).
 
-### P0 — independent proof audit
-Run `research/PROOF_AUDIT_TASK_C07_C09_C11.md`.
+## Novelty state
 
-### P1 — exact 3x3 characterization
-Run `research/C10_EXACT_3X3_TASK.md`.
+Targeted searches found no theorem equivalent to C-09 or C-10. Their current status is:
 
-### P2 — manuscript architecture
-Allowed only after P0 passes. Full prose drafting should wait until the C-10 outcome is known, because an exact characterization would materially change the title and abstract.
+- mathematically: INTERNAL THEOREM;
+- novelty: SURVIVES TARGETED SEARCH / PROVISIONAL;
+- submission: NOT YET CERTIFIED.
 
-### P3 — topology / ecology
-Only after C-10. Graph motifs should be derived from the matrix theorem, not used as the primary source of novelty.
+Do not claim novelty for Matignon stabilization, fixed-polynomial fractional Routh-Hurwitz, generalized D-stability, relative D-stability, strong D-stability, single-cycle fractional secant conditions, P-matrix wedges, or Cain's classical theorem.
 
-## Evidence discipline
+## Active independent validation lanes
 
-- THEOREM: analytic proof.
-- IMPORTED THEOREM: published result used as a lemma.
-- CERTIFIED COMPUTATION: rigorous certificate.
-- NUMERICAL CORROBORATION: floating-point evidence only.
-- OPEN: unresolved.
+### Lane A — adversarial proof verifier
 
-Finite diagonal sampling is never proof.
+Branch:
 
+\`agent/proof-audit-c07-c10-20260925\`
 
-## C-10 closed internally — exact robust 3x3 characterization
+Task:
 
-The former P1 task is now internally solved.
+\`research/PROOF_AUDIT_TASK_C07_C09_C11.md\`
 
-For 2/3<alpha<1, positive diagonal orbits of strict-P(-A) matrices reduce exactly to the simplex via
-(x_i=p_id_i/a_D). Four left-diagonal orbit invariants remain:
-(eta_{12},eta_{13},eta_{23},kappa).
+The verifier must attempt to break C-07/C-09/C-10/C-11/C-14 before improving anything.
 
-The exact condition is
+### Lane B — high-compute validation/discovery
 
-[
-A\in F_\alpha^{(3)}
-\iff
-\kappa<T_\alpha(\beta).
-]
+Branch:
 
-The alpha=1 limit is exactly Cain's 3x3 criterion. The exact genuinely fractional interior is the band
+\`agent/compute-c10-wave1-20260925\`
 
-[
-T_1(\beta)<\kappa<T_\alpha(\beta).
-]
+Task:
 
-See:
-- `research/THEOREM_C10_EXACT_3X3.md`
-- `research/novelty/C10_TARGETED_AUDIT.md`
+\`research/COMPUTE_AGENT_WAVE1_TASK.md\`
 
-Novelty status: targeted search survives provisionally; independent specialist audit still required.
+This is a large campaign: high precision, million-scale adversarial tests, exact-threshold implementation, C-11 gap analysis, C-14 rate checks, ecological phase data, and n=4 reconnaissance.
 
-### Revised priorities
+## Manuscript lock
 
-P0 remains the adversarial proof audit, now expanded to include C-10.
-P1 becomes interpretation/closed-form reduction of (T_\alpha) on important motif classes and independent novelty verification.
-P2 manuscript architecture may begin only after P0 passes.
+Final title/abstract/conclusions remain locked until:
+
+1. proof audit passes;
+2. compute wave returns without a persistent counterexample;
+3. final independent specialist novelty audit of C-10;
+4. exact citations/theorem numbers and sign conventions are verified.
+
+Architecture planning is allowed. Final prose drafting is not.
