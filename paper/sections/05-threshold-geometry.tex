@@ -878,17 +878,29 @@ R
 \sqrt{1-K+4Kb}
 }{2}.
 \]
-A Taylor expansion at \(K=0\), uniform for bounded \(b\), followed by substitution into
+Uniformly for bounded \(b\),
 \[
-K^3h_\alpha(b)
+\sqrt{1-K}
 =
-KR^2+\sqrt{1-K}\,R^3
+1-\frac{K}{2}+O(K^2),
 \]
-gives
+and
 \[
-K^3h_\alpha(b)
+R
 =
+1+\left(b-\frac12\right)K+O(K^2).
+\]
+Therefore
+\[
+\begin{aligned}
+K^3h_\alpha(b)
+&=
+KR^2+\sqrt{1-K}\,R^3\\
+&=
+K+\left[1+(3b-2)K\right]+O(K^2)\\
+&=
 1+K(3b-1)+O(K^2).
+\end{aligned}
 \]
 \end{proof}
 
