@@ -4,32 +4,49 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage[numbers]{natbib}
+\usepackage[numbers,sort&compress]{natbib}
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
 
-\title{Fractional D-Stability in Ecological Networks:\\Topology, Spectral Geometry, and Purely Fractional Stabilization}
+\newcommand{\Falpha}{\mathcal F_\alpha}
+\newcommand{\DH}{\mathcal D_H}
+\newcommand{\Palpha}{\mathcal P_\alpha}
+\newcommand{\Sigmaalpha}{\Sigma_\alpha}
+
+\title{Exact Positive-Diagonal Matignon Stability in Dimension Three:\\
+A Fractional Deformation of Cain's D-Stability Threshold}
 \author{Maximiliano Lucius}
-\date{Working manuscript}
+\date{}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We study classes of fractional-order ecological networks rather than a single model or a fixed collection of topologies. For commensurate Caputo systems ${}^C D^\alpha x=F_G(x;\theta)$, we characterize stability through the angular geometry of the equilibrium Jacobian spectrum and isolate parameter regions in which memory stabilizes equilibria that are unstable in the corresponding first-order dynamics. The manuscript is organized to separate general structural results, graph-dependent consequences, and reproducible numerical evidence. This file is an initial repository scaffold and must be replaced or expanded by the current research manuscript before submission.
+We study positive-diagonal multiplicative stability for commensurate fractional-order systems in the Matignon region
+\[
+\Sigma_\alpha=\{z\neq0:|\arg z|>\alpha\pi/2\},\qquad 0<\alpha<1.
+\]
+Generalized region D-stability and forbidden-boundary criteria are known, but they retain a universal quantifier over all positive diagonal multipliers. We give an explicit exact elimination of that multiplier for real \(3\times3\) matrices on the full-dimensional strict-\(P(-A)\) stratum. Four positive-left-diagonal orbit invariants \((\beta_{12},\beta_{13},\beta_{23},\kappa)\) reduce the complete orbit to a two-dimensional simplex, and fractional D-stability is equivalent to the scalar inequality
+\[
+\kappa<T_\alpha(\beta).
+\]
+At \(\alpha=1\), the threshold reduces exactly to Cain's classical real-\(3\times3\) D-stability boundary. For \(2/3<\alpha<1\), the strict band \(T_1(\beta)<\kappa<T_\alpha(\beta)\) characterizes a genuinely fractional full-dimensional region. We prove that the threshold problem is strictly convex in logit coordinates, has a unique smooth optimizer, admits an explicit global parametrization, and has sharp asymptotics at both \(\alpha\to1^-\) and \(\alpha\downarrow2/3\). As a consequence, dimension three is the smallest real dimension in which the genuinely fractional difference from classical Hurwitz D-stability has nonempty full-dimensional interior. For three-species generalized Lotka--Volterra systems, the orbit invariants become exact reciprocal-pair and directed-cycle feedback coordinates. Extensive high-precision and interval-certified computations independently corroborate the analytic results.
 \end{abstract}
 
 \input{sections/01-introduction}
 \input{sections/02-framework}
-\input{sections/03-main-results}
-\input{sections/04-computational-protocol}
-\input{sections/05-experiments}
-\input{sections/06-discussion}
-\input{sections/07-conclusion}
+\input{sections/03-dimension-two}
+\input{sections/04-three-dimensional-threshold}
+\input{sections/05-threshold-geometry}
+\input{sections/06-ecological-interpretation}
+\input{sections/07-computational-validation}
+\input{sections/08-discussion}
+\input{sections/09-conclusion}
 
 \bibliographystyle{plainnat}
 \bibliography{references}
