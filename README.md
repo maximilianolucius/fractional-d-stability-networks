@@ -2,7 +2,7 @@
 
 Public research repository for the development of an exact theory of **fractional D-stability under positive diagonal scaling**, with a three-species ecological-network / generalized Lotka–Volterra interpretation.
 
-> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-14). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: an independent adversarial proof audit, a high-compute validation wave, and a final specialist novelty audit are still required.
+> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: an independent adversarial proof audit, a high-compute validation wave, and a final specialist novelty audit are still required.
 
 The repository is public:
 
@@ -267,6 +267,62 @@ with an explicit \(C(\beta)>0\). Thus the memory-only band collapses linearly to
 
 Canonical source: [`research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md`](research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md).
 
+### C-15 — exact threshold geometry
+
+For (2/3<alpha<1), the logarithm of the C-10 simplex objective is globally **strictly convex in logit coordinates**. Therefore the optimizer (x^*(alpha,eta)) is unique, nondegenerate and smooth.
+
+C-15 also proves:
+
+[
+T_alpha(b,b,b)=27h_alpha(b/3),
+]
+
+so the Siami cyclic threshold is exactly the symmetric slice (eta=(1,1,1)); an explicit global ((x,r))-parametrization of the full threshold surface; the low-order asymptotic
+
+[
+T_alpha(eta)
+=
+rac{27}{K^3}
++
+rac{9sumeta_{ij}-27}{K^2}
++
+O(K^{-1}),
+qquad
+K=1-4cos^2(alphapi/2),
+]
+
+as (alphadownarrow2/3); and realizability of every invariant point with (kappage T_1(eta)) by an actual real matrix.
+
+Canonical source: [`research/THEOREM_C15_THRESHOLD_GEOMETRY.md`](research/THEOREM_C15_THRESHOLD_GEOMETRY.md).
+
+### C-16 — general positive-diagonal orbit reduction
+
+For strict-P((-A)) in arbitrary dimension (n), positive diagonal scaling modulo a common scalar is exactly the open simplex (Delta_{n-1}^circ).
+
+Using normalized signed principal minors (eta_I), the entire orbit is represented by
+
+[
+z^n+z^{n-1}+B_2(x)z^{n-2}+cdots+B_n(x),
+]
+
+with
+
+[
+B_k(x)=sum_{|I|=k}eta_Iprod_{iin I}x_i.
+]
+
+There are exactly
+
+[
+2^n-n-1
+]
+
+nontrivial orbit invariants: four in dimension three and eleven in dimension four.
+
+C-16 is structural machinery rather than a standalone novelty claim. It shows that the unresolved (n=4) difficulty is quartic root geometry, not positive-diagonal orbit geometry.
+
+Canonical source: [`research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md`](research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md).
+
 ---
 
 ## 3. What is known prior art and must **not** be claimed as novelty
@@ -325,7 +381,7 @@ Dedicated branch:
 
 `agent/proof-audit-c07-c10-20260925`
 
-The verifier must independently attempt to break C-07, C-09, C-10, C-11 and C-14 and return, for each theorem:
+The verifier must independently attempt to break C-07, C-09, C-10, C-11, C-14, C-15 and C-16 and return, for each theorem:
 
 - `PASS`
 - `PASS WITH MINOR FIX`
@@ -365,7 +421,20 @@ Required final artifact:
 
 with status `COMPUTE_PASS`, `COMPUTE_FAIL`, or `PARTIAL/BLOCKED`.
 
-At the time of this README update, that final compute report is **not yet present on `main`**.
+The compute branch has completed P0, P1, P3/P3B, P4, P5 and the full float stage of P2. Current committed evidence includes:
+
+- **121 tests passed** on aureus;
+- **60/60 interval-certified** C-10 threshold anchors, with relative bracket widths near (10^{-39});
+- C-10 threshold float/high-precision agreement at worst (7.1	imes10^{-12}) over 4000 random cases;
+- exact symmetric-slice agreement with Siami at approximately (10^{-107}) relative scale;
+- **2,060,000 C-10 adversarial cases + 120,000 controls** in the float P2 stage with zero persistent mismatches;
+- **8100/8100** independent ecological-region classifications agreeing with C-10/C-13;
+- C-14 high-precision rate validation down to (1-alpha=10^{-10});
+- exploratory (n=4) reconnaissance.
+
+The remaining compute gate is the high-precision recheck of 56,234 deliberately flagged near-boundary/numerically delicate P2 cases. Until `C10_STRESS_SUMMARY.json` and `C10_WORST_CASES.csv` are committed, Compute Wave 1 is a **strong interim pass**, not final `COMPUTE_PASS`.
+
+Chief review: [`research/CHIEF_COMPUTE_WAVE1_INTERIM_REVIEW.md`](research/CHIEF_COMPUTE_WAVE1_INTERIM_REVIEW.md).
 
 ### Current CI state
 
@@ -389,10 +458,12 @@ For the current mathematical state, read in this order:
 6. [`research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md`](research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md)
 7. [`research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md`](research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md)
 8. [`research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md`](research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md)
-9. [`research/novelty/C09_TARGETED_AUDIT.md`](research/novelty/C09_TARGETED_AUDIT.md)
-10. [`research/novelty/C10_TARGETED_AUDIT.md`](research/novelty/C10_TARGETED_AUDIT.md)
-11. [`research/Q1_PAPER_ARCHITECTURE.md`](research/Q1_PAPER_ARCHITECTURE.md)
-12. [`AGENT_ACCESS.md`](AGENT_ACCESS.md)
+9. [`research/THEOREM_C15_THRESHOLD_GEOMETRY.md`](research/THEOREM_C15_THRESHOLD_GEOMETRY.md)
+10. [`research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md`](research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md)
+11. [`research/novelty/C09_TARGETED_AUDIT.md`](research/novelty/C09_TARGETED_AUDIT.md)
+12. [`research/novelty/C10_TARGETED_AUDIT.md`](research/novelty/C10_TARGETED_AUDIT.md)
+13. [`research/Q1_PAPER_ARCHITECTURE.md`](research/Q1_PAPER_ARCHITECTURE.md)
+14. [`AGENT_ACCESS.md`](AGENT_ACCESS.md)
 
 The broad/reopened novelty reports remain useful for provenance and prior-art reasoning, but are not the final authority on theorem status.
 
@@ -414,6 +485,8 @@ fractional-d-stability-networks/
 │   ├── THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md
 │   ├── THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md
 │   ├── THEOREM_C14_CLASSICAL_LIMIT_RATE.md
+│   ├── THEOREM_C15_THRESHOLD_GEOMETRY.md
+│   ├── THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md
 │   ├── Q1_PAPER_ARCHITECTURE.md
 │   ├── PROOF_AUDIT_TASK_C07_C09_C11.md
 │   ├── COMPUTE_AGENT_WAVE1_TASK.md
@@ -528,7 +601,7 @@ Its mathematics does **not** establish novelty for this project.
 
 [`paper/`](paper/) is still a scaffold. The final manuscript is deliberately **locked** until the following gates are satisfied:
 
-1. adversarial proof audit passes C-07/C-09/C-10/C-11/C-14;
+1. adversarial proof audit passes C-07/C-09/C-10/C-11/C-14/C-15/C-16;
 2. high-compute wave finds no persistent counterexample;
 3. final specialist novelty audit of C-10 is completed;
 4. exact bibliographic theorem numbers and sign conventions are verified;
