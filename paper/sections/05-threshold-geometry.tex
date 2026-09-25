@@ -1,147 +1,1218 @@
-\section{Geometry and limiting regimes of the threshold}
+\section{Geometry, asymptotics, and realizability of the threshold}
+\label{sec:threshold-geometry}
 
-For \(2/3<\alpha<1\), let
+Theorem~\ref{thm:C10} reduces the positive-diagonal orbit to the variational threshold
 \[
+T_\alpha(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+F_{\alpha,\beta}(x),
+\qquad
 F_{\alpha,\beta}(x)
 =
 \frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
 \]
-Introduce logit coordinates
+We now show that this is not an arbitrary nonconvex global optimization problem: after a natural logit transformation it is globally strictly convex.
+
+\subsection{Strict convexity and uniqueness}
+
+Parameterize the open simplex by
 \[
-x_1=\frac{e^{y_1}}{e^{y_1}+e^{y_2}+1},
-\quad
-x_2=\frac{e^{y_2}}{e^{y_1}+e^{y_2}+1},
-\quad
-x_3=\frac1{e^{y_1}+e^{y_2}+1}.
+x_1
+=
+\frac{e^{y_1}}{e^{y_1}+e^{y_2}+1},
+\qquad
+x_2
+=
+\frac{e^{y_2}}{e^{y_1}+e^{y_2}+1},
+\qquad
+x_3
+=
+\frac{1}{e^{y_1}+e^{y_2}+1}.
+\]
+Set
+\[
+L(y)
+=
+\log(e^{y_1}+e^{y_2}+1),
+\]
+and
+\[
+Q_\beta(y)
+=
+\log\left(
+\beta_{12}e^{y_1+y_2}
++
+\beta_{13}e^{y_1}
++
+\beta_{23}e^{y_2}
+\right).
+\]
+Then
+\[
+\log B_\beta(x(y))
+=
+Q_\beta(y)-2L(y).
+\]
+Define
+\[
+\phi_\alpha(s)
+=
+\log h_\alpha(e^s).
+\]
+The logarithm of the objective becomes
+\[
+G_{\alpha,\beta}(y)
+=
+\log F_{\alpha,\beta}(x(y))
+=
+\phi_\alpha(Q_\beta-2L)
++
+3L-y_1-y_2.
 \]
 
-\begin{theorem}[Strict logit convexity]
-For every positive \(\beta\), the function
-\[
-y\longmapsto \log F_{\alpha,\beta}(x(y))
-\]
-is globally strictly convex on \(\mathbb R^2\). Consequently the minimizer
-\[
-x^*(\alpha,\beta)
-\]
-is unique and nondegenerate, and \(T_\alpha(\beta)\) depends smoothly on \((\alpha,\beta)\).
-\end{theorem}
-
-The proof uses the elasticity
+The key quantity is the elasticity
 \[
 E_\alpha(b)
 =
-\frac{b h_\alpha'(b)}{h_\alpha(b)},
+\frac{b h_\alpha'(b)}{h_\alpha(b)}
+=
+\phi_\alpha'(\log b).
 \]
-for which
+
+\begin{lemma}[Elasticity bounds]
+\label{lem:elasticity}
+For \(2/3<\alpha<1\) and every \(b>0\),
 \[
 0<E_\alpha(b)<\frac32,
 \qquad
 \frac{dE_\alpha}{db}>0.
 \]
+Consequently,
+\[
+\phi_\alpha'(s)\in(0,3/2),
+\qquad
+\phi_\alpha''(s)>0.
+\]
+\end{lemma}
 
-\subsection{Symmetry and global parametrization}
+\begin{proof}
+Write
+\[
+u=\cos(\alpha\pi/2),
+\qquad
+K=1-4u^2,
+\]
+and parameterize the cubic boundary by \(r>2u/K\):
+\[
+b=r(Kr-2u),
+\qquad
+h=r^2(1+2ur).
+\]
+Then
+\[
+\frac{db}{dr}
+=
+2(Kr-u)>0,
+\]
+and
+\[
+\frac{dh}{dr}
+=
+2r(1+3ur).
+\]
+Hence
+\[
+E
+=
+\frac{b}{h}\frac{dh/dr}{db/dr}
+=
+\frac{(Kr-2u)(1+3ur)}
+{(Kr-u)(1+2ur)}.
+\]
+Factor
+\[
+E=A(r)B(r),
+\]
+where
+\[
+A(r)=\frac{Kr-2u}{Kr-u},
+\qquad
+B(r)=\frac{1+3ur}{1+2ur}.
+\]
+Both factors increase strictly:
+\[
+A'(r)=\frac{Ku}{(Kr-u)^2}>0,
+\qquad
+B'(r)=\frac{u}{(1+2ur)^2}>0.
+\]
+Moreover,
+\[
+E\to0
+\quad\text{as}\quad
+r\downarrow2u/K,
+\]
+while
+\[
+E\to\frac32
+\quad\text{as}\quad
+r\to\infty.
+\]
+Since \(b(r)\) is strictly increasing, \(E\) is strictly increasing in \(b\). Finally,
+\[
+\phi_\alpha''(s)
+=
+\frac{dE}{ds}
+=
+b\frac{dE}{db}>0.
+\]
+\end{proof}
 
+\begin{theorem}[Global strict logit convexity]
+\label{thm:strict-convexity}
+For every
+\[
+\beta\in\mathbb R_{>0}^3
+\]
+and every \(2/3<\alpha<1\), the function
+\[
+G_{\alpha,\beta}:\mathbb R^2\to\mathbb R
+\]
+is globally strictly convex and coercive. Consequently:
+\begin{enumerate}
+\item \(F_{\alpha,\beta}\) has exactly one minimizer
+\[
+x^*(\alpha,\beta)\in\Delta_2^\circ;
+\]
+\item the minimizer is nondegenerate;
+\item \(T_\alpha(\beta)\) and \(x^*(\alpha,\beta)\) depend smoothly on \((\alpha,\beta)\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Set
+\[
+s=Q_\beta-2L.
+\]
+Differentiation gives
+\[
+\nabla^2G
+=
+\phi_\alpha''(s)\nabla s\nabla s^\top
++
+\phi_\alpha'(s)\nabla^2Q_\beta
++
+\bigl(3-2\phi_\alpha'(s)\bigr)\nabla^2L.
+\]
+The function \(Q_\beta\) is a log-sum-exp of affine functions, so
+\[
+\nabla^2Q_\beta\succeq0.
+\]
+The function \(L\) is the log-sum-exp of \(y_1,y_2,0\). Its Hessian is the covariance matrix of the three vectors
+\[
+(1,0),\quad(0,1),\quad(0,0)
+\]
+under strictly positive softmax weights, and is therefore positive definite for every finite \(y\):
+\[
+\nabla^2L\succ0.
+\]
+By Lemma~\ref{lem:elasticity},
+\[
+\phi_\alpha''>0,
+\qquad
+\phi_\alpha'>0,
+\qquad
+3-2\phi_\alpha'>0.
+\]
+Hence
+\[
+\nabla^2G(y)\succ0
+\qquad
+\forall y\in\mathbb R^2.
+\]
+
+As \(\|y\|\to\infty\), \(x(y)\) approaches the simplex boundary. The numerator
+\[
+h_\alpha(B_\beta(x))
+\]
+has a strictly positive continuous limit as \(B_\beta(x)\downarrow0\), whereas
+\[
+x_1x_2x_3\to0.
+\]
+Therefore
+\[
+F_{\alpha,\beta}(x(y))\to\infty,
+\]
+so \(G\) is coercive. A unique global minimizer exists. Positive definiteness of the Hessian gives nondegeneracy, and the implicit-function theorem applied to
+\[
+\nabla_yG_{\alpha,\beta}(y^*)=0
+\]
+gives smooth dependence on the parameters.
+\end{proof}
+
+\subsection{Symmetry reductions}
+
+\begin{corollary}[Fully symmetric slice]
+\label{cor:symmetric-slice}
 If
 \[
-\beta_{12}=\beta_{13}=\beta_{23}=b,
+\beta_{12}=\beta_{13}=\beta_{23}=b>0,
 \]
-uniqueness and permutation symmetry imply
+then
 \[
-x^*=(1/3,1/3,1/3),
-\qquad
-T_\alpha(b,b,b)=27h_\alpha(b/3).
+x^*=(1/3,1/3,1/3)
 \]
-At \(b=1\), this identity reproduces exactly the single-cycle threshold of \citet{Siami2021}.
+and
+\[
+\boxed{
+T_\alpha(b,b,b)
+=
+27h_\alpha(b/3).
+}
+\]
+For \(b=1\),
+\[
+\boxed{
+T_\alpha(1,1,1)
+=
+1+R_3(\alpha)^3,
+}
+\]
+where
+\[
+R_3(\alpha)
+=
+\frac{\sin(\alpha\pi/2)}
+{\sin(\alpha\pi/2-\pi/3)}.
+\]
+\end{corollary}
 
-At the unique minimizer, setting
+\begin{proof}
+The objective is invariant under all permutations of the simplex coordinates. By Theorem~\ref{thm:strict-convexity}, the minimizer is unique, so it must be fixed by every permutation and therefore equals the simplex center. Substitution gives the first formula. The second follows by direct simplification of \(27h_\alpha(1/3)\), and coincides with the \(n=3\) single-cycle threshold of \citet{Siami2021}.
+\end{proof}
+
+\begin{corollary}[Two-equal slice]
+If
+\[
+\beta_{12}=\beta_{13},
+\]
+then
+\[
+x_2^*=x_3^*.
+\]
+Thus this family reduces exactly to a one-dimensional minimization problem. Analogous reductions hold under permutations.
+\end{corollary}
+
+\begin{proof}
+The objective is invariant under the transposition \(2\leftrightarrow3\). Uniqueness forces the optimizer to be fixed by that symmetry.
+\end{proof}
+
+\subsection{Explicit parametrization of the threshold surface}
+
+At the unique minimizer, write
 \[
 B=B_\beta(x),
 \qquad
-E=\frac{Bh_\alpha'(B)}{h_\alpha(B)},
+\mu=\frac{h_\alpha'(B)}{h_\alpha(B)},
+\qquad
+E=\mu B.
 \]
-gives the explicit threshold-surface parametrization
+The constrained stationarity equations for
 \[
+\log h_\alpha(B)-\sum_i\log x_i
+\]
+under \(\sum_i x_i=1\) are
+\[
+\mu x_i\partial_iB
+=
+1+(2E-3)x_i.
+\]
+Indeed, if the Lagrange multiplier is \(\lambda\), then
+\[
+\mu\partial_iB-\frac1{x_i}=\lambda,
+\]
+and summing after multiplication by \(x_i\) gives
+\[
+\lambda
+=
+\mu\sum_i x_i\partial_iB-3
+=
+2\mu B-3
+=
+2E-3,
+\]
+because \(B\) is homogeneous of degree two.
+
+Define
+\[
+z_{ij}
+=
+\frac{\beta_{ij}x_ix_j}{B},
+\qquad
+z_{12}+z_{13}+z_{23}=1.
+\]
+Then
+\[
+E(z_{ij}+z_{ik})
+=
+1+(2E-3)x_i.
+\]
+Solving this linear system gives
+\[
+z_{ij}
+=
+\frac{
+1+(2E-3)(1-2x_k)
+}{
+2E
+},
+\qquad
+\{i,j,k\}=\{1,2,3\},
+\]
+and therefore
+\[
+\boxed{
 \beta_{ij}
 =
 \frac{
 B[1+(2E-3)(1-2x_k)]
 }{
 2E\,x_ix_j
-},
-\qquad
-\{i,j,k\}=\{1,2,3\},
+}.
+}
 \]
-together with
+
+Since
+\[
+B=Kr^2-2ur,
+\]
+\[
+E
+=
+\frac{(Kr-2u)(1+3ur)}
+{(Kr-u)(1+2ur)},
+\]
+and
 \[
 T_\alpha
 =
-\frac{h_\alpha(B)}{x_1x_2x_3}.
+\frac{r^2(1+2ur)}{x_1x_2x_3},
 \]
+the threshold surface admits an explicit global parametrization.
 
-\subsection{Classical-order limit}
-
-As \(\alpha\to1^-\),
+\begin{theorem}[Global threshold-surface parametrization]
+\label{thm:parametrization}
+Let
+\[
+\mathcal A_\alpha
+=
+\left\{
+(x,r):
+x\in\Delta_2^\circ,\ 
+r>2u/K,\ 
+1+(2E(r)-3)(1-2x_k)>0\ \forall k
+\right\}.
+\]
+The formula above defines a bijection
+\[
+\Psi_\alpha:
+\mathcal A_\alpha
+\longrightarrow
+\mathbb R_{>0}^3,
+\qquad
+(x,r)\mapsto\beta.
+\]
+For the resulting \(\beta\),
+\[
+x=x^*(\alpha,\beta)
+\]
+and
 \[
 T_\alpha(\beta)
 =
-T_1(\beta)+C(\beta)(1-\alpha)+O((1-\alpha)^2),
+\frac{r^2(1+2ur)}{x_1x_2x_3}.
 \]
-where, with
+\end{theorem}
+
+\begin{proof}
+Given \(\beta>0\), Theorem~\ref{thm:strict-convexity} gives a unique optimizer \(x^*\). Let
 \[
-S=\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}},
-\qquad
-G=\sqrt{\beta_{12}\beta_{13}\beta_{23}},
+B=B_\beta(x^*)>0.
 \]
+The map
+\[
+r\mapsto Kr^2-2ur
+\]
+is strictly increasing on \(r>2u/K\), so there is a unique \(r\) with the required \(B\). The stationarity equations then recover the displayed \(\beta_{ij}\), proving surjectivity.
+
+Conversely, start from an admissible \((x,r)\), define \(B\) and \(E\), and then define \(\beta\) by the displayed formula. Put
+\[
+c_E=2E-3.
+\]
+The associated \(z_{ij}\) satisfy
+\[
+z_{12}+z_{13}+z_{23}
+=
+\frac{3+c_E}{2E}=1
+\]
+and
+\[
+E(z_{ij}+z_{ik})
+=
+1+c_Ex_i.
+\]
+Hence
+\[
+B_\beta(x)=B
+\]
+and the constrained stationarity equations hold at \(x\). Strict convexity makes \(x\) the unique global minimizer. If two admissible pairs generated the same \(\beta\), uniqueness would give the same \(x\), and then strict monotonicity of \(Kr^2-2ur\) would give the same \(r\). Thus \(\Psi_\alpha\) is injective.
+\end{proof}
+
+\subsection{Exact differential sensitivity}
+
+The unique nondegenerate optimizer makes the envelope theorem available without qualification.
+
+\begin{corollary}[Pair-coordinate sensitivity]
+\label{cor:sensitivity}
+Let \(\{i,j,k\}=\{1,2,3\}\). Then
+\[
+\boxed{
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}
+>0,
+}
+\]
+where
+\[
+B^*=B_\beta(x^*).
+\]
+\end{corollary}
+
+\begin{proof}
+Differentiate the minimized objective with respect to \(\beta_{ij}\) while holding the optimizer fixed:
+\[
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{
+h_\alpha'(B^*)x_i^*x_j^*
+}{
+x_1^*x_2^*x_3^*
+}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}.
+\]
+Positivity follows from \(h_\alpha'>0\).
+\end{proof}
+
+\subsection{Monotonicity in fractional order}
+
+\begin{theorem}[Strict monotonicity]
+\label{thm:alpha-monotonicity}
+For fixed \(\beta>0\), if
+\[
+\frac23<\alpha_1<\alpha_2\le1,
+\]
+then
+\[
+\boxed{
+T_{\alpha_1}(\beta)>T_{\alpha_2}(\beta).
+}
+\]
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+\theta_j=\frac{\alpha_j\pi}{2}.
+\]
+For fixed positive \(a,b\), take
+\[
+c=H_{\theta_2}(a,b).
+\]
+The corresponding cubic has a conjugate pair on the rays \(|\arg\lambda|=\theta_2\). Since \(\theta_1<\theta_2\), the same pair lies strictly inside the stable region for angle \(\theta_1\). By uniqueness of the positive boundary value in Lemma~\ref{lem:cubic-boundary},
+\[
+H_{\theta_1}(a,b)>H_{\theta_2}(a,b).
+\]
+Hence
+\[
+h_{\alpha_1}(b)>h_{\alpha_2}(b)
+\qquad
+\forall b>0.
+\]
+Let \(x_1^*\) minimize the \(\alpha_1\) objective. Then
+\[
+T_{\alpha_1}
+=
+F_{\alpha_1,\beta}(x_1^*)
+>
+F_{\alpha_2,\beta}(x_1^*)
+\ge
+T_{\alpha_2}.
+\]
+\end{proof}
+
+\subsection{Classical-order asymptotics}
+
+Set
+\[
+\varepsilon=1-\alpha.
+\]
+As \(\alpha\to1^-\),
+\[
+u
+=
+\cos(\alpha\pi/2)
+=
+\frac{\pi}{2}\varepsilon+O(\varepsilon^3).
+\]
+
+\begin{lemma}[Fixed-\(b\) expansion]
+\label{lem:h-classical-expansion}
+For fixed \(b>0\),
+\[
+h_\alpha(b)
+=
+b
++
+\pi\varepsilon\sqrt b(1+b)
++
+O(\varepsilon^2).
+\]
+\end{lemma}
+
+\begin{proof}
+The boundary equation is
+\[
+(1-4u^2)r^2-2ur-b=0.
+\]
+At \(u=0\),
+\[
+r(0)=\sqrt b.
+\]
+Implicit differentiation gives
+\[
+r_u(0)=1.
+\]
+Since
+\[
+h=r^2(1+2ur),
+\]
+we obtain
+\[
+h_u(0,b)
+=
+2\sqrt b(1+b).
+\]
+Substituting
+\[
+u=\frac{\pi}{2}\varepsilon+O(\varepsilon^3)
+\]
+gives the result.
+\end{proof}
+
+Define
+\[
+S
+=
+\sqrt{\beta_{12}}
++
+\sqrt{\beta_{13}}
++
+\sqrt{\beta_{23}},
+\]
+and
+\[
+\Gamma
+=
+\sqrt{\beta_{12}\beta_{13}\beta_{23}}.
+\]
+
+\begin{theorem}[Sharp classical-limit rate]
+\label{thm:C14}
+As \(\alpha\to1^-\),
+\[
+\boxed{
+T_\alpha(\beta)
+=
+T_1(\beta)
++
+C(\beta)(1-\alpha)
++
+O((1-\alpha)^2),
+}
+\]
+where
+\[
+T_1(\beta)=S^2
+\]
+and
+\[
+\boxed{
+C(\beta)
+=
+\pi
+\left(
+\frac{S^{5/2}}{\sqrt\Gamma}
++
+S^{3/2}\sqrt\Gamma
+\right).
+}
+\]
+\end{theorem}
+
+\begin{proof}
+The classical objective has the unique minimizer
+\[
+x_1^*=\frac{\sqrt{\beta_{23}}}{S},
+\qquad
+x_2^*=\frac{\sqrt{\beta_{13}}}{S},
+\qquad
+x_3^*=\frac{\sqrt{\beta_{12}}}{S}.
+\]
+At this point,
+\[
+x_1^*x_2^*x_3^*
+=
+\frac{\Gamma}{S^3},
+\]
+and
+\[
+B_\beta(x^*)
+=
+\frac{\Gamma}{S}.
+\]
+The minimizer is nondegenerate by Theorem~\ref{thm:strict-convexity} and its \(\alpha=1\) limit, so the envelope theorem applies. Lemma~\ref{lem:h-classical-expansion} gives
+\[
+\left.
+\frac{\partial T_\alpha}{\partial\varepsilon}
+\right|_{\varepsilon=0}
+=
+\pi
+\frac{
+\sqrt{B^*}(1+B^*)
+}{
+x_1^*x_2^*x_3^*
+}.
+\]
+Substituting
+\[
+B^*=\Gamma/S
+\]
+and
+\[
+x_1^*x_2^*x_3^*=\Gamma/S^3
+\]
+gives
 \[
 C(\beta)
 =
 \pi S^{3/2}
 \left(
-\frac{S}{\sqrt G}+\sqrt G
-\right)>0.
+\frac{S}{\sqrt\Gamma}
++
+\sqrt\Gamma
+\right).
 \]
+\end{proof}
 
-\subsection{Low-order transition}
+For the symmetric slice,
+\[
+T_\alpha(1,1,1)
+=
+9+12\pi\sqrt3(1-\alpha)+O((1-\alpha)^2),
+\]
+in agreement with the exact Siami reduction.
+
+\subsection{Transition at \(\alpha=2/3\)}
 
 Let
 \[
-K=1-4\cos^2(\alpha\pi/2).
+K
+=
+1-4\cos^2(\alpha\pi/2).
 \]
-As \(\alpha\downarrow2/3\),
+Then
 \[
+K\downarrow0
+\qquad
+\text{as}\qquad
+\alpha\downarrow2/3.
+\]
+
+\begin{lemma}[Boundary-function blow-up]
+\label{lem:h-loworder}
+Uniformly for \(b\) in compact subsets of \([0,\infty)\),
+\[
+K^3h_\alpha(b)
+=
+1+K(3b-1)+O(K^2).
+\]
+\end{lemma}
+
+\begin{proof}
+Since
+\[
+2u=\sqrt{1-K},
+\]
+introduce
+\[
+R=Kr.
+\]
+The boundary equation
+\[
+b=Kr^2-2ur
+\]
+becomes
+\[
+Kb
+=
+R^2-\sqrt{1-K}\,R.
+\]
+Its positive solution is
+\[
+R
+=
+\frac{
+\sqrt{1-K}
++
+\sqrt{1-K+4Kb}
+}{2}.
+\]
+A Taylor expansion at \(K=0\), uniform for bounded \(b\), followed by substitution into
+\[
+K^3h_\alpha(b)
+=
+KR^2+\sqrt{1-K}\,R^3
+\]
+gives
+\[
+K^3h_\alpha(b)
+=
+1+K(3b-1)+O(K^2).
+\]
+\end{proof}
+
+\begin{theorem}[Low-order asymptotic]
+\label{thm:loworder}
+For every fixed \(\beta>0\),
+\[
+\boxed{
 T_\alpha(\beta)
 =
 \frac{27}{K^3}
 +
-\frac{9(\beta_{12}+\beta_{13}+\beta_{23})-27}{K^2}
+\frac{
+9(\beta_{12}+\beta_{13}+\beta_{23})-27
+}{K^2}
 +
 O(K^{-1}),
+}
 \]
 and
 \[
+\boxed{
 x^*(\alpha,\beta)
 =
 (1/3,1/3,1/3)+O(K).
+}
+\]
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+P(x)=x_1x_2x_3.
+\]
+By Lemma~\ref{lem:h-loworder},
+\[
+K^3F_{\alpha,\beta}(x)
+=
+\frac1{P(x)}
++
+K\frac{3B_\beta(x)-1}{P(x)}
++
+O(K^2),
+\]
+uniformly because \(B_\beta\) is bounded on the closed simplex.
+
+The leading functional \(P^{-1}\) has a unique nondegenerate minimum at
+\[
+x_c=(1/3,1/3,1/3),
+\]
+with value \(27\), and diverges at the boundary. The exact minimizer therefore remains in a fixed compact subset of the open simplex for sufficiently small \(K\). Smooth perturbation of the nondegenerate minimum gives
+\[
+x^*=x_c+O(K).
+\]
+At the center,
+\[
+P(x_c)=\frac1{27},
+\qquad
+B_\beta(x_c)
+=
+\frac{\beta_{12}+\beta_{13}+\beta_{23}}9.
+\]
+Substitution yields
+\[
+K^3T_\alpha
+=
+27
++
+K\left[
+9(\beta_{12}+\beta_{13}+\beta_{23})-27
+\right]
++
+O(K^2),
+\]
+which is equivalent to the stated expansion.
+\end{proof}
+
+The leading divergence
+\[
+T_\alpha(\beta)\sim\frac{27}{K^3}
+\]
+is universal; dependence on the interaction invariants first enters one order later.
+
+\subsection{A closed-form sufficient certificate}
+
+The exact threshold is two-dimensional. A simpler scalar certificate follows from an exact orbit minimum.
+
+Define
+\[
+\Phi(A)
+=
+\frac{
+\left(
+\sqrt{p_1m_{23}}
++
+\sqrt{p_2m_{13}}
++
+\sqrt{p_3m_{12}}
+\right)^2
+}{
+q
+}.
+\]
+In invariant coordinates,
+\[
+\Phi(A)
+=
+\frac{T_1(\beta)}{\kappa}.
 \]
 
-\subsection{Minimum robust dimension}
+\begin{proposition}[Exact orbit minimum]
+\label{prop:Phi}
+\[
+\inf_{D\succ0}
+\frac{a_Db_D}{c_D}
+=
+\Phi(A),
+\]
+and the minimum is attained, up to common scale, at
+\[
+d_1\propto\sqrt{\frac{m_{23}}{p_1}},
+\qquad
+d_2\propto\sqrt{\frac{m_{13}}{p_2}},
+\qquad
+d_3\propto\sqrt{\frac{m_{12}}{p_3}}.
+\]
+\end{proposition}
 
-Combining the exact \(2\times2\) obstruction with the strict \(3\times3\) band yields the following.
+\begin{proof}
+Since
+\[
+\frac{b_D}{d_1d_2d_3}
+=
+\frac{m_{23}}{d_1}
++
+\frac{m_{13}}{d_2}
++
+\frac{m_{12}}{d_3},
+\]
+set
+\[
+x_i=p_id_i
+\]
+and
+\[
+(r_1,r_2,r_3)
+=
+(p_1m_{23},p_2m_{13},p_3m_{12}).
+\]
+Then
+\[
+\frac{a_Db_D}{c_D}
+=
+\frac1q
+\left(\sum_i x_i\right)
+\left(\sum_i\frac{r_i}{x_i}\right).
+\]
+Cauchy--Schwarz yields
+\[
+\left(\sum_i x_i\right)
+\left(\sum_i\frac{r_i}{x_i}\right)
+\ge
+\left(\sum_i\sqrt{r_i}\right)^2,
+\]
+with equality exactly at \(x_i\propto\sqrt{r_i}\).
+\end{proof}
 
-\begin{theorem}[Minimum dimension of robust genuinely fractional separation]
+Let
+\[
+\rho_\alpha
+=
+\left(
+1-2\cos(\alpha\pi/2)
+\right)^2.
+\]
+
+\begin{corollary}[Fractional Cain-type certificate]
+\label{cor:Phi-certificate}
+For \(2/3<\alpha<1\),
+\[
+\Phi(A)>\rho_\alpha
+\quad\Longrightarrow\quad
+A\in\mathcal F_\alpha^{(3)}.
+\]
+Hence
+\[
+\rho_\alpha<\Phi(A)\le1
+\quad\Longrightarrow\quad
+A\in\mathcal P_\alpha^{(3)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Consider a positive-coefficient cubic
+\[
+\lambda^3+a\lambda^2+b\lambda+c.
+\]
+If a conjugate pair
+\[
+re^{\pm i\varphi}
+\]
+violates the Matignon angle with
+\[
+\varphi\le\theta=\alpha\pi/2,
+\]
+write the third root as \(-s\), \(s>0\), and put
+\[
+t=s/r,
+\qquad
+v=\cos\varphi.
+\]
+Coefficient matching gives
+\[
+a=r(t-2v),
+\qquad
+b=r^2(1-2tv),
+\qquad
+c=tr^3.
+\]
+Positivity of \(a,b\) implies
+\[
+2v<t<(2v)^{-1},
+\]
+so \(0<v<1/2\), and
+\[
+\frac{ab}{c}
+=
+1+4v^2-2v(t+t^{-1})
+\le
+(1-2v)^2
+\le
+(1-2\cos\theta)^2
+=
+\rho_\alpha.
+\]
+Thus
+\[
+\frac{ab}{c}>\rho_\alpha
+\]
+is sufficient for angular stability.
+
+By Proposition~\ref{prop:Phi},
+\[
+\frac{a_Db_D}{c_D}
+\ge\Phi(A)
+\]
+for every positive diagonal \(D\). Therefore \(\Phi>\rho_\alpha\) implies fractional D-stability. If additionally \(\Phi\le1\), then \(\kappa\ge T_1\), so classical D-stability fails.
+\end{proof}
+
+This certificate is generally conservative; the exact boundary remains \(T_\alpha(\beta)\).
+
+\subsection{Realizability of the entire genuinely fractional band}
+
+For a normalized matrix with \(p_1=p_2=p_3=1\), define
+\[
+g_{ij}=1-\beta_{ij}.
+\]
+These are the required reciprocal pair products
+\[
+a_{ij}a_{ji}=g_{ij}.
+\]
+Let
+\[
+\ell_{123}=a_{12}a_{23}a_{31},
+\qquad
+\ell_{132}=a_{13}a_{32}a_{21},
+\]
+and
+\[
+L_3=\ell_{123}+\ell_{132}.
+\]
+Then
+\[
+\ell_{123}\ell_{132}
+=
+g_{12}g_{13}g_{23}
+=:G,
+\]
+while direct expansion of the determinant gives
+\[
+\kappa
+=
+\beta_{12}+\beta_{13}+\beta_{23}-2-L_3.
+\]
+
+\begin{theorem}[Realizability above the Cain surface]
+\label{thm:realizability}
+For every \(\beta\in\mathbb R_{>0}^3\) and every
+\[
+\kappa\ge T_1(\beta),
+\]
+there exists a real \(3\times3\) matrix with negative diagonal and exactly those invariants \((\beta,\kappa)\). Consequently, for every \(\beta>0\) and every \(2/3<\alpha<1\), every point of the interval
+\[
+T_1(\beta)<\kappa<T_\alpha(\beta)
+\]
+is realized by an actual real matrix.
+\end{theorem}
+
+\begin{proof}
+The required total three-cycle feedback is
+\[
+L_3
+=
+\beta_{12}+\beta_{13}+\beta_{23}-2-\kappa.
+\]
+At \(\kappa=T_1=S^2\),
+\[
+L_3
+=
+-2
+-
+2\left(
+\sqrt{\beta_{12}\beta_{13}}
++
+\sqrt{\beta_{12}\beta_{23}}
++
+\sqrt{\beta_{13}\beta_{23}}
+\right),
+\]
+so \(L_3<0\). Increasing \(\kappa\) makes \(L_3\) still more negative.
+
+Choose \(\ell\) from
+\[
+\ell^2-L_3\ell+G=0.
+\]
+If \(G<0\), the discriminant is automatically positive. If \(G>0\), either all \(g_{ij}>0\), in which case
+\[
+\sqrt G<1,
+\]
+or exactly two \(g_{ij}<0\). In the latter case, if the corresponding two \(\beta\)'s exceed one,
+\[
+\sqrt G
+<
+\sqrt{\beta_j\beta_k}.
+\]
+In both cases,
+\[
+\sqrt G
+<
+1+
+\sqrt{\beta_{12}\beta_{13}}
++
+\sqrt{\beta_{12}\beta_{23}}
++
+\sqrt{\beta_{13}\beta_{23}},
+\]
+and therefore already at \(\kappa=T_1\),
+\[
+|L_3|>2\sqrt G.
+\]
+The inequality remains true for larger \(\kappa\). Thus the quadratic has a real nonzero root. If \(G=0\), then \(L_3<0\) and the nonzero root is simply \(\ell=L_3\).
+
+Set
+\[
+a_{11}=a_{22}=a_{33}=-1,
+\]
+and choose
+\[
+a_{12}=a_{23}=1,
+\qquad
+a_{31}=\ell,
+\]
+\[
+a_{21}=g_{12},
+\qquad
+a_{32}=g_{23},
+\qquad
+a_{13}=g_{13}/\ell.
+\]
+Then
+\[
+a_{ij}a_{ji}=g_{ij},
+\]
+the forward cycle equals \(\ell\), and the reverse cycle equals \(G/\ell\). Their sum is \(L_3\). Hence the resulting matrix has the prescribed \(\beta\) and \(\kappa\).
+\end{proof}
+
+\subsection{The minimum dimension for robust genuinely fractional separation}
+
+We can now close the dimension question.
+
+\begin{theorem}[Minimum robust dimension]
+\label{thm:C09}
 For every \(0<\alpha<1\),
 \[
 \boxed{
 \min\left\{
 n:
-\operatorname{int}\left(
+\operatorname{int}
+\left(
 \mathcal F_\alpha^{(n)}
 \setminus
 \mathcal D_H^{(n)}
 \right)
 \neq\varnothing
-\right\}=3.
+\right\}
+=
+3.
 }
 \]
 \end{theorem}
+
+\begin{proof}
+For \(n=1\), fractional asymptotic stability and Hurwitz stability are identical for a real scalar, so the difference class is empty. For \(n=2\), Corollary~\ref{cor:2x2-empty-interior} gives empty interior.
+
+It remains to show a nonempty open difference class in dimension three.
+
+If \(2/3<\alpha<1\), Lemma~\ref{lem:Talpha-gt-T1} gives
+\[
+T_\alpha(\beta)>T_1(\beta)
+\]
+for every \(\beta>0\). Choose any
+\[
+\kappa
+\in
+(T_1(\beta),T_\alpha(\beta)).
+\]
+By Theorem~\ref{thm:realizability}, this invariant point is realized by a real strict-\(P(-A)\) matrix. Corollary~\ref{cor:exact-band} then places \(A\) in the interior of the genuinely fractional difference class.
+
+If \(0<\alpha\le2/3\), choose any \(\beta>0\) and any
+\[
+\kappa>T_1(\beta).
+\]
+Theorem~\ref{thm:realizability} again gives a real strict-\(P(-A)\) matrix. Kellogg's theorem yields fractional D-stability, while \(\kappa>T_1\) excludes classical Hurwitz D-stability. The defining inequalities are strict, so an open neighborhood remains in the difference class.
+
+Therefore dimension three is minimal.
+\end{proof}
