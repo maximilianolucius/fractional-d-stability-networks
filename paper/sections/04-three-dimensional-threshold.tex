@@ -1,0 +1,124 @@
+\section{Exact three-dimensional Matignon threshold}
+
+Assume throughout this section that \(-A\) is a strict P-matrix. Define
+\[
+p_i=-a_{ii}>0,
+\qquad
+m_{ij}=\det A[\{i,j\}]>0,
+\qquad
+q=-\det A>0,
+\]
+and
+\[
+\beta_{ij}=\frac{m_{ij}}{p_ip_j},
+\qquad
+\kappa=\frac{q}{p_1p_2p_3}.
+\]
+
+For \(D=\operatorname{diag}(d_1,d_2,d_3)\succ0\), the normalized orbit coordinates are
+\[
+x_i=\frac{p_id_i}{a_D},
+\qquad
+a_D=\sum_i p_id_i,
+\]
+so \(x\in\Delta_2^\circ\). Define
+\[
+B_\beta(x)
+=
+\beta_{12}x_1x_2+
+\beta_{13}x_1x_3+
+\beta_{23}x_2x_3.
+\]
+Then
+\[
+\frac{b_D}{a_D^2}=B_\beta(x),
+\qquad
+\frac{c_D}{a_D^3}=\kappa x_1x_2x_3.
+\]
+
+\subsection{Exact cubic boundary}
+
+Let
+\[
+\theta=\frac{\alpha\pi}{2},
+\qquad
+u=\cos\theta,
+\qquad
+K=1-4u^2,
+\]
+and assume \(2/3<\alpha<1\), so \(K>0\). For the normalized cubic
+\[
+z^3+z^2+bz+c,
+\]
+define
+\[
+r_\alpha(b)
+=
+\frac{u+\sqrt{u^2+Kb}}{K},
+\]
+and
+\[
+h_\alpha(b)
+=
+r_\alpha(b)^2\bigl(1+2u\,r_\alpha(b)\bigr).
+\]
+Fixed-polynomial sector criteria belong to the existing fractional Routh--Hurwitz literature \citep{CermakNechvatal2017,Bourafa2020}; the value of this representation is that it can be combined exactly with the full diagonal orbit.
+
+Define
+\[
+T_\alpha(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
+\]
+
+\begin{theorem}[Exact real-\(3\times3\) criterion]
+Let \(-A\) be a strict P-matrix and \(2/3<\alpha<1\). Then
+\[
+\boxed{
+A\in\mathcal F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta).
+}
+\]
+\end{theorem}
+
+The theorem is an explicit elimination of the universal diagonal multiplier in the generalized forbidden-boundary problem of \citet{KushelPavani2022}. It is not a claim of first abstract necessary-and-sufficient generalized-D-stability theory.
+
+At \(\alpha=1\),
+\[
+h_1(b)=b,
+\]
+and the threshold becomes
+\[
+T_1(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+\left(
+\frac{\beta_{12}}{x_3}
++
+\frac{\beta_{13}}{x_2}
++
+\frac{\beta_{23}}{x_1}
+\right)
+=
+\left(
+\sqrt{\beta_{12}}+
+\sqrt{\beta_{13}}+
+\sqrt{\beta_{23}}
+\right)^2.
+\]
+This is precisely Cain's real-\(3\times3\) strict-P threshold \citep{Cain1976}.
+
+For \(2/3<\alpha<1\), one has \(h_\alpha(b)>b\), hence
+\[
+T_\alpha(\beta)>T_1(\beta).
+\]
+Therefore the exact genuinely fractional full-dimensional band is
+\[
+\boxed{
+T_1(\beta)<\kappa<T_\alpha(\beta).
+}
+\]
+
+For \(0<\alpha\le2/3\), Kellogg's P-matrix eigenvalue wedge \citep{Kellogg1972} implies that every strict-\(P(-A)\) matrix is fractionally D-stable.
