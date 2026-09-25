@@ -65,7 +65,7 @@ iff
 initial region stability + no boundary crossing for any positive diagonal D.
 ```
 
-More importantly, **Theorem 3.3 explicitly gives equivalent necessary-and-sufficient conditions for a conic region and for the complement of the closed conic region**, including determinant nonvanishing conditions for every positive diagonal D.
+More importantly, **the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission) explicitly gives equivalent necessary-and-sufficient conditions for a conic region and for the complement of the closed conic region**, including determinant nonvanishing conditions for every positive diagonal D.
 
 After the sign substitution B=-A:
 
@@ -81,7 +81,7 @@ Therefore C-10 must **not** be described as:
 
 Those claims are occupied.
 
-### What C-10 adds beyond Theorem 3.3
+### What C-10 adds beyond the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission)
 
 Kushel–Pavani leave the universal D quantifier in the condition. They do not derive for arbitrary real strict-P(-A) 3×3 matrices:
 
