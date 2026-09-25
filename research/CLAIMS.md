@@ -16,6 +16,8 @@ The baseline audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is super
 | C-08 | min dimension with nonempty interior of P_alpha equals 3 for 0<alpha<=2/3 | **STRONG NOVELTY CANDIDATE — NOT FROZEN** | **THEOREM — analytic proof modulo Kellogg P-matrix wedge theorem** | Kellogg P-matrix spectral wedge + C-07 |
 | C-09 | min dimension with nonempty interior of P_alpha equals 3 for every 0<alpha<1 | **NOVELTY SURVIVES TARGETED AUDIT — PROVISIONAL FLAGSHIP THEOREM** | **THEOREM — internal analytic proof complete** | C-07 + C-08 + cubic angular certificate + uniform AM-GM diagonal-orbit bound; see `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
 | C-10 | exact 3×3 characterization of F_alpha for 2/3<alpha<1 | POTENTIALLY TITLE-WORTHY | OPEN | fractional analogue of Cain + Kushel forbidden-boundary framework |
+| C-11 | exact orbit minimum Phi(A) and fractional Cain-type 3x3 certificate | STRUCTURAL THEOREM / SUPPORTS FLAGSHIP; standalone novelty not required | **THEOREM — analytic proof complete** | Cain 1976 classical 3x3 criterion + C-09 cubic sector lemma; see `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` |
+| C-12 | GLV abundance-scaling invariance: J=diag(x*)A has the same F_alpha, D_H and P_alpha membership as A | APPLICATION COROLLARY / ECOLOGICAL BRIDGE | **THEOREM — immediate group-orbit proof** | positive left-diagonal orbit invariance; C-11 gives Phi(J)=Phi(A) |
 
 ## Current objects
 
@@ -135,3 +137,44 @@ NOVELTY SURVIVES
 ```
 
 for the combined dimension/interior theorem. Known ingredients remain imported and must be credited: optimal fractional Routh-Hurwitz theory, Kellogg's P-matrix wedge, generalized/relative D-stability, classical robust/interior D-stability, and Siami's cyclic fractional secant result.
+
+
+## C-11/C-12 — structural bridge to classical D-stability and ecology
+
+For strict-P 3x3 matrices define
+
+[
+\Phi(A)=
+\frac{
+(\sqrt{p_1m_{23}}+\sqrt{p_2m_{13}}+\sqrt{p_3m_{12}})^2
+}{-\det A}.
+]
+
+Then
+
+[
+\inf_{D>0}\frac{a_Db_D}{c_D}=\Phi(A).
+]
+
+Cain's classical 3x3 D-stability threshold is \(\Phi(A)>1\) in the strict-P case. For \(2/3<\alpha<1\), the project proves the fractional sufficient certificate
+
+[
+\Phi(A)>
+(1-2\cos(\alpha\pi/2))^2
+\Longrightarrow
+A\in F_\alpha^{(3)}.
+]
+
+The right-hand threshold is strictly below one and converges to one as \(\alpha\to1^-\).
+
+For GLV Jacobians \(J=\operatorname{diag}(x^*)A\) with \(x^*>0\), positive diagonal orbit reparametrization gives
+
+[
+J\in F_\alpha \iff A\in F_\alpha,
+\qquad
+J\in D_H \iff A\in D_H,
+\qquad
+J\in P_\alpha \iff A\in P_\alpha,
+]
+
+and \(\Phi(J)=\Phi(A)\).
