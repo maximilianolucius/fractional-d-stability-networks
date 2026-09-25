@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-25T11:57:39",
+  "host": "aur007",
+  "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "cpu_count": 32,
+  "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor",
+  "mem_total_gb": 186.3,
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "mpmath": "1.3.0",
+  "numba": "0.67.0",
+  "hypothesis": "6.168.1",
+  "sympy": "1.14.0",
+  "pytest": "9.1.1",
+  "git_sha": "n/a (synced working tree)"
+}
