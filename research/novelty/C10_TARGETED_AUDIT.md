@@ -163,3 +163,14 @@ A final independent specialist literature audit is still required before submiss
 Mathematical status: internally proved.
 Research value: potentially stronger than C-09 because it explains and generalizes the dimension-threshold theorem.
 Publication strategy: elevate C-10 beside C-09 as a flagship theorem package, pending adversarial proof audit and final independent novelty verification.
+
+
+## Addendum — Shao 2017 terminology collision
+
+A targeted follow-up found K. Shao et al., “Necessary and sufficient D-stability condition of fractional-order linear systems,” CCC 2017, DOI 10.23919/ChiCC.2017.8027318.
+
+Despite the title, accessible citation context places this work in the **desired pole-region / \mathcal D-stability** control literature, not in positive-diagonal multiplicative matrix D-stability. This interpretation is reinforced by Mohsenipour–Liu 2020, which uses “robust D-stability” explicitly for root-location regions, characteristic-polynomial value sets, and uncertain closed-loop poles.
+
+No accessible evidence shows the Shao paper quantifying over (DA) for all positive diagonal matrices (D). Therefore it does not presently kill C-10. Full-text verification remains a final pre-submission bibliography task.
+
+Detailed note: `research/novelty/D_STABILITY_TERMINOLOGY_COLLISION.md`.
