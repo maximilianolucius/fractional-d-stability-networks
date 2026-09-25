@@ -2,7 +2,7 @@
 
 Public research repository for the development of an exact theory of **fractional D-stability under positive diagonal scaling**, with a three-species ecological-network / generalized Lotka–Volterra interpretation.
 
-> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: an independent adversarial proof audit, a high-compute validation wave, and a final specialist novelty audit are still required.
+> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: the final specialist novelty audit has passed **with repositioning**, while the independent adversarial proof audit and the final high-precision compute validation remain outstanding.
 
 The repository is public:
 
@@ -106,7 +106,7 @@ Dimension two permits only a lower-dimensional genuinely fractional separation, 
 
 Canonical proof: [`research/THEOREM_C09_DIMENSION_THRESHOLD.md`](research/THEOREM_C09_DIMENSION_THRESHOLD.md).
 
-**Novelty status:** `NOVELTY SURVIVES` in the targeted theorem-level audit, subject to a final independent pre-submission check.
+**Novelty status:** final specialist verdict **NOVEL WITH NARROWED CLAIM**.
 
 ### C-10 — exact \(3\times3\) variational characterization
 
@@ -172,7 +172,7 @@ For \(0<\alpha\le2/3\), every strict-P\((-A)\) interior point is fractionally D-
 
 Canonical proof: [`research/THEOREM_C10_EXACT_3X3.md`](research/THEOREM_C10_EXACT_3X3.md).
 
-**Novelty status:** `NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL`. This is presently the strongest candidate for the paper's central theorem.
+**Novelty status:** final specialist verdict **NOVEL WITH NARROWED CLAIM**. The novelty is the explicit exact real-3x3 elimination of the known generalized positive-diagonal forbidden-boundary problem, not the generalized framework itself.
 
 ### C-11 — fractional Cain sufficient certificate
 
@@ -295,7 +295,7 @@ as (alphadownarrow2/3); and realizability of every invariant point with (kappage
 
 Canonical source: [`research/THEOREM_C15_THRESHOLD_GEOMETRY.md`](research/THEOREM_C15_THRESHOLD_GEOMETRY.md).
 
-### C-16 — general positive-diagonal orbit reduction
+### C-16 — general positive-diagonal orbit reduction (structural, not novel)
 
 For strict-P((-A)) in arbitrary dimension (n), positive diagonal scaling modulo a common scalar is exactly the open simplex (Delta_{n-1}^circ).
 
@@ -319,7 +319,7 @@ There are exactly
 
 nontrivial orbit invariants: four in dimension three and eleven in dimension four.
 
-C-16 is structural machinery rather than a standalone novelty claim. It shows that the unresolved (n=4) difficulty is quartic root geometry, not positive-diagonal orbit geometry.
+The final specialist audit classifies C-16 as **NOT NOVEL**. It is retained as standard structural machinery rather than a contribution claim. It shows that the unresolved (n=4) difficulty is quartic root geometry, not positive-diagonal orbit geometry.
 
 Canonical source: [`research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md`](research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md).
 
@@ -350,20 +350,30 @@ The potentially new contribution is the **combined low-dimensional exact structu
 
 ## 4. Novelty status
 
-Two targeted audits are currently the most relevant:
+The final adversarial specialist audit is complete.
 
-- [`research/novelty/C09_TARGETED_AUDIT.md`](research/novelty/C09_TARGETED_AUDIT.md): **NOVELTY SURVIVES**.
-- [`research/novelty/C10_TARGETED_AUDIT.md`](research/novelty/C10_TARGETED_AUDIT.md): **NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL**.
+Final verdicts:
 
-The C-10 audit explicitly compares against Cain, Bahl–Cain, Kushel, Kushel–Pavani, fractional Routh–Hurwitz literature, sector-stable polynomial work and Siami.
+- **C-09:** NOVEL WITH NARROWED CLAIM.
+- **C-10:** NOVEL WITH NARROWED CLAIM.
+- **C-15:** NOVEL WITH NARROWED CLAIM.
+- **C-16:** NOT NOVEL as a standalone contribution.
 
-A final independent specialist novelty audit is still mandatory before submission.
+Overall:
 
-### Historical-audit warning
+```text
+NOVELTY GATE PASSED WITH REPOSITIONING
+```
 
-Some chronological research files preserve earlier states of the project. In particular, [`research/NOVELTY_REPORT.md`](research/NOVELTY_REPORT.md) and [`research/novelty/novelty-audit.md`](research/novelty/novelty-audit.md) contain sections written **before C-09/C-10 closed the previously open high-order \(3\times3\) problem**.
+The strongest defensible paper claim is an **explicit exact real-3x3 solution/elimination** of the positive-diagonal generalized-D-stability problem for the Matignon reflex sector on the strict-P(-A) stratum.
 
-For the current state, use the canonical-source order in Section 6 below rather than treating every historical audit paragraph as equally current.
+The audit also establishes important prior-art locks: Kushel–Pavani already provide the abstract generalized multiplicative-D forbidden-boundary N&S framework for conic regions/complements; Cain supplies the exact classical real-3x3 all-D threshold mechanism; Bahl–Cain supplies exact all-D inertia classifications; Siami occupies the symmetric cyclic slice.
+
+See:
+
+- [`research/novelty/FINAL_C10_C15_SPECIALIST_AUDIT.md`](research/novelty/FINAL_C10_C15_SPECIALIST_AUDIT.md)
+- [`research/novelty/FINAL_BIBLIOGRAPHY_VERIFICATION.md`](research/novelty/FINAL_BIBLIOGRAPHY_VERIFICATION.md)
+- [`research/novelty/C10_TARGETED_AUDIT.md`](research/novelty/C10_TARGETED_AUDIT.md)
 
 ---
 
@@ -603,7 +613,7 @@ Its mathematics does **not** establish novelty for this project.
 
 1. adversarial proof audit passes C-07/C-09/C-10/C-11/C-14/C-15/C-16;
 2. high-compute wave finds no persistent counterexample;
-3. final specialist novelty audit of C-10 is completed;
+3. final specialist novelty audit: **PASSED WITH REPOSITIONING**;
 4. exact bibliographic theorem numbers and sign conventions are verified;
 5. all central claims remain independent of finite numerical sampling.
 
