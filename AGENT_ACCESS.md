@@ -116,3 +116,40 @@ Its required final artifact is:
 with final status `COMPUTE_PASS`, `COMPUTE_FAIL`, or `PARTIAL/BLOCKED`.
 
 The adversarial proof-verifier lane and compute lane are complementary and may proceed independently. Neither agent should overwrite the other's report.
+
+
+---
+
+## PARALLEL AGENT ROLE: FINAL SPECIALIST NOVELTY AUDIT
+
+Dedicated branch:
+
+`agent/final-novelty-c10-c15-20260925`
+
+Task:
+
+`research/FINAL_NOVELTY_AUDIT_TASK.md`
+
+Purpose: adversarial theorem-level search for prior art that could subsume or materially narrow C-09/C-10/C-15/C-16. This agent must attempt to kill the novelty claim, not confirm it.
+
+Required final output:
+
+`research/novelty/FINAL_C10_C15_SPECIALIST_AUDIT.md`
+
+with one explicit novelty verdict per claim and one manuscript-level novelty gate verdict.
+
+This lane is independent of both the proof verifier and compute agent.
+
+---
+
+## QUEUED ONLY: COMPUTE WAVE 2
+
+A second server-scale task is prepared in:
+
+`research/COMPUTE_AGENT_WAVE2_QUEUED.md`
+
+**Do not start it yet.**
+
+Start condition: Compute Wave 1 must return `COMPUTE_PASS` with zero genuine C-10 counterexamples and be integrated by the Chief.
+
+Wave 2 is intended for certified atlas generation, robustness analysis, canonical witnesses, C-15 sensitivity validation and publication-grade numerical data. It is not another broad Monte Carlo campaign.
