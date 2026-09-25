@@ -1,2 +1,39 @@
 \section{Introduction}
-The central question is not whether fractional order changes the stability of one ecological model, but how fractional memory interacts with the directed interaction graph and with positive diagonal rescalings across a class of ecological networks. The target contribution is a structural theory linking topology, spectral geometry, and regions of purely fractional stabilization.
+
+Classical D-stability asks whether the spectrum of a real matrix remains in the open left half-plane after multiplication by every positive diagonal matrix. In dimension three this problem admits a complete description in terms of principal minors and an exact homogeneous minimization, due to Cain \citep{Cain1976}; Bahl and Cain subsequently characterized fixed inertia under all positive diagonal multipliers \citep{BahlCain1977}. Generalized matrix-stability frameworks extend this question from the left half-plane to more general spectral regions \citep{Kushel2019}, and Kushel and Pavani developed an abstract forbidden-boundary characterization for positive-diagonal stability in conic regions and their complements \citep{KushelPavani2022}.
+
+For a commensurate Caputo system of order \(0<\alpha<1\), asymptotic stability is governed by the Matignon angular region
+\[
+\Sigma_\alpha
+=
+\{z\neq0:|\arg z|>\alpha\pi/2\},
+\]
+rather than by the left half-plane; see, for example, the modern treatment in \citet{BrandiburGarrappaKaslik2021}. Fixed-polynomial fractional root-location criteria are well developed \citep{CermakNechvatal2017,Bourafa2020}, and structured cyclic networks admit fractional secant conditions \citep{Siami2021}. What is not supplied by these results is an explicit elimination of the universal positive-diagonal multiplier for a generic real \(3\times3\) matrix in the full Matignon reflex sector.
+
+The purpose of this paper is to solve that low-dimensional problem exactly on the full-dimensional strict-\(P(-A)\) stratum. We show that the entire positive-diagonal orbit is determined by four invariants,
+\[
+(\beta_{12},\beta_{13},\beta_{23},\kappa),
+\]
+and that the all-diagonal Matignon condition reduces to a single scalar inequality
+\[
+\kappa<T_\alpha(\beta).
+\]
+The threshold \(T_\alpha\) is defined by a two-dimensional simplex minimization of an exact cubic boundary function. At \(\alpha=1\) it collapses to Cain's classical threshold, while for \(2/3<\alpha<1\) it lies strictly above the classical surface and therefore exposes an exact genuinely fractional band.
+
+Our main contributions are as follows.
+\begin{enumerate}
+\item We give an exact \(2\times2\) classification and prove that the genuinely fractional difference from classical Hurwitz D-stability has empty full-dimensional interior in dimension two.
+\item We derive a necessary-and-sufficient real-\(3\times3\) criterion
+\[
+A\in\mathcal F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta)
+\]
+on the strict-\(P(-A)\) stratum.
+\item We prove that the threshold objective is strictly convex in logit simplex coordinates. Hence the optimizer is unique and nondegenerate, the threshold depends smoothly on its parameters, and the full threshold surface admits an explicit parametrization.
+\item We prove that dimension three is the smallest real dimension in which the genuinely fractional positive-diagonal Matignon-stable class outside classical Hurwitz D-stability has nonempty full-dimensional interior.
+\item We derive sharp asymptotics at both \(\alpha\to1^-\) and \(\alpha\downarrow2/3\).
+\item For three-species generalized Lotka--Volterra systems, we identify the orbit invariants with normalized reciprocal-pair and directed three-cycle feedback coordinates.
+\end{enumerate}
+
+The contribution should be read as an explicit low-dimensional solution inside a known generalized-D-stability framework, not as the introduction of fractional D-stability itself. This distinction is essential for comparison with \citet{KushelPavani2022}, while the limit \(\alpha=1\) makes the relation to \citet{Cain1976} exact rather than merely qualitative.
