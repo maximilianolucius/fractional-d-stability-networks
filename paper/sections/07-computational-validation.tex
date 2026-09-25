@@ -34,7 +34,7 @@ Agreement between these routes tests the elimination theorem rather than merely 
 
 \subsection{Adversarial campaign}
 
-The final Wave~1 campaign contained
+The final adversarial campaign contained
 \[
 2{,}180{,}000
 \]
@@ -111,7 +111,7 @@ These certified anchors test not only numerical optimization but the claimed glo
 The same computational campaign produced:
 \begin{itemize}
 \item \(121/121\) passing repository tests;
-\item \(8{,}100/8{,}100\) independently generated ecological matrices whose direct spectral classification agreed with the exact C-10/C-13 phase regions;
+\item \(8{,}100/8{,}100\) independently generated ecological matrices whose direct spectral classification agreed with the exact invariant-space phase regions of Sections~\ref{sec:exact-3x3} and~\ref{sec:ecology};
 \item \(210{,}000\) \((\beta,\alpha)\) pairs with no violation of the soundness inequality for Corollary~\ref{cor:Phi-certificate};
 \item high-precision verification of the first-order classical-limit rate in Theorem~\ref{thm:C14} down to \(1-\alpha=10^{-10}\);
 \item agreement of the symmetric formula
@@ -121,11 +121,7 @@ T_\alpha(1,1,1)=1+R_3(\alpha)^3
 to approximately \(10^{-107}\) relative scale in high precision.
 \end{itemize}
 
-The final computational verdict was therefore
-\[
-\boxed{\texttt{COMPUTE\_PASS}},
-\]
-with zero genuine C-10 discrepancies.
+Across the complete campaign, no genuine discrepancy with Theorem~\ref{thm:C10} remained after independent high-precision re-evaluation.
 
 \subsection{Reproducibility and evidence levels}
 
@@ -162,7 +158,7 @@ The reproducibility material is organized as follows:
 \item reusable numerical routines: \path{src/fdsn/};
 \item reproduction scripts: \path{computations/scripts/};
 \item compact numerical outputs, high-precision rechecks, interval-certified anchors, and worst-case matrices: \path{computations/results/};
-\item independent proof and novelty audits: \path{research/}.
+\item theorem derivations and auxiliary mathematical notes used to generate the computational protocol: \path{research/}.
 \end{itemize}
 Raw multi-million-case arrays are not required to reproduce the reported conclusions; their checksums and deterministic generation seeds are recorded in the compact result files.
 
