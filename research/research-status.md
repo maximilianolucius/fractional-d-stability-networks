@@ -144,3 +144,38 @@ Only after C-10. Graph motifs should be derived from the matrix theorem, not use
 - OPEN: unresolved.
 
 Finite diagonal sampling is never proof.
+
+
+## C-10 closed internally — exact robust 3x3 characterization
+
+The former P1 task is now internally solved.
+
+For 2/3<alpha<1, positive diagonal orbits of strict-P(-A) matrices reduce exactly to the simplex via
+(x_i=p_id_i/a_D). Four left-diagonal orbit invariants remain:
+(eta_{12},eta_{13},eta_{23},kappa).
+
+The exact condition is
+
+[
+A\in F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta).
+]
+
+The alpha=1 limit is exactly Cain's 3x3 criterion. The exact genuinely fractional interior is the band
+
+[
+T_1(\beta)<\kappa<T_\alpha(\beta).
+]
+
+See:
+- `research/THEOREM_C10_EXACT_3X3.md`
+- `research/novelty/C10_TARGETED_AUDIT.md`
+
+Novelty status: targeted search survives provisionally; independent specialist audit still required.
+
+### Revised priorities
+
+P0 remains the adversarial proof audit, now expanded to include C-10.
+P1 becomes interpretation/closed-form reduction of (T_\alpha) on important motif classes and independent novelty verification.
+P2 manuscript architecture may begin only after P0 passes.
