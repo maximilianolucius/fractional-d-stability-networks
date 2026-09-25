@@ -1,0 +1,26 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The main result is an explicit solution of a known generalized-D-stability problem in the first dimension where a robust genuinely fractional separation is possible. Generalized multiplicative region stability is not new \citep{Kushel2019}; \citet{KushelPavani2022} give an abstract all-positive-diagonal forbidden-boundary framework. Our contribution is the exact elimination of that diagonal quantifier for the generic real \(3\times3\) Matignon problem on the full-dimensional strict-\(P(-A)\) stratum.
+
+The closest classical predecessor is Cain's complete real-\(3\times3\) Hurwitz D-stability criterion \citep{Cain1976}. Here it appears exactly as the endpoint
+\[
+T_1(\beta)
+=
+\left(
+\sqrt{\beta_{12}}+
+\sqrt{\beta_{13}}+
+\sqrt{\beta_{23}}
+\right)^2,
+\]
+while Theorem~\ref{thm:alpha-monotonicity} shows that \(T_\alpha>T_1\) for every fractional order in the high-order regime. Bahl--Cain fixed-inertia theory \citep{BahlCain1977} is complementary but cannot determine Matignon stability because the fractional stable region includes a right-half-plane sliver and therefore requires angular information finer than inertia. The cyclic secant theorem of \citet{Siami2021} is recovered exactly as the symmetric invariant slice.
+
+Classical sufficient computational tests, including LMI approaches \citep{OliveiraPeres2004}, and scalable determinant/principal-minor conditions \citep{Kushel2023,Kushel2026} address a different tradeoff: tractable sufficient testing in general dimension rather than an exact angular elimination in dimension three.
+
+Theorem~\ref{thm:C09} explains why \(n=3\) is not merely a convenient small example. In dimension two the fractional-only class is lower-dimensional; in dimension three it has nonempty interior for every \(0<\alpha<1\). The positive-diagonal orbit reduction extends to higher dimension, but from \(n=4\) onward the normalized polynomial contains several independent angular coefficients and the exact scalar threshold structure is lost. Exploratory \(4\times4\) computations are therefore reserved for future work.
+
+The strict-P hypothesis should also be interpreted correctly. Corollary~\ref{cor:strictP-interior} shows that every full-dimensional interior point lies on that stratum, so the theorem completely describes the robust class. It does not classify every lower-dimensional boundary component with vanishing signed principal minors. This distinction parallels classical work on the interior and strong D-stability \citep{Hartfiel1980,Abed1986}.
+
+Finally, the GLV interpretation is local. Positive equilibrium abundances reparameterize the same positive-diagonal orbit, and the loop variables give invariant coordinates for that orbit. They do not by themselves imply feasibility, global persistence, nonlinear basin stability, or a one-parameter causal intervention rule.
+
+The principal limitations are therefore explicit: common fractional order, real matrices, full-dimensional classification, dimension three, and local equilibrium stability. These boundaries define the natural continuation of the theory rather than qualifications of the exact three-dimensional result.
