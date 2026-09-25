@@ -1,7 +1,7 @@
 # Research status — Chief Researcher canonical update
 
 **Date:** 2026-09-25  
-**State:** theorem package developed; **proof gate passed**, **novelty gate passed with repositioning**, final high-precision compute validation pending.
+**State:** theorem package developed and triply validated; **novelty gate passed with repositioning**, **proof gate passed**, **compute gate passed**. Project phase: **Q1 MANUSCRIPT PRODUCTION**.
 
 ## Central objects
 
@@ -218,14 +218,24 @@ Task:
 
 This is a large campaign: high precision, million-scale adversarial tests, exact-threshold implementation, C-11 gap analysis, C-14 rate checks, ecological phase data, and n=4 reconnaissance.
 
-## Manuscript lock
+## Manuscript state
 
-The proof gate is **PASSED** and the novelty gate is **PASSED WITH REPOSITIONING**.
+All three scientific gates are now closed:
 
-Final title/abstract/conclusions remain locked until:
+```text
+NOVELTY GATE: PASS WITH REPOSITIONING
+PROOF GATE: PASS
+COMPUTE GATE: PASS
+```
 
-1. Compute Wave 1 P2 high-precision returns without a persistent counterexample;
-2. exact citations/theorem numbers and sign conventions are reconciled after compute integration.
+The project is now in **Q1 MANUSCRIPT PRODUCTION**.
+
+Remaining work is editorial/scientific packaging rather than discovery validation:
+
+1. final citation/theorem-number/sign-convention reconciliation;
+2. manuscript rewrite around C-10/C-15, with C-09 as a major corollary;
+3. publication-grade figures/tables and compact certified examples;
+4. full LaTeX build and internal referee-style consistency pass.
 
 Architecture planning is allowed. Final prose drafting is not.
 
@@ -254,3 +264,34 @@ Final proof-gate status:
 ```text
 PROOF GATE PASSED
 ```
+
+
+## Compute gate closure
+
+Compute Wave 1 final branch:
+
+`agent/compute-c10-wave1-20260925`
+
+Final SHA:
+
+`03165c107162e7099da29c13d40669474055bb22`
+
+Integrated into `main`.
+
+Key evidence:
+
+- 121/121 tests passed;
+- 2,180,000 adversarial/control cases in P2;
+- 56,234/56,234 flagged cases high-precision consistent;
+- zero genuine C-10 counterexamples;
+- 1,350 strict-P extreme-scaling audits at 250 digits with zero negatives;
+- 60 interval-certified (T_\alpha) anchors with relative width about (10^{-39});
+- 8,100/8,100 ecological phase-region classifications consistent.
+
+Final status:
+
+```text
+COMPUTE GATE PASSED
+```
+
+The computation corroborates the proofs; it does not replace them.
