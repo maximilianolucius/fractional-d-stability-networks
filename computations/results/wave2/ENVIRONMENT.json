@@ -1,0 +1,44 @@
+{
+  "utc": "2026-09-25T16:36:55Z",
+  "baseline_sha": "a8f73dca967e20e90c4dbb7e4aa77d2d6b170497",
+  "workers": 16,
+  "host": "aur007",
+  "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "cpu_count": 32,
+  "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor",
+  "mem_total_gb": 186.3,
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "mpmath": "1.3.0",
+  "sympy": "1.14.0",
+  "hypothesis": "6.168.1",
+  "numba": "0.67.0",
+  "blas_threading": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "/home/aureus/fdsn_wave1/venv/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-f48b354e.so",
+      "version": "0.3.34.106.0",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    }
+  ],
+  "OMP_NUM_THREADS": "1",
+  "nice": 0,
+  "commands": [
+    "git checkout agent/compute-wave2-20260925",
+    "pip install -e .[dev] sympy",
+    "OMP_NUM_THREADS=1 pytest -n 8",
+    "python computations/scripts/wave2/w2_p0_baseline.py"
+  ],
+  "wave1_check": {
+    "GENUINE_C10_COUNTEREXAMPLES": 0,
+    "VERDICT": "COMPUTE_PASS for C-10: 0 mismatches survive high precision",
+    "final_report_status_line": "**Final status: COMPUTE_PASS** (C-10, C-09, C-11 soundness, C-14: no counterexample survives high precision)",
+    "total_C10_cases": 2060000,
+    "note": "computations/results/P0_TEST_RESULT.txt on the Wave-1 branch reads '100 passed' (stale copy overwritten by a later rsync); the Wave-1 final report and the present run both give 121 passed."
+  }
+}

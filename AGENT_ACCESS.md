@@ -187,3 +187,51 @@ Remaining submission gates:
 3. Final theorem/citation/sign-convention reconciliation after those gates.
 
 The novelty lane is closed unless a new prior-art collision is discovered.
+
+
+---
+
+## COMPUTE WAVE 2 — ACTIVE EXECUTION LANE
+
+Branch:
+
+\`agent/compute-wave2-20260925\`
+
+Canonical execution task:
+
+\`research/COMPUTE_AGENT_WAVE2_TASK.md\`
+
+Status:
+
+\`READY TO START\`
+
+Baseline:
+
+\`36b2432d717be7f24ba589b58d6ad7efaabaebd9\`
+
+Wave 1 prerequisite:
+
+\`COMPUTE_PASS\` with zero genuine C-10 counterexamples.
+
+Mission:
+
+- certified threshold atlas;
+- canonical genuinely fractional witnesses;
+- robustness quantification;
+- C-15 differential validation;
+- publication-grade figure-source datasets;
+- optional focused n=4 shared-edge reconnaissance after P0-P5.
+
+Do not edit \`paper/\` or canonical theorem/novelty/proof files.
+
+P0-P5 are mandatory. P6 is optional.
+
+Final deliverable:
+
+\`research/COMPUTE_WAVE2_FINAL_REPORT.md\`
+
+Final status must be one of:
+
+- \`COMPUTE2_PASS\`
+- \`COMPUTE2_FAIL\`
+- \`PARTIAL/BLOCKED\`
