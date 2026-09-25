@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-25T17:10:17Z",
+  "baseline_sha": "a8f73dca967e20e90c4dbb7e4aa77d2d6b170497",
+  "workers": 16,
+  "git_sha": "n/a (synced working tree; see BASELINE_SHA)",
+  "script": "computations/scripts/wave2/w2_p5_figure_data.py",
+  "families": [
+    "F1_T_ratio_vs_alpha",
+    "F2_W_alpha",
+    "F3_W_over_T1",
+    "F4_C11_sufficient_fraction",
+    "F5_L3_alpha_boundaries",
+    "F6_pairloop_sensitivity",
+    "F7_xstar_alpha_beta",
+    "F8_classical_asymptotic",
+    "F9_low_order_blowup"
+  ],
+  "evidence_labels": {
+    "F1-F7": "FLOAT (+CERTIFIED anchors in F1_certified_anchors.csv)",
+    "F8": "HP 45 digits",
+    "F9": "HP 55 digits"
+  },
+  "wall_seconds": 77.14
+}

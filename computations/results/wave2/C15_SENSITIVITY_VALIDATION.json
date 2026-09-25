@@ -1,0 +1,228 @@
+{
+  "utc": "2026-09-25T17:04:00Z",
+  "baseline_sha": "a8f73dca967e20e90c4dbb7e4aa77d2d6b170497",
+  "workers": 12,
+  "git_sha": "n/a (synced working tree; see BASELINE_SHA)",
+  "seed": 415,
+  "n_points": 8000,
+  "checks_per_point": 16,
+  "n_checks_float": 128000,
+  "n_checks_hp": 2500,
+  "tolerances": {
+    "dT_beta": 1e-06,
+    "dT_alpha": 1e-05,
+    "dx": 0.0001,
+    "perm_T": 1e-10,
+    "perm_x": 1e-09,
+    "euler": 1e-10,
+    "elast": 1e-09
+  },
+  "float_failures_by_check": {
+    "c1-3 dT/dbeta": 532,
+    "c4 dT/dalpha": 0,
+    "c5 hess_not_PD": 0,
+    "c6-8 dx/dbeta": 0,
+    "c9-13 perm_T": 0,
+    "c9-13 perm_x": 0,
+    "c14 euler": 0,
+    "c15 elasticity": 0
+  },
+  "float_summary": {
+    "err_dT_beta": {
+      "max": 0.0002991672880039431,
+      "p99": 4.212628722921598e-06,
+      "median": 1.6665002711135912e-12
+    },
+    "err_dT_alpha": {
+      "max": 1.4280928677390392e-06,
+      "p99": 3.238130532634556e-07,
+      "median": 1.6346035636161105e-11
+    },
+    "err_dx_dbeta": {
+      "max": 9.459351053673505e-05,
+      "p99": 6.735624117875225e-07,
+      "median": 3.3018439080259637e-12
+    },
+    "err_perm_T": {
+      "max": 7.327471962526033e-15,
+      "p99": 1.887379141862766e-15,
+      "median": 0.0
+    },
+    "err_perm_x": {
+      "max": 2.05123140695207e-11,
+      "p99": 1.3179301400212519e-14,
+      "median": 5.551115123125783e-17
+    },
+    "err_euler": {
+      "max": 7.105427357601002e-15,
+      "p99": 3.9968028886505635e-15,
+      "median": 3.3306690738754696e-16
+    },
+    "err_elasticity_identity": {
+      "max": 5.99407676271646e-11,
+      "p99": 8.195426975943226e-14,
+      "median": 2.679537906662144e-16
+    },
+    "hess_min_eig": {
+      "min": 0.0046392186841096444,
+      "median": 0.22185169008822064
+    },
+    "hess_cond": {
+      "max": 141.19436531366142,
+      "median": 3.000169078091072
+    },
+    "grad_norm_max": 6.701595981630063e-11,
+    "E_range": [
+      2.2200525552159638e-07,
+      1.4403524285047933
+    ]
+  },
+  "by_regime": {
+    "anisotropic": {
+      "n": 1358,
+      "err_dT_beta": {
+        "max": 1.7134822627440371e-06,
+        "p99": 1.207123260316134e-07,
+        "median": 3.0395685968187536e-12
+      },
+      "err_dT_alpha": {
+        "max": 6.412959052681799e-11,
+        "p99": 4.258125185785389e-11,
+        "median": 1.306454944227653e-11
+      },
+      "err_dx": {
+        "max": 9.459351053673505e-05,
+        "p99": 5.212924189879968e-08,
+        "median": 7.494479392804135e-12
+      },
+      "hess_min_eig_min": 0.0046392186841096444,
+      "hess_cond_max": 141.19436531366142
+    },
+    "generic": {
+      "n": 1320,
+      "err_dT_beta": {
+        "max": 3.23346016628534e-10,
+        "p99": 6.604825797396056e-11,
+        "median": 1.0620393453564247e-12
+      },
+      "err_dT_alpha": {
+        "max": 4.2234660213580355e-11,
+        "p99": 3.158528105728917e-11,
+        "median": 1.2013723349468819e-11
+      },
+      "err_dx": {
+        "max": 6.427996725945802e-10,
+        "p99": 4.849469798662497e-11,
+        "median": 1.905486208294359e-12
+      },
+      "hess_min_eig_min": 0.04376679796232888,
+      "hess_cond_max": 20.42649451278683
+    },
+    "near_1": {
+      "n": 1386,
+      "err_dT_beta": {
+        "max": 2.671041166024679e-11,
+        "p99": 7.4969175312134e-12,
+        "median": 7.517875211249248e-13
+      },
+      "err_dT_alpha": {
+        "max": 1.4280928677390392e-06,
+        "p99": 7.715255068485607e-07,
+        "median": 1.1555212342528876e-10
+      },
+      "err_dx": {
+        "max": 2.702569261558895e-09,
+        "p99": 2.7481849013358023e-11,
+        "median": 2.4202629310416518e-12
+      },
+      "hess_min_eig_min": 0.023267030811858457,
+      "hess_cond_max": 32.51001660255878
+    },
+    "near_23": {
+      "n": 1326,
+      "err_dT_beta": {
+        "max": 0.0002991672880039431,
+        "p99": 2.5320212588232362e-05,
+        "median": 3.642371571022096e-09
+      },
+      "err_dT_alpha": {
+        "max": 3.7720269663310546e-07,
+        "p99": 3.2821240872338286e-07,
+        "median": 2.7875805269639287e-07
+      },
+      "err_dx": {
+        "max": 4.934793780906133e-05,
+        "p99": 3.511982723749821e-06,
+        "median": 1.103775766524755e-09
+      },
+      "hess_min_eig_min": 0.13805769501181966,
+      "hess_cond_max": 7.298349946611684
+    },
+    "symmetric": {
+      "n": 1282,
+      "err_dT_beta": {
+        "max": 5.7017128796132965e-09,
+        "p99": 1.10535997577266e-09,
+        "median": 1.4462875341791914e-12
+      },
+      "err_dT_alpha": {
+        "max": 4.2776671094202356e-11,
+        "p99": 3.0517446347744236e-11,
+        "median": 1.3137713139599327e-11
+      },
+      "err_dx": {
+        "max": 1.537203555833855e-05,
+        "p99": 2.4805518512847e-07,
+        "median": 1.46205683516826e-12
+      },
+      "hess_min_eig_min": 0.17385681804480985,
+      "hess_cond_max": 3.0000000000000027
+    },
+    "two_equal": {
+      "n": 1328,
+      "err_dT_beta": {
+        "max": 7.010956015740533e-08,
+        "p99": 5.594977785516877e-09,
+        "median": 1.5933365737907934e-12
+      },
+      "err_dT_alpha": {
+        "max": 5.823008741856484e-11,
+        "p99": 3.76103703736419e-11,
+        "median": 1.276972971808732e-11
+      },
+      "err_dx": {
+        "max": 4.954353075571996e-05,
+        "p99": 5.617376892382676e-09,
+        "median": 3.4560500793348744e-12
+      },
+      "hess_min_eig_min": 0.01133704629846683,
+      "hess_cond_max": 50.026878123719094
+    }
+  },
+  "hp_recheck": {
+    "n": 500,
+    "err_dT_beta": {
+      "max": 2.415080714281197e-33,
+      "p99": 2.9000419432334197e-34,
+      "median": 3.544492360219722e-36
+    },
+    "err_dT_alpha": {
+      "max": 1.7500847083527036e-28,
+      "p99": 1.750071234613146e-28,
+      "median": 1.749985397109107e-28
+    },
+    "err_euler_max": 2.069959818536313e-39,
+    "hess_min_eig_min": 0.006369537918156461,
+    "grad_norm_max": 5.704502761836229e-36,
+    "worst_float_err_of_rechecked": 0.0002991672880039431,
+    "all_below_1e-18": true
+  },
+  "identities": {
+    "primary": "dT/dbeta_ij = h'(B*)/x_k*  -- VERIFIED (float: max rel err see float_summary; HP: see hp_recheck)",
+    "euler": "sum_ij beta_ij dT/dbeta_ij = E_alpha(B*) T, E in (0,3/2)  -- SYMBOLIC IDENTITY (envelope + B* = sum beta_ij x_i x_j); verified numerically",
+    "log_elasticity": "d log T/d log beta_ij = [1 + (2E-3)(1-2x_k*)]/2  -- SYMBOLIC IDENTITY (envelope + C-15 z_ij); verified numerically",
+    "consequence": "T_alpha is sub-homogeneous: T(s beta) < s^{3/2} T(beta) for s>1 (CONJECTURE-level statement derived from E<3/2; not separately proved here)",
+    "dx_dalpha": "NUMERICAL OBSERVATION only (FD), recorded in worst CSV"
+  },
+  "wall_seconds": 206.24
+}

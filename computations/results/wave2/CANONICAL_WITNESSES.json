@@ -1,0 +1,4402 @@
+{
+  "summary": {
+    "utc": "2026-09-25T16:54:06Z",
+    "baseline_sha": "a8f73dca967e20e90c4dbb7e4aa77d2d6b170497",
+    "workers": 8,
+    "git_sha": "n/a (synced working tree; see BASELINE_SHA)",
+    "n_witnesses": 35,
+    "n_certified": 10,
+    "all_independent_checks_consistent": true,
+    "inconsistent_ids": [],
+    "categories": {
+      "1": [
+        "W01",
+        "W02",
+        "W03",
+        "W04",
+        "W05",
+        "W06",
+        "W07",
+        "W08",
+        "W09"
+      ],
+      "10": [
+        "W01",
+        "W02",
+        "W03",
+        "W04",
+        "W05",
+        "W06",
+        "W07",
+        "W10",
+        "W11",
+        "W12",
+        "W13",
+        "W14",
+        "W15",
+        "W16",
+        "W17",
+        "W18",
+        "W19",
+        "W20",
+        "W21"
+      ],
+      "6": [
+        "W04",
+        "W08",
+        "W28",
+        "W29",
+        "W30",
+        "W32"
+      ],
+      "5": [
+        "W05",
+        "W26",
+        "W27",
+        "W31",
+        "W33"
+      ],
+      "7": [
+        "W06",
+        "W07"
+      ],
+      "8": [
+        "W08",
+        "W09",
+        "W34",
+        "W35"
+      ],
+      "2": [
+        "W10",
+        "W11",
+        "W12",
+        "W13",
+        "W22",
+        "W23",
+        "W24",
+        "W25",
+        "W30",
+        "W31",
+        "W32",
+        "W33"
+      ],
+      "3": [
+        "W14",
+        "W15",
+        "W16",
+        "W17"
+      ],
+      "4": [
+        "W18",
+        "W19",
+        "W20",
+        "W21"
+      ],
+      "9": [
+        "W22",
+        "W23",
+        "W24",
+        "W25"
+      ]
+    },
+    "integer_search_band_cases": 53172,
+    "integer_search_space": "diag in {-1,-2}^3, offdiag in {-3,-2,-3/2,-1,-1/2,0,1/2,1,3/2,2,3}^6, alphas [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.99]",
+    "wall_seconds": 33.02
+  },
+  "witnesses": [
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-5/2"
+        ],
+        [
+          "5/2",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "5/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -2.5
+        ],
+        [
+          2.5,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.9,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "133/8",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "133/8",
+      "kappa_float": 16.625,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-125/8",
+      "L3": "-125/8",
+      "T1": "9.0",
+      "T_alpha_hp40": "21.934967727204405243819593870570396",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "7.625",
+      "m_frac": "5.3099677272044052438",
+      "m_Cain_over_T1": "0.847222222222",
+      "m_frac_over_Talpha": "0.242077754262",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.589487361763",
+      "band_width_W": "12.934967727204405244",
+      "band_relative_width_W_over_T1": "1.43721863636",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.042118712178783176342",
+      "eig_D_star_A": [
+        "(-3.5 - 3.11563585561726e-41j)",
+        "(0.25 - 2.1650635094611j)",
+        "(0.25 + 2.1650635094611j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.25",
+      "matignon_margin_at_I_rad": "0.0421187121787832",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.25",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.541353383458647",
+      "rho_alpha": 0.47214910724876913,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.04211871217878227,
+      "direct_global_min_margin_alpha1_float": -0.11496092050070739,
+      "direct_worst_D_float_geomean1": [
+        0.99999999384934,
+        1.0000000340332893,
+        0.9999999721173717
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "21.934967727204405243819593870570396",
+      "T_alpha_certified_U": "21.934967727204405243819593870570396",
+      "T_alpha_certified_rel_width": "1.1053e-39",
+      "certified_boxes": 745,
+      "x_enclosure_radius": "1.2614e-40",
+      "kappa_below_certified_L": true,
+      "id": "W01"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-3"
+        ],
+        [
+          "3",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "3",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -3.0
+        ],
+        [
+          3.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.8,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "28",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "28",
+      "kappa_float": 28.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-27",
+      "L3": "-27",
+      "T1": "9.0",
+      "T_alpha_hp40": "96.715494146741627374278386144364621",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "19.0",
+      "m_frac": "68.715494146741627374",
+      "m_Cain_over_T1": "2.11111111111",
+      "m_frac_over_Talpha": "0.710491061985",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.21660939364",
+      "band_width_W": "87.715494146741627374",
+      "band_relative_width_W_over_T1": "9.7461660163",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.12403366201251249635",
+      "eig_D_star_A": [
+        "(-4.0 - 8.26077785209743e-41j)",
+        "(0.5 - 2.59807621135332j)",
+        "(0.5 + 2.59807621135332j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.5",
+      "matignon_margin_at_I_rad": "0.124033662012512",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.5",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.321428571428571",
+      "rho_alpha": 0.1458980337503154,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.12403366201251176,
+      "direct_global_min_margin_alpha1_float": -0.19012560334646755,
+      "direct_worst_D_float_geomean1": [
+        0.9999999900658926,
+        1.000000019868215,
+        0.9999999900658926
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "96.715494146741627374278386144364621",
+      "T_alpha_certified_U": "96.715494146741627374278386144364621",
+      "T_alpha_certified_rel_width": "1.3977e-39",
+      "certified_boxes": 505,
+      "x_enclosure_radius": "2.9997e-40",
+      "kappa_below_certified_L": true,
+      "id": "W02"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-21/10"
+        ],
+        [
+          "21/10",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "21/10",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -2.1
+        ],
+        [
+          2.1,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.1,
+          -1.0
+        ]
+      ],
+      "alpha": 0.95,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "10261/1000",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "10261/1000",
+      "kappa_float": 10.261,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-9261/1000",
+      "L3": "-9261/1000",
+      "T1": "9.0",
+      "T_alpha_hp40": "13.417220438733938905204320193454135",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "1.261",
+      "m_frac": "3.1562204387339389052",
+      "m_Cain_over_T1": "0.140111111111",
+      "m_frac_over_Talpha": "0.235236534508",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.285473640605",
+      "band_width_W": "4.4172204387339389052",
+      "band_relative_width_W_over_T1": "0.49080227097",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.051053870139550422816",
+      "eig_D_star_A": [
+        "(-3.1 - 1.36215291297484e-41j)",
+        "(0.05 - 1.81865334794732j)",
+        "(0.05 + 1.81865334794732j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.05",
+      "matignon_margin_at_I_rad": "0.0510538701395504",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.05",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.877107494396258",
+      "rho_alpha": 0.7107869358983446,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.05105387013954954,
+      "direct_global_min_margin_alpha1_float": -0.027485946200195288,
+      "direct_worst_D_float_geomean1": [
+        0.9999999880466033,
+        1.0000000219311602,
+        0.9999999900222368
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "13.417220438733938905204320193454135",
+      "T_alpha_certified_U": "13.417220438733938905204320193454135",
+      "T_alpha_certified_rel_width": "9.4455e-40",
+      "certified_boxes": 837,
+      "x_enclosure_radius": "1.5424e-40",
+      "kappa_below_certified_L": true,
+      "id": "W03"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "6 close to fractional boundary",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-11/4"
+        ],
+        [
+          "11/4",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "11/4",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -2.75
+        ],
+        [
+          2.75,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.75,
+          -1.0
+        ]
+      ],
+      "alpha": 0.9,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "1395/64",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "1395/64",
+      "kappa_float": 21.796875,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-1331/64",
+      "L3": "-1331/64",
+      "T1": "9.0",
+      "T_alpha_hp40": "21.934967727204405243819593870570396",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "12.796875",
+      "m_frac": "0.13809272720440524382",
+      "m_Cain_over_T1": "1.421875",
+      "m_frac_over_Talpha": "0.00629555187506",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.989324076402",
+      "band_width_W": "12.934967727204405244",
+      "band_relative_width_W_over_T1": "1.43721863636",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.00090276170099238706129",
+      "eig_D_star_A": [
+        "(-3.75 - 5.47535807401265e-41j)",
+        "(0.375 - 2.38156986040721j)",
+        "(0.375 + 2.38156986040721j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.375",
+      "matignon_margin_at_I_rad": "0.000902761700992387",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.375",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.412903225806452",
+      "rho_alpha": 0.47214910724876913,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.0009027617009917943,
+      "direct_global_min_margin_alpha1_float": -0.15617687097849786,
+      "direct_worst_D_float_geomean1": [
+        0.9999999922136705,
+        1.0000000237047741,
+        0.9999999840815557
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "21.934967727204405243819593870570396",
+      "T_alpha_certified_U": "21.934967727204405243819593870570396",
+      "T_alpha_certified_rel_width": "1.1053e-39",
+      "certified_boxes": 745,
+      "x_enclosure_radius": "1.2614e-40",
+      "kappa_below_certified_L": true,
+      "id": "W04"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "5 close to Cain boundary",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-201/100"
+        ],
+        [
+          "201/100",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "201/100",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -2.01
+        ],
+        [
+          2.01,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.01,
+          -1.0
+        ]
+      ],
+      "alpha": 0.9,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "9120601/1000000",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "9120601/1000000",
+      "kappa_float": 9.120601,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-8120601/1000000",
+      "L3": "-8120601/1000000",
+      "T1": "9.0",
+      "T_alpha_hp40": "21.934967727204405243819593870570396",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.120601",
+      "m_frac": "12.814366727204405244",
+      "m_Cain_over_T1": "0.0134001111111",
+      "m_frac_over_Talpha": "0.584198111735",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00932364135292",
+      "band_width_W": "12.934967727204405244",
+      "band_relative_width_W_over_T1": "1.43721863636",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.15420725118016245591",
+      "eig_D_star_A": [
+        "(-3.01 + 2.29043775152564e-41j)",
+        "(0.005 - 1.74071106160672j)",
+        "(0.005 + 1.74071106160672j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.005",
+      "matignon_margin_at_I_rad": "0.154207251180162",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.005",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.986777077519343",
+      "rho_alpha": 0.47214910724876913,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.15420725118016176,
+      "direct_global_min_margin_alpha1_float": -0.0028723814993278918,
+      "direct_worst_D_float_geomean1": [
+        0.9999999844000396,
+        1.000000002013356,
+        1.0000000135866045
+      ],
+      "independent_checks_consistent": true,
+      "id": "W05"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "7 close to alpha=2/3",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-150"
+        ],
+        [
+          "150",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "150",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -150.0
+        ],
+        [
+          150.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          150.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.67,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "3375001",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "3375001",
+      "kappa_float": 3375001.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-3375000",
+      "L3": "-3375000",
+      "T1": "9.0",
+      "T_alpha_hp40": "4565800.4512395249849589413043874247",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "3374992.0",
+      "m_frac": "1190799.451239524985",
+      "m_Cain_over_T1": "374999.111111",
+      "m_frac_over_Talpha": "0.260808474649",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.73919101125",
+      "band_width_W": "4565791.451239524985",
+      "band_relative_width_W_over_T1": "507310.161249",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.000556759514938510471",
+      "eig_D_star_A": [
+        "(-151.0 - 2.33109865538034e-39j)",
+        "(74.0 - 129.903810567666j)",
+        "(74.0 + 129.903810567666j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "74.0",
+      "matignon_margin_at_I_rad": "0.00055675951493851",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "74.0",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "2.66666587654344e-6",
+      "rho_alpha": 8.249476962724697e-05,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.0005567595149376103,
+      "direct_global_min_margin_alpha1_float": -0.5178060283273782,
+      "direct_worst_D_float_geomean1": [
+        1.000000317901779,
+        0.999999841064583,
+        0.9999998410337136
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "4565800.4512395249849589413043874247",
+      "T_alpha_certified_U": "4565800.4512395249849589413043874247",
+      "T_alpha_certified_rel_width": "3.3218e-38",
+      "certified_boxes": 351,
+      "x_enclosure_radius": "1.0101e-40",
+      "kappa_below_certified_L": true,
+      "id": "W06"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "7 close to alpha=2/3",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-40"
+        ],
+        [
+          "40",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "40",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -40.0
+        ],
+        [
+          40.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          40.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.68,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "64001",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "64001",
+      "kappa_float": 64001.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-64000",
+      "L3": "-64000",
+      "T1": "9.0",
+      "T_alpha_hp40": "73264.519666338053218767509145716914",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "63992.0",
+      "m_frac": "9263.5196663380532188",
+      "m_Cain_over_T1": "7110.22222222",
+      "m_frac_over_Talpha": "0.126439369405",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.873545096553",
+      "band_width_W": "73255.519666338053219",
+      "band_relative_width_W_over_T1": "8139.50218515",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.00097723074588399040271",
+      "eig_D_star_A": [
+        "(-41.0 - 1.25284783421709e-39j)",
+        "(19.0 - 34.6410161513775j)",
+        "(19.0 + 34.6410161513775j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "19.0",
+      "matignon_margin_at_I_rad": "0.00097723074588399",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "19.0",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.000140622802768707",
+      "rho_alpha": 0.0013317136351456808,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.000977230745882851,
+      "direct_global_min_margin_alpha1_float": -0.5016775938284839,
+      "direct_worst_D_float_geomean1": [
+        1.0000001118984514,
+        0.9999999238453289,
+        0.9999999642562298
+      ],
+      "independent_checks_consistent": true,
+      "id": "W07"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "8 close to alpha=1",
+        "6 close to fractional boundary"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-401/200"
+        ],
+        [
+          "401/200",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "401/200",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -2.005
+        ],
+        [
+          2.005,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.005,
+          -1.0
+        ]
+      ],
+      "alpha": 0.999,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "72481201/8000000",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "72481201/8000000",
+      "kappa_float": 9.060150125,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-64481201/8000000",
+      "L3": "-64481201/8000000",
+      "T1": "9.0",
+      "T_alpha_hp40": "9.0656537548974692422806340856183321",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "0.060150125",
+      "m_frac": "0.0055036298974692422806",
+      "m_Cain_over_T1": "0.00668334722222",
+      "m_frac_over_Talpha": "0.000607085825939",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.916171894417",
+      "band_width_W": "0.065653754897469242281",
+      "band_relative_width_W_over_T1": "0.00729486165527",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.00013102108926464651394",
+      "eig_D_star_A": [
+        "(-3.005 - 1.30507985271901e-43j)",
+        "(0.0025 - 1.7363809345878j)",
+        "(0.0025 + 1.7363809345878j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.0025",
+      "matignon_margin_at_I_rad": "0.000131021089264647",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.0025",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.993361023363837",
+      "rho_alpha": 0.9937266868729603,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.00013102108926377198,
+      "direct_global_min_margin_alpha1_float": -0.0014397752375310269,
+      "direct_worst_D_float_geomean1": [
+        0.9999999913767829,
+        1.0000000246663676,
+        0.9999999839568496
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "9.0656537548974692422806340856183321",
+      "T_alpha_certified_U": "9.0656537548974692422806340856183321",
+      "T_alpha_certified_rel_width": "7.6988e-40",
+      "certified_boxes": 1017,
+      "x_enclosure_radius": "1.9182e-40",
+      "kappa_below_certified_L": true,
+      "id": "W08"
+    },
+    {
+      "tags": [
+        "1 symmetric cyclic (Siami)",
+        "8 close to alpha=1"
+      ],
+      "A": [
+        [
+          "-1",
+          "0",
+          "-203/100"
+        ],
+        [
+          "203/100",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "203/100",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          0.0,
+          -2.03
+        ],
+        [
+          2.03,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.03,
+          -1.0
+        ]
+      ],
+      "alpha": 0.99,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "9365427/1000000",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "9365427/1000000",
+      "kappa_float": 9.365427,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-8365427/1000000",
+      "L3": "-8365427/1000000",
+      "T1": "9.0",
+      "T_alpha_hp40": "9.6902378055158785835363633661820446",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.365427",
+      "m_frac": "0.32481080551587858354",
+      "m_Cain_over_T1": "0.040603",
+      "m_frac_over_Talpha": "0.0335193843572",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.529421884863",
+      "band_width_W": "0.69023780551587858354",
+      "band_relative_width_W_over_T1": "0.0766930895018",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.0071759003195842454307",
+      "eig_D_star_A": [
+        "(-3.03 + 2.09782485916149e-41j)",
+        "(0.015 - 1.75803156968241j)",
+        "(0.015 + 1.75803156968241j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.015",
+      "matignon_margin_at_I_rad": "0.00717590031958425",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.015",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.960981277201776",
+      "rho_alpha": 0.9381576100212544,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.007175900319583484,
+      "direct_global_min_margin_alpha1_float": -0.008532062948365393,
+      "direct_worst_D_float_geomean1": [
+        0.9999999838570754,
+        1.0000000322858498,
+        0.9999999838570754
+      ],
+      "independent_checks_consistent": true,
+      "id": "W09"
+    },
+    {
+      "tags": [
+        "2 generic nonsymmetric strict-P",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-2"
+        ],
+        [
+          "-2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -2.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.8,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "13",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "13",
+      "kappa_float": 13.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-12",
+      "l132": "0",
+      "L3": "-12",
+      "T1": "9.0",
+      "T_alpha_hp40": "96.715494146741627374278386144364621",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "4.0",
+      "m_frac": "83.715494146741627374",
+      "m_Cain_over_T1": "0.444444444444",
+      "m_frac_over_Talpha": "0.865585135922",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.0456019776085",
+      "band_width_W": "87.715494146741627374",
+      "band_relative_width_W_over_T1": "9.7461660163",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.24130011020478262667",
+      "eig_D_star_A": [
+        "(0.144714242553332 - 1.98270322825009j)",
+        "(0.144714242553332 + 1.98270322825009j)",
+        "(-3.28942848510666 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.144714242553332",
+      "matignon_margin_at_I_rad": "0.241300110204783",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.144714242553332",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.692307692307692",
+      "rho_alpha": 0.1458980337503154,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.24130011020478204,
+      "direct_global_min_margin_alpha1_float": -0.07285915515419727,
+      "direct_worst_D_float_geomean1": [
+        0.9999999677250652,
+        1.0000000049452258,
+        1.0000000273297098
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "96.715494146741627374278386144364621",
+      "T_alpha_certified_U": "96.715494146741627374278386144364621",
+      "T_alpha_certified_rel_width": "1.3977e-39",
+      "certified_boxes": 505,
+      "x_enclosure_radius": "2.9997e-40",
+      "kappa_below_certified_L": true,
+      "id": "W10"
+    },
+    {
+      "tags": [
+        "2 generic nonsymmetric strict-P",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "2"
+        ],
+        [
+          "2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          2.0
+        ],
+        [
+          2.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.8,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "13",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "13",
+      "kappa_float": 13.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-12",
+      "l132": "0",
+      "L3": "-12",
+      "T1": "9.0",
+      "T_alpha_hp40": "96.715494146741627374278386144364621",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "4.0",
+      "m_frac": "83.715494146741627374",
+      "m_Cain_over_T1": "0.444444444444",
+      "m_frac_over_Talpha": "0.865585135922",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.0456019776085",
+      "band_width_W": "87.715494146741627374",
+      "band_relative_width_W_over_T1": "9.7461660163",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.24130011020478262667",
+      "eig_D_star_A": [
+        "(0.144714242553332 - 1.98270322825009j)",
+        "(0.144714242553332 + 1.98270322825009j)",
+        "(-3.28942848510666 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.144714242553332",
+      "matignon_margin_at_I_rad": "0.241300110204783",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.144714242553332",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.692307692307692",
+      "rho_alpha": 0.1458980337503154,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.24130011020478204,
+      "direct_global_min_margin_alpha1_float": -0.07285915515419727,
+      "direct_worst_D_float_geomean1": [
+        0.9999999677250652,
+        1.0000000049452258,
+        1.0000000273297098
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "96.715494146741627374278386144364621",
+      "T_alpha_certified_U": "96.715494146741627374278386144364621",
+      "T_alpha_certified_rel_width": "1.3977e-39",
+      "certified_boxes": 505,
+      "x_enclosure_radius": "2.9997e-40",
+      "kappa_below_certified_L": true,
+      "id": "W11"
+    },
+    {
+      "tags": [
+        "2 generic nonsymmetric strict-P",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-2",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-3"
+        ],
+        [
+          "-2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -2.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -3.0
+        ],
+        [
+          -2.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.8,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "13",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "13",
+      "kappa_float": 13.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-12",
+      "l132": "0",
+      "L3": "-12",
+      "T1": "9.0",
+      "T_alpha_hp40": "96.715494146741627374278386144364621",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "4.0",
+      "m_frac": "83.715494146741627374",
+      "m_Cain_over_T1": "0.444444444444",
+      "m_frac_over_Talpha": "0.865585135922",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.0456019776085",
+      "band_width_W": "87.715494146741627374",
+      "band_relative_width_W_over_T1": "9.7461660163",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.24130011020478262667",
+      "eig_D_star_A": [
+        "(0.144714242553332 - 1.98270322825009j)",
+        "(0.144714242553332 + 1.98270322825009j)",
+        "(-3.28942848510666 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.144714242553332",
+      "matignon_margin_at_I_rad": "0.241300110204783",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.144714242553332",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.692307692307692",
+      "rho_alpha": 0.1458980337503154,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.24130011020478204,
+      "direct_global_min_margin_alpha1_float": -0.07285915515419727,
+      "direct_worst_D_float_geomean1": [
+        0.9999999967959743,
+        0.9999999941192769,
+        1.000000009084749
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "96.715494146741627374278386144364621",
+      "T_alpha_certified_U": "96.715494146741627374278386144364621",
+      "T_alpha_certified_rel_width": "1.3977e-39",
+      "certified_boxes": 505,
+      "x_enclosure_radius": "2.9997e-40",
+      "kappa_below_certified_L": true,
+      "id": "W12"
+    },
+    {
+      "tags": [
+        "2 generic nonsymmetric strict-P",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-2",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-2"
+        ],
+        [
+          "-3",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -2.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -3.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.8,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "13",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "13",
+      "kappa_float": 13.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-12",
+      "l132": "0",
+      "L3": "-12",
+      "T1": "9.0",
+      "T_alpha_hp40": "96.715494146741627374278386144364621",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "4.0",
+      "m_frac": "83.715494146741627374",
+      "m_Cain_over_T1": "0.444444444444",
+      "m_frac_over_Talpha": "0.865585135922",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.0456019776085",
+      "band_width_W": "87.715494146741627374",
+      "band_relative_width_W_over_T1": "9.7461660163",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.24130011020478262667",
+      "eig_D_star_A": [
+        "(0.144714242553332 - 1.98270322825009j)",
+        "(0.144714242553332 + 1.98270322825009j)",
+        "(-3.28942848510666 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.144714242553332",
+      "matignon_margin_at_I_rad": "0.241300110204783",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.144714242553332",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.692307692307692",
+      "rho_alpha": 0.1458980337503154,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.24130011020478181,
+      "direct_global_min_margin_alpha1_float": -0.0728591551541975,
+      "direct_worst_D_float_geomean1": [
+        1.0000000273589074,
+        0.9999999639147993,
+        1.0000000087262944
+      ],
+      "independent_checks_consistent": true,
+      "id": "W13"
+    },
+    {
+      "tags": [
+        "3 strong antagonistic pair loops",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "-1",
+          "3"
+        ],
+        [
+          "3",
+          "-1/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          -0.5
+        ],
+        [
+          0.5,
+          -1.0,
+          3.0
+        ],
+        [
+          3.0,
+          -0.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "q": "259/8",
+      "beta": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "beta_float": [
+        2.5,
+        2.5,
+        2.5
+      ],
+      "kappa": "259/8",
+      "kappa_float": 32.375,
+      "g": [
+        "-3/2",
+        "-3/2",
+        "-3/2"
+      ],
+      "l123": "-27",
+      "l132": "1/8",
+      "L3": "-215/8",
+      "T1": "22.5",
+      "T_alpha_hp40": "6169.9191476022891266883536133970578",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "9.875",
+      "m_frac": "6137.5441476022891267",
+      "m_Cain_over_T1": "0.438888888889",
+      "m_frac_over_Talpha": "0.994752767544",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00160636516933",
+      "band_width_W": "6147.4191476022891267",
+      "band_relative_width_W_over_T1": "273.218628782",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.38894655479752160782",
+      "eig_D_star_A": [
+        "(0.25 - 3.03108891324554j)",
+        "(-3.5 + 3.12239967000934e-42j)",
+        "(0.25 + 3.03108891324554j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.25",
+      "matignon_margin_at_I_rad": "0.388946554797522",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.25",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.694980694980695",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.38894655479752105,
+      "direct_global_min_margin_alpha1_float": -0.08229234324094792,
+      "direct_worst_D_float_geomean1": [
+        0.9999999941001231,
+        0.9999999818765144,
+        1.000000024023363
+      ],
+      "independent_checks_consistent": true,
+      "id": "W14"
+    },
+    {
+      "tags": [
+        "3 strong antagonistic pair loops",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-3"
+        ],
+        [
+          "-3",
+          "1/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.5
+        ],
+        [
+          0.5,
+          -1.0,
+          -3.0
+        ],
+        [
+          -3.0,
+          0.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "q": "259/8",
+      "beta": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "beta_float": [
+        2.5,
+        2.5,
+        2.5
+      ],
+      "kappa": "259/8",
+      "kappa_float": 32.375,
+      "g": [
+        "-3/2",
+        "-3/2",
+        "-3/2"
+      ],
+      "l123": "-27",
+      "l132": "1/8",
+      "L3": "-215/8",
+      "T1": "22.5",
+      "T_alpha_hp40": "6169.9191476022891266883536133970578",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "9.875",
+      "m_frac": "6137.5441476022891267",
+      "m_Cain_over_T1": "0.438888888889",
+      "m_frac_over_Talpha": "0.994752767544",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00160636516933",
+      "band_width_W": "6147.4191476022891267",
+      "band_relative_width_W_over_T1": "273.218628782",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.38894655479752160782",
+      "eig_D_star_A": [
+        "(0.25 - 3.03108891324554j)",
+        "(-3.5 + 3.12239967000934e-42j)",
+        "(0.25 + 3.03108891324554j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.25",
+      "matignon_margin_at_I_rad": "0.388946554797522",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.25",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.694980694980695",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.38894655479752105,
+      "direct_global_min_margin_alpha1_float": -0.08229234324094792,
+      "direct_worst_D_float_geomean1": [
+        0.9999999941001231,
+        0.9999999818765144,
+        1.000000024023363
+      ],
+      "independent_checks_consistent": true,
+      "id": "W15"
+    },
+    {
+      "tags": [
+        "3 strong antagonistic pair loops",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1/2",
+          "-3"
+        ],
+        [
+          "3",
+          "-1",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "3",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -0.5,
+          -3.0
+        ],
+        [
+          3.0,
+          -1.0,
+          -0.5
+        ],
+        [
+          0.5,
+          3.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "q": "259/8",
+      "beta": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "beta_float": [
+        2.5,
+        2.5,
+        2.5
+      ],
+      "kappa": "259/8",
+      "kappa_float": 32.375,
+      "g": [
+        "-3/2",
+        "-3/2",
+        "-3/2"
+      ],
+      "l123": "1/8",
+      "l132": "-27",
+      "L3": "-215/8",
+      "T1": "22.5",
+      "T_alpha_hp40": "6169.9191476022891266883536133970578",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "9.875",
+      "m_frac": "6137.5441476022891267",
+      "m_Cain_over_T1": "0.438888888889",
+      "m_frac_over_Talpha": "0.994752767544",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00160636516933",
+      "band_width_W": "6147.4191476022891267",
+      "band_relative_width_W_over_T1": "273.218628782",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.38894655479752160782",
+      "eig_D_star_A": [
+        "(0.25 - 3.03108891324554j)",
+        "(-3.5 - 5.73132152814487e-41j)",
+        "(0.25 + 3.03108891324554j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.25",
+      "matignon_margin_at_I_rad": "0.388946554797522",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.25",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.694980694980695",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.38894655479752127,
+      "direct_global_min_margin_alpha1_float": -0.0822923432409477,
+      "direct_worst_D_float_geomean1": [
+        0.9999999861838812,
+        0.9999999854853894,
+        1.0000000283307302
+      ],
+      "independent_checks_consistent": true,
+      "id": "W16"
+    },
+    {
+      "tags": [
+        "3 strong antagonistic pair loops",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1/2",
+          "3"
+        ],
+        [
+          "3",
+          "-1",
+          "1/2"
+        ],
+        [
+          "-1/2",
+          "-3",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -0.5,
+          3.0
+        ],
+        [
+          3.0,
+          -1.0,
+          0.5
+        ],
+        [
+          -0.5,
+          -3.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "q": "259/8",
+      "beta": [
+        "5/2",
+        "5/2",
+        "5/2"
+      ],
+      "beta_float": [
+        2.5,
+        2.5,
+        2.5
+      ],
+      "kappa": "259/8",
+      "kappa_float": 32.375,
+      "g": [
+        "-3/2",
+        "-3/2",
+        "-3/2"
+      ],
+      "l123": "1/8",
+      "l132": "-27",
+      "L3": "-215/8",
+      "T1": "22.5",
+      "T_alpha_hp40": "6169.9191476022891266883536133970578",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "9.875",
+      "m_frac": "6137.5441476022891267",
+      "m_Cain_over_T1": "0.438888888889",
+      "m_frac_over_Talpha": "0.994752767544",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00160636516933",
+      "band_width_W": "6147.4191476022891267",
+      "band_relative_width_W_over_T1": "273.218628782",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.38894655479752160782",
+      "eig_D_star_A": [
+        "(0.25 - 3.03108891324554j)",
+        "(-3.5 - 5.73132152814487e-41j)",
+        "(0.25 + 3.03108891324554j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.25",
+      "matignon_margin_at_I_rad": "0.388946554797522",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.25",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.694980694980695",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.38894655479752127,
+      "direct_global_min_margin_alpha1_float": -0.0822923432409477,
+      "direct_worst_D_float_geomean1": [
+        0.9999999861838812,
+        0.9999999854853894,
+        1.0000000283307302
+      ],
+      "independent_checks_consistent": true,
+      "id": "W17"
+    },
+    {
+      "tags": [
+        "4 mixed ecological signs",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "-1/2"
+        ],
+        [
+          "0",
+          "-1",
+          "-2"
+        ],
+        [
+          "-3/2",
+          "1/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          -0.5
+        ],
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -1.5,
+          0.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1/4",
+        "2"
+      ],
+      "q": "41/4",
+      "beta": [
+        "1",
+        "1/4",
+        "2"
+      ],
+      "beta_float": [
+        1.0,
+        0.25,
+        2.0
+      ],
+      "kappa": "41/4",
+      "kappa_float": 10.25,
+      "g": [
+        "0",
+        "3/4",
+        "-1"
+      ],
+      "l123": "-9",
+      "l132": "0",
+      "L3": "-9",
+      "T1": "8.49264068711928514640506617263",
+      "T_alpha_hp40": "4991.7391430065662495365232504347215",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "1.7573593128807148536",
+      "m_frac": "4981.4891430065662495",
+      "m_Cain_over_T1": "0.206927312437",
+      "m_frac_over_Talpha": "0.997946607444",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00035265349849",
+      "band_width_W": "4983.2465023194469644",
+      "band_relative_width_W_over_T1": "586.772322757",
+      "x_star": [
+        "0.3508048166902183708822332",
+        "0.3169427969682236279970822",
+        "0.3322523863415580011206847"
+      ],
+      "D_star_geomean1": [
+        "1.053320896653216506765761",
+        "0.9516473412198057866436676",
+        "0.9976156678758028165132187"
+      ],
+      "direct_margin_at_D_star_rad": "0.45488925721611757332",
+      "eig_D_star_A": [
+        "(-3.06240433573503 + 3.25376253590982e-41j)",
+        "(0.0299102149931038 - 1.82924812619357j)",
+        "(0.0299102149931038 + 1.82924812619357j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.0200131920304887",
+      "matignon_margin_at_I_rad": "0.460339520276987",
+      "D_H_cain_minimiser_geomean1": [
+        "1.587401051968199474751706",
+        "0.5612310241546864907167665",
+        "1.122462048309372981433533"
+      ],
+      "max_Re_eig_D_H_A": "0.0622042923743258",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.828550310938467",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "2.9882e-51",
+      "direct_global_min_margin_float": 0.4351864949588107,
+      "direct_global_min_margin_alpha1_float": -0.03605240307965829,
+      "direct_worst_D_float_geomean1": [
+        1.5244831006141015,
+        0.5949889378080436,
+        1.1024743506402923
+      ],
+      "independent_checks_consistent": true,
+      "id": "W18"
+    },
+    {
+      "tags": [
+        "4 mixed ecological signs",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "-1/2"
+        ],
+        [
+          "0",
+          "-1",
+          "3/2"
+        ],
+        [
+          "2",
+          "1/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          -0.5
+        ],
+        [
+          0.0,
+          -1.0,
+          1.5
+        ],
+        [
+          2.0,
+          0.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "2",
+        "1/4"
+      ],
+      "q": "41/4",
+      "beta": [
+        "1",
+        "2",
+        "1/4"
+      ],
+      "beta_float": [
+        1.0,
+        2.0,
+        0.25
+      ],
+      "kappa": "41/4",
+      "kappa_float": 10.25,
+      "g": [
+        "0",
+        "-1",
+        "3/4"
+      ],
+      "l123": "-9",
+      "l132": "0",
+      "L3": "-9",
+      "T1": "8.49264068711928514640506617263",
+      "T_alpha_hp40": "4991.7391430065662495365232504347215",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "1.7573593128807148536",
+      "m_frac": "4981.4891430065662495",
+      "m_Cain_over_T1": "0.206927312437",
+      "m_frac_over_Talpha": "0.997946607444",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00035265349849",
+      "band_width_W": "4983.2465023194469644",
+      "band_relative_width_W_over_T1": "586.772322757",
+      "x_star": [
+        "0.3169427969682236279970822",
+        "0.3508048166902183708822332",
+        "0.3322523863415580011206847"
+      ],
+      "D_star_geomean1": [
+        "0.9516473412198057866436676",
+        "1.053320896653216506765761",
+        "0.9976156678758028165132187"
+      ],
+      "direct_margin_at_D_star_rad": "0.45488925721611757332",
+      "eig_D_star_A": [
+        "(0.0299102149931038 - 1.82924812619357j)",
+        "(0.0299102149931038 + 1.82924812619357j)",
+        "(-3.06240433573503 - 6.14355817016757e-42j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.0200131920304887",
+      "matignon_margin_at_I_rad": "0.460339520276987",
+      "D_H_cain_minimiser_geomean1": [
+        "0.5612310241546864907167665",
+        "1.587401051968199474751706",
+        "1.122462048309372981433533"
+      ],
+      "max_Re_eig_D_H_A": "0.0622042923743258",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.828550310938467",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.4351864949588109,
+      "direct_global_min_margin_alpha1_float": -0.03605240307965807,
+      "direct_worst_D_float_geomean1": [
+        0.5949889035181516,
+        1.524483132743934,
+        1.1024743909415269
+      ],
+      "independent_checks_consistent": true,
+      "id": "W19"
+    },
+    {
+      "tags": [
+        "4 mixed ecological signs",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "1/2"
+        ],
+        [
+          "0",
+          "-1",
+          "-3/2"
+        ],
+        [
+          "-2",
+          "-1/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.5
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.5
+        ],
+        [
+          -2.0,
+          -0.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "2",
+        "1/4"
+      ],
+      "q": "41/4",
+      "beta": [
+        "1",
+        "2",
+        "1/4"
+      ],
+      "beta_float": [
+        1.0,
+        2.0,
+        0.25
+      ],
+      "kappa": "41/4",
+      "kappa_float": 10.25,
+      "g": [
+        "0",
+        "-1",
+        "3/4"
+      ],
+      "l123": "-9",
+      "l132": "0",
+      "L3": "-9",
+      "T1": "8.49264068711928514640506617263",
+      "T_alpha_hp40": "4991.7391430065662495365232504347215",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "1.7573593128807148536",
+      "m_frac": "4981.4891430065662495",
+      "m_Cain_over_T1": "0.206927312437",
+      "m_frac_over_Talpha": "0.997946607444",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00035265349849",
+      "band_width_W": "4983.2465023194469644",
+      "band_relative_width_W_over_T1": "586.772322757",
+      "x_star": [
+        "0.3169427969682236279970822",
+        "0.3508048166902183708822332",
+        "0.3322523863415580011206847"
+      ],
+      "D_star_geomean1": [
+        "0.9516473412198057866436676",
+        "1.053320896653216506765761",
+        "0.9976156678758028165132187"
+      ],
+      "direct_margin_at_D_star_rad": "0.45488925721611757332",
+      "eig_D_star_A": [
+        "(0.0299102149931038 - 1.82924812619357j)",
+        "(0.0299102149931038 + 1.82924812619357j)",
+        "(-3.06240433573503 - 6.14355817016757e-42j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.0200131920304887",
+      "matignon_margin_at_I_rad": "0.460339520276987",
+      "D_H_cain_minimiser_geomean1": [
+        "0.5612310241546864907167665",
+        "1.587401051968199474751706",
+        "1.122462048309372981433533"
+      ],
+      "max_Re_eig_D_H_A": "0.0622042923743258",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.828550310938467",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.4351864949588109,
+      "direct_global_min_margin_alpha1_float": -0.03605240307965807,
+      "direct_worst_D_float_geomean1": [
+        0.5949889035181516,
+        1.524483132743934,
+        1.1024743909415269
+      ],
+      "independent_checks_consistent": true,
+      "id": "W20"
+    },
+    {
+      "tags": [
+        "4 mixed ecological signs",
+        "10 non-Hurwitz at I"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "1/2"
+        ],
+        [
+          "0",
+          "-1",
+          "2"
+        ],
+        [
+          "3/2",
+          "-1/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.5
+        ],
+        [
+          0.0,
+          -1.0,
+          2.0
+        ],
+        [
+          1.5,
+          -0.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1/4",
+        "2"
+      ],
+      "q": "41/4",
+      "beta": [
+        "1",
+        "1/4",
+        "2"
+      ],
+      "beta_float": [
+        1.0,
+        0.25,
+        2.0
+      ],
+      "kappa": "41/4",
+      "kappa_float": 10.25,
+      "g": [
+        "0",
+        "3/4",
+        "-1"
+      ],
+      "l123": "-9",
+      "l132": "0",
+      "L3": "-9",
+      "T1": "8.49264068711928514640506617263",
+      "T_alpha_hp40": "4991.7391430065662495365232504347215",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "1.7573593128807148536",
+      "m_frac": "4981.4891430065662495",
+      "m_Cain_over_T1": "0.206927312437",
+      "m_frac_over_Talpha": "0.997946607444",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.00035265349849",
+      "band_width_W": "4983.2465023194469644",
+      "band_relative_width_W_over_T1": "586.772322757",
+      "x_star": [
+        "0.3508048166902183708822332",
+        "0.3169427969682236279970822",
+        "0.3322523863415580011206847"
+      ],
+      "D_star_geomean1": [
+        "1.053320896653216506765761",
+        "0.9516473412198057866436676",
+        "0.9976156678758028165132187"
+      ],
+      "direct_margin_at_D_star_rad": "0.45488925721611757332",
+      "eig_D_star_A": [
+        "(-3.06240433573503 + 3.25376253590982e-41j)",
+        "(0.0299102149931038 - 1.82924812619357j)",
+        "(0.0299102149931038 + 1.82924812619357j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.0200131920304887",
+      "matignon_margin_at_I_rad": "0.460339520276987",
+      "D_H_cain_minimiser_geomean1": [
+        "1.587401051968199474751706",
+        "0.5612310241546864907167665",
+        "1.122462048309372981433533"
+      ],
+      "max_Re_eig_D_H_A": "0.0622042923743258",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.828550310938467",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "2.9882e-51",
+      "direct_global_min_margin_float": 0.4351864949588107,
+      "direct_global_min_margin_alpha1_float": -0.03605240307965829,
+      "direct_worst_D_float_geomean1": [
+        1.5244831006141015,
+        0.5949889378080436,
+        1.1024743506402923
+      ],
+      "independent_checks_consistent": true,
+      "id": "W21"
+    },
+    {
+      "tags": [
+        "9 Hurwitz at I, not D-stable",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3/2",
+          "0"
+        ],
+        [
+          "-1/2",
+          "-1",
+          "-3"
+        ],
+        [
+          "-3",
+          "0",
+          "-2"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -1.5,
+          0.0
+        ],
+        [
+          -0.5,
+          -1.0,
+          -3.0
+        ],
+        [
+          -3.0,
+          0.0,
+          -2.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "2"
+      ],
+      "m12_m13_m23": [
+        "1/4",
+        "2",
+        "2"
+      ],
+      "q": "14",
+      "beta": [
+        "1/4",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        0.25,
+        1.0,
+        1.0
+      ],
+      "kappa": "7",
+      "kappa_float": 7.0,
+      "g": [
+        "3/4",
+        "0",
+        "0"
+      ],
+      "l123": "-27/4",
+      "l132": "0",
+      "L3": "-27/4",
+      "T1": "6.25",
+      "T_alpha_hp40": "4726.9397010403383697411696409746509",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.75",
+      "m_frac": "4719.9397010403383697",
+      "m_Cain_over_T1": "0.12",
+      "m_frac_over_Talpha": "0.998519126445",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.000158875089764",
+      "band_width_W": "4720.6897010403383697",
+      "band_relative_width_W_over_T1": "755.310352166",
+      "x_star": [
+        "0.3384538075534697584158962",
+        "0.3384538075534697584158962",
+        "0.3230923848930604831682076"
+      ],
+      "D_star_geomean1": [
+        "1.279580341433485311247134",
+        "1.279580341433485311247134",
+        "0.6107519770045840942238696"
+      ],
+      "direct_margin_at_D_star_rad": "0.46209284707788104727",
+      "eig_D_star_A": [
+        "(-3.81570223582918 - 3.21924331447699e-42j)",
+        "(0.0175187994765213 - 1.91539617101546j)",
+        "(0.0175187994765213 + 1.91539617101546j)"
+      ],
+      "hurwitz_at_I": true,
+      "max_Re_eig_A": "-0.0788951507643413",
+      "matignon_margin_at_I_rad": "0.512581761195738",
+      "D_H_cain_minimiser_geomean1": [
+        "1.587401051968199474751706",
+        "1.587401051968199474751706",
+        "0.3968502629920498686879264"
+      ],
+      "max_Re_eig_D_H_A": "0.0384323697163698",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.892857142857143",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.45051844393720386,
+      "direct_global_min_margin_alpha1_float": -0.020720454101265107,
+      "direct_worst_D_float_geomean1": [
+        1.5637344643658753,
+        1.5637344643658753,
+        0.40895355134449723
+      ],
+      "independent_checks_consistent": true,
+      "id": "W22"
+    },
+    {
+      "tags": [
+        "9 Hurwitz at I, not D-stable",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3/2",
+          "0"
+        ],
+        [
+          "-1/2",
+          "-1",
+          "3"
+        ],
+        [
+          "3",
+          "0",
+          "-2"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -1.5,
+          0.0
+        ],
+        [
+          -0.5,
+          -1.0,
+          3.0
+        ],
+        [
+          3.0,
+          0.0,
+          -2.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "2"
+      ],
+      "m12_m13_m23": [
+        "1/4",
+        "2",
+        "2"
+      ],
+      "q": "14",
+      "beta": [
+        "1/4",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        0.25,
+        1.0,
+        1.0
+      ],
+      "kappa": "7",
+      "kappa_float": 7.0,
+      "g": [
+        "3/4",
+        "0",
+        "0"
+      ],
+      "l123": "-27/4",
+      "l132": "0",
+      "L3": "-27/4",
+      "T1": "6.25",
+      "T_alpha_hp40": "4726.9397010403383697411696409746509",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.75",
+      "m_frac": "4719.9397010403383697",
+      "m_Cain_over_T1": "0.12",
+      "m_frac_over_Talpha": "0.998519126445",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.000158875089764",
+      "band_width_W": "4720.6897010403383697",
+      "band_relative_width_W_over_T1": "755.310352166",
+      "x_star": [
+        "0.3384538075534697584158962",
+        "0.3384538075534697584158962",
+        "0.3230923848930604831682076"
+      ],
+      "D_star_geomean1": [
+        "1.279580341433485311247134",
+        "1.279580341433485311247134",
+        "0.6107519770045840942238696"
+      ],
+      "direct_margin_at_D_star_rad": "0.46209284707788104727",
+      "eig_D_star_A": [
+        "(-3.81570223582918 + 2.47985822997231e-41j)",
+        "(0.0175187994765213 - 1.91539617101546j)",
+        "(0.0175187994765213 + 1.91539617101546j)"
+      ],
+      "hurwitz_at_I": true,
+      "max_Re_eig_A": "-0.0788951507643413",
+      "matignon_margin_at_I_rad": "0.512581761195738",
+      "D_H_cain_minimiser_geomean1": [
+        "1.587401051968199474751706",
+        "1.587401051968199474751706",
+        "0.3968502629920498686879264"
+      ],
+      "max_Re_eig_D_H_A": "0.0384323697163698",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.892857142857143",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.45051844393720386,
+      "direct_global_min_margin_alpha1_float": -0.020720454101265107,
+      "direct_worst_D_float_geomean1": [
+        1.5637344643658753,
+        1.5637344643658753,
+        0.40895355134449723
+      ],
+      "independent_checks_consistent": true,
+      "id": "W23"
+    },
+    {
+      "tags": [
+        "9 Hurwitz at I, not D-stable",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1/2",
+          "-3"
+        ],
+        [
+          "-3/2",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-3",
+          "-2"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -0.5,
+          -3.0
+        ],
+        [
+          -1.5,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -3.0,
+          -2.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "2"
+      ],
+      "m12_m13_m23": [
+        "1/4",
+        "2",
+        "2"
+      ],
+      "q": "14",
+      "beta": [
+        "1/4",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        0.25,
+        1.0,
+        1.0
+      ],
+      "kappa": "7",
+      "kappa_float": 7.0,
+      "g": [
+        "3/4",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-27/4",
+      "L3": "-27/4",
+      "T1": "6.25",
+      "T_alpha_hp40": "4726.9397010403383697411696409746509",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.75",
+      "m_frac": "4719.9397010403383697",
+      "m_Cain_over_T1": "0.12",
+      "m_frac_over_Talpha": "0.998519126445",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.000158875089764",
+      "band_width_W": "4720.6897010403383697",
+      "band_relative_width_W_over_T1": "755.310352166",
+      "x_star": [
+        "0.3384538075534697584158962",
+        "0.3384538075534697584158962",
+        "0.3230923848930604831682076"
+      ],
+      "D_star_geomean1": [
+        "1.279580341433485311247134",
+        "1.279580341433485311247134",
+        "0.6107519770045840942238696"
+      ],
+      "direct_margin_at_D_star_rad": "0.46209284707788104727",
+      "eig_D_star_A": [
+        "(-3.81570223582918 + 1.26794788205809e-41j)",
+        "(0.0175187994765213 - 1.91539617101546j)",
+        "(0.0175187994765213 + 1.91539617101546j)"
+      ],
+      "hurwitz_at_I": true,
+      "max_Re_eig_A": "-0.0788951507643413",
+      "matignon_margin_at_I_rad": "0.512581761195738",
+      "D_H_cain_minimiser_geomean1": [
+        "1.587401051968199474751706",
+        "1.587401051968199474751706",
+        "0.3968502629920498686879264"
+      ],
+      "max_Re_eig_D_H_A": "0.0384323697163698",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.892857142857143",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.45051844393720364,
+      "direct_global_min_margin_alpha1_float": -0.02072045410126533,
+      "direct_worst_D_float_geomean1": [
+        1.563734438217098,
+        1.563734448698579,
+        0.40895356228038987
+      ],
+      "independent_checks_consistent": true,
+      "id": "W24"
+    },
+    {
+      "tags": [
+        "9 Hurwitz at I, not D-stable",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1/2",
+          "3"
+        ],
+        [
+          "-3/2",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "3",
+          "-2"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -0.5,
+          3.0
+        ],
+        [
+          -1.5,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0,
+          -2.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "2"
+      ],
+      "m12_m13_m23": [
+        "1/4",
+        "2",
+        "2"
+      ],
+      "q": "14",
+      "beta": [
+        "1/4",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        0.25,
+        1.0,
+        1.0
+      ],
+      "kappa": "7",
+      "kappa_float": 7.0,
+      "g": [
+        "3/4",
+        "0",
+        "0"
+      ],
+      "l123": "0",
+      "l132": "-27/4",
+      "L3": "-27/4",
+      "T1": "6.25",
+      "T_alpha_hp40": "4726.9397010403383697411696409746509",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.75",
+      "m_frac": "4719.9397010403383697",
+      "m_Cain_over_T1": "0.12",
+      "m_frac_over_Talpha": "0.998519126445",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.000158875089764",
+      "band_width_W": "4720.6897010403383697",
+      "band_relative_width_W_over_T1": "755.310352166",
+      "x_star": [
+        "0.3384538075534697584158962",
+        "0.3384538075534697584158962",
+        "0.3230923848930604831682076"
+      ],
+      "D_star_geomean1": [
+        "1.279580341433485311247134",
+        "1.279580341433485311247134",
+        "0.6107519770045840942238696"
+      ],
+      "direct_margin_at_D_star_rad": "0.46209284707788104727",
+      "eig_D_star_A": [
+        "(-3.81570223582918 + 1.26794788205809e-41j)",
+        "(0.0175187994765213 - 1.91539617101546j)",
+        "(0.0175187994765213 + 1.91539617101546j)"
+      ],
+      "hurwitz_at_I": true,
+      "max_Re_eig_A": "-0.0788951507643413",
+      "matignon_margin_at_I_rad": "0.512581761195738",
+      "D_H_cain_minimiser_geomean1": [
+        "1.587401051968199474751706",
+        "1.587401051968199474751706",
+        "0.3968502629920498686879264"
+      ],
+      "max_Re_eig_D_H_A": "0.0384323697163698",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.892857142857143",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.45051844393720364,
+      "direct_global_min_margin_alpha1_float": -0.02072045410126533,
+      "direct_worst_D_float_geomean1": [
+        1.563734438217098,
+        1.563734448698579,
+        0.40895356228038987
+      ],
+      "independent_checks_consistent": true,
+      "id": "W25"
+    },
+    {
+      "tags": [
+        "5 close to Cain boundary (integer)"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-3"
+        ],
+        [
+          "-3/2",
+          "3/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -3.0
+        ],
+        [
+          -1.5,
+          1.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "11/2"
+      ],
+      "q": "19",
+      "beta": [
+        "1",
+        "1",
+        "11/2"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        5.5
+      ],
+      "kappa": "19",
+      "kappa_float": 19.0,
+      "g": [
+        "0",
+        "0",
+        "-9/2"
+      ],
+      "l123": "-27/2",
+      "l132": "0",
+      "L3": "-27/2",
+      "T1": "18.8808315196468591091312602271",
+      "T_alpha_hp40": "6083.8910909070977741602131294574227",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.11916848035314089087",
+      "m_frac": "6064.8910909070977742",
+      "m_Cain_over_T1": "0.00631161187097",
+      "m_frac_over_Talpha": "0.996876998665",
+      "band_position_(kappa-T1)/(Talpha-T1)": "1.96485208197e-5",
+      "band_width_W": "6065.0102593874509151",
+      "band_relative_width_W_over_T1": "321.225802639",
+      "x_star": [
+        "0.3808272615965099929359441",
+        "0.309586369201745003532028",
+        "0.309586369201745003532028"
+      ],
+      "D_star_geomean1": [
+        "1.148058802230807212482262",
+        "0.9332928391804948203424461",
+        "0.9332928391804948203424461"
+      ],
+      "direct_margin_at_D_star_rad": "0.49551059767494319359",
+      "eig_D_star_A": [
+        "(-0.0622258651437566 - 2.56321749982095j)",
+        "(-2.89019275030428 + 1.10883008663111e-41j)",
+        "(-0.0622258651437566 + 2.56321749982095j)"
+      ],
+      "hurwitz_at_I": true,
+      "max_Re_eig_A": "-0.115368231547812",
+      "matignon_margin_at_I_rad": "0.51529764022782",
+      "D_H_cain_minimiser_geomean1": [
+        "1.765174167663031501097986",
+        "0.7526727940763534302793589",
+        "0.7526727940763534302793589"
+      ],
+      "max_Re_eig_D_H_A": "0.00360754046083817",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.993727974718256",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "4.226e-51",
+      "direct_global_min_margin_float": 0.469740438597799,
+      "direct_global_min_margin_alpha1_float": -0.0014984594406699525,
+      "direct_worst_D_float_geomean1": [
+        1.7637966887723835,
+        0.7529666455571951,
+        0.7529666455571951
+      ],
+      "independent_checks_consistent": true,
+      "id": "W26"
+    },
+    {
+      "tags": [
+        "5 close to Cain boundary (integer)"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "3"
+        ],
+        [
+          "3/2",
+          "-3/2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          3.0
+        ],
+        [
+          1.5,
+          -1.5,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "11/2"
+      ],
+      "q": "19",
+      "beta": [
+        "1",
+        "1",
+        "11/2"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        5.5
+      ],
+      "kappa": "19",
+      "kappa_float": 19.0,
+      "g": [
+        "0",
+        "0",
+        "-9/2"
+      ],
+      "l123": "-27/2",
+      "l132": "0",
+      "L3": "-27/2",
+      "T1": "18.8808315196468591091312602271",
+      "T_alpha_hp40": "6083.8910909070977741602131294574227",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.11916848035314089087",
+      "m_frac": "6064.8910909070977742",
+      "m_Cain_over_T1": "0.00631161187097",
+      "m_frac_over_Talpha": "0.996876998665",
+      "band_position_(kappa-T1)/(Talpha-T1)": "1.96485208197e-5",
+      "band_width_W": "6065.0102593874509151",
+      "band_relative_width_W_over_T1": "321.225802639",
+      "x_star": [
+        "0.3808272615965099929359441",
+        "0.309586369201745003532028",
+        "0.309586369201745003532028"
+      ],
+      "D_star_geomean1": [
+        "1.148058802230807212482262",
+        "0.9332928391804948203424461",
+        "0.9332928391804948203424461"
+      ],
+      "direct_margin_at_D_star_rad": "0.49551059767494319359",
+      "eig_D_star_A": [
+        "(-0.0622258651437566 - 2.56321749982095j)",
+        "(-2.89019275030428 + 1.10883008663111e-41j)",
+        "(-0.0622258651437566 + 2.56321749982095j)"
+      ],
+      "hurwitz_at_I": true,
+      "max_Re_eig_A": "-0.115368231547812",
+      "matignon_margin_at_I_rad": "0.51529764022782",
+      "D_H_cain_minimiser_geomean1": [
+        "1.765174167663031501097986",
+        "0.7526727940763534302793589",
+        "0.7526727940763534302793589"
+      ],
+      "max_Re_eig_D_H_A": "0.00360754046083817",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.993727974718256",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "4.226e-51",
+      "direct_global_min_margin_float": 0.469740438597799,
+      "direct_global_min_margin_alpha1_float": -0.0014984594406699525,
+      "direct_worst_D_float_geomean1": [
+        1.7637966887723835,
+        0.7529666455571951,
+        0.7529666455571951
+      ],
+      "independent_checks_consistent": true,
+      "id": "W27"
+    },
+    {
+      "tags": [
+        "6 close to fractional boundary (integer)"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "0"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-3"
+        ],
+        [
+          "-3",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.0
+        ],
+        [
+          0.5,
+          -1.0,
+          -3.0
+        ],
+        [
+          -3.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.9,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "5/2",
+        "1",
+        "1"
+      ],
+      "q": "59/2",
+      "beta": [
+        "5/2",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        2.5,
+        1.0,
+        1.0
+      ],
+      "kappa": "59/2",
+      "kappa_float": 29.5,
+      "g": [
+        "-3/2",
+        "0",
+        "0"
+      ],
+      "l123": "-27",
+      "l132": "0",
+      "L3": "-27",
+      "T1": "12.8245553203367586639977870889",
+      "T_alpha_hp40": "29.649830510206932823217669493803999",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "16.675444679663241336",
+      "m_frac": "0.14983051020693282322",
+      "m_Cain_over_T1": "1.30027468892",
+      "m_frac_over_Talpha": "0.00505333445853",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.991094914733",
+      "band_width_W": "16.825275189870174159",
+      "band_relative_width_W_over_T1": "1.31195778486",
+      "x_star": [
+        "0.2907359705941582278335758",
+        "0.2907359705941582278335758",
+        "0.4185280588116835443328484"
+      ],
+      "D_star_geomean1": [
+        "0.8856417117681287260204761",
+        "0.8856417117681287260204761",
+        "1.274922761265025504599287"
+      ],
+      "direct_margin_at_D_star_rad": "0.00076839261403170970156",
+      "eig_D_star_A": [
+        "(0.428028743433718 - 2.71597240119154j)",
+        "(0.428028743433718 + 2.71597240119154j)",
+        "-3.90226367166872"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.416757142587905",
+      "matignon_margin_at_I_rad": "0.00627385346325455",
+      "D_H_cain_minimiser_geomean1": [
+        "0.8583742189325570145947126",
+        "0.8583742189325570145947126",
+        "1.357208808297453285759045"
+      ],
+      "max_Re_eig_D_H_A": "0.425788810737596",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.434730688824975",
+      "rho_alpha": 0.47214910724876913,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.0007683822774593452,
+      "direct_global_min_margin_alpha1_float": -0.1563112504020303,
+      "direct_worst_D_float_geomean1": [
+        0.8854937595359523,
+        0.8854937578640889,
+        1.2753488387857967
+      ],
+      "independent_checks_consistent": true,
+      "id": "W28"
+    },
+    {
+      "tags": [
+        "6 close to fractional boundary (integer)"
+      ],
+      "A": [
+        [
+          "-1",
+          "-3",
+          "0"
+        ],
+        [
+          "1/2",
+          "-1",
+          "3"
+        ],
+        [
+          "3",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -3.0,
+          0.0
+        ],
+        [
+          0.5,
+          -1.0,
+          3.0
+        ],
+        [
+          3.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.9,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "5/2",
+        "1",
+        "1"
+      ],
+      "q": "59/2",
+      "beta": [
+        "5/2",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        2.5,
+        1.0,
+        1.0
+      ],
+      "kappa": "59/2",
+      "kappa_float": 29.5,
+      "g": [
+        "-3/2",
+        "0",
+        "0"
+      ],
+      "l123": "-27",
+      "l132": "0",
+      "L3": "-27",
+      "T1": "12.8245553203367586639977870889",
+      "T_alpha_hp40": "29.649830510206932823217669493803999",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "16.675444679663241336",
+      "m_frac": "0.14983051020693282322",
+      "m_Cain_over_T1": "1.30027468892",
+      "m_frac_over_Talpha": "0.00505333445853",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.991094914733",
+      "band_width_W": "16.825275189870174159",
+      "band_relative_width_W_over_T1": "1.31195778486",
+      "x_star": [
+        "0.2907359705941582278335758",
+        "0.2907359705941582278335758",
+        "0.4185280588116835443328484"
+      ],
+      "D_star_geomean1": [
+        "0.8856417117681287260204761",
+        "0.8856417117681287260204761",
+        "1.274922761265025504599287"
+      ],
+      "direct_margin_at_D_star_rad": "0.00076839261403170970156",
+      "eig_D_star_A": [
+        "(0.428028743433718 - 2.71597240119154j)",
+        "(0.428028743433718 + 2.71597240119154j)",
+        "-3.90226367166872"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.416757142587905",
+      "matignon_margin_at_I_rad": "0.00627385346325455",
+      "D_H_cain_minimiser_geomean1": [
+        "0.8583742189325570145947126",
+        "0.8583742189325570145947126",
+        "1.357208808297453285759045"
+      ],
+      "max_Re_eig_D_H_A": "0.425788810737596",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.434730688824975",
+      "rho_alpha": 0.47214910724876913,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.0007683822774593452,
+      "direct_global_min_margin_alpha1_float": -0.1563112504020303,
+      "direct_worst_D_float_geomean1": [
+        0.8854937595359523,
+        0.8854937578640889,
+        1.2753488387857967
+      ],
+      "independent_checks_consistent": true,
+      "id": "W29"
+    },
+    {
+      "tags": [
+        "6 close to fractional boundary (decimal-tuned)",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1628",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-2"
+        ],
+        [
+          "-3/2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -1628.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -1.5,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "4885",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "4885",
+      "kappa_float": 4885.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-4884",
+      "l132": "0",
+      "L3": "-4884",
+      "T1": "9.0",
+      "T_alpha_hp40": "4935.488727323178038696479026514598",
+      "T_alpha_label": "CERTIFIED (interval) + HP",
+      "m_Cain": "4876.0",
+      "m_frac": "50.488727323178038696",
+      "m_Cain_over_T1": "541.777777778",
+      "m_frac_over_Talpha": "0.0102297320717",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.989751579651",
+      "band_width_W": "4926.4887273231780387",
+      "band_relative_width_W_over_T1": "547.387636369",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.00018492614111940688609",
+      "eig_D_star_A": [
+        "(7.48324264858379 - 14.6934072802823j)",
+        "(7.48324264858379 + 14.6934072802823j)",
+        "(-17.9664852971676 - 4.74732130221852e-41j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "7.48324264858379",
+      "matignon_margin_at_I_rad": "0.000184926141119407",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "7.48324264858379",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.00184237461617195",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.00018492614111842443,
+      "direct_global_min_margin_alpha1_float": -0.47105397189735054,
+      "direct_worst_D_float_geomean1": [
+        1.0000000629698376,
+        0.9999998842213917,
+        1.0000000528087805
+      ],
+      "independent_checks_consistent": true,
+      "T_alpha_certified_L": "4935.488727323178038696479026514598",
+      "T_alpha_certified_U": "4935.488727323178038696479026514598",
+      "T_alpha_certified_rel_width": "5.5827e-39",
+      "certified_boxes": 399,
+      "x_enclosure_radius": "1.1735e-40",
+      "kappa_below_certified_L": true,
+      "id": "W30"
+    },
+    {
+      "tags": [
+        "5 close to Cain boundary (decimal-tuned)",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1909/100",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-2"
+        ],
+        [
+          "-3/2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -19.09,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -1.5,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "5827/100",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "5827/100",
+      "kappa_float": 58.27,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-5727/100",
+      "l132": "0",
+      "L3": "-5727/100",
+      "T1": "9.0",
+      "T_alpha_hp40": "4935.488727323178038696479026514598",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "49.27",
+      "m_frac": "4877.2187273231780387",
+      "m_Cain_over_T1": "5.47444444444",
+      "m_frac_over_Talpha": "0.988193671748",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.0100010378034",
+      "band_width_W": "4926.4887273231780387",
+      "band_relative_width_W_over_T1": "547.387636369",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.20028673858679752308",
+      "eig_D_star_A": [
+        "(0.927284071289367 - 3.33815393209138j)",
+        "(0.927284071289367 + 3.33815393209138j)",
+        "(-4.85456814257873 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.927284071289367",
+      "matignon_margin_at_I_rad": "0.200286738586798",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.927284071289367",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.154453406555689",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.20028673858679635,
+      "direct_global_min_margin_alpha1_float": -0.2709521594516726,
+      "direct_worst_D_float_geomean1": [
+        1.0000000215124543,
+        0.999999958292182,
+        1.0000000201953652
+      ],
+      "independent_checks_consistent": true,
+      "id": "W31"
+    },
+    {
+      "tags": [
+        "6 close to fractional boundary (decimal-tuned)",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1628",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-3/2"
+        ],
+        [
+          "-2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -1628.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.5
+        ],
+        [
+          -2.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "4885",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "4885",
+      "kappa_float": 4885.0,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-4884",
+      "l132": "0",
+      "L3": "-4884",
+      "T1": "9.0",
+      "T_alpha_hp40": "4935.488727323178038696479026514598",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "4876.0",
+      "m_frac": "50.488727323178038696",
+      "m_Cain_over_T1": "541.777777778",
+      "m_frac_over_Talpha": "0.0102297320717",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.989751579651",
+      "band_width_W": "4926.4887273231780387",
+      "band_relative_width_W_over_T1": "547.387636369",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.00018492614111940688609",
+      "eig_D_star_A": [
+        "(7.48324264858379 - 14.6934072802823j)",
+        "(7.48324264858379 + 14.6934072802823j)",
+        "(-17.9664852971676 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "7.48324264858379",
+      "matignon_margin_at_I_rad": "0.000184926141119407",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "7.48324264858379",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.00184237461617195",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": false,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.00018492614111842443,
+      "direct_global_min_margin_alpha1_float": -0.47105397189735054,
+      "direct_worst_D_float_geomean1": [
+        1.000000158945732,
+        0.9999999205271434,
+        0.9999999205271434
+      ],
+      "independent_checks_consistent": true,
+      "id": "W32"
+    },
+    {
+      "tags": [
+        "5 close to Cain boundary (decimal-tuned)",
+        "2 generic nonsymmetric strict-P"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1909/100",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "-3/2"
+        ],
+        [
+          "-2",
+          "0",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -19.09,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.5
+        ],
+        [
+          -2.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.7,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "1",
+        "1",
+        "1"
+      ],
+      "q": "5827/100",
+      "beta": [
+        "1",
+        "1",
+        "1"
+      ],
+      "beta_float": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kappa": "5827/100",
+      "kappa_float": 58.27,
+      "g": [
+        "0",
+        "0",
+        "0"
+      ],
+      "l123": "-5727/100",
+      "l132": "0",
+      "L3": "-5727/100",
+      "T1": "9.0",
+      "T_alpha_hp40": "4935.488727323178038696479026514598",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "49.27",
+      "m_frac": "4877.2187273231780387",
+      "m_Cain_over_T1": "5.47444444444",
+      "m_frac_over_Talpha": "0.988193671748",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.0100010378034",
+      "band_width_W": "4926.4887273231780387",
+      "band_relative_width_W_over_T1": "547.387636369",
+      "x_star": [
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333",
+        "0.3333333333333333333333333"
+      ],
+      "D_star_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "direct_margin_at_D_star_rad": "0.20028673858679752308",
+      "eig_D_star_A": [
+        "(0.927284071289367 - 3.33815393209138j)",
+        "(0.927284071289367 + 3.33815393209138j)",
+        "(-4.85456814257873 + 0.0j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "0.927284071289367",
+      "matignon_margin_at_I_rad": "0.200286738586798",
+      "D_H_cain_minimiser_geomean1": [
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "max_Re_eig_D_H_A": "0.927284071289367",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.154453406555689",
+      "rho_alpha": 0.00846749645686657,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "0.0",
+      "direct_global_min_margin_float": 0.20028673858679658,
+      "direct_global_min_margin_alpha1_float": -0.2709521594516724,
+      "direct_worst_D_float_geomean1": [
+        1.0000000714001744,
+        0.9999999916521133,
+        0.999999936947717
+      ],
+      "independent_checks_consistent": true,
+      "id": "W33"
+    },
+    {
+      "tags": [
+        "8 close to alpha=1 (integer)"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1/2",
+          "-3"
+        ],
+        [
+          "2",
+          "-1",
+          "-1/2"
+        ],
+        [
+          "0",
+          "2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -0.5,
+          -3.0
+        ],
+        [
+          2.0,
+          -1.0,
+          -0.5
+        ],
+        [
+          0.0,
+          2.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.99,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "2",
+        "1",
+        "2"
+      ],
+      "q": "15",
+      "beta": [
+        "2",
+        "1",
+        "2"
+      ],
+      "beta_float": [
+        2.0,
+        1.0,
+        2.0
+      ],
+      "kappa": "15",
+      "kappa_float": 15.0,
+      "g": [
+        "-1",
+        "0",
+        "-1"
+      ],
+      "l123": "0",
+      "l132": "-12",
+      "L3": "-12",
+      "T1": "14.6568542494923801952067548968",
+      "T_alpha_hp40": "15.678985953803934703980283438551043",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.34314575050761980479",
+      "m_frac": "0.67898595380393470398",
+      "m_Cain_over_T1": "0.0234119644411",
+      "m_frac_over_Talpha": "0.0433054762473",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.335715787956",
+      "band_width_W": "1.0221317043115545088",
+      "band_relative_width_W_over_T1": "0.0697374543618",
+      "x_star": [
+        "0.368825871768162878685789",
+        "0.262348256463674242628422",
+        "0.368825871768162878685789"
+      ],
+      "D_star_geomean1": [
+        "1.120248570604830730783399",
+        "0.7968401400236850497779111",
+        "1.120248570604830730783399"
+      ],
+      "direct_margin_at_D_star_rad": "0.010250280501429711323",
+      "eig_D_star_A": [
+        "(0.0120804956255095 - 2.21346241576234j)",
+        "(-3.06149827248437 - 9.07715978282283e-41j)",
+        "(0.0120804956255095 + 2.21346241576234j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "9.32138536571418e-52",
+      "matignon_margin_at_I_rad": "0.015707963267949",
+      "D_H_cain_minimiser_geomean1": [
+        "1.122462048309372981433533",
+        "0.7937005259840997373758528",
+        "1.122462048309372981433533"
+      ],
+      "max_Re_eig_D_H_A": "0.0120790632207363",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.977123616632825",
+      "rho_alpha": 0.9381576100212544,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "2.4092e-51",
+      "direct_global_min_margin_float": 0.010249595310618753,
+      "direct_global_min_margin_alpha1_float": -0.005458367957330124,
+      "direct_worst_D_float_geomean1": [
+        1.1217010805996181,
+        0.7947778243704476,
+        1.1217010352061816
+      ],
+      "independent_checks_consistent": true,
+      "id": "W34"
+    },
+    {
+      "tags": [
+        "8 close to alpha=1 (integer)"
+      ],
+      "A": [
+        [
+          "-1",
+          "-1/2",
+          "3"
+        ],
+        [
+          "2",
+          "-1",
+          "1/2"
+        ],
+        [
+          "0",
+          "-2",
+          "-1"
+        ]
+      ],
+      "A_float": [
+        [
+          -1.0,
+          -0.5,
+          3.0
+        ],
+        [
+          2.0,
+          -1.0,
+          0.5
+        ],
+        [
+          0.0,
+          -2.0,
+          -1.0
+        ]
+      ],
+      "alpha": 0.99,
+      "p": [
+        "1",
+        "1",
+        "1"
+      ],
+      "m12_m13_m23": [
+        "2",
+        "1",
+        "2"
+      ],
+      "q": "15",
+      "beta": [
+        "2",
+        "1",
+        "2"
+      ],
+      "beta_float": [
+        2.0,
+        1.0,
+        2.0
+      ],
+      "kappa": "15",
+      "kappa_float": 15.0,
+      "g": [
+        "-1",
+        "0",
+        "-1"
+      ],
+      "l123": "0",
+      "l132": "-12",
+      "L3": "-12",
+      "T1": "14.6568542494923801952067548968",
+      "T_alpha_hp40": "15.678985953803934703980283438551043",
+      "T_alpha_label": "HP (40 digits)",
+      "m_Cain": "0.34314575050761980479",
+      "m_frac": "0.67898595380393470398",
+      "m_Cain_over_T1": "0.0234119644411",
+      "m_frac_over_Talpha": "0.0433054762473",
+      "band_position_(kappa-T1)/(Talpha-T1)": "0.335715787956",
+      "band_width_W": "1.0221317043115545088",
+      "band_relative_width_W_over_T1": "0.0697374543618",
+      "x_star": [
+        "0.368825871768162878685789",
+        "0.262348256463674242628422",
+        "0.368825871768162878685789"
+      ],
+      "D_star_geomean1": [
+        "1.120248570604830730783399",
+        "0.7968401400236850497779111",
+        "1.120248570604830730783399"
+      ],
+      "direct_margin_at_D_star_rad": "0.010250280501429711323",
+      "eig_D_star_A": [
+        "(0.0120804956255095 - 2.21346241576234j)",
+        "(-3.06149827248437 - 9.07715978282283e-41j)",
+        "(0.0120804956255095 + 2.21346241576234j)"
+      ],
+      "hurwitz_at_I": false,
+      "max_Re_eig_A": "9.32138536571418e-52",
+      "matignon_margin_at_I_rad": "0.015707963267949",
+      "D_H_cain_minimiser_geomean1": [
+        "1.122462048309372981433533",
+        "0.7937005259840997373758528",
+        "1.122462048309372981433533"
+      ],
+      "max_Re_eig_D_H_A": "0.0120790632207363",
+      "D_H_witnesses_classical_failure": true,
+      "Phi": "0.977123616632825",
+      "rho_alpha": 0.9381576100212544,
+      "C11_certificate_passes": true,
+      "hp_grad_norm": "2.4092e-51",
+      "direct_global_min_margin_float": 0.010249595310618753,
+      "direct_global_min_margin_alpha1_float": -0.005458367957330124,
+      "direct_worst_D_float_geomean1": [
+        1.1217010805996181,
+        0.7947778243704476,
+        1.1217010352061816
+      ],
+      "independent_checks_consistent": true,
+      "id": "W35"
+    }
+  ]
+}
