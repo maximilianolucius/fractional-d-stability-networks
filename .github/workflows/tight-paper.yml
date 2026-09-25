@@ -1,0 +1,66 @@
+name: Tight paper build
+
+on:
+  push:
+    branches:
+      - q1-submission-tight-20260925
+    paths:
+      - 'paper/**'
+      - '.github/workflows/tight-paper.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: tight-paper-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-bibtex-extra unzip
+      - name: Install figure dependencies
+        run: |
+          python3 -m pip install --break-system-packages pandas matplotlib
+      - name: Generate figures
+        run: python3 paper/figures/generate_figures.py
+      - name: Acquire SIAM macros
+        run: |
+          set -euo pipefail
+          ZIP_URL="https://epubs.siam.org/pb-assets/macros/standard/siamart_251216.zip"
+          if curl -A "Mozilla/5.0" -e "https://epubs.siam.org/journal-authors" -fsSL "$ZIP_URL" -o /tmp/siamart.zip; then
+            mkdir -p /tmp/siamart
+            unzip -q /tmp/siamart.zip -d /tmp/siamart
+            cp "$(find /tmp/siamart -name siamart251216.cls -print -quit)" paper/siamart251216.cls
+            cp "$(find /tmp/siamart -name siamplain.bst -print -quit)" paper/siamplain.bst
+          else
+            curl -fsSL https://raw.githubusercontent.com/systems-mechanobiology/ROSA/main/siamart251216.cls -o paper/siamart251216.cls
+            curl -fsSL https://raw.githubusercontent.com/systems-mechanobiology/ROSA/main/siamplain.bst -o paper/siamplain.bst
+          fi
+          grep -q "December 2025" paper/siamart251216.cls
+      - name: Build tight neutral
+        working-directory: paper
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error submission-tight.tex
+      - name: Build tight SIAM
+        working-directory: paper
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error submission-siam-tight.tex
+      - name: Warnings
+        if: always()
+        working-directory: paper
+        run: |
+          echo "=== neutral ==="
+          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-tight.log || true
+          echo "=== SIAM ==="
+          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-siam-tight.log || true
+      - name: Upload PDFs
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q1-tight-submission-pdfs
+          path: |
+            paper/submission-tight.pdf
+            paper/submission-siam-tight.pdf
+          retention-days: 30
