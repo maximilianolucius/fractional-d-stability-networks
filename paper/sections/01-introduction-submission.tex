@@ -1,0 +1,29 @@
+\section{Introduction}
+
+Classical D-stability asks whether a real matrix remains stable after multiplication by every positive diagonal matrix. In dimension three the Hurwitz problem has an exact solution due to Cain \citep{Cain1976}, while generalized matrix-stability frameworks extend the spectral target from a half-plane to more general regions \citep{Kushel2019,KushelPavani2022}. For a commensurate Caputo system of order \(0<\alpha<1\), asymptotic stability is instead governed by the Matignon sector
+\[
+\Sigma_\alpha=\{z\neq0:|\arg z|>\alpha\pi/2\}
+\]
+\citep{Matignon1996,BrandiburGarrappaKaslik2021}. Fixed-polynomial fractional root criteria and cyclic-network secant conditions are known \citep{CermakNechvatal2017,Bourafa2020,Siami2021}, but they do not explicitly eliminate the universal positive-diagonal multiplier for a generic real \(3\times3\) matrix.
+
+We solve that problem on the full-dimensional strict-\(P(-A)\) stratum. Four positive-left-diagonal orbit invariants,
+\[
+(\beta_{12},\beta_{13},\beta_{23},\kappa),
+\]
+reduce the complete positive-diagonal orbit to the open simplex, and the all-diagonal Matignon condition becomes the scalar inequality
+\[
+\kappa<T_\alpha(\beta).
+\]
+At \(\alpha=1\), \(T_\alpha\) reduces exactly to Cain's threshold. For \(2/3<\alpha<1\), the strict interval
+\[
+T_1(\beta)<\kappa<T_\alpha(\beta)
+\]
+is therefore an exact genuinely fractional D-stable band.
+
+The paper makes four main contributions. First, dimension two is classified exactly and cannot support a full-dimensional genuinely fractional difference class. Second, the real-\(3\times3\) positive-diagonal Matignon problem is reduced to the exact threshold \(T_\alpha\), with a complete characterization of the interior. Third, the threshold objective is globally strictly convex in logit coordinates, giving a unique smooth optimizer, strict monotonicity in \(\alpha\), and a sharp classical-order expansion. These results imply that dimension three is the smallest real dimension with a robust genuinely fractional separation from Hurwitz D-stability. Fourth, for three-species generalized Lotka--Volterra systems the same invariants become abundance-independent reciprocal-pair and directed-cycle feedback coordinates.
+
+The contribution is an explicit low-dimensional solution within the known generalized-D-stability framework, not a new definition of fractional D-stability. In particular, \citet{KushelPavani2022} provide an abstract all-diagonal forbidden-boundary framework, while our contribution is the exact elimination of the diagonal multiplier in the generic real three-dimensional Matignon problem. The symmetric slice recovers the single-cycle result of \citet{Siami2021}, rather than replacing it.
+
+Throughout, \emph{genuinely fractional} means stable in the Matignon sense for every positive diagonal multiplier but not Hurwitz D-stable. This orbit-level definition is stronger than exhibiting one matrix that is fractionally stable and integer-order unstable only at \(D=I\).
+
+Section~\ref{sec:framework} gives the orbit reduction, Section~\ref{sec:dimension-two} treats dimension two, Section~\ref{sec:exact-3x3} proves the exact three-dimensional criterion, and Section~\ref{sec:threshold-geometry} develops the convex threshold geometry and minimum-dimension consequence. Section~\ref{sec:ecology} gives the GLV interpretation, Section~\ref{sec:computation} summarizes independent computational certification, and Section~\ref{sec:discussion} positions the result relative to prior work and states its limitations.
