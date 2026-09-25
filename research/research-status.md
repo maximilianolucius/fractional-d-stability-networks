@@ -215,3 +215,12 @@ Final title/abstract/conclusions remain locked until:
 4. exact citations/theorem numbers and sign conventions are verified.
 
 Architecture planning is allowed. Final prose drafting is not.
+
+
+## C-15/C-16 — threshold and orbit geometry
+
+C-15 proves that the exact C-10 variational problem is globally strictly convex in logit coordinates, so its optimizer is unique, nondegenerate and smooth. It also gives a global threshold-surface parametrization, the alpha->2/3+ asymptotic, and realizability of the whole fractional band.
+
+C-16 gives the general dimension-n positive-diagonal orbit reduction to the open simplex through normalized principal-minor invariants. It explains structurally why n=3 has 4 nontrivial invariants and n=4 has 11.
+
+These results strengthen the theorem package but do not change the current validation lock: final integration of Compute Wave 1 still waits for P2 high-precision completion.
