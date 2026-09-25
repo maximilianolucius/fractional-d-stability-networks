@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import numpy as np
 from numpy.typing import ArrayLike
+from scipy.optimize import minimize
 
 
 def _as_3x3(matrix: ArrayLike) -> np.ndarray:
@@ -120,3 +121,118 @@ def passes_fractional_cain_certificate(matrix: ArrayLike, alpha: float) -> bool:
     if not negative_is_strict_p_matrix(matrix):
         return False
     return fractional_cain_phi(matrix) > fractional_cain_threshold(alpha)
+
+
+
+def fractional_orbit_invariants(matrix: ArrayLike) -> tuple[np.ndarray, float]:
+    """Return (beta, kappa), the four strict-P positive-row-scaling invariants.
+
+    beta = (m12/(p1*p2), m13/(p1*p3), m23/(p2*p3))
+    kappa = (-det A)/(p1*p2*p3)
+    """
+    p, m, q = signed_principal_data(matrix)
+    if not (np.all(p > 0.0) and np.all(m > 0.0) and q > 0.0):
+        raise ValueError("-matrix must be a strict P-matrix")
+    m12, m13, m23 = m
+    beta = np.array(
+        [
+            m12 / (p[0] * p[1]),
+            m13 / (p[0] * p[2]),
+            m23 / (p[1] * p[2]),
+        ],
+        dtype=float,
+    )
+    kappa = float(q / np.prod(p))
+    return beta, kappa
+
+
+def normalized_cubic_matignon_boundary(b: float, alpha: float) -> float:
+    """Exact c-boundary h_alpha(b) for lambda^3+lambda^2+b lambda+c.
+
+    Valid for 2/3 < alpha < 1.  The polynomial is Matignon-stable iff
+    c < h_alpha(b), assuming b,c>0.
+    """
+    if not (2.0 / 3.0 < alpha < 1.0):
+        raise ValueError("boundary formula is used for 2/3 < alpha < 1")
+    if b <= 0.0:
+        raise ValueError("b must be positive")
+    theta = alpha * np.pi / 2.0
+    u = float(np.cos(theta))
+    K = 1.0 - 4.0 * u * u
+    r = (u + np.sqrt(u * u + K * b)) / K
+    return float(r * r * (1.0 + 2.0 * u * r))
+
+
+def _simplex_from_logits(y: np.ndarray) -> np.ndarray:
+    z = np.array([float(y[0]), float(y[1]), 0.0])
+    z -= np.max(z)
+    e = np.exp(z)
+    return e / np.sum(e)
+
+
+def fractional_orbit_threshold(
+    matrix: ArrayLike,
+    alpha: float,
+    *,
+    return_simplex_point: bool = False,
+) -> float | tuple[float, np.ndarray]:
+    """Numerically evaluate the exact C-10 threshold T_alpha(beta).
+
+    The theorem is analytic; this routine merely evaluates its two-dimensional
+    variational formula numerically. Multiple deterministic starts are used,
+    so this function is for corroboration/exploration rather than proof.
+    """
+    beta, _ = fractional_orbit_invariants(matrix)
+
+    def objective(y: np.ndarray) -> float:
+        x = _simplex_from_logits(y)
+        b = (
+            beta[0] * x[0] * x[1]
+            + beta[1] * x[0] * x[2]
+            + beta[2] * x[1] * x[2]
+        )
+        h = normalized_cubic_matignon_boundary(float(b), alpha)
+        return float(h / np.prod(x))
+
+    starts = (
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (-1.0, 0.0),
+        (0.0, 1.0),
+        (0.0, -1.0),
+        (1.0, -1.0),
+        (-1.0, 1.0),
+        (2.0, 2.0),
+        (-2.0, -2.0),
+    )
+    best = None
+    for start in starts:
+        result = minimize(objective, np.asarray(start), method="BFGS")
+        if best is None or result.fun < best.fun:
+            best = result
+    if best is None:
+        raise RuntimeError("threshold optimization failed to start")
+    value = float(best.fun)
+    x_star = _simplex_from_logits(best.x)
+    if return_simplex_point:
+        return value, x_star
+    return value
+
+
+def classical_cain_threshold_from_invariants(matrix: ArrayLike) -> float:
+    """Return T_1(beta)=(sqrt(beta12)+sqrt(beta13)+sqrt(beta23))^2."""
+    beta, _ = fractional_orbit_invariants(matrix)
+    return float(np.sum(np.sqrt(beta)) ** 2)
+
+
+def passes_exact_variational_certificate(matrix: ArrayLike, alpha: float) -> bool:
+    """Numerically evaluate the exact C-10 strict-P membership inequality.
+
+    For 2/3 < alpha < 1, C-10 proves A in F_alpha iff kappa<T_alpha(beta).
+    The optimization here is numerical and therefore should not be used as a
+    formal proof certificate.
+    """
+    if not negative_is_strict_p_matrix(matrix):
+        return False
+    _, kappa = fractional_orbit_invariants(matrix)
+    return bool(kappa < fractional_orbit_threshold(matrix, alpha))
