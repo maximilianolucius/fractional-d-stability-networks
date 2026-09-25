@@ -23,7 +23,7 @@ jobs:
       - name: Install LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y latexmk texlive-latex-extra texlive-bibtex-extra texlive-science
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-bibtex-extra texlive-science poppler-utils
 
       - name: Install figure dependencies
         run: |
@@ -35,6 +35,7 @@ jobs:
 
       - name: Prepare Mathematics MDPI template
         run: |
+          set -euo pipefail
           rm -rf paper/Definitions
           cp -R reference-paper/Definitions paper/Definitions
           test -s paper/Definitions/mdpi.cls
@@ -50,57 +51,15 @@ jobs:
           latexmk -pdf -interaction=nonstopmode -halt-on-error submission-mdpi.tex
           test -s submission-mdpi.pdf
 
-      - name: Acquire current SIAM macros
-        run: |
-          set -euo pipefail
-          ZIP_URL="https://epubs.siam.org/pb-assets/macros/standard/siamart_251216.zip"
-          if curl -A "Mozilla/5.0" -e "https://epubs.siam.org/journal-authors" -fsSL "$ZIP_URL" -o /tmp/siamart.zip; then
-            mkdir -p /tmp/siamart
-            unzip -q /tmp/siamart.zip -d /tmp/siamart
-            cp "$(find /tmp/siamart -name siamart251216.cls -print -quit)" paper/siamart251216.cls
-            cp "$(find /tmp/siamart -name siamplain.bst -print -quit)" paper/siamplain.bst
-            echo "SIAM macros acquired from official bundle."
-          else
-            echo "Official SIAM CDN blocked the CI runner; using a verified December-2025 mirror for build diagnostics only."
-            curl -fsSL https://raw.githubusercontent.com/systems-mechanobiology/ROSA/main/siamart251216.cls -o paper/siamart251216.cls
-            curl -fsSL https://raw.githubusercontent.com/systems-mechanobiology/ROSA/main/siamplain.bst -o paper/siamplain.bst
-          fi
-          grep -q "December 2025" paper/siamart251216.cls
-          grep -q "siamart251216" paper/siamart251216.cls
-
-      - name: Build technical manuscript
+      - name: Audit MDPI build
         working-directory: paper
         run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-
-      - name: Build compact submission draft
-        working-directory: paper
-        run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error submission.tex
-          test -s submission.pdf
-
-      - name: Build official SIAM submission draft
-        working-directory: paper
-        run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error submission-siam.tex
-          test -s submission-siam.pdf
-
-      - name: Show warnings
-        if: always()
-        working-directory: paper
-        run: |
-          echo "=== main.log ==="
-          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" main.log || true
-          echo "=== submission.log ==="
-          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission.log || true
-          echo "=== submission-siam.log ==="
-          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-siam.log || true
+          pdfinfo submission-mdpi.pdf | grep '^Pages:'
           echo "=== submission-mdpi.log ==="
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-mdpi.log || true
-
+          ! grep -Eq "undefined citations|undefined references|There were undefined" submission-mdpi.log
 
       - name: Build editor submission package
-        if: success()
         run: |
           set -euo pipefail
           SLUG=exact_positive_diagonal_matignon_stability_dimension_three
@@ -138,14 +97,15 @@ jobs:
           Build:
             latexmk -pdf -interaction=nonstopmode -halt-on-error $SLUG.tex
 
-          The package is self-contained and uses the Mathematics/MDPI template
-          from reference-paper/Definitions.
+          The package is self-contained and uses the Mathematics/MDPI class
+          and Definitions supplied with the reference Mathematics manuscript.
           EOF
 
           (
             cd "$PKG"
             latexmk -pdf -interaction=nonstopmode -halt-on-error "$SLUG.tex"
             test -s "$SLUG.pdf"
+            ! grep -Eq "undefined citations|undefined references|There were undefined" "$SLUG.log"
           )
 
           cp "$PKG/$SLUG.pdf" "dist/$SLUG.pdf"
@@ -154,18 +114,15 @@ jobs:
             cd dist
             zip -qr submission.zip "$SLUG"
           )
+
           test -s dist/submission.zip
           test -s "dist/$SLUG.pdf"
 
-      - name: Upload manuscript PDF
-        if: success()
+      - name: Upload MDPI submission
         uses: actions/upload-artifact@v4
         with:
-          name: q1-manuscript-pdfs
+          name: mathematics-mdpi-submission
           path: |
-            paper/main.pdf
-            paper/submission.pdf
-            paper/submission-siam.pdf
             paper/submission-mdpi.pdf
             dist/exact_positive_diagonal_matignon_stability_dimension_three.pdf
             dist/submission.zip
