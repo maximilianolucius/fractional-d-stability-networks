@@ -1,7 +1,7 @@
 # Research status — Chief Researcher canonical update
 
 **Date:** 2026-09-25  
-**State:** theorem package developed; independent adversarial proof audit and heavy compute validation pending.
+**State:** theorem package developed; **proof gate passed**, **novelty gate passed with repositioning**, final high-precision compute validation pending.
 
 ## Central objects
 
@@ -220,11 +220,12 @@ This is a large campaign: high precision, million-scale adversarial tests, exact
 
 ## Manuscript lock
 
+The proof gate is **PASSED** and the novelty gate is **PASSED WITH REPOSITIONING**.
+
 Final title/abstract/conclusions remain locked until:
 
-1. proof audit passes;
-2. compute wave returns without a persistent counterexample;
-3. exact citations/theorem numbers and sign conventions are verified.
+1. Compute Wave 1 P2 high-precision returns without a persistent counterexample;
+2. exact citations/theorem numbers and sign conventions are reconciled after compute integration.
 
 Architecture planning is allowed. Final prose drafting is not.
 
@@ -236,3 +237,20 @@ C-15 proves that the exact C-10 variational problem is globally strictly convex 
 C-16 gives the general dimension-n positive-diagonal orbit reduction to the open simplex through normalized principal-minor invariants. The final novelty audit classifies this as **standard structural machinery, not a novel contribution**. It remains useful because it explains why n=3 has 4 nontrivial invariants and n=4 has 11.
 
 These results strengthen the theorem package but do not change the current validation lock: final integration of Compute Wave 1 still waits for P2 high-precision completion.
+
+
+## Proof gate closure
+
+Independent report:
+
+`research/PROOF_AUDIT_C07_C09_C10_C11.md`
+
+Chief closure after applying all requested fixes:
+
+`research/CHIEF_PROOF_AUDIT_CLOSURE.md`
+
+Final proof-gate status:
+
+```text
+PROOF GATE PASSED
+```
