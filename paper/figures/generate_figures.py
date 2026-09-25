@@ -87,13 +87,18 @@ def panel_simplex():
     alpha=0.9
     b12,b13,b23=3.0,0.5,1.0
     xs=[]; ys=[]; zs=[]
-    for x1 in np.linspace(0.025,0.95,65):
-        for x2 in np.linspace(0.025,0.95-x1,65):
+    for x1 in np.linspace(0.03,0.91,60):
+        xmax=0.94-x1
+        if xmax<=0.03:
+            continue
+        for x2 in np.linspace(0.03,xmax,60):
             x3=1-x1-x2
-            if x3<=0.025:
+            if min(x1,x2,x3)<=0.03:
                 continue
             B=b12*x1*x2+b13*x1*x3+b23*x2*x3
             F=h_alpha(B,alpha)/(x1*x2*x3)
+            if not np.isfinite(F):
+                continue
             xs.append(x1); ys.append(x2); zs.append(math.log10(F))
     tri=mtri.Triangulation(xs,ys)
     fig, ax=plt.subplots(figsize=(3.1,2.55))
