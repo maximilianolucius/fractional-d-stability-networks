@@ -21,6 +21,7 @@ No theorem is submission-certified until the independent proof audit passes. "No
 | C-12 | GLV abundance-scaling invariance of F_alpha, D_H, P_alpha and orbit invariants | application bridge | **INTERNAL COROLLARY** | positive-diagonal orbit action |
 | C-13 | exact ecological loop-coordinate form of C-10 | structural/ecological corollary; loop analysis itself classical | **INTERNAL COROLLARY** | `research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md` |
 | C-14 | strict monotonicity of T_alpha and sharp alpha->1 collapse rate | supporting structural corollary; standalone novelty not required | **INTERNAL COROLLARY** | `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` |
+| C-15 | strict logit convexity, unique optimizer, explicit threshold-surface parametrization, alpha->2/3 asymptotic, and realizability of the full band | structural strengthening of C-10; standalone novelty pending | **INTERNAL THEOREM** | `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` |
 
 ## Central definitions
 
@@ -341,3 +342,32 @@ O((1-alpha)^2),
 with explicit positive C(beta) given in `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md`.
 
 Thus the genuinely fractional band closes linearly, with a motif-dependent coefficient.
+
+
+## C-15 — exact geometry of the C-10 threshold
+
+For every positive beta triple and 2/3<alpha<1, the log-threshold objective in logit simplex coordinates is globally strictly convex. Hence the C-10 minimizer is unique and nondegenerate.
+
+Consequences proved in `research/THEOREM_C15_THRESHOLD_GEOMETRY.md`:
+
+- fully symmetric slice:
+  ```text
+  T_alpha(b,b,b) = 27 h_alpha(b/3);
+  ```
+- the Siami cyclic boundary is exactly the beta=(1,1,1) slice;
+- two-equal beta slices reduce to one dimension;
+- the entire threshold surface has an explicit global (x,r) parametrization;
+- as alpha->2/3+,
+  ```text
+  T_alpha(beta)
+  =
+  27/K^3
+  + [9 sum(beta)-27]/K^2
+  + O(K^-1),
+  K=1-4 cos^2(alpha*pi/2);
+  ```
+- every invariant point with kappa>=T1(beta) is realizable by a real matrix, so every exact fractional band
+  ```text
+  T1(beta)<kappa<T_alpha(beta)
+  ```
+  is nonempty in actual matrix space for every beta>0.
