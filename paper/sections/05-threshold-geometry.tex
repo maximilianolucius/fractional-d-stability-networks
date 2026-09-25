@@ -291,6 +291,105 @@ R_3(\alpha)
 The objective is invariant under all permutations of the simplex coordinates. By Theorem~\ref{thm:strict-convexity}, the minimizer is unique, so it must be fixed by every permutation and therefore equals the simplex center. Substitution gives the first formula. The second follows by direct simplification of \(27h_\alpha(1/3)\), and coincides with the \(n=3\) single-cycle threshold of \citet{Siami2021}.
 \end{proof}
 
+
+\subsection{A canonical exact one-parameter family}
+
+The symmetric slice contains a particularly transparent analytic family:
+\[
+A_\gamma
+=
+\begin{pmatrix}
+-1&0&-\gamma\\
+\gamma&-1&0\\
+0&\gamma&-1
+\end{pmatrix},
+\qquad
+\gamma>0.
+\]
+Its signed principal minors satisfy
+\[
+p_1=p_2=p_3=1,
+\qquad
+m_{12}=m_{13}=m_{23}=1,
+\qquad
+q=1+\gamma^3.
+\]
+Therefore
+\[
+\beta_{12}=\beta_{13}=\beta_{23}=1,
+\qquad
+\kappa=1+\gamma^3.
+\]
+
+\begin{corollary}[Exact cyclic threshold]
+\label{cor:cyclic-family}
+For \(2/3<\alpha<1\),
+\[
+\boxed{
+A_\gamma\in\mathcal F_\alpha^{(3)}
+\iff
+\gamma<R_3(\alpha),
+}
+\]
+where
+\[
+R_3(\alpha)
+=
+\frac{\sin(\alpha\pi/2)}
+{\sin(\alpha\pi/2-\pi/3)}.
+\]
+Moreover,
+\[
+A_\gamma\in\mathcal D_H^{(3)}
+\iff
+\gamma<2.
+\]
+Hence
+\[
+\boxed{
+2<\gamma<R_3(\alpha)
+}
+\]
+is an exact one-parameter genuinely fractional D-stable band.
+\end{corollary}
+
+\begin{proof}
+By Corollary~\ref{cor:symmetric-slice},
+\[
+T_\alpha(1,1,1)
+=
+1+R_3(\alpha)^3.
+\]
+Theorem~\ref{thm:C10} therefore gives
+\[
+1+\gamma^3
+<
+1+R_3(\alpha)^3,
+\]
+equivalent to \(\gamma<R_3(\alpha)\). At integer order,
+\[
+T_1(1,1,1)=9,
+\]
+so classical D-stability is equivalent to
+\[
+1+\gamma^3<9,
+\]
+that is, \(\gamma<2\).
+\end{proof}
+
+The spectrum at \(D=I\) is explicit:
+\[
+\sigma(A_\gamma)
+=
+\left\{
+-1-\gamma,\ 
+-1+\frac{\gamma}{2}
+\pm
+i\frac{\sqrt3\,\gamma}{2}
+\right\}.
+\]
+Thus for every \(\gamma>2\), the matrix \(A_\gamma\) itself already has a conjugate pair in the open right half-plane, while Corollary~\ref{cor:cyclic-family} shows that the entire positive-diagonal orbit remains Matignon-stable whenever \(\gamma<R_3(\alpha)\). The symmetric slice therefore provides a concrete orbit-level example of stabilization that is not merely a change in the sign of the real part at one chosen diagonal scaling.
+
 \begin{corollary}[Two-equal slice]
 If
 \[
