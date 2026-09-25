@@ -22,6 +22,7 @@ No theorem is submission-certified until the independent proof audit passes. "No
 | C-13 | exact ecological loop-coordinate form of C-10 | structural/ecological corollary; loop analysis itself classical | **INTERNAL COROLLARY** | `research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md` |
 | C-14 | strict monotonicity of T_alpha and sharp alpha->1 collapse rate | supporting structural corollary; standalone novelty not required | **INTERNAL COROLLARY** | `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` |
 | C-15 | strict logit convexity, unique optimizer, explicit threshold-surface parametrization, alpha->2/3 asymptotic, and realizability of the full band | structural strengthening of C-10; standalone novelty pending | **INTERNAL THEOREM** | `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` |
+| C-16 | general positive-diagonal orbit reduction to a simplex using normalized principal-minor invariants | structural proposition; standalone novelty not claimed | **INTERNAL PROPOSITION** | `research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md` |
 
 ## Central definitions
 
@@ -371,3 +372,32 @@ Consequences proved in `research/THEOREM_C15_THRESHOLD_GEOMETRY.md`:
   T1(beta)<kappa<T_alpha(beta)
   ```
   is nonempty in actual matrix space for every beta>0.
+
+
+## C-16 — universal simplex reduction
+
+For strict-P(-A) in dimension n, define signed principal minors
+```text
+m_I=(-1)^|I| det A[I]
+```
+and normalized invariants
+```text
+beta_I = m_I / product_{i in I} p_i.
+```
+
+After normalizing
+```text
+x_i = p_i d_i / sum_j p_j d_j,
+```
+the full positive diagonal orbit modulo common scale is exactly the open simplex.
+
+The normalized characteristic polynomial is
+```text
+z^n + z^(n-1) + B_2(x) z^(n-2) + ... + B_n(x),
+```
+with
+```text
+B_k(x)=sum_{|I|=k} beta_I product_{i in I} x_i.
+```
+
+There are exactly `2^n-n-1` nontrivial orbit invariants: 4 in n=3 and 11 in n=4.
