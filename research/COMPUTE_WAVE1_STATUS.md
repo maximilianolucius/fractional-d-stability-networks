@@ -17,7 +17,7 @@ Branch `agent/compute-c10-wave1-20260925`. Updated at every commit. Anyone can r
 | P2 HP | NEXT | `python computations/scripts/p2_hp_verify.py` | results/C10_STRESS_SUMMARY.json, C10_WORST_CASES.csv |
 | P3/P3B | DONE | `p3_gaps_slices.py`, `p3b_c14.py` | C11_GAP_SUMMARY.csv, C14_LIMIT_RATE.csv |
 | P4 | DONE | `p4_phase.py` | C13_PHASE_DATA/ |
-| P5 | TODO | | N4_RECON_REPORT.md |
+| P5 | DONE | `p5_n4_recon.py` | N4_RECON_REPORT.md |
 | Final report | TODO | | research/COMPUTE_WAVE1_FINAL_REPORT.md |
 
 ## Findings so far (labels: NUMERICAL / CERTIFIED / PROOF SKETCH)

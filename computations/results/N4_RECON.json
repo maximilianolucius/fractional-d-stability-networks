@@ -1,0 +1,341 @@
+{
+  "S1_single_4cycle": [
+    {
+      "alpha": 0.55,
+      "R4": 9.691750313280297,
+      "direct_crossing_bracket": [
+        9.576271186440678,
+        9.76271186440678
+      ],
+      "hurwitz_crossing_bracket": [
+        1.3728813559322033,
+        1.5593220338983051
+      ],
+      "sqrt2": 1.4142135623730951
+    },
+    {
+      "alpha": 0.6,
+      "R4": 5.171603291940106,
+      "direct_crossing_bracket": [
+        5.171061424058507,
+        5.268062852524984
+      ],
+      "hurwitz_crossing_bracket": [
+        1.3880057138659077,
+        1.4850071423323845
+      ],
+      "sqrt2": 1.4142135623730951
+    },
+    {
+      "alpha": 0.6666666666666666,
+      "R4": 3.3460652149512327,
+      "direct_crossing_bracket": [
+        3.327886033167809,
+        3.3846637412938527
+      ],
+      "hurwitz_crossing_bracket": [
+        1.397443956882309,
+        1.4542216650083528
+      ],
+      "sqrt2": 1.4142135623730951
+    },
+    {
+      "alpha": 0.75,
+      "R4": 2.414213562373095,
+      "direct_crossing_bracket": [
+        2.4135699595307782,
+        2.44981534310849
+      ],
+      "hurwitz_crossing_bracket": [
+        1.3986992193548349,
+        1.4349446029325472
+      ],
+      "sqrt2": 1.4142135623730951
+    },
+    {
+      "alpha": 0.9,
+      "R4": 1.6803557706542778,
+      "direct_crossing_bracket": [
+        1.6624959756113307,
+        1.6825716112359166
+      ],
+      "hurwitz_crossing_bracket": [
+        1.4015127124917157,
+        1.4215883481163014
+      ],
+      "sqrt2": 1.4142135623730951
+    },
+    {
+      "alpha": 0.99,
+      "R4": 1.436784374964464,
+      "direct_crossing_bracket": [
+        1.4265554395959372,
+        1.441264247857866
+      ],
+      "hurwitz_crossing_bracket": [
+        1.4118466313340083,
+        1.4265554395959372
+      ],
+      "sqrt2": 1.4142135623730951
+    }
+  ],
+  "S1_single_4cycle_seconds": 46.18,
+  "S2_two_3cycles_shared_edge": {
+    "0.75": {
+      "n": 676,
+      "genuinely_fractional": 485,
+      "F_member": 676,
+      "hurwitz_D_stable": 191,
+      "best_gf_point": [
+        3.0,
+        1.1
+      ],
+      "best_gf_score": 0.19602461403086568
+    },
+    "0.9": {
+      "n": 676,
+      "genuinely_fractional": 252,
+      "F_member": 443,
+      "hurwitz_D_stable": 191,
+      "best_gf_point": [
+        0.6,
+        2.3
+      ],
+      "best_gf_score": 0.07808370880979032
+    },
+    "0.99": {
+      "n": 676,
+      "genuinely_fractional": 19,
+      "F_member": 210,
+      "hurwitz_D_stable": 191,
+      "best_gf_point": [
+        0.7,
+        2.0
+      ],
+      "best_gf_score": 0.007685093419388833
+    }
+  },
+  "S2_two_3cycles_shared_edge_seconds": 220.64,
+  "S3_cactus_3cycle_plus_pair": {
+    "0.75": {
+      "n": 676,
+      "genuinely_fractional": 494,
+      "F_member": 676,
+      "hurwitz_D_stable": 182,
+      "best_gf_point": [
+        3.02,
+        0.0
+      ],
+      "best_gf_score": 0.1925824080595815
+    },
+    "0.9": {
+      "n": 676,
+      "genuinely_fractional": 234,
+      "F_member": 416,
+      "hurwitz_D_stable": 182,
+      "best_gf_point": [
+        2.3,
+        0.0
+      ],
+      "best_gf_score": 0.07516468284576128
+    },
+    "0.99": {
+      "n": 676,
+      "genuinely_fractional": 0,
+      "F_member": 182,
+      "hurwitz_D_stable": 182,
+      "best_gf_point": null,
+      "best_gf_score": null
+    }
+  },
+  "S3_cactus_3cycle_plus_pair_seconds": 231.37,
+  "S4_block_coupled": {
+    "-1.0": {
+      "0.75": {
+        "n": 464,
+        "genuinely_fractional": 384,
+        "F_member": 464,
+        "hurwitz_D_stable": 64,
+        "best_gf_point": [
+          3.05,
+          0.0
+        ],
+        "best_gf_score": 0.1962028997813161
+      },
+      "0.9": {
+        "n": 464,
+        "genuinely_fractional": 240,
+        "F_member": 320,
+        "hurwitz_D_stable": 64,
+        "best_gf_point": [
+          2.3,
+          0.0
+        ],
+        "best_gf_score": 0.07516468284576128
+      }
+    },
+    "1.0": {
+      "0.75": {
+        "n": 464,
+        "genuinely_fractional": 271,
+        "F_member": 290,
+        "hurwitz_D_stable": 18,
+        "best_gf_point": [
+          3.05,
+          0.0
+        ],
+        "best_gf_score": 0.1962028997813161
+      },
+      "0.9": {
+        "n": 464,
+        "genuinely_fractional": 114,
+        "F_member": 133,
+        "hurwitz_D_stable": 18,
+        "best_gf_point": [
+          1.85,
+          0.7000000000000001
+        ],
+        "best_gf_score": 0.07850962077632517
+      }
+    }
+  },
+  "S4_block_coupled_seconds": 230.16,
+  "S5_random_strictP": {
+    "n": 8000,
+    "hurwitz_D_stable_fraction": 0.979375,
+    "alpha=0.3": {
+      "F_fraction": 1.0,
+      "genuinely_fractional_fraction": 0.020625,
+      "non_F_count": 0,
+      "min_margin": 0.8292499491481808
+    },
+    "alpha=0.5": {
+      "F_fraction": 1.0,
+      "genuinely_fractional_fraction": 0.020625,
+      "non_F_count": 0,
+      "min_margin": 0.5150906837892015
+    },
+    "alpha=0.55": {
+      "F_fraction": 1.0,
+      "genuinely_fractional_fraction": 0.020625,
+      "non_F_count": 0,
+      "min_margin": 0.4365508674494566
+    },
+    "alpha=0.6": {
+      "F_fraction": 1.0,
+      "genuinely_fractional_fraction": 0.020625,
+      "non_F_count": 0,
+      "min_margin": 0.3580110511097119
+    },
+    "alpha=0.6667": {
+      "F_fraction": 1.0,
+      "genuinely_fractional_fraction": 0.020625,
+      "non_F_count": 0,
+      "min_margin": 0.2532912959900522
+    },
+    "alpha=0.75": {
+      "F_fraction": 1.0,
+      "genuinely_fractional_fraction": 0.020625,
+      "non_F_count": 0,
+      "min_margin": 0.12239160209047739
+    },
+    "alpha=0.9": {
+      "F_fraction": 0.998,
+      "genuinely_fractional_fraction": 0.018625,
+      "non_F_count": 16,
+      "min_margin": -0.11322784692875709
+    },
+    "alpha=0.99": {
+      "F_fraction": 0.98275,
+      "genuinely_fractional_fraction": 0.003375,
+      "non_F_count": 138,
+      "min_margin": -0.25459951634029787
+    }
+  },
+  "S5_random_strictP_seconds": 1339.92,
+  "S6_orbit_reduction_check": {
+    "n_matrices": 40,
+    "points_each": 300,
+    "max_abs_diff_reduction_vs_eigen": 1.4566126083082054e-13
+  },
+  "S6_orbit_reduction_check_seconds": 0.7,
+  "S7_adversarial_search": {
+    "n4_best": {
+      "0.75": {
+        "score": 0.19591229898204432,
+        "offdiag": [
+          -0.13880692999956334,
+          0.44448246402377656,
+          3.9030793390489418,
+          -3.2588613413026843,
+          1.9744400010363163,
+          -1.2532289900884228,
+          -0.08834447697685865,
+          -2.127672347664462,
+          1.2170345684125383,
+          -0.35758515197330754,
+          0.6564870950598536,
+          -2.069295656228003
+        ],
+        "seed": 2
+      },
+      "0.9": {
+        "score": 0.07846325820871325,
+        "offdiag": [
+          2.227504004329865,
+          2.116738640179232,
+          -1.981414872174268,
+          -0.5337249465307172,
+          3.7113730829013596,
+          -1.541321840545098,
+          -1.0728849150382134,
+          0.061605459239922666,
+          -1.6785727192515667,
+          2.299925805544463,
+          3.056262495953802,
+          0.6840838950919359
+        ],
+        "seed": 1
+      },
+      "0.99": {
+        "score": 0.007800536532858615,
+        "offdiag": [
+          -0.3981069103981856,
+          -2.676232593116154,
+          -2.3789277907631923,
+          -1.4419075164918622,
+          1.1556596131496537,
+          -2.6926906541432185,
+          0.44369325671058757,
+          -3.468461403531542,
+          -3.2892157757341103,
+          0.4711651740561411,
+          1.1268416737193911,
+          0.8612143462005966
+        ],
+        "seed": 2
+      }
+    },
+    "3x3_reference": {
+      "0.75": {
+        "best_gamma": 3.0452261306532664,
+        "score_3x3_cycle": 0.1956318907800989
+      },
+      "0.9": {
+        "best_gamma": 2.321608040201005,
+        "score_3x3_cycle": 0.0772702570275039
+      },
+      "0.99": {
+        "best_gamma": 2.020100502512563,
+        "score_3x3_cycle": 0.005744715601836425
+      }
+    },
+    "note": "score = min(min_D margin_alpha, -min_D margin_1), unit diagonal, |offdiag|<=4"
+  },
+  "S7_adversarial_search_seconds": 365.8,
+  "wall_seconds": 2434.78,
+  "memory": {
+    "self_peak_rss_mb": 458.4,
+    "max_child_peak_rss_mb": 438.0
+  }
+}
