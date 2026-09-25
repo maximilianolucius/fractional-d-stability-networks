@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import math
+import shutil
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -226,6 +227,31 @@ def panel_robustness():
     ax.set_title("(d) Boundary robustness of witnesses",fontsize=8)
     save(fig,"panel12_robustness")
 
+
+def legacy_c11_coverage():
+    df=pd.read_csv(DATA/"F4_C11_sufficient_fraction"/"F4_C11_sufficient_fraction.csv")
+    fig,ax=plt.subplots(figsize=(5.2,4.0))
+    for name,ls in zip(TRIPLES,STYLES):
+        d=df[df["triple"]==name].sort_values("alpha")
+        d=d[d["alpha"]>=0.70]
+        ax.plot(d["alpha"],d["certified_fraction_(TPhi-T1)/(Talpha-T1)"],
+                linestyle=ls,linewidth=1.0,label=LABELS[name])
+    ax.set_xlim(0.70,1.0); ax.set_ylim(0,1.03)
+    ax.set_xlabel(r"fractional order $\alpha$")
+    ax.set_ylabel("fraction of exact band certified by C-11")
+    ax.legend(title=r"$\beta$",fontsize=8,title_fontsize=8)
+    ax.set_title("Conservatism of the closed-form certificate")
+    save(fig,"fig_c11_coverage")
+
+def legacy_aliases():
+    for src,dst in [
+        ("panel01_spectral_geometry","fig_spectral_geometry"),
+        ("panel05_threshold_ratio","fig_threshold_ratio"),
+        ("panel09_ecological_band","fig_ecological_band"),
+    ]:
+        for ext in ("pdf","png"):
+            shutil.copyfile(OUT/f"{src}.{ext}",OUT/f"{dst}.{ext}")
+
 if __name__=="__main__":
     panel_spectral()
     panel_dimension()
@@ -239,3 +265,5 @@ if __name__=="__main__":
     panel_pairloop_sensitivity()
     panel_optimizer()
     panel_robustness()
+    legacy_c11_coverage()
+    legacy_aliases()
