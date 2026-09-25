@@ -159,7 +159,7 @@ R_3(\alpha)
 \end{corollary}
 
 \begin{proof}
-Permutation symmetry and uniqueness force \(x^*\) to be the simplex center. Substitution gives the first identity; the second simplifies to the \(n=3\) single-cycle threshold of \citet{Siami2021}.
+Permutation symmetry and uniqueness force \(x^*\) to be the simplex center. Substitution gives the first identity; the second simplifies to the \(n=3\) single-cycle threshold of \cite{Siami2021}.
 \end{proof}
 
 Consider
@@ -233,9 +233,21 @@ Evaluating the two objectives at a minimizer of the \(\alpha_1\) problem gives t
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=.68\linewidth]{fig_threshold_ratio.pdf}
-\caption{Fractional enlargement of Cain's threshold for representative invariant triples. Theorem~\ref{thm:alpha-monotonicity} gives strict decrease in \(\alpha\), and Theorem~\ref{thm:C14} gives convergence to \(T_1\) at integer order. The ordinate is logarithmic.}
-\label{fig:threshold-ratio}
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel05_threshold_ratio.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel06_relative_width.pdf}
+\end{minipage}
+
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel07_classical_asymptotic.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel08_low_order.pdf}
+\end{minipage}
+\caption{Order dependence of the exact threshold. (a) Fractional enlargement \(T_\alpha/T_1\). (b) Relative width of the genuinely fractional band. (c) High-precision verification of the classical-order coefficient in Theorem~\ref{thm:C14}. (d) Low-order normalization \(T_\alpha K^3/27\to1\), included as an independently verified secondary asymptotic.}
+\label{fig:threshold-multipanel}
 \end{figure}
 
 Set
@@ -340,5 +352,3 @@ T_\alpha(1,1,1)>T_1(1,1,1)=9.
 \]
 Choose \(2<\gamma<R_3(\alpha)\). In both regimes the defining inequalities are strict, so the difference class contains an open neighborhood of the chosen matrix.
 \end{proof}
-
-The proof-complete technical version of the manuscript also develops a global parametrization of the threshold surface, exact invariant-space sensitivities, the \(\alpha\downarrow2/3\) asymptotic, a closed-form sufficient certificate, and a general realizability theorem. Those secondary results are retained in the accompanying technical manuscript and reproducibility archive but are not needed for the central elimination theorem or the minimum-dimension conclusion.
