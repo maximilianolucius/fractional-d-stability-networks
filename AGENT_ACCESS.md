@@ -153,3 +153,37 @@ A second server-scale task is prepared in:
 Start condition: Compute Wave 1 must return `COMPUTE_PASS` with zero genuine C-10 counterexamples and be integrated by the Chief.
 
 Wave 2 is intended for certified atlas generation, robustness analysis, canonical witnesses, C-15 sensitivity validation and publication-grade numerical data. It is not another broad Monte Carlo campaign.
+
+
+---
+
+## FINAL NOVELTY GATE: PASSED WITH REPOSITIONING
+
+The final specialist novelty branch has been Chief-reviewed and merged.
+
+Canonical final audit:
+
+`research/novelty/FINAL_C10_C15_SPECIALIST_AUDIT.md`
+
+Bibliographic verification:
+
+`research/novelty/FINAL_BIBLIOGRAPHY_VERIFICATION.md`
+
+Final claim status:
+
+- C-09: **NOVEL WITH NARROWED CLAIM**
+- C-10: **NOVEL WITH NARROWED CLAIM**
+- C-15: **NOVEL WITH NARROWED CLAIM**
+- C-16: **NOT NOVEL** as a standalone contribution
+
+The manuscript must position C-10 as an **explicit exact real-3x3 elimination/solution** of the already-known generalized positive-diagonal forbidden-boundary problem for the Matignon reflex sector. It must not claim the first abstract necessary-and-sufficient generalized-D-stability criterion.
+
+Kushel–Pavani are a load-bearing conceptual predecessor; Cain and Bahl–Cain are load-bearing low-dimensional structural predecessors.
+
+Remaining submission gates:
+
+1. Compute Wave 1 final P2 high-precision verdict.
+2. Independent adversarial proof audit.
+3. Final theorem/citation/sign-convention reconciliation after those gates.
+
+The novelty lane is closed unless a new prior-art collision is discovered.
