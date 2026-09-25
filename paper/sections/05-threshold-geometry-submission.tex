@@ -1,0 +1,344 @@
+\section{Convex geometry and the minimum robust dimension}
+\label{sec:threshold-geometry}
+
+Theorem~\ref{thm:C10} reduces the all-diagonal problem to
+\[
+T_\alpha(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+F_{\alpha,\beta}(x),
+\qquad
+F_{\alpha,\beta}(x)
+=
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
+\]
+We now show that this variational problem is globally well behaved.
+
+\subsection{Strict convexity and uniqueness}
+
+Parameterize the simplex by
+\[
+x_1=\frac{e^{y_1}}{e^{y_1}+e^{y_2}+1},
+\qquad
+x_2=\frac{e^{y_2}}{e^{y_1}+e^{y_2}+1},
+\qquad
+x_3=\frac1{e^{y_1}+e^{y_2}+1}.
+\]
+Set
+\[
+L(y)=\log(e^{y_1}+e^{y_2}+1),
+\]
+\[
+Q_\beta(y)
+=
+\log\!\left(
+\beta_{12}e^{y_1+y_2}
++\beta_{13}e^{y_1}
++\beta_{23}e^{y_2}
+\right),
+\]
+and
+\[
+\phi_\alpha(s)=\log h_\alpha(e^s).
+\]
+Then
+\[
+G_{\alpha,\beta}(y)
+:=
+\log F_{\alpha,\beta}(x(y))
+=
+\phi_\alpha(Q_\beta-2L)+3L-y_1-y_2.
+\]
+
+\begin{lemma}[Elasticity bounds]
+\label{lem:elasticity-sub}
+For \(2/3<\alpha<1\) and \(b>0\),
+\[
+0<
+E_\alpha(b)
+:=
+\frac{b h_\alpha'(b)}{h_\alpha(b)}
+<
+\frac32,
+\qquad
+E_\alpha'(b)>0.
+\]
+Equivalently,
+\[
+0<\phi_\alpha'(s)<3/2,
+\qquad
+\phi_\alpha''(s)>0.
+\]
+\end{lemma}
+
+\begin{proof}
+With
+\[
+u=\cos(\alpha\pi/2),
+\qquad
+K=1-4u^2,
+\]
+parameterize the cubic boundary by
+\[
+b=r(Kr-2u),
+\qquad
+h=r^2(1+2ur),
+\qquad
+r>2u/K.
+\]
+Then
+\[
+E
+=
+\frac{b}{h}\frac{dh/dr}{db/dr}
+=
+\frac{(Kr-2u)(1+3ur)}
+{(Kr-u)(1+2ur)}.
+\]
+The two factors
+\[
+\frac{Kr-2u}{Kr-u},
+\qquad
+\frac{1+3ur}{1+2ur}
+\]
+increase strictly with \(r\), while \(E\to0\) as \(r\downarrow2u/K\) and \(E\to3/2\) as \(r\to\infty\). Since \(b(r)\) is strictly increasing, the result follows.
+\end{proof}
+
+\begin{theorem}[Global strict logit convexity]
+\label{thm:strict-convexity}
+For every \(\beta>0\) and \(2/3<\alpha<1\), \(G_{\alpha,\beta}\) is globally strictly convex and coercive. Hence \(F_{\alpha,\beta}\) has a unique nondegenerate minimizer
+\[
+x^*(\alpha,\beta)\in\Delta_2^\circ,
+\]
+and \(T_\alpha(\beta)\) and \(x^*(\alpha,\beta)\) depend smoothly on \((\alpha,\beta)\).
+\end{theorem}
+
+\begin{proof}
+Writing \(s=Q_\beta-2L\),
+\[
+\nabla^2G
+=
+\phi_\alpha''(s)\nabla s\nabla s^\top
++
+\phi_\alpha'(s)\nabla^2Q_\beta
++
+\bigl(3-2\phi_\alpha'(s)\bigr)\nabla^2L.
+\]
+Here \(\nabla^2Q_\beta\succeq0\), while \(\nabla^2L\succ0\) because \(L\) is the log-sum-exp of the three affinely independent vectors \((1,0),(0,1),(0,0)\) with positive softmax weights. Lemma~\ref{lem:elasticity-sub} makes every scalar coefficient nonnegative and the coefficient of \(\nabla^2L\) strictly positive. Thus
+\[
+\nabla^2G(y)\succ0
+\qquad
+\forall y\in\mathbb R^2.
+\]
+As \(\|y\|\to\infty\), \(x(y)\) approaches the simplex boundary, \(x_1x_2x_3\to0\), and the numerator remains strictly positive; hence \(G\to\infty\). Coercivity gives a unique global minimizer, positive definiteness gives nondegeneracy, and the implicit-function theorem yields smooth dependence.
+\end{proof}
+
+\subsection{Symmetric slice and canonical family}
+
+\begin{corollary}[Fully symmetric slice]
+\label{cor:symmetric-slice}
+If
+\[
+\beta_{12}=\beta_{13}=\beta_{23}=b>0,
+\]
+then
+\[
+x^*=(1/3,1/3,1/3),
+\qquad
+T_\alpha(b,b,b)=27h_\alpha(b/3).
+\]
+For \(b=1\),
+\[
+T_\alpha(1,1,1)=1+R_3(\alpha)^3,
+\qquad
+R_3(\alpha)
+=
+\frac{\sin(\alpha\pi/2)}
+{\sin(\alpha\pi/2-\pi/3)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Permutation symmetry and uniqueness force \(x^*\) to be the simplex center. Substitution gives the first identity; the second simplifies to the \(n=3\) single-cycle threshold of \citet{Siami2021}.
+\end{proof}
+
+Consider
+\[
+A_\gamma
+=
+\begin{pmatrix}
+-1&0&-\gamma\\
+\gamma&-1&0\\
+0&\gamma&-1
+\end{pmatrix},
+\qquad
+\gamma>0.
+\]
+It has
+\[
+\beta=(1,1,1),
+\qquad
+\kappa=1+\gamma^3.
+\]
+
+\begin{corollary}[Exact cyclic threshold]
+\label{cor:cyclic-family}
+For \(2/3<\alpha<1\),
+\[
+A_\gamma\in\mathcal F_\alpha^{(3)}
+\iff
+\gamma<R_3(\alpha),
+\]
+whereas
+\[
+A_\gamma\in\mathcal D_H^{(3)}
+\iff
+\gamma<2.
+\]
+Thus
+\[
+2<\gamma<R_3(\alpha)
+\]
+is an exact one-parameter genuinely fractional D-stable band.
+\end{corollary}
+
+\begin{proof}
+The fractional statement follows from Theorem~\ref{thm:C10} and Corollary~\ref{cor:symmetric-slice}; the classical endpoint is
+\[
+1+\gamma^3<T_1(1,1,1)=9.
+\]
+\end{proof}
+
+\subsection{Order dependence and the classical limit}
+
+\begin{theorem}[Strict monotonicity]
+\label{thm:alpha-monotonicity}
+For fixed \(\beta>0\),
+\[
+\frac23<\alpha_1<\alpha_2\le1
+\quad\Longrightarrow\quad
+T_{\alpha_1}(\beta)>T_{\alpha_2}(\beta).
+\]
+\end{theorem}
+
+\begin{proof}
+For fixed \(a,b>0\), the cubic boundary value \(H_\theta(a,b)\) strictly decreases as the forbidden angle \(\theta\) increases: a cubic touching the larger-angle ray lies strictly inside the wider Matignon region associated with the smaller angle. Hence
+\[
+h_{\alpha_1}(b)>h_{\alpha_2}(b)
+\qquad
+\forall b>0.
+\]
+Evaluating the two objectives at a minimizer of the \(\alpha_1\) problem gives the stated strict inequality.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.68\linewidth]{fig_threshold_ratio.pdf}
+\caption{Fractional enlargement of Cain's threshold for representative invariant triples. Theorem~\ref{thm:alpha-monotonicity} gives strict decrease in \(\alpha\), and Theorem~\ref{thm:C14} gives convergence to \(T_1\) at integer order. The ordinate is logarithmic.}
+\label{fig:threshold-ratio}
+\end{figure}
+
+Set
+\[
+S=\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}},
+\qquad
+\Gamma=\sqrt{\beta_{12}\beta_{13}\beta_{23}}.
+\]
+
+\begin{theorem}[Sharp classical-limit rate]
+\label{thm:C14}
+As \(\alpha\to1^-\),
+\[
+T_\alpha(\beta)
+=
+T_1(\beta)
++
+C(\beta)(1-\alpha)
++
+O((1-\alpha)^2),
+\]
+where
+\[
+T_1(\beta)=S^2,
+\qquad
+C(\beta)
+=
+\pi
+\left(
+\frac{S^{5/2}}{\sqrt\Gamma}
++
+S^{3/2}\sqrt\Gamma
+\right).
+\]
+\end{theorem}
+
+\begin{proof}
+Put \(\varepsilon=1-\alpha\). Since
+\[
+u=\cos(\alpha\pi/2)
+=
+\frac{\pi}{2}\varepsilon+O(\varepsilon^3),
+\]
+implicit differentiation of the normalized boundary equation at \(u=0\) gives
+\[
+h_\alpha(b)
+=
+b+\pi\varepsilon\sqrt b(1+b)+O(\varepsilon^2).
+\]
+At \(\alpha=1\) the unique simplex minimizer is
+\[
+x_1^*=\frac{\sqrt{\beta_{23}}}{S},
+\quad
+x_2^*=\frac{\sqrt{\beta_{13}}}{S},
+\quad
+x_3^*=\frac{\sqrt{\beta_{12}}}{S},
+\]
+with
+\[
+x_1^*x_2^*x_3^*=\frac{\Gamma}{S^3},
+\qquad
+B_\beta(x^*)=\frac{\Gamma}{S}.
+\]
+The envelope theorem, justified by Theorem~\ref{thm:strict-convexity}, therefore gives
+\[
+C(\beta)
+=
+\pi
+\frac{\sqrt{\Gamma/S}\,(1+\Gamma/S)}
+{\Gamma/S^3},
+\]
+which simplifies to the stated formula.
+\end{proof}
+
+\subsection{Minimum dimension for robust genuinely fractional separation}
+
+\begin{theorem}[Minimum robust dimension]
+\label{thm:C09}
+For every \(0<\alpha<1\),
+\[
+\min\left\{
+n:
+\operatorname{int}
+\left(
+\mathcal F_\alpha^{(n)}
+\setminus
+\mathcal D_H^{(n)}
+\right)
+\neq\varnothing
+\right\}
+=
+3.
+\]
+\end{theorem}
+
+\begin{proof}
+For \(n=1\), the two stability notions coincide. For \(n=2\), Corollary~\ref{cor:2x2-empty-interior} gives empty interior.
+
+For \(n=3\), use \(A_\gamma\). It satisfies \(-A_\gamma\) strict P for every \(\gamma>0\), and it is Hurwitz D-stable exactly for \(\gamma<2\). If \(0<\alpha\le2/3\), Kellogg's theorem gives \(A_\gamma\in\mathcal F_\alpha^{(3)}\) for every \(\gamma\), so any \(\gamma>2\) lies in the genuinely fractional class. If \(2/3<\alpha<1\), Corollary~\ref{cor:cyclic-family} gives fractional D-stability for \(\gamma<R_3(\alpha)\), and \(R_3(\alpha)>2\) because
+\[
+T_\alpha(1,1,1)>T_1(1,1,1)=9.
+\]
+Choose \(2<\gamma<R_3(\alpha)\). In both regimes the defining inequalities are strict, so the difference class contains an open neighborhood of the chosen matrix.
+\end{proof}
+
+The proof-complete technical version of the manuscript also develops a global parametrization of the threshold surface, exact invariant-space sensitivities, the \(\alpha\downarrow2/3\) asymptotic, a closed-form sufficient certificate, and a general realizability theorem. Those secondary results are retained in the accompanying technical manuscript and reproducibility archive but are not needed for the central elimination theorem or the minimum-dimension conclusion.
