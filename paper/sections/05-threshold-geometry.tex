@@ -1406,25 +1406,31 @@ n:
 \begin{proof}
 For \(n=1\), fractional asymptotic stability and Hurwitz stability are identical for a real scalar, so the difference class is empty. For \(n=2\), Corollary~\ref{cor:2x2-empty-interior} gives empty interior.
 
-It remains to show a nonempty open difference class in dimension three.
+For dimension three use the explicit family \(A_\gamma\) above. It satisfies \(-A_\gamma\) strict P for every \(\gamma>0\), and it is Hurwitz D-stable exactly when \(\gamma<2\).
 
-If \(2/3<\alpha<1\), Lemma~\ref{lem:Talpha-gt-T1} gives
+If \(0<\alpha\le2/3\), Kellogg's theorem gives
 \[
-T_\alpha(\beta)>T_1(\beta)
+A_\gamma\in\mathcal F_\alpha^{(3)}
+\qquad
+\forall\gamma>0.
 \]
-for every \(\beta>0\). Choose any
-\[
-\kappa
-\in
-(T_1(\beta),T_\alpha(\beta)).
-\]
-By Theorem~\ref{thm:realizability}, this invariant point is realized by a real strict-\(P(-A)\) matrix. Corollary~\ref{cor:exact-band} then places \(A\) in the interior of the genuinely fractional difference class.
+Hence every \(\gamma>2\) gives a strict-P matrix in the genuinely fractional difference class. Because strict P is open and the classical D-stability failure is strict, matrices sufficiently close to \(A_\gamma\) remain in the difference class.
 
-If \(0<\alpha\le2/3\), choose any \(\beta>0\) and any
+If \(2/3<\alpha<1\), Corollary~\ref{cor:cyclic-family} gives
 \[
-\kappa>T_1(\beta).
+A_\gamma\in\mathcal F_\alpha^{(3)}
+\iff
+\gamma<R_3(\alpha).
 \]
-Theorem~\ref{thm:realizability} again gives a real strict-\(P(-A)\) matrix. Kellogg's theorem yields fractional D-stability, while \(\kappa>T_1\) excludes classical Hurwitz D-stability. The defining inequalities are strict, so an open neighborhood remains in the difference class.
+Moreover \(R_3(\alpha)>2\) for every \(\alpha<1\): indeed Corollary~\ref{cor:symmetric-slice} and \(T_\alpha(1,1,1)>T_1(1,1,1)=9\) imply
+\[
+1+R_3(\alpha)^3>9.
+\]
+Choose any
+\[
+2<\gamma<R_3(\alpha).
+\]
+Then \(A_\gamma\) is fractionally D-stable but not Hurwitz D-stable. Both inequalities are strict, so Corollary~\ref{cor:exact-band} yields an open neighborhood of genuinely fractional matrices.
 
-Therefore dimension three is minimal.
+Thus the difference class has nonempty interior in dimension three and in no smaller real dimension.
 \end{proof}
