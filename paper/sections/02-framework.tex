@@ -1,26 +1,49 @@
 \section{Positive-diagonal Matignon stability and orbit reduction}
+\label{sec:framework}
 
-For \(0<\alpha<1\), define
+For a commensurate Caputo system
+\[
+{}^C D_t^\alpha x(t)=Ax(t),
+\qquad
+0<\alpha<1,
+\]
+asymptotic stability is equivalent to the angular condition
+\[
+|\arg\lambda|>\frac{\alpha\pi}{2}
+\qquad
+\text{for every }\lambda\in\sigma(A),
+\]
+with zero excluded \citep{Matignon1996,BrandiburGarrappaKaslik2021}. We therefore define
 \[
 \Sigma_\alpha
 =
-\{z\in\mathbb C\setminus\{0\}:|\arg z|>\alpha\pi/2\}.
+\left\{
+z\in\mathbb C\setminus\{0\}:
+|\arg z|>\frac{\alpha\pi}{2}
+\right\}.
 \]
 
-\begin{definition}
+\begin{definition}[Positive-diagonal Matignon stability]
 For \(A\in\mathbb R^{n\times n}\), define
 \[
 \mathcal F_\alpha^{(n)}
 =
-\{A:\sigma(DA)\subset\Sigma_\alpha\ \text{for every positive diagonal }D\},
+\left\{
+A:
+\sigma(DA)\subset\Sigma_\alpha
+\text{ for every }D\succ0\text{ diagonal}
+\right\}.
 \]
-and let
+The classical Hurwitz D-stable class is
 \[
 \mathcal D_H^{(n)}
 =
-\{A:DA\ \text{is Hurwitz for every positive diagonal }D\}.
+\left\{
+A:
+DA\text{ is Hurwitz for every }D\succ0\text{ diagonal}
+\right\},
 \]
-The genuinely fractional difference class is
+and the genuinely fractional difference class is
 \[
 \mathcal P_\alpha^{(n)}
 =
@@ -30,57 +53,175 @@ The genuinely fractional difference class is
 \]
 \end{definition}
 
-The definition is an instance of generalized multiplicative region D-stability \citep{Kushel2019,KushelPavani2022}. The distinctive feature here is that \(\Sigma_\alpha\) is a reflex sector: for \(\alpha<1\) it contains a nonempty right-half-plane sliver.
+The definition is a multiplicative generalized region-D-stability problem in the sense of \citet{Kushel2019}. Kushel and Pavani \citep{KushelPavani2022} provide an abstract forbidden-boundary criterion for positive-diagonal stability in conic regions and their complements. The aim here is different: in dimension three we explicitly eliminate the universal diagonal multiplier and obtain a closed invariant-space threshold.
 
-\subsection{Standard orbit normalization}
-
-Assume \(-A\) is a strict P-matrix and define, for nonempty \(I\subseteq\{1,\ldots,n\}\),
+Two elementary observations will be used repeatedly. First, left and right multiplication by the same positive diagonal matrix have the same spectrum:
 \[
-m_I=(-1)^{|I|}\det A[I]>0,
-\qquad
+DA=D(AD)D^{-1}.
+\]
+Hence the left-multiplier convention used here is spectrally equivalent to the right-multiplier convention common in the classical D-stability literature. Second, multiplication of all eigenvalues by the same positive scalar does not change their arguments. The positive diagonal orbit is therefore naturally projective.
+
+\subsection{Principal-minor coordinates}
+
+Assume that \(-A\) is a strict P-matrix. For every nonempty index set
+\[
+I\subseteq\{1,\dots,n\},
+\]
+define the signed principal minor
+\[
+m_I
+=
+(-1)^{|I|}\det A[I].
+\]
+Then \(m_I>0\). In particular,
+\[
 p_i=m_{\{i\}}=-a_{ii}>0.
 \]
-For \(|I|\ge2\), set
+For \(|I|\ge2\), define the normalized principal-minor coordinate
 \[
 \beta_I
 =
 \frac{m_I}{\prod_{i\in I}p_i}.
 \]
 
-Let \(D=\operatorname{diag}(d_1,\ldots,d_n)\succ0\) and write
+\begin{lemma}[Positive-diagonal orbit reduction]
+\label{lem:simplex-reduction}
+Let \(-A\) be a strict P-matrix and let
+\[
+D=\operatorname{diag}(d_1,\dots,d_n)\succ0.
+\]
+Write
 \[
 \det(\lambda I-DA)
 =
 \lambda^n+c_1(D)\lambda^{n-1}+\cdots+c_n(D).
 \]
-The characteristic-coefficient/principal-minor identity gives
+Then
 \[
 c_k(D)
 =
-\sum_{|I|=k}m_I\prod_{i\in I}d_i.
+\sum_{\substack{I\subseteq[n]\\|I|=k}}
+m_I\prod_{i\in I}d_i.
 \]
-With
+If
 \[
-s=c_1(D)=\sum_i p_id_i,
-\qquad
-x_i=\frac{p_id_i}{s},
+s=c_1(D)=\sum_{i=1}^n p_i d_i
 \]
-we have \(x\in\Delta_{n-1}^\circ\), and every point of the open simplex is realized by a positive diagonal \(D\), uniquely modulo a common positive scalar. Therefore
+and
+\[
+x_i=\frac{p_i d_i}{s},
+\]
+then \(x\in\Delta_{n-1}^\circ\), where
+\[
+\Delta_{n-1}^\circ
+=
+\left\{
+x_i>0:\sum_i x_i=1
+\right\},
+\]
+and
 \[
 \frac{c_k(D)}{s^k}
 =
 B_k(x)
 :=
-\sum_{|I|=k}\beta_I\prod_{i\in I}x_i.
+\sum_{\substack{I\subseteq[n]\\|I|=k}}
+\beta_I\prod_{i\in I}x_i.
 \]
-After the radial rescaling \(\lambda=sz\), which leaves eigenvalue arguments unchanged, the entire positive-diagonal orbit is represented by
-\[
-z^n+z^{n-1}+B_2(x)z^{n-2}+\cdots+B_n(x).
-\]
-This standard projective reduction is structural machinery rather than a novelty claim. Its role is to isolate the genuinely dimension-specific root-location problem.
+Conversely, every \(x\in\Delta_{n-1}^\circ\) arises from a positive diagonal \(D\), uniquely up to common positive scalar multiplication.
+\end{lemma}
 
-For \(n=3\), the nontrivial orbit data reduce to four invariants:
+\begin{proof}
+The coefficient of \(\lambda^{n-k}\) in the characteristic polynomial is
 \[
-\beta_{12},\quad\beta_{13},\quad\beta_{23},\quad
-\kappa=\frac{-\det A}{p_1p_2p_3}.
+(-1)^k
+\sum_{|I|=k}\det(DA[I]).
 \]
+Because \(D\) is diagonal,
+\[
+\det(DA[I])
+=
+\left(\prod_{i\in I}d_i\right)\det A[I].
+\]
+Hence
+\[
+c_k(D)
+=
+\sum_{|I|=k}
+(-1)^k\det A[I]\prod_{i\in I}d_i
+=
+\sum_{|I|=k}
+m_I\prod_{i\in I}d_i.
+\]
+Now substitute
+\[
+d_i=\frac{s x_i}{p_i}.
+\]
+For every \(|I|=k\),
+\[
+m_I\prod_{i\in I}d_i
+=
+s^k
+\frac{m_I}{\prod_{i\in I}p_i}
+\prod_{i\in I}x_i
+=
+s^k\beta_I\prod_{i\in I}x_i,
+\]
+which yields the normalized coefficient formula.
+
+Conversely, if \(x\in\Delta_{n-1}^\circ\) and \(s>0\) is arbitrary, then
+\[
+d_i=s\frac{x_i}{p_i}>0
+\]
+reconstructs a positive diagonal multiplier with the prescribed normalized coordinate. Changing \(s\) multiplies all \(d_i\) by the same positive scalar and changes no normalized coefficient.
+\end{proof}
+
+With the radial substitution
+\[
+\lambda=sz,
+\]
+the characteristic equation becomes
+\[
+z^n+z^{n-1}+B_2(x)z^{n-2}+\cdots+B_n(x)=0.
+\]
+Since \(s>0\), the arguments of the roots are unchanged. Thus the full positive diagonal orbit modulo common scale is exactly the open simplex.
+
+The number of nontrivial normalized principal-minor coordinates is
+\[
+\sum_{k=2}^n\binom nk
+=
+2^n-n-1.
+\]
+This count is four for \(n=3\) and eleven for \(n=4\). The reduction itself is standard structural machinery; the dimension-specific root geometry is where the exact problem begins.
+
+\subsection{The three-dimensional invariant coordinates}
+
+For \(n=3\), write
+\[
+p_i=-a_{ii},
+\qquad
+m_{12}=\det A[\{1,2\}],
+\quad
+m_{13}=\det A[\{1,3\}],
+\quad
+m_{23}=\det A[\{2,3\}],
+\]
+and
+\[
+q=-\det A.
+\]
+The four normalized orbit invariants are
+\[
+\beta_{12}=\frac{m_{12}}{p_1p_2},
+\qquad
+\beta_{13}=\frac{m_{13}}{p_1p_3},
+\qquad
+\beta_{23}=\frac{m_{23}}{p_2p_3},
+\qquad
+\kappa=\frac{q}{p_1p_2p_3}.
+\]
+They are invariant under positive left-diagonal scaling. Indeed, if
+\[
+E=\operatorname{diag}(e_1,e_2,e_3)\succ0,
+\]
+then \(p_i\), \(m_{ij}\), and \(q\) acquire the factors \(e_i\), \(e_ie_j\), and \(e_1e_2e_3\), respectively, so each ratio above is unchanged.
