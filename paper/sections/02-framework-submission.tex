@@ -1,0 +1,133 @@
+\section{Positive-diagonal Matignon stability and orbit reduction}
+\label{sec:framework}
+
+For the commensurate Caputo system
+\[
+{}^C D_t^\alpha x=Ax,\qquad 0<\alpha<1,
+\]
+asymptotic stability is equivalent to
+\[
+|\arg\lambda|>\alpha\pi/2
+\quad\forall\lambda\in\sigma(A),
+\]
+with zero excluded \cite{Matignon1996,BrandiburGarrappaKaslik2021}. Define
+\[
+\Sigma_\alpha=\{z\neq0:|\arg z|>\alpha\pi/2\}.
+\]
+
+\begin{definition}[Positive-diagonal Matignon stability]
+\[
+\mathcal F_\alpha^{(n)}
+=
+\{A:\sigma(DA)\subset\Sigma_\alpha\ \forall D\succ0\text{ diagonal}\},
+\]
+\[
+\mathcal D_H^{(n)}
+=
+\{A:DA\text{ Hurwitz }\forall D\succ0\text{ diagonal}\},
+\qquad
+\mathcal P_\alpha^{(n)}
+=
+\mathcal F_\alpha^{(n)}\setminus\mathcal D_H^{(n)}.
+\]
+\end{definition}
+
+All interiors are taken in the Euclidean topology of \(\mathbb R^{n\times n}\). Since
+\[
+DA=D(AD)D^{-1},
+\]
+left and right positive-diagonal multiplication are spectrally equivalent. A common positive scaling of \(D\) multiplies all eigenvalues by a positive scalar and therefore does not change their arguments. Thus the diagonal orbit is naturally projective. This is a special case of generalized region D-stability \cite{Kushel2019,KushelPavani2022}; our task is to eliminate the diagonal multiplier explicitly in low dimension.
+
+Assume \(-A\) is a strict P-matrix and define signed principal minors
+\[
+m_I=(-1)^{|I|}\det A[I]>0,
+\qquad
+p_i=m_{\{i\}}=-a_{ii}>0,
+\]
+and normalized minors
+\[
+\beta_I=\frac{m_I}{\prod_{i\in I}p_i},
+\qquad |I|\ge2.
+\]
+
+\begin{lemma}[Positive-diagonal orbit reduction]
+\label{lem:simplex-reduction}
+Let \(D=\operatorname{diag}(d_1,\dots,d_n)\succ0\) and
+\[
+\det(\lambda I-DA)
+=
+\lambda^n+c_1(D)\lambda^{n-1}+\cdots+c_n(D).
+\]
+Then
+\[
+c_k(D)=\sum_{|I|=k}m_I\prod_{i\in I}d_i.
+\]
+With
+\[
+s=c_1(D)=\sum_i p_i d_i,
+\qquad
+x_i=\frac{p_i d_i}{s},
+\]
+one has \(x\in\Delta_{n-1}^\circ\) and
+\[
+\frac{c_k(D)}{s^k}
+=
+B_k(x)
+=
+\sum_{|I|=k}\beta_I\prod_{i\in I}x_i.
+\]
+Conversely every \(x\in\Delta_{n-1}^\circ\) is obtained from a positive diagonal \(D\), uniquely up to common positive scale.
+\end{lemma}
+
+\begin{proof}
+The coefficient of \(\lambda^{n-k}\) is
+\[
+(-1)^k\sum_{|I|=k}\det(DA[I])
+=
+\sum_{|I|=k}m_I\prod_{i\in I}d_i,
+\]
+because \(D\) is diagonal. Substituting \(d_i=sx_i/p_i\) gives the normalized formula. Conversely, for any \(x\in\Delta_{n-1}^\circ\) and \(s>0\), the choice \(d_i=sx_i/p_i\) reconstructs \(D\).
+\end{proof}
+
+After \(\lambda=sz\), the normalized characteristic polynomial is
+\[
+z^n+z^{n-1}+B_2(x)z^{n-2}+\cdots+B_n(x)=0.
+\]
+Thus the complete positive-diagonal orbit modulo scale is exactly the open simplex.
+
+For \(n=3\), write
+\[
+m_{ij}=\det A[\{i,j\}],
+\qquad
+q=-\det A,
+\]
+and define the four orbit invariants
+\[
+\beta_{12}=\frac{m_{12}}{p_1p_2},
+\quad
+\beta_{13}=\frac{m_{13}}{p_1p_3},
+\quad
+\beta_{23}=\frac{m_{23}}{p_2p_3},
+\quad
+\kappa=\frac{q}{p_1p_2p_3}.
+\]
+Positive left-diagonal scaling multiplies numerator and denominator of each ratio by the same row factors, so all four are invariant.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel01_spectral_geometry.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel02_dimension_threshold.pdf}
+\end{minipage}
+
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel03_simplex_objective.pdf}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=\linewidth]{panel04_cyclic_band.pdf}
+\end{minipage}
+\caption{Structural geometry of the problem. (a) The Matignon sector contains a right-half-plane sliver absent from Hurwitz stability. (b) The robust fractional-only class first acquires nonempty interior in dimension three. (c) A representative normalized simplex objective; Theorem~\ref{thm:strict-convexity} proves global strict convexity in logit coordinates. (d) The exact cyclic family exhibits the fractional band \(2<\gamma<R_3(\alpha)\).}
+\label{fig:overview-multipanel}
+\end{figure}
