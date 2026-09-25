@@ -46,3 +46,10 @@ Target:
 - retain all load-bearing proof steps necessary for referee verification.
 
 Do not compress the technical proof-complete version destructively. Preserve it as the source from which the SIMAX submission version is derived.
+
+
+## Compression benchmark
+
+The first compact submission derivation reduced the manuscript from 39 to 24 pages in the same neutral 11-point article layout while retaining the load-bearing theorem proofs.
+
+The decisive page-count test is now \`paper/submission-siam.tex\` with the current official SIAM standard class \`siamart251216.cls\`. Do not judge the 20-page policy from the neutral article count alone.
