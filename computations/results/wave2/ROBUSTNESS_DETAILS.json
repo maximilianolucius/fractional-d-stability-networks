@@ -1,0 +1,3676 @@
+{
+  "summary": {
+    "utc": "2026-09-25T17:18:09Z",
+    "baseline_sha": "a8f73dca967e20e90c4dbb7e4aa77d2d6b170497",
+    "workers": 14,
+    "git_sha": "n/a (synced working tree; see BASELINE_SHA)",
+    "n_witnesses": 14,
+    "witness_ids": [
+      "W01",
+      "W10",
+      "W14",
+      "W18",
+      "W22",
+      "W26",
+      "W28",
+      "W34",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07"
+    ],
+    "n_optimizations_slsqp_de": 748,
+    "n_directional_root_solves": 126756,
+    "n_optimizations_total": 127504,
+    "wall_seconds": 225.98,
+    "min_frobenius_upper_bound_to_fractional_boundary": 0.0029426526312657272,
+    "min_frobenius_upper_bound_to_cain_boundary": 0.004839987426411426,
+    "not_reached_cases": [
+      [
+        "W14",
+        "frac",
+        "frob"
+      ],
+      [
+        "W14",
+        "frac",
+        "max"
+      ],
+      [
+        "W18",
+        "frac",
+        "frob"
+      ],
+      [
+        "W18",
+        "frac",
+        "max"
+      ],
+      [
+        "W22",
+        "frac",
+        "frob"
+      ],
+      [
+        "W22",
+        "frac",
+        "max"
+      ],
+      [
+        "W26",
+        "frac",
+        "frob"
+      ],
+      [
+        "W26",
+        "frac",
+        "max"
+      ]
+    ],
+    "min_frobenius_exact_to_strictP_boundary": 0.0066663703967048925,
+    "labels": {
+      "frac/cain": "UPPER bounds, HP-refined (no certificate)",
+      "P": "EXACT (Eckart-Young) Frobenius; rigorous max-norm bounds"
+    }
+  },
+  "witnesses": {
+    "W01": {
+      "P3A": {
+        "m_frac": "5.3099677272044052438",
+        "m_Cain": "7.625",
+        "m_frac_over_Talpha": "0.242077754262",
+        "m_Cain_over_T1": "0.847222222222",
+        "band_position": "0.589487361763",
+        "dT_dbeta_[12,13,23]": [
+          "5.8398667762404182032",
+          "5.8398667762404182032",
+          "5.8398667762404182032"
+        ],
+        "dT_dalpha": "-241.37649145900464656",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.798706455674103",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.79870645567410252072",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "4.83986677624042",
+          "4.83986677624042",
+          "4.83986677624042"
+        ],
+        "d_mfrac_dalpha": "-241.376491459005",
+        "alpha_to_fractional_boundary_first_order": "0.02199869463",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W01",
+        "alpha": 0.9,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-5/2"
+          ],
+          [
+            "5/2",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "5/2",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 5.309967727204413,
+            "L_local_first_order": {
+              "frob": 0.14790966642583356,
+              "max": 0.052097324322232866
+            },
+            "D_directional_scan": {
+              "frob": 0.14803256955824795,
+              "max": 0.07244634961584473
+            },
+            "frob": {
+              "best_upper_bound_float": 0.1297802102504157,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.1297802102504157,
+              "G_de": 0.14868630988108666,
+              "hp_refined_bound": "0.129780210250419447247078112171",
+              "hp_residual": "3.2518e-41",
+              "perturbation_matrix": [
+                [
+                  "0.060425763110109312866",
+                  "0.038501176497173448702",
+                  "-0.021924591113568225713"
+                ],
+                [
+                  "0.021924580862955604619",
+                  "0.060425761582654747213",
+                  "0.038501176913780968948"
+                ],
+                [
+                  "-0.03850118755007948352",
+                  "0.021924581304161092505",
+                  "0.060425761040344654069"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.8774288617268396
+            },
+            "max": {
+              "best_upper_bound_float": 0.04645618610653639,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.04645618610653639,
+              "G_de": 0.09800572738195387,
+              "hp_refined_bound": "0.0464561861065363332114661430656",
+              "hp_residual": "-4.0028e-40",
+              "perturbation_matrix": [
+                [
+                  "0.046456186106535861284",
+                  "0.046456186106536054697",
+                  "-0.046456186106536240373"
+                ],
+                [
+                  "0.046456186106536039224",
+                  "0.046456186106536163008",
+                  "0.046456186106535861284"
+                ],
+                [
+                  "-0.046456186106536054697",
+                  "0.046456186106536333211",
+                  "0.046456186106536302265"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.8917192333946968
+            }
+          },
+          "cain": {
+            "g0": 7.6250000000000036,
+            "L_local_first_order": {
+              "frob": 0.25076140915533374,
+              "max": 0.0945736434131308
+            },
+            "D_directional_scan": {
+              "frob": 0.4075811770721401,
+              "max": 0.19873709209848975
+            },
+            "frob": {
+              "best_upper_bound_float": 0.3535533905932738,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.3535533905932738,
+              "G_de": 0.3699033216415081,
+              "hp_refined_bound": "0.35355339059327400555734132563",
+              "hp_residual": "9.1835e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.1666666673404735485",
+                  "-0.083333335768451410372",
+                  "0.083333324069519721857"
+                ],
+                [
+                  "-0.083333330921904914972",
+                  "-0.16666666801242727412",
+                  "-0.083333335234765355168"
+                ],
+                [
+                  "0.083333326993729579949",
+                  "-0.08333333722872269222",
+                  "-0.16666666953855235518"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.4099194600324874
+            },
+            "max": {
+              "best_upper_bound_float": 0.12500000000000033,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.12500000000000033,
+              "G_de": 0.19756991991356906,
+              "hp_refined_bound": "0.125000000000000301841884819965",
+              "hp_residual": "-1.8367e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.12500000000000013531",
+                  "-0.12500000000000007286",
+                  "0.12499999999999984387"
+                ],
+                [
+                  "-0.12500000000000030184",
+                  "-0.12499999999999998959",
+                  "-0.12500000000000005204"
+                ],
+                [
+                  "0.12500000000000026021",
+                  "-0.12499999999999998959",
+                  "-0.12499999999999961489"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.3217213114435757
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.42884501393099506,
+              "max": 0.1904761904737342
+            },
+            "D_directional_scan": {
+              "frob": 0.37977240598936635,
+              "max": 0.2397958488599971
+            },
+            "frob": {
+              "best_upper_bound_float": 0.3507810593582125,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.3507810593582125,
+              "G_de": 0.35930565752237154,
+              "hp_refined_bound": "0.350781059358212564996209479316",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "0.10956559175594596917",
+                  "0.31234752645576918459",
+                  "-6.9470830139922456613e-9"
+                ],
+                [
+                  "0.038433532760702111023",
+                  "0.10956559215435110484",
+                  "-7.6899058716643205817e-9"
+                ],
+                [
+                  "-8.2133763084597812775e-9",
+                  "-4.172921266107416133e-9",
+                  "-6.4685705617493643177e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.8179669763273878
+            },
+            "max": {
+              "best_upper_bound_float": 0.22222222222222238,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.22222222222222238,
+              "G_de": 0.22306203781042974,
+              "hp_refined_bound": "0.222222222222222381929479992746",
+              "hp_residual": "3.8456e-39",
+              "perturbation_matrix": [
+                [
+                  "-0.11552245128057042972",
+                  "0.10491556826139979412",
+                  "0.038010242561128732516"
+                ],
+                [
+                  "-0.17982227444984148881",
+                  "0.22222222222222238193",
+                  "0.22222222222222232091"
+                ],
+                [
+                  "-0.21545116173614257854",
+                  "0.22222222222222213785",
+                  "0.22222222222222174122"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.166666666681712
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.35078105935821217162",
+                "m13": "0.35078105935821217162",
+                "m23": "0.35078105935821217162",
+                "q": "2.1794494717703367761"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.35078105935821217162",
+              "max_norm_lower_bound_rigorous": "0.11692701978607072387",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 214.0
+      }
+    },
+    "W10": {
+      "P3A": {
+        "m_frac": "83.715494146741627374",
+        "m_Cain": "4.0",
+        "m_frac_over_Talpha": "0.865585135922",
+        "m_Cain_over_T1": "0.444444444444",
+        "band_position": "0.0456019776085",
+        "dT_dbeta_[12,13,23]": [
+          "17.350158350258427813",
+          "17.350158350258427813",
+          "17.350158350258427813"
+        ],
+        "dT_dalpha": "-1975.4624249152884603",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.538181348396998",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.53818134839699703701",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "16.3501583502584",
+          "16.3501583502584",
+          "16.3501583502584"
+        ],
+        "d_mfrac_dalpha": "-1975.46242491529",
+        "alpha_to_fractional_boundary_first_order": "0.0423776697",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W10",
+        "alpha": 0.8,
+        "A": [
+          [
+            "-1",
+            "-3",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "-2"
+          ],
+          [
+            "-2",
+            "0",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 83.71549414674162,
+            "L_local_first_order": {
+              "frob": 1.1763445193285431,
+              "max": 0.5029434463249113
+            },
+            "D_directional_scan": {
+              "frob": 0.8746284485390259,
+              "max": 0.6605921444095147
+            },
+            "frob": {
+              "best_upper_bound_float": 0.8746284485390259,
+              "best_method": "scan",
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": "0.874628448539347511362938111287",
+              "hp_residual": "-2.1436e-37",
+              "perturbation_matrix": [
+                [
+                  "0.87462844853934751136",
+                  "0.0",
+                  "0.0"
+                ],
+                [
+                  "0.0",
+                  "0.0",
+                  "0.0"
+                ],
+                [
+                  "0.0",
+                  "0.0",
+                  "0.0"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.743513855140213
+            },
+            "max": {
+              "best_upper_bound_float": 0.6605921444095147,
+              "best_method": "scan",
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": "0.660592144409413450940528845349",
+              "hp_residual": "5.0222e-40",
+              "perturbation_matrix": [
+                [
+                  "0.56446011650662552189",
+                  "-0.20915562435917066324",
+                  "-0.041550246531976753375"
+                ],
+                [
+                  "-0.05194672802552447575",
+                  "0.11022582447067787266",
+                  "-0.31367706545087880122"
+                ],
+                [
+                  "0.65228561933369822963",
+                  "-0.050839841373400732964",
+                  "0.66059214440941345094"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.3134521370873165
+            }
+          },
+          "cain": {
+            "g0": 4.0,
+            "L_local_first_order": {
+              "frob": 0.16495721976093866,
+              "max": 0.06060606060316241
+            },
+            "D_directional_scan": {
+              "frob": 0.23211889533821353,
+              "max": 0.12111017727139693
+            },
+            "frob": {
+              "best_upper_bound_float": 0.20220836765349975,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.20220836765349975,
+              "G_de": 0.24640876881528892,
+              "hp_refined_bound": "0.202208367653524561066221638607",
+              "hp_residual": "5.5101e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.093667003269774115489",
+                  "0.035137045071825725428",
+                  "0.041665842129841670862"
+                ],
+                [
+                  "0.060150799292775241841",
+                  "-0.093667001395934899587",
+                  "0.054515263575475422514"
+                ],
+                [
+                  "0.054515268446066590584",
+                  "0.04166582828138231194",
+                  "-0.095250021532307180284"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.2258230827759262
+            },
+            "max": {
+              "best_upper_bound_float": 0.07170497401855551,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.07170497401855551,
+              "G_de": 0.13824891684876844,
+              "hp_refined_bound": "0.0717049740185613399102876678998",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.071704974018560551786",
+                  "0.071704974018561304086",
+                  "0.071704974018560527903"
+                ],
+                [
+                  "0.071704974018561041378",
+                  "-0.071704974018560480138",
+                  "0.071704974018560945848"
+                ],
+                [
+                  "0.07170497401856133991",
+                  "0.071704974018560802553",
+                  "-0.071704974018560193548"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.1831320713627436
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.4472135955044757,
+              "max": 0.2000000000009102
+            },
+            "D_directional_scan": {
+              "frob": 0.31560284678516315,
+              "max": 0.21895844581471463
+            },
+            "frob": {
+              "best_upper_bound_float": 0.30277563773199506,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.30277563773199506,
+              "G_de": 0.3097807774600106,
+              "hp_refined_bound": "0.302775637731995108430498916403",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "0.083974850600284604182",
+                  "-0.025425533438734567489",
+                  "-4.9489800509050993713e-9"
+                ],
+                [
+                  "-0.2773501001804686665",
+                  "0.083974850103562459698",
+                  "-7.0176592552839051887e-9"
+                ],
+                [
+                  "-7.0176592552839051887e-9",
+                  "-4.8493671843458956559e-9",
+                  "-8.6505267947035876243e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.6770269078927519
+            },
+            "max": {
+              "best_upper_bound_float": 0.20000000000000018,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.20000000000000018,
+              "G_de": 0.3081966202056791,
+              "hp_refined_bound": "0.200000000000000180944257607361",
+              "hp_residual": "9.4131e-40",
+              "perturbation_matrix": [
+                [
+                  "0.20000000000000018094",
+                  "-0.19999999999999998668",
+                  "-0.19992367961637214889"
+                ],
+                [
+                  "-0.20000000000000004218",
+                  "0.19999999999999965365",
+                  "0.0"
+                ],
+                [
+                  "0.0",
+                  "-0.19992367961637201012",
+                  "0.10000000000489597862"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.9999999999954499
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.30277563773199464656",
+                "m13": "0.4142135623730950488",
+                "m23": "0.4142135623730950488",
+                "q": "1.6963927793470976839"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.30277563773199464656",
+              "max_norm_lower_bound_rigorous": "0.10092521257733154885",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 141.3
+      }
+    },
+    "W14": {
+      "P3A": {
+        "m_frac": "6137.5441476022891267",
+        "m_Cain": "9.875",
+        "m_frac_over_Talpha": "0.994752767544",
+        "m_Cain_over_T1": "0.438888888889",
+        "band_position": "0.00160636516933",
+        "dT_dbeta_[12,13,23]": [
+          "275.21875045772138416",
+          "275.21875045772138416",
+          "275.21875045772138416"
+        ],
+        "dT_dalpha": "-505737.74375585366007",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.334549056325163",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.33454905632516469704",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "274.218750457721",
+          "274.218750457721",
+          "274.218750457721"
+        ],
+        "d_mfrac_dalpha": "-505737.743755854",
+        "alpha_to_fractional_boundary_first_order": "0.0121358238",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W14",
+        "alpha": 0.7,
+        "A": [
+          [
+            "-1",
+            "-3",
+            "-1/2"
+          ],
+          [
+            "1/2",
+            "-1",
+            "3"
+          ],
+          [
+            "3",
+            "-1/2",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 6137.544147602294,
+            "L_local_first_order": {
+              "frob": 3.0762551181105806,
+              "max": 1.1711997405612715
+            },
+            "D_directional_scan": {
+              "frob": null,
+              "max": null
+            },
+            "frob": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            },
+            "max": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            }
+          },
+          "cain": {
+            "g0": 9.874999999999993,
+            "L_local_first_order": {
+              "frob": 0.24561299943556084,
+              "max": 0.09371293001413311
+            },
+            "D_directional_scan": {
+              "frob": 0.4041672652481642,
+              "max": 0.18722310951862695
+            },
+            "frob": {
+              "best_upper_bound_float": 0.35355339059327306,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.35355339059327306,
+              "G_de": 0.36975202840587484,
+              "hp_refined_bound": "0.353553390593274173053018534529",
+              "hp_residual": "1.102e-39",
+              "perturbation_matrix": [
+                [
+                  "-0.1666666679095181072",
+                  "0.083333324780488975128",
+                  "-0.08333334194931742634"
+                ],
+                [
+                  "0.083333325834055291986",
+                  "-0.16666666634265246329",
+                  "-0.083333331197788830193"
+                ],
+                [
+                  "-0.083333338455800658611",
+                  "-0.083333339779849943511",
+                  "-0.16666666474917889425"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.4394734456472917
+            },
+            "max": {
+              "best_upper_bound_float": 0.12499999999998077,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.12499999999998077,
+              "G_de": 0.18654411722983055,
+              "hp_refined_bound": "0.125000000000002461572612411094",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.1249999999999986313",
+                  "0.1249999999999995056",
+                  "-0.12500000000000004684"
+                ],
+                [
+                  "0.12499999999999996357",
+                  "-0.12500000000000004684",
+                  "-0.12500000000000237831"
+                ],
+                [
+                  "-0.12500000000000246157",
+                  "-0.12499999999999985949",
+                  "-0.12499999999999921417"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.3338607594611456
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 1.1547005383460474,
+              "max": 0.6666666666474962
+            },
+            "D_directional_scan": {
+              "frob": 0.8068703918390422,
+              "max": 0.5809854486179283
+            },
+            "frob": {
+              "best_upper_bound_float": 0.7655644370746391,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.7655644370746391,
+              "G_de": 1.0000000000108968,
+              "hp_refined_bound": "0.7655644370746380035288886742",
+              "hp_residual": "1.1479e-41",
+              "perturbation_matrix": [
+                [
+                  "-1.1508184955645996214e-8",
+                  "-1.2512332961473070496e-8",
+                  "-1.3849317765447263225e-8"
+                ],
+                [
+                  "-1.6392998751860024877e-8",
+                  "0.1899131621671932712",
+                  "0.050434177264420129783"
+                ],
+                [
+                  "-9.6691471445021519527e-9",
+                  "0.71513025666654561183",
+                  "0.18991315887206321187"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.6629982507596357
+            },
+            "max": {
+              "best_upper_bound_float": 0.5555555555555575,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.5555555555555575,
+              "G_de": 0.9162827417885693,
+              "hp_refined_bound": "0.555555555555557450423913418462",
+              "hp_residual": "7.4789e-39",
+              "perturbation_matrix": [
+                [
+                  "0.5555555555555555471",
+                  "-0.53184293611309086105",
+                  "0.5555555555555555471"
+                ],
+                [
+                  "0.52887875740275536736",
+                  "0.12372574912127319445",
+                  "0.25411940477455129352"
+                ],
+                [
+                  "0.55555555555555745042",
+                  "-0.062993753310863933175",
+                  "0.55555555555555539483"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.8333333333572993
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.76556443707463741309",
+                "m13": "0.76556443707463741309",
+                "m23": "0.76556443707463741309",
+                "q": "3.0413812651491098445"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.76556443707463741309",
+              "max_norm_lower_bound_rigorous": "0.25518814569154580436",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 52,
+        "n_root_solves": 9054,
+        "seconds": 133.7
+      }
+    },
+    "W18": {
+      "P3A": {
+        "m_frac": "4981.4891430065662495",
+        "m_Cain": "1.7573593128807148536",
+        "m_frac_over_Talpha": "0.997946607444",
+        "m_Cain_over_T1": "0.206927312437",
+        "band_position": "0.00035265349849",
+        "dT_dbeta_[12,13,23]": [
+          "274.71047298416747141",
+          "287.98007424399269313",
+          "260.18231751534770067"
+        ],
+        "dT_dalpha": "-435573.57813304942593",
+        "dT1_dbeta_[12,13,23]": [
+          "2.9142135623730950488",
+          "5.8284271247461900976",
+          "2.0606601717798212866"
+        ],
+        "elasticity_E(B*)": "0.173701009154419",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.17370100915442016756",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "273.710472984167",
+          "286.980074243993",
+          "259.182317515348"
+        ],
+        "d_mfrac_dalpha": "-435573.578133049",
+        "alpha_to_fractional_boundary_first_order": "0.01143661919",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W18",
+        "alpha": 0.7,
+        "A": [
+          [
+            "-1",
+            "-3",
+            "-1/2"
+          ],
+          [
+            "0",
+            "-1",
+            "-2"
+          ],
+          [
+            "-3/2",
+            "1/2",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 4981.48914300657,
+            "L_local_first_order": {
+              "frob": 4.403140821421585,
+              "max": 1.9484347764336176
+            },
+            "D_directional_scan": {
+              "frob": null,
+              "max": null
+            },
+            "frob": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            },
+            "max": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            }
+          },
+          "cain": {
+            "g0": 1.7573593128807161,
+            "L_local_first_order": {
+              "frob": 0.07571857441494867,
+              "max": 0.0281800582533642
+            },
+            "D_directional_scan": {
+              "frob": 0.10346644037342159,
+              "max": 0.05606958709568688
+            },
+            "frob": {
+              "best_upper_bound_float": 0.08475290375420577,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.08475290375420577,
+              "G_de": 0.09519266859771537,
+              "hp_refined_bound": "0.0847529037542059778512755469457",
+              "hp_residual": "5.5101e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.044762567071525940365",
+                  "0.011677994707018915594",
+                  "0.024985829726795962552"
+                ],
+                [
+                  "0.023489351974195301731",
+                  "-0.029039240366150039461",
+                  "0.01533470379540945333"
+                ],
+                [
+                  "0.032238198155195112754",
+                  "0.009836695207849272088",
+                  "-0.040650433771534032986"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.1193145725347082
+            },
+            "max": {
+              "best_upper_bound_float": 0.030989785671746248,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.030989785671746248,
+              "G_de": 0.06770069239355739,
+              "hp_refined_bound": "0.0309897856717476613706246924537",
+              "hp_residual": "-5.5101e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.030989785671747506546",
+                  "0.030989785671747233021",
+                  "0.030989785671747444616"
+                ],
+                [
+                  "0.03098978567174685628",
+                  "-0.030989785671747661371",
+                  "0.030989785671747583958"
+                ],
+                [
+                  "0.030989785671747233021",
+                  "0.030989785671747036909",
+                  "-0.030989785671747522028"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0997062317302562
+            }
+          },
+          "P": {
+            "g0": 0.25,
+            "L_local_first_order": {
+              "frob": 0.11785113019969959,
+              "max": 0.06250000000109399
+            },
+            "D_directional_scan": {
+              "frob": 0.12899456638814438,
+              "max": 0.0686935521987934
+            },
+            "frob": {
+              "best_upper_bound_float": 0.11803398874989401,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.11803398874989401,
+              "G_de": 0.11811016627162645,
+              "hp_refined_bound": "0.118033988749898523428920831343",
+              "hp_residual": "-1.1479e-41",
+              "perturbation_matrix": [
+                [
+                  "0.052786404586723567552",
+                  "-6.4004285397360734508e-9",
+                  "-0.085410211236530418673"
+                ],
+                [
+                  "-8.3682444061377255263e-10",
+                  "-7.8404044733654235437e-9",
+                  "-8.1212373719218823681e-9"
+                ],
+                [
+                  "-0.03262377987982245829",
+                  "-7.3556674213622839936e-9",
+                  "0.052786388339247282362"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.0015516062500596
+            },
+            "max": {
+              "best_upper_bound_float": 0.06250000000000007,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.06250000000000007,
+              "G_de": 0.06270669148065429,
+              "hp_refined_bound": "0.0625000000000000663056417610599",
+              "hp_residual": "1.0102e-39",
+              "perturbation_matrix": [
+                [
+                  "0.062500000000000021542",
+                  "0.008348843592522918447",
+                  "-0.062500000000000066306"
+                ],
+                [
+                  "0.034970742112054452921",
+                  "0.042809530646317546743",
+                  "0.059958029822317618626"
+                ],
+                [
+                  "-0.062499999999999788773",
+                  "-0.060538640322999170381",
+                  "0.062499999999999994684"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.9999999999824973
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.30277563773199464656",
+                "m13": "0.1180339887498948482",
+                "m23": "0.85078105935821217162",
+                "q": "1.4113567375251491831"
+              },
+              "min_component": "m13",
+              "frobenius_exact": "0.1180339887498948482",
+              "max_norm_lower_bound_rigorous": "0.039344662916631616068",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 52,
+        "n_root_solves": 9054,
+        "seconds": 130.5
+      }
+    },
+    "W22": {
+      "P3A": {
+        "m_frac": "4719.9397010403383697",
+        "m_Cain": "0.75",
+        "m_frac_over_Talpha": "0.998519126445",
+        "m_Cain_over_T1": "0.12",
+        "band_position": "0.000158875089764",
+        "dT_dbeta_[12,13,23]": [
+          "282.5571221542874812",
+          "269.73268560710760099",
+          "269.73268560710760099"
+        ],
+        "dT_dalpha": "-419446.6084568936571",
+        "dT1_dbeta_[12,13,23]": [
+          "5.0",
+          "2.5",
+          "2.5"
+        ],
+        "elasticity_E(B*)": "0.129069692092435",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.12906969209243581407",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "281.557122154287",
+          "268.732685607108",
+          "268.732685607108"
+        ],
+        "d_mfrac_dalpha": "-419446.608456894",
+        "alpha_to_fractional_boundary_first_order": "0.01125277832",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W22",
+        "alpha": 0.7,
+        "A": [
+          [
+            "-1",
+            "-3/2",
+            "0"
+          ],
+          [
+            "-1/2",
+            "-1",
+            "-3"
+          ],
+          [
+            "-3",
+            "0",
+            "-2"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 4719.939701040353,
+            "L_local_first_order": {
+              "frob": 5.99699560201767,
+              "max": 2.596907837035139
+            },
+            "D_directional_scan": {
+              "frob": null,
+              "max": null
+            },
+            "frob": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            },
+            "max": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            }
+          },
+          "cain": {
+            "g0": 0.7500000000000018,
+            "L_local_first_order": {
+              "frob": 0.04330014259700515,
+              "max": 0.016901408451400497
+            },
+            "D_directional_scan": {
+              "frob": 0.051271486933541166,
+              "max": 0.0287585581981604
+            },
+            "frob": {
+              "best_upper_bound_float": 0.046194829735295796,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.046194829735295796,
+              "G_de": 0.04961070411080021,
+              "hp_refined_bound": "0.0461948297352959193247411606593",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.025702853551501467119",
+                  "0.017818677194781020628",
+                  "0.0068581539537474755661"
+                ],
+                [
+                  "0.01522935278986312095",
+                  "-0.02570285319521292517",
+                  "0.0063403087108477828394"
+                ],
+                [
+                  "0.0063403056864119194147",
+                  "0.0068581590535671167532",
+                  "-0.0094224676086009451107"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0668516768000402
+            },
+            "max": {
+              "best_upper_bound_float": 0.017769690562174492,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.017769690562174492,
+              "G_de": 0.0286549739387922,
+              "hp_refined_bound": "0.0177696905621744786054895792849",
+              "hp_residual": "-9.1835e-41",
+              "perturbation_matrix": [
+                [
+                  "-0.017769690562174440135",
+                  "0.017769690562174478605",
+                  "0.017769690562174120536"
+                ],
+                [
+                  "0.017769690562174298091",
+                  "-0.017769690562174431258",
+                  "0.017769690562174126455"
+                ],
+                [
+                  "0.01776969056217430401",
+                  "0.017769690562174235947",
+                  "-0.017769690562174268499"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0513733582186784
+            }
+          },
+          "P": {
+            "g0": 0.25,
+            "L_local_first_order": {
+              "frob": 0.11785113019969959,
+              "max": 0.06250000000109399
+            },
+            "D_directional_scan": {
+              "frob": 0.13068186886250802,
+              "max": 0.07466241613660406
+            },
+            "frob": {
+              "best_upper_bound_float": 0.11803398874989691,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.11803398874989691,
+              "G_de": 0.11815700869190507,
+              "hp_refined_bound": "0.118033988749896923307237803568",
+              "hp_residual": "-2.2959e-41",
+              "perturbation_matrix": [
+                [
+                  "0.05278639682668036265",
+                  "-0.032623799395859198225",
+                  "-7.467983054595747028e-9"
+                ],
+                [
+                  "-0.085410203243544046914",
+                  "0.052786396970639900191",
+                  "-7.4854573018630410776e-9"
+                ],
+                [
+                  "-7.4561787217755390685e-9",
+                  "-7.3028712188431690469e-9",
+                  "-7.4709898055764285077e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.001551606250084
+            },
+            "max": {
+              "best_upper_bound_float": 0.062499999998097924,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.062499999998097924,
+              "G_de": 0.06287033612836546,
+              "hp_refined_bound": "0.0625000000000002862939927841526",
+              "hp_residual": "-3.4682e-35",
+              "perturbation_matrix": [
+                [
+                  "0.062500000000000049282",
+                  "-0.062500000000000286294",
+                  "0.062499999999762864537"
+                ],
+                [
+                  "-0.062499999999999821387",
+                  "0.06250000000000007663",
+                  "0.0023964028939135365917"
+                ],
+                [
+                  "0.062499999999795316887",
+                  "-0.059353163848858844459",
+                  "0.00095370670149550478426"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.999999999952063
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "2.0",
+                "m12": "0.1180339887498948482",
+                "m13": "0.5401815134754529072",
+                "m23": "0.5401815134754529072",
+                "q": "1.5477379281259281042"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.1180339887498948482",
+              "max_norm_lower_bound_rigorous": "0.039344662916631616068",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 52,
+        "n_root_solves": 9054,
+        "seconds": 127.5
+      }
+    },
+    "W26": {
+      "P3A": {
+        "m_frac": "6064.8910909070977742",
+        "m_Cain": "0.11916848035314089087",
+        "m_frac_over_Talpha": "0.996876998665",
+        "m_Cain_over_T1": "0.00631161187097",
+        "band_position": "1.96485208197e-5",
+        "dT_dbeta_[12,13,23]": [
+          "295.97642866789415215",
+          "295.97642866789415215",
+          "240.60847833334930657"
+        ],
+        "dT_dalpha": "-502618.34394732245222",
+        "dT1_dbeta_[12,13,23]": [
+          "4.3452078799117147773",
+          "4.3452078799117147773",
+          "1.8528028654224417372"
+        ],
+        "elasticity_E(B*)": "0.314814887306544",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.31481488730654473417",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "294.976428667894",
+          "294.976428667894",
+          "239.608478333349"
+        ],
+        "d_mfrac_dalpha": "-502618.343947322",
+        "alpha_to_fractional_boundary_first_order": "0.0120665932",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W26",
+        "alpha": 0.7,
+        "A": [
+          [
+            "-1",
+            "-3",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "-3"
+          ],
+          [
+            "-3/2",
+            "3/2",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 6064.891090907116,
+            "L_local_first_order": {
+              "frob": 3.0753515395170656,
+              "max": 1.3307179104263789
+            },
+            "D_directional_scan": {
+              "frob": null,
+              "max": null
+            },
+            "frob": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            },
+            "max": {
+              "best_upper_bound_float": null,
+              "best_method": null,
+              "S_slsqp": null,
+              "G_de": null,
+              "hp_refined_bound": null,
+              "hp_residual": null,
+              "perturbation_matrix": null,
+              "label": "NOT REACHED: the strict-P boundary is crossed first along every tried direction (the target boundary is not the nearest boundary of the class)",
+              "ratio_to_local_first_order": null
+            }
+          },
+          "cain": {
+            "g0": 0.11916848035313166,
+            "L_local_first_order": {
+              "frob": 0.0048130337330586715,
+              "max": 0.0017744649963974748
+            },
+            "D_directional_scan": {
+              "frob": 0.005275664703025741,
+              "max": 0.0024918510562095954
+            },
+            "frob": {
+              "best_upper_bound_float": 0.004839987426410635,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.004839987426410635,
+              "G_de": 0.005393469505111881,
+              "hp_refined_bound": "0.00483998742641142582138507138916",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.0026353782927593036488",
+                  "0.0008813473017024702859",
+                  "0.00098595911613194133874"
+                ],
+                [
+                  "0.0019671825797137095682",
+                  "-0.0018813915737769756338",
+                  "0.00062972614974800909231"
+                ],
+                [
+                  "0.0017661990969557344719",
+                  "0.00050540143015089271356",
+                  "-0.0018842729796400225659"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0056001463623307
+            },
+            "max": {
+              "best_upper_bound_float": 0.0017832504982957839,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0017832504982957839,
+              "G_de": 0.0025106711321388054,
+              "hp_refined_bound": "0.00178325050970146952463242718003",
+              "hp_residual": "-3.6734e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.0017832505097005503998",
+                  "0.0017832505097006020727",
+                  "0.0017832505097007178914"
+                ],
+                [
+                  "0.001783250509700578612",
+                  "-0.0017832505097011624568",
+                  "0.0017832505097007083883"
+                ],
+                [
+                  "0.0017832505097014695246",
+                  "0.001783250509701252142",
+                  "-0.0017832505097012034387"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0049510708388982
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.5298129428262617,
+              "max": 0.26666666666491967
+            },
+            "D_directional_scan": {
+              "frob": 0.32706022871348994,
+              "max": 0.2126382431798124
+            },
+            "frob": {
+              "best_upper_bound_float": 0.3027756377319924,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.3027756377319924,
+              "G_de": 0.30316910405695213,
+              "hp_refined_bound": "0.302775637731995432468584096023",
+              "hp_residual": "2.2959e-41",
+              "perturbation_matrix": [
+                [
+                  "0.083974844299525270319",
+                  "-0.025425547086260574561",
+                  "-7.4869623988190697464e-9"
+                ],
+                [
+                  "-0.27735010210049347661",
+                  "0.083974845930772247802",
+                  "-7.1920481584811662363e-9"
+                ],
+                [
+                  "-7.4603291423840241692e-9",
+                  "-7.5143432621266582793e-9",
+                  "-7.65590668817521474e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.5714764839772511
+            },
+            "max": {
+              "best_upper_bound_float": 0.2000000000000003,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.2000000000000003,
+              "G_de": 0.20045658548390727,
+              "hp_refined_bound": "0.200000000000000281291458709761",
+              "hp_residual": "1.8367e-40",
+              "perturbation_matrix": [
+                [
+                  "0.19999999999999983432",
+                  "-0.19999999999999980453",
+                  "-0.1945568223745674385"
+                ],
+                [
+                  "-0.19999999999999998331",
+                  "0.20000000000000028129",
+                  "0.11854152152543760921"
+                ],
+                [
+                  "-0.077156781957172439224",
+                  "0.18488823325543605006",
+                  "-0.19000551122654681357"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.7500000000049145
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.30277563773199464656",
+                "m13": "0.5",
+                "m23": "1.7122144504490261804",
+                "q": "1.7064075999151960863"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.30277563773199464656",
+              "max_norm_lower_bound_rigorous": "0.10092521257733154885",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 52,
+        "n_root_solves": 9054,
+        "seconds": 147.0
+      }
+    },
+    "W28": {
+      "P3A": {
+        "m_frac": "0.14983051020693282322",
+        "m_Cain": "16.675444679663241336",
+        "m_frac_over_Talpha": "0.00505333445853",
+        "m_Cain_over_T1": "1.30027468892",
+        "band_position": "0.991094914733",
+        "dT_dbeta_[12,13,23]": [
+          "4.6676826592920248722",
+          "6.719348000008709378",
+          "6.719348000008709378"
+        ],
+        "dT_dalpha": "-307.44232080805138654",
+        "dT1_dbeta_[12,13,23]": [
+          "2.2649110640673517328",
+          "3.581138830084189666",
+          "3.581138830084189666"
+        ],
+        "elasticity_E(B*)": "0.846814373512324",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.84681437351232424456",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "3.66768265929202",
+          "5.71934800000871",
+          "5.71934800000871"
+        ],
+        "d_mfrac_dalpha": "-307.442320808051",
+        "alpha_to_fractional_boundary_first_order": "0.0004873451053",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W28",
+        "alpha": 0.9,
+        "A": [
+          [
+            "-1",
+            "-3",
+            "0"
+          ],
+          [
+            "1/2",
+            "-1",
+            "-3"
+          ],
+          [
+            "-3",
+            "0",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 0.14983051020694305,
+            "L_local_first_order": {
+              "frob": 0.0029517384390001563,
+              "max": 0.001066544091912899
+            },
+            "D_directional_scan": {
+              "frob": 0.0033857772311343976,
+              "max": 0.0018761012501019767
+            },
+            "frob": {
+              "best_upper_bound_float": 0.002942652631266444,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.002942652631266444,
+              "G_de": 0.003277895708934466,
+              "hp_refined_bound": "0.00294265263126572711270820013095",
+              "hp_residual": "1.2241e-39",
+              "perturbation_matrix": [
+                [
+                  "0.0012481831801191347637",
+                  "-0.00041516527325092094973",
+                  "-0.00099213520452135572296"
+                ],
+                [
+                  "-0.00063494751446735837482",
+                  "0.001248181919821736873",
+                  "-0.00052114987862517657482"
+                ],
+                [
+                  "-0.00052114849594571086485",
+                  "-0.00099213686096113271854",
+                  "0.0015671323607804066969"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9969218791158238
+            },
+            "max": {
+              "best_upper_bound_float": 0.0010637480038239657,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0010637480038239657,
+              "G_de": 0.001978113130511577,
+              "hp_refined_bound": "0.00106374800382393116589056797094",
+              "hp_residual": "5.0724e-39",
+              "perturbation_matrix": [
+                [
+                  "0.0010637480038235258475",
+                  "-0.0010637480038238826269",
+                  "-0.0010637480038239311659"
+                ],
+                [
+                  "-0.0010637480038237416158",
+                  "0.0010637480038234096374",
+                  "-0.0010637480038237990123"
+                ],
+                [
+                  "-0.0010637480038236335545",
+                  "-0.0010637480038236167253",
+                  "0.0010637480038234133575"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9973783661546347
+            }
+          },
+          "cain": {
+            "g0": 16.675444679663244,
+            "L_local_first_order": {
+              "frob": 0.34357748498500695,
+              "max": 0.13573341891534238
+            },
+            "D_directional_scan": {
+              "frob": 0.688103888842883,
+              "max": 0.3477324862626234
+            },
+            "frob": {
+              "best_upper_bound_float": 0.6029176441519225,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.6029176441519225,
+              "G_de": 0.7243338907935198,
+              "hp_refined_bound": "0.602917644151926165687540233294",
+              "hp_residual": "-3.6734e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.27420174384577248182",
+                  "0.13051895498819605639",
+                  "0.15853495110368559687"
+                ],
+                [
+                  "0.11098261119510923348",
+                  "-0.2742017445682316347",
+                  "0.14618936785005979673"
+                ],
+                [
+                  "0.14618935188343303475",
+                  "0.15853495151223850923",
+                  "-0.30128862495878376483"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.7548229162287297
+            },
+            "max": {
+              "best_upper_bound_float": 0.21383171850549743,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.21383171850549743,
+              "G_de": 0.41015081388322705,
+              "hp_refined_bound": "0.213831718505497575776738369811",
+              "hp_residual": "9.1835e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.21383171850549721968",
+                  "0.21383171850549711284",
+                  "0.21383171850549721968"
+                ],
+                [
+                  "0.21383171850549757578",
+                  "-0.21383171850549718407",
+                  "0.2138317185054969704"
+                ],
+                [
+                  "0.21383171850549689918",
+                  "0.21383171850549704162",
+                  "-0.2138317185054972909"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.5753800369448099
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.4364357804732788,
+              "max": 0.22222222222131466
+            },
+            "D_directional_scan": {
+              "frob": 0.3267272011244612,
+              "max": 0.21419561271334198
+            },
+            "frob": {
+              "best_upper_bound_float": 0.30277563773199473,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.30277563773199473,
+              "G_de": 0.30674299148554196,
+              "hp_refined_bound": "0.30277563773199499681477940064",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-8.0462324100470031045e-9",
+                  "-3.5748921225045873746e-9",
+                  "-4.2310020025984763515e-9"
+                ],
+                [
+                  "-3.1592023681235656831e-9",
+                  "0.083974847366707942909",
+                  "-0.025425539370908081679"
+                ],
+                [
+                  "-8.248613917956775508e-9",
+                  "-0.27735010026319907625",
+                  "0.083974851267781509576"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.6937461392456398
+            },
+            "max": {
+              "best_upper_bound_float": 0.20000000000000012,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.20000000000000012,
+              "G_de": 0.21373866787029705,
+              "hp_refined_bound": "0.200000000000000105949799700604",
+              "hp_residual": "-5.5675e-39",
+              "perturbation_matrix": [
+                [
+                  "0.19999999999999978067",
+                  "-0.072744046456079808918",
+                  "-0.20000000000000010595"
+                ],
+                [
+                  "-0.022699038610635115033",
+                  "0.0068788270003319153625",
+                  "0.010368894098461421134"
+                ],
+                [
+                  "-0.1999999999999998736",
+                  "-0.096065360006014716168",
+                  "0.19999999999999982713"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.9000000000036762
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.76556443707463741309",
+                "m13": "0.30277563773199464656",
+                "m23": "0.30277563773199464656",
+                "q": "2.6023154720347390717"
+              },
+              "min_component": "m13",
+              "frobenius_exact": "0.30277563773199464656",
+              "max_norm_lower_bound_rigorous": "0.10092521257733154885",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 209.5
+      }
+    },
+    "W34": {
+      "P3A": {
+        "m_frac": "0.67898595380393470398",
+        "m_Cain": "0.34314575050761980479",
+        "m_frac_over_Talpha": "0.0433054762473",
+        "m_Cain_over_T1": "0.0234119644411",
+        "band_position": "0.335715787956",
+        "dT_dbeta_[12,13,23]": [
+          "2.8695690319473226561",
+          "4.0342227315447804741",
+          "2.8695690319473226561"
+        ],
+        "dT_dalpha": "-107.68277474928146023",
+        "dT1_dbeta_[12,13,23]": [
+          "2.7071067811865475244",
+          "3.8284271247461900976",
+          "2.7071067811865475244"
+        ],
+        "elasticity_E(B*)": "0.989381513896345",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.98938151389634534511",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "1.86956903194732",
+          "3.03422273154478",
+          "1.86956903194732"
+        ],
+        "d_mfrac_dalpha": "-107.682774749281",
+        "alpha_to_fractional_boundary_first_order": "0.006305427729",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W34",
+        "alpha": 0.99,
+        "A": [
+          [
+            "-1",
+            "-1/2",
+            "-3"
+          ],
+          [
+            "2",
+            "-1",
+            "-1/2"
+          ],
+          [
+            "0",
+            "2",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 0.6789859538039273,
+            "L_local_first_order": {
+              "frob": 0.03178804445732586,
+              "max": 0.011414770971512741
+            },
+            "D_directional_scan": {
+              "frob": 0.034846173828775744,
+              "max": 0.019471601490239233
+            },
+            "frob": {
+              "best_upper_bound_float": 0.0306810532510839,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0306810532510839,
+              "G_de": 0.03408574234033738,
+              "hp_refined_bound": "0.0306810532510840360457517462186",
+              "hp_residual": "-2.1979e-39",
+              "perturbation_matrix": [
+                [
+                  "0.014761693018234123239",
+                  "0.0050969437810739442638",
+                  "-0.0056780201304817764472"
+                ],
+                [
+                  "0.0071587357419791268541",
+                  "0.011989984962044835025",
+                  "0.0050969425435175188305"
+                ],
+                [
+                  "-0.013231011995046230738",
+                  "0.0071587319764209042703",
+                  "0.014761690868356837737"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9651758632800439
+            },
+            "max": {
+              "best_upper_bound_float": 0.011078427180814273,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.011078427180814273,
+              "G_de": 0.026323655765074807,
+              "hp_refined_bound": "0.0110784271808143357146262884988",
+              "hp_residual": "2.4045e-39",
+              "perturbation_matrix": [
+                [
+                  "0.01107842718081431542",
+                  "0.011078427180814335715",
+                  "-0.011078427180814278522"
+                ],
+                [
+                  "0.011078427180814295126",
+                  "0.011078427180814272987",
+                  "0.011078427180814234244"
+                ],
+                [
+                  "-0.011078427180814193655",
+                  "0.01107842718081419181",
+                  "0.011078427180814335715"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.970534337347822
+            }
+          },
+          "cain": {
+            "g0": 0.3431457505076221,
+            "L_local_first_order": {
+              "frob": 0.016101193513455674,
+              "max": 0.00581325363470128
+            },
+            "D_directional_scan": {
+              "frob": 0.018271977577096032,
+              "max": 0.009570331910918347
+            },
+            "frob": {
+              "best_upper_bound_float": 0.016405103916226637,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.016405103916226637,
+              "G_de": 0.017096193275464074,
+              "hp_refined_bound": "0.0164051039190884026790387773193",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.0078673003384715811146",
+                  "-0.0027008304807840391676",
+                  "0.00309882380341599257"
+                ],
+                [
+                  "-0.0039955819590002268245",
+                  "-0.0065742623834065124279",
+                  "-0.0027008307299318514728"
+                ],
+                [
+                  "0.0067820831821153322739",
+                  "-0.0039955819548035673272",
+                  "-0.0078673000816312580011"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0188750233028991
+            },
+            "max": {
+              "best_upper_bound_float": 0.005905162130149294,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.005905162130149294,
+              "G_de": 0.010033214889278235,
+              "hp_refined_bound": "0.00590516213017036742120145910399",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.0059051621301693122254",
+                  "-0.0059051621301680180618",
+                  "0.0059051621301703674212"
+                ],
+                [
+                  "-0.0059051621301681016514",
+                  "-0.0059051621301682993162",
+                  "-0.0059051621301679610242"
+                ],
+                [
+                  "0.0059051621301692473206",
+                  "-0.0059051621301686464589",
+                  "-0.00590516213016843896"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0158101643629278
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.5773502691890483,
+              "max": 0.333333333329916
+            },
+            "D_directional_scan": {
+              "frob": 0.33333333333342086,
+              "max": 0.22774270821926348
+            },
+            "frob": {
+              "best_upper_bound_float": 0.30277563773199534,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.30277563773199534,
+              "G_de": 0.30375322118565207,
+              "hp_refined_bound": "0.30277563773199538792781346664",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "0.083974844787658016133",
+                  "-5.5044678985661929551e-9",
+                  "-0.025425548135435773394"
+                ],
+                [
+                  "-8.2570676330749899971e-9",
+                  "-3.1198192220133356225e-9",
+                  "-5.5414628114314480994e-9"
+                ],
+                [
+                  "-0.27735010217334372845",
+                  "-9.3690234941763525712e-9",
+                  "0.083974844884366775355"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.5244227878464088
+            },
+            "max": {
+              "best_upper_bound_float": 0.20000000000000012,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.20000000000000012,
+              "G_de": 0.22992787068722717,
+              "hp_refined_bound": "0.200000000000000108115452901557",
+              "hp_residual": "4.2474e-40",
+              "perturbation_matrix": [
+                [
+                  "0.20000000000000010812",
+                  "-0.18970291303112840677",
+                  "-0.19999999999999992442"
+                ],
+                [
+                  "-0.0461000662757091781",
+                  "-0.067792946517697422294",
+                  "0.12716018581911775073"
+                ],
+                [
+                  "-0.20000000000000000315",
+                  "-0.067769610301807460167",
+                  "0.19999999999999989818"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.6000000000061516
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.85078105935821217162",
+                "m13": "0.30277563773199464656",
+                "m23": "0.85078105935821217162",
+                "q": "1.8117376914898995958"
+              },
+              "min_component": "m13",
+              "frobenius_exact": "0.30277563773199464656",
+              "max_norm_lower_bound_rigorous": "0.10092521257733154885",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 225.9
+      }
+    },
+    "W02": {
+      "P3A": {
+        "m_frac": "68.715494146741627374",
+        "m_Cain": "19.0",
+        "m_frac_over_Talpha": "0.710491061985",
+        "m_Cain_over_T1": "2.11111111111",
+        "band_position": "0.21660939364",
+        "dT_dbeta_[12,13,23]": [
+          "17.350158350258427813",
+          "17.350158350258427813",
+          "17.350158350258427813"
+        ],
+        "dT_dalpha": "-1975.4624249152884603",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.538181348396998",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.53818134839699703701",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "16.3501583502584",
+          "16.3501583502584",
+          "16.3501583502584"
+        ],
+        "d_mfrac_dalpha": "-1975.46242491529",
+        "alpha_to_fractional_boundary_first_order": "0.03478451085",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W02",
+        "alpha": 0.8,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-3"
+          ],
+          [
+            "3",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "3",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 68.7154941467416,
+            "L_local_first_order": {
+              "frob": 0.699583347563189,
+              "max": 0.26931260177674954
+            },
+            "D_directional_scan": {
+              "frob": 0.6111292470885055,
+              "max": 0.38249577321045136
+            },
+            "frob": {
+              "best_upper_bound_float": 0.4629024251367239,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.4629024251367239,
+              "G_de": null,
+              "hp_refined_bound": "0.462902425136724255002105437284",
+              "hp_residual": "5.602e-39",
+              "perturbation_matrix": [
+                [
+                  "0.20753412558589686246",
+                  "0.16216481834507833288",
+                  "-0.045369309904674074222"
+                ],
+                [
+                  "0.045369292794747336021",
+                  "0.20753412004997149016",
+                  "0.16216482240698418539"
+                ],
+                [
+                  "-0.16216484368508538307",
+                  "0.045369300340126902037",
+                  "0.20753413223847819536"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.6616830242588255
+            },
+            "max": {
+              "best_upper_bound_float": 0.17208306669143061,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.17208306669143061,
+              "G_de": 0.6305596972233404,
+              "hp_refined_bound": "0.172083066691430565612162354646",
+              "hp_residual": "8.0292e-40",
+              "perturbation_matrix": [
+                [
+                  "0.17208306669142984917",
+                  "0.1720830666914299638",
+                  "-0.17208306669143056561"
+                ],
+                [
+                  "0.17208306669143016441",
+                  "0.17208306669142961991",
+                  "0.17208306669142967723"
+                ],
+                [
+                  "-0.17208306669142982051",
+                  "0.17208306669142904676",
+                  "0.17208306669142964857"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.6389714612540904
+            }
+          },
+          "cain": {
+            "g0": 19.00000000000001,
+            "L_local_first_order": {
+              "frob": 0.37714451165902346,
+              "max": 0.15079365078320275
+            },
+            "D_directional_scan": {
+              "frob": 0.8357907952233693,
+              "max": 0.38508126515352986
+            },
+            "frob": {
+              "best_upper_bound_float": 0.7071067811865469,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.7071067811865469,
+              "G_de": 0.7253116844276901,
+              "hp_refined_bound": "0.707106781186548185612652896932",
+              "hp_residual": "3.6734e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.33333333021972112666",
+                  "-0.16666666494575885656",
+                  "0.16666665383886078331"
+                ],
+                [
+                  "-0.16666665836343761306",
+                  "-0.33333334578678583234",
+                  "-0.1666666696273690331"
+                ],
+                [
+                  "0.16666665173472834114",
+                  "-0.16666668146004159958",
+                  "-0.33333333400839505187"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.8748961189334301
+            },
+            "max": {
+              "best_upper_bound_float": 0.24999999999999709,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.24999999999999709,
+              "G_de": 0.41252703287654624,
+              "hp_refined_bound": "0.250000000000000353883589099269",
+              "hp_residual": "-1.8367e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.24999999999999993755",
+                  "-0.24999999999999993755",
+                  "0.24999999999999993755"
+                ],
+                [
+                  "-0.24999999999999985428",
+                  "-0.25000000000000014572",
+                  "-0.24999999999999993755"
+                ],
+                [
+                  "0.24999999999999977102",
+                  "-0.25000000000000035388",
+                  "-0.25000000000000002082"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.6578947369569565
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.3651483716717725,
+              "max": 0.16666666666649999
+            },
+            "D_directional_scan": {
+              "frob": 0.326458516895393,
+              "max": 0.21329381808708578
+            },
+            "frob": {
+              "best_upper_bound_float": 0.3027756377319945,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.3027756377319945,
+              "G_de": 0.3049574206128642,
+              "hp_refined_bound": "0.302775637731995512204233371241",
+              "hp_residual": "-2.2959e-41",
+              "perturbation_matrix": [
+                [
+                  "-5.9407000563158097254e-9",
+                  "-6.1663424836602538285e-9",
+                  "-8.8539075704428261702e-9"
+                ],
+                [
+                  "-6.2517923763874306068e-9",
+                  "0.083974852237942420438",
+                  "0.27735010241992124963"
+                ],
+                [
+                  "-9.4389409919994947166e-9",
+                  "0.025425543015834287623",
+                  "0.083974838169782707569"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.829185233240355
+            },
+            "max": {
+              "best_upper_bound_float": 0.2000000000000002,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.2000000000000002,
+              "G_de": 0.22517584632234677,
+              "hp_refined_bound": "0.200000000000000190817894875128",
+              "hp_residual": "-1.2914e-38",
+              "perturbation_matrix": [
+                [
+                  "0.19999999999999953192",
+                  "-0.10914315738439703974",
+                  "-0.19999999999999963734"
+                ],
+                [
+                  "0.13662204733739066253",
+                  "-0.17768756355717606054",
+                  "-0.041637122210190550302"
+                ],
+                [
+                  "-0.20000000000000019082",
+                  "0.039241557689593960853",
+                  "0.19999999999999979548"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.2000000000012014
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.30277563773199464656",
+                "m13": "0.30277563773199464656",
+                "m23": "0.30277563773199464656",
+                "q": "2.6457513110645905905"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.30277563773199464656",
+              "max_norm_lower_bound_rigorous": "0.10092521257733154885",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 146.9
+      }
+    },
+    "W03": {
+      "P3A": {
+        "m_frac": "3.1562204387339389052",
+        "m_Cain": "1.261",
+        "m_frac_over_Talpha": "0.235236534508",
+        "m_Cain_over_T1": "0.140111111111",
+        "band_position": "0.285473640605",
+        "dT_dbeta_[12,13,23]": [
+          "4.0466212971581982441",
+          "4.0466212971581982441",
+          "4.0466212971581982441"
+        ],
+        "dT_dalpha": "-118.07355979644972377",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.904797230313682",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.90479723031368211643",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "3.0466212971582",
+          "3.0466212971582",
+          "3.0466212971582"
+        ],
+        "d_mfrac_dalpha": "-118.07355979645",
+        "alpha_to_fractional_boundary_first_order": "0.02673096707",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W03",
+        "alpha": 0.95,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-21/10"
+          ],
+          [
+            "21/10",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "21/10",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 3.156220438733939,
+            "L_local_first_order": {
+              "frob": 0.15073397255159382,
+              "max": 0.0524230641360279
+            },
+            "D_directional_scan": {
+              "frob": 0.14099390538172102,
+              "max": 0.07942732837843113
+            },
+            "frob": {
+              "best_upper_bound_float": 0.1313012870275593,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.1313012870275593,
+              "G_de": 0.20057086182424314,
+              "hp_refined_bound": "0.131301287027559286858986389696",
+              "hp_residual": "4.9408e-40",
+              "perturbation_matrix": [
+                [
+                  "0.061705215635454914829",
+                  "0.035058290192471422674",
+                  "-0.026646925241741701944"
+                ],
+                [
+                  "0.026646917496796328428",
+                  "0.061705217700124347163",
+                  "0.035058288357259805849"
+                ],
+                [
+                  "-0.035058298370186599992",
+                  "0.026646920012450419915",
+                  "0.061705216032459225852"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.8710795901210457
+            },
+            "max": {
+              "best_upper_bound_float": 0.046565561302880566,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.046565561302880566,
+              "G_de": 0.10970490819631933,
+              "hp_refined_bound": "0.046565561302880583305988417935",
+              "hp_residual": "-9.49e-41",
+              "perturbation_matrix": [
+                [
+                  "0.046565561302880350664",
+                  "0.046565561302880187815",
+                  "-0.046565561302880373928"
+                ],
+                [
+                  "0.046565561302880529023",
+                  "0.046565561302880560042",
+                  "0.046565561302880366174"
+                ],
+                [
+                  "-0.046565561302880583306",
+                  "0.046565561302880381683",
+                  "0.046565561302880397193"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.8882647756348574
+            }
+          },
+          "cain": {
+            "g0": 1.2610000000000028,
+            "L_local_first_order": {
+              "frob": 0.06568397362142497,
+              "max": 0.023520414825961816
+            },
+            "D_directional_scan": {
+              "frob": 0.08468779327949809,
+              "max": 0.04386114167617247
+            },
+            "frob": {
+              "best_upper_bound_float": 0.07071067811860207,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.07071067811860207,
+              "G_de": 0.07497671928007262,
+              "hp_refined_bound": "0.0707106781186562140752925372991",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.033333334977467035813",
+                  "-0.016666669433122649403",
+                  "0.016666658308510494718"
+                ],
+                [
+                  "-0.016666668879247933216",
+                  "-0.033333332376060880408",
+                  "-0.016666670855729844849"
+                ],
+                [
+                  "0.0166666584114296923",
+                  "-0.016666671487544349096",
+                  "-0.033333333958679772241"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0765286297407786
+            },
+            "max": {
+              "best_upper_bound_float": 0.02500000000000005,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.02500000000000005,
+              "G_de": 0.05742421276326162,
+              "hp_refined_bound": "0.0250000000000004305583667374443",
+              "hp_residual": "-5.5101e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.025000000000000430558",
+                  "-0.025000000000000214065",
+                  "0.024999999999999618708"
+                ],
+                [
+                  "-0.025000000000000289005",
+                  "-0.024999999999999448011",
+                  "-0.025000000000000326475"
+                ],
+                [
+                  "0.024999999999999864345",
+                  "-0.025000000000000226555",
+                  "-0.024999999999999985081"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0629064234192447
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.49644453674278494,
+              "max": 0.21505376343852714
+            },
+            "D_directional_scan": {
+              "frob": 0.42450297458018804,
+              "max": 0.2631866002152684
+            },
+            "frob": {
+              "best_upper_bound_float": 0.40000000000000013,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.40000000000000013,
+              "G_de": 0.4002253861031435,
+              "hp_refined_bound": "0.400000000000000482096909027608",
+              "hp_residual": "1.1479e-41",
+              "perturbation_matrix": [
+                [
+                  "-8.3214903926676322281e-9",
+                  "-8.1863378973128737219e-9",
+                  "-9.0811013355522649347e-9"
+                ],
+                [
+                  "-8.0288957753486286196e-9",
+                  "0.13793103161727509496",
+                  "0.344827589242034449"
+                ],
+                [
+                  "-7.7216975807516962353e-9",
+                  "0.055172409377204342896",
+                  "0.13793103152675703524"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.8057294831451552
+            },
+            "max": {
+              "best_upper_bound_float": 0.24390243902439027,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.24390243902439027,
+              "G_de": 0.24524419129624617,
+              "hp_refined_bound": "0.243902439024390281420364739832",
+              "hp_residual": "6.2448e-39",
+              "perturbation_matrix": [
+                [
+                  "0.24390243902439016537",
+                  "0.24390243902439028142",
+                  "-0.20756475798350248153"
+                ],
+                [
+                  "0.24390243902439028142",
+                  "0.24390243902439016537",
+                  "-0.24390243902438931436"
+                ],
+                [
+                  "0.24390243902439008801",
+                  "0.1615127347521134102",
+                  "0.24390243902438977855"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.134146341475719
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.39999999999999998775",
+                "m13": "0.39999999999999998775",
+                "m23": "0.39999999999999998775",
+                "q": "1.8193405398660252698"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.39999999999999998775",
+              "max_norm_lower_bound_rigorous": "0.13333333333333332925",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 217.2
+      }
+    },
+    "W04": {
+      "P3A": {
+        "m_frac": "0.13809272720440524382",
+        "m_Cain": "12.796875",
+        "m_frac_over_Talpha": "0.00629555187506",
+        "m_Cain_over_T1": "1.421875",
+        "band_position": "0.989324076402",
+        "dT_dbeta_[12,13,23]": [
+          "5.8398667762404182032",
+          "5.8398667762404182032",
+          "5.8398667762404182032"
+        ],
+        "dT_dalpha": "-241.37649145900464656",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.798706455674103",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.79870645567410252072",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "4.83986677624042",
+          "4.83986677624042",
+          "4.83986677624042"
+        ],
+        "d_mfrac_dalpha": "-241.376491459005",
+        "alpha_to_fractional_boundary_first_order": "0.0005721051225",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W04",
+        "alpha": 0.9,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-11/4"
+          ],
+          [
+            "11/4",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "11/4",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 0.13809272720441967,
+            "L_local_first_order": {
+              "frob": 0.0030874279383957446,
+              "max": 0.0011046797266641263
+            },
+            "D_directional_scan": {
+              "frob": 0.003423500029945558,
+              "max": 0.0017839946534363314
+            },
+            "frob": {
+              "best_upper_bound_float": 0.0030780066087603987,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0030780066087603987,
+              "G_de": 0.0031481221664402025,
+              "hp_refined_bound": "0.00307800660876011315395273902519",
+              "hp_residual": "8.7175e-40",
+              "perturbation_matrix": [
+                [
+                  "0.0014331203816763685175",
+                  "0.00091313215010897874757",
+                  "-0.00051999585155408987988"
+                ],
+                [
+                  "0.00051998236871803353484",
+                  "0.0014331219138947655014",
+                  "0.0009131331421933163238"
+                ],
+                [
+                  "-0.00091314607049605580246",
+                  "0.00051998272634073323476",
+                  "0.0014331205968126412566"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9969484859814279
+            },
+            "max": {
+              "best_upper_bound_float": 0.0011018047171898959,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0011018047171898959,
+              "G_de": 0.0018286062612965065,
+              "hp_refined_bound": "0.00110180471718981370612340439672",
+              "hp_residual": "-4.7672e-40",
+              "perturbation_matrix": [
+                [
+                  "0.0011018047171897531553",
+                  "0.0011018047171896315032",
+                  "-0.0011018047171897608618"
+                ],
+                [
+                  "0.0011018047171897415956",
+                  "0.0011018047171898137061",
+                  "0.0011018047171896423289"
+                ],
+                [
+                  "-0.0011018047171897386598",
+                  "0.0011018047171897641645",
+                  "0.001101804717189511686"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9973974271412472
+            }
+          },
+          "cain": {
+            "g0": 12.796874999999996,
+            "L_local_first_order": {
+              "frob": 0.32401261398275066,
+              "max": 0.12598061838195024
+            },
+            "D_directional_scan": {
+              "frob": 0.6218656613898352,
+              "max": 0.2814065429910113
+            },
+            "frob": {
+              "best_upper_bound_float": 0.53033008588991,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.53033008588991,
+              "G_de": 0.6217083166128977,
+              "hp_refined_bound": "0.530330085889910871066216794238",
+              "hp_residual": "1.8367e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.25000000068881101079",
+                  "-0.1249999982125791395",
+                  "0.12499998939239912376"
+                ],
+                [
+                  "-0.12500000232927083445",
+                  "-0.25000000648737701385",
+                  "-0.12500000317986725128"
+                ],
+                [
+                  "0.12499999419405343745",
+                  "-0.12500000340800812291",
+                  "-0.24999999746572305273"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.6367575304279451
+            },
+            "max": {
+              "best_upper_bound_float": 0.18750000000000017,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.18750000000000017,
+              "G_de": 0.293168101134554,
+              "hp_refined_bound": "0.187500000000000364291929955129",
+              "hp_residual": "-3.6734e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.18750000000000014572",
+                  "-0.18749999999999973979",
+                  "0.18750000000000011449"
+                ],
+                [
+                  "-0.18749999999999983347",
+                  "-0.18750000000000030184",
+                  "-0.18749999999999958367"
+                ],
+                [
+                  "0.18749999999999961489",
+                  "-0.18750000000000036429",
+                  "-0.18749999999999992714"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.488324175640529
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.3946108989257624,
+              "max": 0.1777777777739815
+            },
+            "D_directional_scan": {
+              "frob": 0.3502113273112477,
+              "max": 0.21969417307298317
+            },
+            "frob": {
+              "best_upper_bound_float": 0.32518381359192894,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.32518381359192894,
+              "G_de": 0.3321211254816563,
+              "hp_refined_bound": "0.325183813591930919938832889011",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "0.095631961415809676124",
+                  "0.29408584912017632119",
+                  "-8.4534010886798848305e-9"
+                ],
+                [
+                  "0.031097957900713785439",
+                  "0.095631955640501381799",
+                  "-7.9381889616466330527e-9"
+                ],
+                [
+                  "-7.0587328057668168655e-9",
+                  "-6.5030662291819838736e-9",
+                  "-6.0309613221340827928e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.8240619163767834
+            },
+            "max": {
+              "best_upper_bound_float": 0.21052631578947373,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.21052631578947373,
+              "G_de": 0.25509581118409064,
+              "hp_refined_bound": "0.210526315789473728309482241009",
+              "hp_residual": "2.7551e-39",
+              "perturbation_matrix": [
+                [
+                  "0.21052631578947370105",
+                  "-0.0089290384035025486135",
+                  "-0.21052631578947334667"
+                ],
+                [
+                  "0.09142427933134304993",
+                  "-0.10995546997446737211",
+                  "-0.10646884678274503098"
+                ],
+                [
+                  "-0.21052631578947372831",
+                  "-0.17888374944190385388",
+                  "0.21052631578947359201"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.1842105263410776
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.32518381359193041813",
+                "m13": "0.32518381359193041813",
+                "m23": "0.32518381359193041813",
+                "q": "2.4109126902482387489"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.32518381359193041813",
+              "max_norm_lower_bound_rigorous": "0.10839460453064347271",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 196.0
+      }
+    },
+    "W05": {
+      "P3A": {
+        "m_frac": "12.814366727204405244",
+        "m_Cain": "0.120601",
+        "m_frac_over_Talpha": "0.584198111735",
+        "m_Cain_over_T1": "0.0134001111111",
+        "band_position": "0.00932364135292",
+        "dT_dbeta_[12,13,23]": [
+          "5.8398667762404182032",
+          "5.8398667762404182032",
+          "5.8398667762404182032"
+        ],
+        "dT_dalpha": "-241.37649145900464656",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.798706455674103",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.79870645567410252072",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "4.83986677624042",
+          "4.83986677624042",
+          "4.83986677624042"
+        ],
+        "d_mfrac_dalpha": "-241.376491459005",
+        "alpha_to_fractional_boundary_first_order": "0.05308871071",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W05",
+        "alpha": 0.9,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-201/100"
+          ],
+          [
+            "201/100",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "201/100",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 12.814366727204417,
+            "L_local_first_order": {
+              "frob": 0.5562483923455089,
+              "max": 0.1951431368240788
+            },
+            "D_directional_scan": {
+              "frob": 0.4166499192810843,
+              "max": 0.20477709534996505
+            },
+            "frob": {
+              "best_upper_bound_float": 0.3781165293881514,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.3781165293881514,
+              "G_de": 0.4585527188144502,
+              "hp_refined_bound": "0.378116529388151584149791737341",
+              "hp_residual": "7.3917e-40",
+              "perturbation_matrix": [
+                [
+                  "0.17605134094567988915",
+                  "0.11217373893202443569",
+                  "-0.063877605785045618697"
+                ],
+                [
+                  "0.06387759093921446534",
+                  "0.17605133659886870779",
+                  "0.11217373890219524035"
+                ],
+                [
+                  "-0.11217375204860229784",
+                  "0.063877590510581203462",
+                  "0.17605133984467926751"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.6797620174572793
+            },
+            "max": {
+              "best_upper_bound_float": 0.1353507736296554,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.1353507736296554,
+              "G_de": 0.2749166913653822,
+              "hp_refined_bound": "0.135350773629655367525759150472",
+              "hp_residual": "4.8191e-40",
+              "perturbation_matrix": [
+                [
+                  "0.13535077362965473639",
+                  "0.1353507736296550745",
+                  "-0.13535077362965514212"
+                ],
+                [
+                  "0.13535077362965509704",
+                  "0.13535077362965489418",
+                  "0.13535077362965536753"
+                ],
+                [
+                  "-0.1353507736296552999",
+                  "0.13535077362965509704",
+                  "0.13535077362965509704"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.6935974066650055
+            }
+          },
+          "cain": {
+            "g0": 0.12060099999999885,
+            "L_local_first_order": {
+              "frob": 0.0070183209803767145,
+              "max": 0.002484461787686395
+            },
+            "D_directional_scan": {
+              "frob": 0.007909121437053248,
+              "max": 0.004474861807244008
+            },
+            "frob": {
+              "best_upper_bound_float": 0.007071067811879855,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.007071067811879855,
+              "G_de": 0.008050030833865686,
+              "hp_refined_bound": "0.00707106781187940795573290373744",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-0.0033333320072905874878",
+                  "-0.0016666713306376598401",
+                  "0.0016666626438491542966"
+                ],
+                [
+                  "-0.0016666692596627601271",
+                  "-0.0033333250717320528261",
+                  "-0.001666673081170471988"
+                ],
+                [
+                  "0.0016666634471068293488",
+                  "-0.0016666688179185794915",
+                  "-0.0033333386308043567447"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0075155912148535
+            },
+            "max": {
+              "best_upper_bound_float": 0.0025000000000001184,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0025000000000001184,
+              "G_de": 0.004313832377281415,
+              "hp_refined_bound": "0.00250000000000012538581284360016",
+              "hp_residual": "1.8367e-40",
+              "perturbation_matrix": [
+                [
+                  "-0.0025000000000001095651",
+                  "-0.0025000000000001253858",
+                  "0.0025000000000001116468"
+                ],
+                [
+                  "-0.0024999999999998068906",
+                  "-0.002499999999999922215",
+                  "-0.0025000000000000238004"
+                ],
+                [
+                  "0.0024999999999997706696",
+                  "-0.002499999999999927211",
+                  "-0.0024999999999997656736"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.0062541562887923
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.5143393973232986,
+              "max": 0.22148394241229918
+            },
+            "D_directional_scan": {
+              "frob": 0.44681436919816725,
+              "max": 0.2791664185521757
+            },
+            "frob": {
+              "best_upper_bound_float": 0.4127535046685638,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.4127535046685638,
+              "G_de": 0.5876865838891229,
+              "hp_refined_bound": "0.412753504668565873717777744446",
+              "hp_residual": "1.1479e-41",
+              "perturbation_matrix": [
+                [
+                  "0.14556602974131772282",
+                  "0.35267061780032066963",
+                  "-7.3705049710661176246e-9"
+                ],
+                [
+                  "0.06008288356967797308",
+                  "0.14556602984153285414",
+                  "-7.2533298391806684791e-9"
+                ],
+                [
+                  "-7.6017659432046896641e-9",
+                  "-6.7858085361437208988e-9",
+                  "-7.267723007509761531e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.8024924919549166
+            },
+            "max": {
+              "best_upper_bound_float": 0.2493765586034913,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.2493765586034913,
+              "G_de": 0.2723307629190587,
+              "hp_refined_bound": "0.249376558603491353010354633545",
+              "hp_residual": "1.0446e-39",
+              "perturbation_matrix": [
+                [
+                  "0.24937655860349135301",
+                  "-0.15567220919637713555",
+                  "-0.2493765586034912126"
+                ],
+                [
+                  "-0.050050982153466268428",
+                  "-0.0043085246225563265554",
+                  "-0.2493765586034912477"
+                ],
+                [
+                  "-0.24937655860349131791",
+                  "0.24931050630316521792",
+                  "0.2493765586034911424"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.125935162104299
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.41275350466856546861",
+                "m13": "0.41275350466856546861",
+                "m23": "0.41275350466856546861",
+                "q": "1.7407182425654070672"
+              },
+              "min_component": "m13",
+              "frobenius_exact": "0.41275350466856546861",
+              "max_norm_lower_bound_rigorous": "0.13758450155618848954",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 175.2
+      }
+    },
+    "W06": {
+      "P3A": {
+        "m_frac": "1190799.451239524985",
+        "m_Cain": "3374992.0",
+        "m_frac_over_Talpha": "0.260808474649",
+        "m_Cain_over_T1": "374999.111111",
+        "band_position": "0.73919101125",
+        "dT_dbeta_[12,13,23]": [
+          "27356.969584801326608",
+          "27356.969584801326608",
+          "27356.969584801326608"
+        ],
+        "dT_dalpha": "-4096909545.0718214343",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.017975141408584",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.01797514140858331707",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "27355.9695848013",
+          "27355.9695848013",
+          "27355.9695848013"
+        ],
+        "d_mfrac_dalpha": "-4096909545.07182",
+        "alpha_to_fractional_boundary_first_order": "0.0002906579797",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W06",
+        "alpha": 0.67,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-150"
+          ],
+          [
+            "150",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "150",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 1190799.4512397102,
+            "L_local_first_order": {
+              "frob": 0.12939883432032723,
+              "max": 0.05291810206100692
+            },
+            "D_directional_scan": {
+              "frob": 0.2608085317712394,
+              "max": 0.14799452918248787
+            },
+            "frob": {
+              "best_upper_bound_float": 0.22483657845990027,
+              "best_method": "DE",
+              "S_slsqp": null,
+              "G_de": 0.22483657845990027,
+              "hp_refined_bound": "0.224836578459880247588337923862",
+              "hp_residual": "-5.1975e-35",
+              "perturbation_matrix": [
+                [
+                  "0.12149673920971838717",
+                  "-0.043645787735315862393",
+                  "0.056791564741685678222"
+                ],
+                [
+                  "-0.047191304191315516463",
+                  "0.14314078167094656088",
+                  "-0.0055853077816508960219"
+                ],
+                [
+                  "0.015474108451976425677",
+                  "0.0057695849577904114663",
+                  "0.087404567314728563408"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 1.7375471706593322
+            },
+            "max": {
+              "best_upper_bound_float": 0.12815690305483493,
+              "best_method": "DE",
+              "S_slsqp": null,
+              "G_de": 0.12815690305483493,
+              "hp_refined_bound": "0.128156903054794009888079777599",
+              "hp_residual": "4.7693e-35",
+              "perturbation_matrix": [
+                [
+                  "0.11543769734261528623",
+                  "-0.025882064162840157723",
+                  "-0.056057358672852440008"
+                ],
+                [
+                  "0.0033471747235479947769",
+                  "0.1140003757133367287",
+                  "-0.014283847809180068646"
+                ],
+                [
+                  "0.031034796760412503316",
+                  "0.12815690305479400989",
+                  "0.1275141521649579966"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 2.4217970422878836
+            }
+          },
+          "cain": {
+            "g0": 3374991.999999995,
+            "L_local_first_order": {
+              "frob": 0.5773360690659756,
+              "max": 0.3310958072323828
+            },
+            "D_directional_scan": {
+              "frob": 114.49889609786172,
+              "max": 68.27111330319633
+            },
+            "frob": {
+              "best_upper_bound_float": 104.65180361618143,
+              "best_method": "SLSQP",
+              "S_slsqp": 104.65180361618143,
+              "G_de": 125.14576115962235,
+              "hp_refined_bound": "104.65180361618148503171711155",
+              "hp_residual": "7.3468e-40",
+              "perturbation_matrix": [
+                [
+                  "-49.333324310282373705",
+                  "-24.666805360341960531",
+                  "24.666731285059085415"
+                ],
+                [
+                  "-24.666570600626126223",
+                  "-49.333253435886054126",
+                  "-24.666810648327006871"
+                ],
+                [
+                  "24.666844800458093277",
+                  "-24.666494245497789777",
+                  "-49.333293783645683386"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 181.26669928225505
+            },
+            "max": {
+              "best_upper_bound_float": 36.999999999999986,
+              "best_method": "SLSQP",
+              "S_slsqp": 36.999999999999986,
+              "G_de": 37.00000000000081,
+              "hp_refined_bound": "37.0",
+              "hp_residual": "0.0",
+              "perturbation_matrix": [
+                [
+                  "-37.0",
+                  "-37.0",
+                  "37.0"
+                ],
+                [
+                  "-37.0",
+                  "-37.0",
+                  "-37.0"
+                ],
+                [
+                  "37.0",
+                  "-37.0",
+                  "-37.0"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 111.75013150810206
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.007697832528151435,
+              "max": 0.004415011037527236
+            },
+            "D_directional_scan": {
+              "frob": 0.006666666666665575,
+              "max": 0.006597816422437028
+            },
+            "frob": {
+              "best_upper_bound_float": 0.006666370396728722,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.006666370396728722,
+              "G_de": 0.006666513430142372,
+              "hp_refined_bound": "0.00666637039672872348035774022078",
+              "hp_residual": "1.1479e-41",
+              "perturbation_matrix": [
+                [
+                  "0.000044435850078122412538",
+                  "0.0066660741877235379629",
+                  "-7.4511265065293201021e-9"
+                ],
+                [
+                  "2.9106824699534691391e-7",
+                  "0.000044436025661229338833",
+                  "-7.4511265061558841073e-9"
+                ],
+                [
+                  "-7.4511265075324999294e-9",
+                  "-7.451126507420122004e-9",
+                  "-7.4511265008384969925e-9"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.866006161130345
+            },
+            "max": {
+              "best_upper_bound_float": 0.0065789473684210575,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.0065789473684210575,
+              "G_de": 0.006579729316429835,
+              "hp_refined_bound": "0.00657894736842105665133554694415",
+              "hp_residual": "-1.1479e-40",
+              "perturbation_matrix": [
+                [
+                  "0.0053596038699901489044",
+                  "-0.00012339222573814635427",
+                  "-0.000096023456512819441779"
+                ],
+                [
+                  "0.00093217530001573674055",
+                  "0.0065789473684206914877",
+                  "0.0065789473684210566513"
+                ],
+                [
+                  "-0.0044446413668480506784",
+                  "0.0065789473684207088764",
+                  "0.0065789473684208090687"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.4901315789474905
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.006666370396704892911",
+                "m13": "0.006666370396704892911",
+                "m23": "0.006666370396704892911",
+                "q": "149.50250834016130313"
+              },
+              "min_component": "m13",
+              "frobenius_exact": "0.006666370396704892911",
+              "max_norm_lower_bound_rigorous": "0.002222123465568297637",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 60.0
+      }
+    },
+    "W07": {
+      "P3A": {
+        "m_frac": "9263.5196663380532188",
+        "m_Cain": "63992.0",
+        "m_frac_over_Talpha": "0.126439369405",
+        "m_Cain_over_T1": "7110.22222222",
+        "band_position": "0.873545096553",
+        "dT_dbeta_[12,13,23]": [
+          "1710.0449958984187705",
+          "1710.0449958984187705",
+          "1710.0449958984187705"
+        ],
+        "dT_dalpha": "-16292080.875143357551",
+        "dT1_dbeta_[12,13,23]": [
+          "3.0",
+          "3.0",
+          "3.0"
+        ],
+        "elasticity_E(B*)": "0.0700220926999729",
+        "euler_check_sum_beta_dT_dbeta_over_T": "0.070022092699972156776",
+        "d_mfrac_dbeta_fixed_L3_[12,13,23]": [
+          "1709.04499589842",
+          "1709.04499589842",
+          "1709.04499589842"
+        ],
+        "d_mfrac_dalpha": "-16292080.8751434",
+        "alpha_to_fractional_boundary_first_order": "0.0005685903315",
+        "alpha_to_fractional_boundary_first_order_note": "alpha + m_frac/|dT/dalpha| (T decreases in alpha); first-order only"
+      },
+      "P3B": {
+        "id": "W07",
+        "alpha": 0.68,
+        "A": [
+          [
+            "-1",
+            "0",
+            "-40"
+          ],
+          [
+            "40",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "40",
+            "-1"
+          ]
+        ],
+        "boundaries": {
+          "frac": {
+            "g0": 9263.519666336695,
+            "L_local_first_order": {
+              "frob": 0.05710428152107814,
+              "max": 0.023050152310807145
+            },
+            "D_directional_scan": {
+              "frob": 0.07012233595182239,
+              "max": 0.04978664962556006
+            },
+            "frob": {
+              "best_upper_bound_float": 0.05460262259795138,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.05460262259795138,
+              "G_de": 0.05971940251322394,
+              "hp_refined_bound": "0.0546026225979592563967297800043",
+              "hp_residual": "-1.1198e-38",
+              "perturbation_matrix": [
+                [
+                  "0.02255606397713717354",
+                  "0.022017006501057162311",
+                  "-0.00053906272540124473624"
+                ],
+                [
+                  "0.00053905085787667029159",
+                  "0.022556066232672656959",
+                  "0.022017007268940417539"
+                ],
+                [
+                  "-0.02201702146850062333",
+                  "0.00053905150513277602425",
+                  "0.02255606545642842295"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9561913948220615
+            },
+            "max": {
+              "best_upper_bound_float": 0.02202989295234424,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.02202989295234424,
+              "G_de": 0.05047955561250778,
+              "hp_refined_bound": "0.02202989295234733862320777712",
+              "hp_residual": "-3.9899e-37",
+              "perturbation_matrix": [
+                [
+                  "0.022029892952346318721",
+                  "0.02202989295234669293",
+                  "-0.022029892952347338623"
+                ],
+                [
+                  "0.022029892952347070807",
+                  "0.022029892952346681923",
+                  "0.022029892952346740623"
+                ],
+                [
+                  "-0.022029892952346942402",
+                  "0.022029892952346887371",
+                  "0.022029892952346524169"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 0.9557374135881718
+            }
+          },
+          "cain": {
+            "g0": 63991.99999999997,
+            "L_local_first_order": {
+              "frob": 0.5770973349890764,
+              "max": 0.3247665449694948
+            },
+            "D_directional_scan": {
+              "frob": 29.661747919524448,
+              "max": 12.565786595988758
+            },
+            "frob": {
+              "best_upper_bound_float": 26.87005768509032,
+              "best_method": "SLSQP",
+              "S_slsqp": 26.87005768509032,
+              "G_de": 30.298949210352355,
+              "hp_refined_bound": "26.8700576850903243893169498174",
+              "hp_residual": "7.3468e-40",
+              "perturbation_matrix": [
+                [
+                  "-12.666664114302932537",
+                  "-6.333331810093018378",
+                  "6.3333326241587424192"
+                ],
+                [
+                  "-6.3333367754552780644",
+                  "-12.666671183514453339",
+                  "-6.3333296957419601442"
+                ],
+                [
+                  "6.3333319452710813012",
+                  "-6.333335836561305113",
+                  "-12.666665358542587663"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 46.56070311882298
+            },
+            "max": {
+              "best_upper_bound_float": 9.499999999997307,
+              "best_method": "DE",
+              "S_slsqp": 9.499999999999988,
+              "G_de": 9.499999999997307,
+              "hp_refined_bound": "9.5",
+              "hp_residual": "-1.4694e-39",
+              "perturbation_matrix": [
+                [
+                  "-9.5",
+                  "-9.5",
+                  "9.5"
+                ],
+                [
+                  "-9.5",
+                  "-9.5",
+                  "-9.5"
+                ],
+                [
+                  "9.5",
+                  "-9.5",
+                  "-9.5"
+                ]
+              ],
+              "label": "HP upper bound (40 digits) - no rigorous lower bound",
+              "ratio_to_local_first_order": 29.251781463172687
+            }
+          },
+          "P": {
+            "g0": 1.0,
+            "L_local_first_order": {
+              "frob": 0.028858496587934292,
+              "max": 0.016260162601598745
+            },
+            "D_directional_scan": {
+              "frob": 0.024999999999990904,
+              "max": 0.023862785164681162
+            },
+            "frob": {
+              "best_upper_bound_float": 0.024984394500792043,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.024984394500792043,
+              "G_de": 0.02498948507157366,
+              "hp_refined_bound": "0.0249843945007920889050405476359",
+              "hp_residual": "-1.1479e-41",
+              "perturbation_matrix": [
+                [
+                  "0.00062382270606701569521",
+                  "6.1085335649541170438e-9",
+                  "-0.000015583935704408989935"
+                ],
+                [
+                  "7.6241400372355240525e-9",
+                  "5.9254468060591135514e-9",
+                  "-6.5562079953775709869e-9"
+                ],
+                [
+                  "-0.024968808885189503425",
+                  "-1.8606517059849156115e-9",
+                  "0.00062382192832399586552"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 0.865755235192605
+            },
+            "max": {
+              "best_upper_bound_float": 0.02380952380952391,
+              "best_method": "SLSQP",
+              "S_slsqp": 0.02380952380952391,
+              "G_de": 0.02383239672800399,
+              "hp_refined_bound": "0.0238095238095239102574872553883",
+              "hp_residual": "4.1326e-40",
+              "perturbation_matrix": [
+                [
+                  "0.014831993139504317704",
+                  "0.014885300246174003504",
+                  "0.020186596234401797872"
+                ],
+                [
+                  "0.020734509233030812438",
+                  "0.023809523809523288753",
+                  "0.023809523809523837528"
+                ],
+                [
+                  "0.00023203960030808661097",
+                  "0.023809523809523910257",
+                  "0.023809523809523179659"
+                ]
+              ],
+              "label": "HP; see exact Eckart-Young values",
+              "ratio_to_local_first_order": 1.4642857142881762
+            },
+            "exact": {
+              "components_frobenius_exact": {
+                "p1": "1.0",
+                "p2": "1.0",
+                "p3": "1.0",
+                "m12": "0.024984394500785727697",
+                "m13": "0.024984394500785727697",
+                "m23": "0.024984394500785727697",
+                "q": "39.509492530276822071"
+              },
+              "min_component": "m12",
+              "frobenius_exact": "0.024984394500785727697",
+              "max_norm_lower_bound_rigorous": "0.0083281315002619092324",
+              "max_norm_upper_bound_single_entry": "1.0"
+            }
+          }
+        },
+        "n_optimizations": 54,
+        "n_root_solves": 9054,
+        "seconds": 80.4
+      }
+    }
+  }
+}

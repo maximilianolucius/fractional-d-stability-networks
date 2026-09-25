@@ -356,6 +356,14 @@ def _mp_obj(y, beta, u, K):
     return G, g, H, x, B
 
 
+def _mpf_of(b):
+    """mpf from a number, a decimal string or an exact rational string 'p/q'."""
+    if isinstance(b, str) and "/" in b:
+        n, d = b.split("/")
+        return mp.mpf(n.strip()) / mp.mpf(d.strip())
+    return mp.mpf(b)
+
+
 def threshold_mp(beta, alpha, dps: int = 60, y0=None, max_iter: int = 200):
     """High-precision T_alpha(beta) by Newton on grad_y G = 0.
 
@@ -363,10 +371,10 @@ def threshold_mp(beta, alpha, dps: int = 60, y0=None, max_iter: int = 200):
     solution is used as the start unless `y0` is given.
     """
     with mp.workdps(dps + 10):
+        beta_m = [_mpf_of(b) for b in beta]
         if y0 is None:
-            fb = threshold(np.asarray([float(b) for b in beta]), float(alpha))
+            fb = threshold(np.asarray([float(b) for b in beta_m]), float(alpha))
             y0 = fb.y[0]
-        beta_m = [mp.mpf(b) for b in beta]
         u, K = mp_uk(alpha)
         y = [mp.mpf(float(y0[0])), mp.mpf(float(y0[1]))]
         tol = mp.mpf(10) ** (-(dps + 3))
