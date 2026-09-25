@@ -1,0 +1,46 @@
+\documentclass[hidelinks]{siamart251216}
+\usepackage{amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\graphicspath{{figures/generated/}}
+\usepackage[numbers,sort&compress]{natbib}
+\allowdisplaybreaks
+
+\newsiamremark{remark}{Remark}
+
+\headers{Positive-Diagonal Matignon Stability}{M. Lucius}
+
+\title{Exact Positive-Diagonal Matignon Stability in Dimension Three:
+A Fractional Deformation of Cain's D-Stability Threshold}
+\author{Maximiliano Lucius}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study positive-diagonal multiplicative stability for commensurate fractional-order systems in the Matignon region. For real \(3\times3\) matrices on the full-dimensional strict-\(P(-A)\) stratum, we eliminate the universal positive-diagonal multiplier exactly. Four orbit invariants reduce the complete diagonal orbit to a two-dimensional simplex, and fractional D-stability is equivalent to the scalar inequality \(\kappa<T_\alpha(\beta)\). At integer order, \(T_\alpha\) reduces exactly to Cain's classical real-\(3\times3\) D-stability boundary; for \(2/3<\alpha<1\), the strict band between the classical and fractional thresholds is genuinely fractional and full dimensional. The threshold problem is globally strictly convex in logit coordinates, has a unique smooth optimizer, and admits a sharp classical-order expansion. Consequently, dimension three is the smallest real dimension in which the fractional difference from Hurwitz D-stability has nonempty full-dimensional interior. For three-species generalized Lotka--Volterra systems, the invariants become abundance-independent reciprocal-pair and directed-cycle feedback coordinates. High-precision and interval-certified computations independently corroborate the analytic results.
+\end{abstract}
+
+\begin{keywords}
+D-stability, fractional-order systems, Matignon stability, P-matrices, positive diagonal scaling, generalized Lotka--Volterra systems
+\end{keywords}
+
+\begin{MSCcodes}
+15A18, 34A08, 93D20
+\end{MSCcodes}
+
+\input{sections/01-introduction-submission}
+\input{sections/02-framework}
+\input{sections/03-dimension-two}
+\input{sections/04-three-dimensional-threshold}
+\input{sections/05-threshold-geometry-submission}
+\input{sections/06-ecological-interpretation-submission}
+\input{sections/07-computational-validation}
+\input{sections/08-discussion-submission}
+\input{sections/09-conclusion-submission}
+\input{sections/10-declarations}
+
+\bibliographystyle{siamplain}
+\bibliography{references}
+\end{document}
