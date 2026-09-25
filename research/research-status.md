@@ -171,11 +171,24 @@ as \(\alpha\to1^-\), with explicit \(C(\beta)>0\).
 
 ## Novelty state
 
-Targeted searches found no theorem equivalent to C-09 or C-10. Their current status is:
+The final specialist literature audit is complete.
 
-- mathematically: INTERNAL THEOREM;
-- novelty: SURVIVES TARGETED SEARCH / PROVISIONAL;
-- submission: NOT YET CERTIFIED.
+Final verdicts:
+
+- C-09: **NOVEL WITH NARROWED CLAIM**;
+- C-10: **NOVEL WITH NARROWED CLAIM**;
+- C-15: **NOVEL WITH NARROWED CLAIM**;
+- C-16: **NOT NOVEL** as a standalone result.
+
+Overall:
+
+```text
+NOVELTY GATE PASSED WITH REPOSITIONING
+```
+
+The strongest surviving paper claim is the explicit exact real-3x3 elimination of the known generalized positive-diagonal Matignon forbidden-boundary problem, together with the full-dimensional dimension threshold and the theorem-specific convex threshold geometry.
+
+Submission remains blocked by proof/computation validation, not by novelty.
 
 Do not claim novelty for Matignon stabilization, fixed-polynomial fractional Routh-Hurwitz, generalized D-stability, relative D-stability, strong D-stability, single-cycle fractional secant conditions, P-matrix wedges, or Cain's classical theorem.
 
@@ -191,7 +204,7 @@ Task:
 
 \`research/PROOF_AUDIT_TASK_C07_C09_C11.md\`
 
-The verifier must attempt to break C-07/C-09/C-10/C-11/C-14 before improving anything.
+The verifier must attempt to break C-07/C-09/C-10/C-11/C-14/C-15/C-16 before improving anything.
 
 ### Lane B — high-compute validation/discovery
 
@@ -211,8 +224,7 @@ Final title/abstract/conclusions remain locked until:
 
 1. proof audit passes;
 2. compute wave returns without a persistent counterexample;
-3. final independent specialist novelty audit of C-10;
-4. exact citations/theorem numbers and sign conventions are verified.
+3. exact citations/theorem numbers and sign conventions are verified.
 
 Architecture planning is allowed. Final prose drafting is not.
 
@@ -221,6 +233,6 @@ Architecture planning is allowed. Final prose drafting is not.
 
 C-15 proves that the exact C-10 variational problem is globally strictly convex in logit coordinates, so its optimizer is unique, nondegenerate and smooth. It also gives a global threshold-surface parametrization, the alpha->2/3+ asymptotic, and realizability of the whole fractional band.
 
-C-16 gives the general dimension-n positive-diagonal orbit reduction to the open simplex through normalized principal-minor invariants. It explains structurally why n=3 has 4 nontrivial invariants and n=4 has 11.
+C-16 gives the general dimension-n positive-diagonal orbit reduction to the open simplex through normalized principal-minor invariants. The final novelty audit classifies this as **standard structural machinery, not a novel contribution**. It remains useful because it explains why n=3 has 4 nontrivial invariants and n=4 has 11.
 
 These results strengthen the theorem package but do not change the current validation lock: final integration of Compute Wave 1 still waits for P2 high-precision completion.
