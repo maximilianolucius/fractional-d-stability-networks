@@ -1,4 +1,4 @@
-\section{Computational certification and reproducibility}
+\section{Computational certification}
 \label{sec:computation}
 
 All theorem claims above are analytic. Computation was used only as an independent falsification and certification layer. Two routes were kept separate: an invariant-space implementation of
@@ -57,10 +57,6 @@ The differential structure of the threshold was also checked at \(8{,}000\) para
 =
 \frac{h_\alpha'(B^*)}{x_k^*}
 \]
-then agreed to at worst \(2.4\times10^{-33}\), and the logit Hessian remained positive definite in every tested case. The final repository test suite has \(135\) passing tests and no failures.
+then agreed to at worst \(2.4\times10^{-33}\), and the logit Hessian remained positive definite in every tested case.
 
-All scripts, fixed seeds, software metadata, interval certificates, canonical matrices, and figure-source data are maintained in the public repository
-\[
-\text{\url{https://github.com/maximilianolucius/fractional-d-stability-networks}}.
-\]
-The numerical evidence is reproducible but logically secondary: no theorem is inferred from finite sampling.
+These numerical checks are logically secondary: no theorem is inferred from finite sampling.
