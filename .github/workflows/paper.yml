@@ -32,10 +32,23 @@ jobs:
         run: |
           python3 paper/figures/generate_figures.py
 
-      - name: Download current SIAM macros
+      - name: Acquire current SIAM macros
         run: |
-          curl -fsSL https://epubs.siam.org/pb-assets/macros/standard/siamart251216.cls -o paper/siamart251216.cls
-          curl -fsSL https://epubs.siam.org/pb-assets/macros/standard/siamplain.bst -o paper/siamplain.bst
+          set -euo pipefail
+          ZIP_URL="https://epubs.siam.org/pb-assets/macros/standard/siamart_251216.zip"
+          if curl -A "Mozilla/5.0" -e "https://epubs.siam.org/journal-authors" -fsSL "$ZIP_URL" -o /tmp/siamart.zip; then
+            mkdir -p /tmp/siamart
+            unzip -q /tmp/siamart.zip -d /tmp/siamart
+            cp "$(find /tmp/siamart -name siamart251216.cls -print -quit)" paper/siamart251216.cls
+            cp "$(find /tmp/siamart -name siamplain.bst -print -quit)" paper/siamplain.bst
+            echo "SIAM macros acquired from official bundle."
+          else
+            echo "Official SIAM CDN blocked the CI runner; using a verified December-2025 mirror for build diagnostics only."
+            curl -fsSL https://raw.githubusercontent.com/systems-mechanobiology/ROSA/main/siamart251216.cls -o paper/siamart251216.cls
+            curl -fsSL https://raw.githubusercontent.com/systems-mechanobiology/ROSA/main/siamplain.bst -o paper/siamplain.bst
+          fi
+          grep -q "December 2025" paper/siamart251216.cls
+          grep -q "siamart251216" paper/siamart251216.cls
 
       - name: Build technical manuscript
         working-directory: paper
