@@ -1,0 +1,85 @@
+name: Final Mathematics MDPI submission
+
+on:
+  push:
+    branches:
+      - chief/final-mdpi-submission-20260925
+      - main
+    paths:
+      - 'paper/**'
+      - 'reference-paper/Definitions/**'
+      - '.github/workflows/final-mdpi.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: final-mdpi-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Install LaTeX and figure dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-bibtex-extra texlive-science zip
+          python3 -m pip install --break-system-packages pandas matplotlib
+      - name: Generate final figures
+        run: python3 paper/figures/generate_figures.py
+      - name: Stage Mathematics MDPI template
+        run: |
+          rm -rf paper/Definitions
+          cp -a reference-paper/Definitions paper/Definitions
+      - name: Build final MDPI manuscript
+        working-directory: paper
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error submission-mdpi.tex
+      - name: Strict citation and layout checks
+        working-directory: paper
+        run: |
+          test -s submission-mdpi.pdf
+          ! grep -E "Citation .* undefined|There were undefined references|undefined citations" submission-mdpi.log
+          grep -q "AlraddadiAlharthi2026" submission-mdpi.aux
+          grep -q "Alraddadi" submission-mdpi.bbl
+          grep -q "Alharthi" submission-mdpi.bbl
+          if grep -E "Overfull \\hbox|Overfull \\vbox" submission-mdpi.log; then
+            echo "Overfull boxes remain in final MDPI build" >&2
+            exit 1
+          fi
+      - name: Assemble editor-facing package
+        run: |
+          set -euo pipefail
+          TITLE_SLUG="exact-positive-diagonal-matignon-stability-dimension-three"
+          rm -rf paper/final /tmp/mdpi-submission
+          mkdir -p paper/final /tmp/mdpi-submission/sections /tmp/mdpi-submission/figures /tmp/mdpi-submission/Definitions
+          cp paper/submission-mdpi.pdf "paper/final/${TITLE_SLUG}.pdf"
+          cp paper/submission-mdpi.tex /tmp/mdpi-submission/
+          cp paper/references.bib paper/previous-paper.bib /tmp/mdpi-submission/
+          cp paper/sections/*submission*.tex paper/sections/10-declarations.tex /tmp/mdpi-submission/sections/ 2>/dev/null || true
+          cp -a paper/figures/generated/. /tmp/mdpi-submission/figures/
+          cp -a paper/Definitions/. /tmp/mdpi-submission/Definitions/
+          cp "paper/final/${TITLE_SLUG}.pdf" /tmp/mdpi-submission/
+          cp paper/figures/generate_figures.py /tmp/mdpi-submission/figures/
+          (cd /tmp/mdpi-submission && zip -qr "$GITHUB_WORKSPACE/paper/final/submission.zip" .)
+          sha256sum "paper/final/${TITLE_SLUG}.pdf" paper/final/submission.zip > paper/final/SHA256SUMS.txt
+      - name: Publish final PDF and submission.zip to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f paper/final
+          if ! git diff --cached --quiet; then
+            git commit -m "paper: publish final MDPI PDF and submission.zip [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Upload final submission artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mathematics-mdpi-final-submission
+          path: paper/final/
+          retention-days: 90
