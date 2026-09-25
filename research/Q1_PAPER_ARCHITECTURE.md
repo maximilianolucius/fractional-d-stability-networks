@@ -13,6 +13,24 @@ Its mathematical center is:
 
 ## Flagship theorem package
 
+### Proposition 0 — general positive-diagonal orbit reduction (C-16)
+
+For strict-P(-A) in dimension n, positive diagonal scaling modulo common scalar is exactly the open simplex
+
+\[
+\Delta_{n-1}^\circ.
+\]
+
+The normalized characteristic polynomial depends only on the normalized principal-minor invariants \(\beta_I\), with exactly
+
+\[
+2^n-n-1
+\]
+
+nontrivial orbit invariants.
+
+This is structural machinery, not the main novelty. It makes explicit that the difficult part of the project is dimension-specific root geometry, not the diagonal multiplier itself.
+
 ### Theorem A — exact 2x2 obstruction (C-07)
 
 For every \(0<\alpha<1\),
@@ -47,7 +65,31 @@ A\in\mathcal F_\alpha^{(3)}
 
 For \(0<\alpha\le2/3\), strict-P(-A) is sufficient and, for interior points, necessary.
 
-### Corollary C — exact fractional deformation of Cain
+### Theorem C — geometry of the exact threshold (C-15)
+
+For \(2/3<\alpha<1\), the logarithm of the C-10 threshold objective is globally **strictly convex in logit simplex coordinates**.
+
+Consequences:
+
+- the optimizer \(x^*(\alpha,\beta)\) is unique and nondegenerate;
+- \(T_\alpha(\beta)\) is smooth;
+- symmetric and two-equal slices reduce exactly;
+- the whole threshold surface admits an explicit global \((x,r)\)-parametrization;
+- every invariant point above the classical Cain surface is realizable by a real matrix;
+- as \(\alpha\downarrow2/3\),
+  \[
+  T_\alpha(\beta)
+  =
+  \frac{27}{K^3}
+  +
+  \frac{9\sum\beta_{ij}-27}{K^2}
+  +
+  O(K^{-1}),
+  \qquad
+  K=1-4\cos^2(\alpha\pi/2).
+  \]
+
+### Corollary D — exact fractional deformation of Cain
 
 At \(\alpha=1\),
 
@@ -75,7 +117,7 @@ so the exact genuinely fractional band is
 T_1(\beta)<\kappa<T_\alpha(\beta).
 \]
 
-### Corollary D — minimum robust dimension (C-09)
+### Corollary E — minimum robust dimension (C-09)
 
 For every \(0<\alpha<1\),
 
@@ -93,7 +135,7 @@ For every \(0<\alpha<1\),
 
 This should be presented as a major consequence of Theorems A and B.
 
-### Corollary E — ecological loop coordinates (C-12/C-13)
+### Corollary F — ecological loop coordinates and sensitivity (C-12/C-13)
 
 For three-species GLV systems,
 
@@ -123,7 +165,20 @@ where \(L_3\) is the total normalized directed three-cycle feedback.
 
 Thus the exact genuinely fractional band has an exact feedback-motif representation.
 
-### Corollary F — quantitative memory width (C-14)
+Using C-15 uniqueness, the pair-loop sensitivity is explicit:
+
+\[
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}
+>0,
+\qquad
+\{i,j,k\}=\{1,2,3\},
+\]
+
+at fixed \(\kappa\).
+
+### Corollary G — quantitative memory width (C-14)
 
 For \(2/3<\alpha<1\), \(T_\alpha(\beta)\) is strictly decreasing in \(\alpha\), and
 
@@ -149,9 +204,11 @@ This quantifies the collapse of the memory-only band toward classical D-stabilit
    - exact prior-art boundary: Matignon / Cain / Kushel / Siami;
    - theorem-first contribution summary.
 
-2. **Definitions and invariances**
+2. **General orbit geometry**
    - \(\mathcal F_\alpha\), \(\mathcal D_H\), \(\mathcal P_\alpha\);
    - positive left-diagonal action;
+   - C-16 simplex reduction in arbitrary dimension;
+   - normalized principal-minor invariants;
    - GLV Jacobian orbit equivalence.
 
 3. **Dimension two**
@@ -164,28 +221,34 @@ This quantifies the collapse of the memory-only band toward classical D-stabilit
    - four invariants;
    - simplex representation.
 
-5. **Exact fractional 3x3 criterion**
+5. **Exact fractional 3x3 criterion and threshold geometry**
    - fixed-cubic boundary;
    - variational threshold \(T_\alpha\);
-   - necessary-and-sufficient theorem.
+   - necessary-and-sufficient theorem;
+   - C-15 strict logit convexity and unique optimizer;
+   - symmetry reductions and explicit threshold-surface parametrization;
+   - realizability of the full invariant band.
 
-6. **Classical limit and dimension threshold**
+6. **Classical and low-order limits; dimension threshold**
    - recovery of Cain;
    - \(T_\alpha>T_1\);
    - minimum dimension theorem;
-   - C-14 asymptotic rate;
+   - C-14 \(\alpha\to1^-\) asymptotic rate;
+   - C-15 \(\alpha\downarrow2/3\) blow-up;
    - \(\Phi\) certificate only as a simple sufficient corollary.
 
 7. **Ecological network interpretation**
    - pair loops \(\beta_{ij}\);
    - directed 3-cycle coordinate \(L_3\);
    - GLV abundance invariance;
-   - exact motif phase diagram.
+   - exact motif phase diagram;
+   - exact pair-loop sensitivities.
 
 8. **Computational validation and illustrations**
    - independent stress testing;
    - exact-threshold numerical implementation;
-   - certified anchor points if interval computation succeeds;
+   - interval-certified anchor points;
+   - adversarial high-precision audit of near-boundary cases;
    - no Monte Carlo as theorem evidence.
 
 9. **Discussion**
@@ -200,10 +263,11 @@ This quantifies the collapse of the memory-only band toward classical D-stabilit
 1. Matignon region showing the Hurwitz half-plane and genuinely fractional sliver.
 2. Dimension-two versus dimension-three threshold schematic.
 3. Normalized cubic coefficient boundary.
-4. Simplex representation of the positive diagonal orbit.
-5. \(T_\alpha(\beta)\) versus \(\alpha\), including C-14 linear asymptotic.
-6. Exact ecological motif phase diagram in \((L_3,\alpha)\) and selected pair-loop slices.
-7. C-11 sufficient boundary versus exact C-10 boundary.
+4. General C-16 orbit-simplex reduction, specialized to the four C-10 invariants.
+5. Convex C-10 threshold surface / unique optimizer geometry.
+6. \(T_\alpha(\beta)\) versus \(\alpha\), showing both C-14 and C-15 asymptotic regimes.
+7. Exact ecological motif phase diagram in \((L_3,\alpha)\) and selected pair-loop slices.
+8. C-11 sufficient boundary versus exact C-10 boundary.
 
 ## Provisional title candidates
 
@@ -217,7 +281,7 @@ Titles remain provisional until independent proof and novelty audits pass.
 
 Before final prose drafting require:
 
-- adversarial proof audit: PASS or PASS WITH MINOR FIX for C-07/C-09/C-10/C-11/C-14;
+- adversarial proof audit: PASS or PASS WITH MINOR FIX for C-07/C-09/C-10/C-11/C-14/C-15/C-16;
 - high-compute wave: no persistent counterexample;
 - final specialist novelty audit of C-10;
 - exact citation and sign-convention verification for Cain, Matignon, Kushel/Kushel-Pavani, Siami, Cermak-Nechvatal, Bourafa et al.;
