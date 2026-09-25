@@ -32,6 +32,11 @@ jobs:
         run: |
           python3 paper/figures/generate_figures.py
 
+      - name: Download current SIAM macros
+        run: |
+          curl -fsSL https://epubs.siam.org/pb-assets/macros/standard/siamart251216.cls -o paper/siamart251216.cls
+          curl -fsSL https://epubs.siam.org/pb-assets/macros/standard/siamplain.bst -o paper/siamplain.bst
+
       - name: Build technical manuscript
         working-directory: paper
         run: |
@@ -41,7 +46,13 @@ jobs:
         working-directory: paper
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error submission.tex
-          test -s main.pdf
+          test -s submission.pdf
+
+      - name: Build official SIAM submission draft
+        working-directory: paper
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error submission-siam.tex
+          test -s submission-siam.pdf
 
       - name: Show warnings
         if: always()
@@ -51,6 +62,8 @@ jobs:
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" main.log || true
           echo "=== submission.log ==="
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission.log || true
+          echo "=== submission-siam.log ==="
+          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-siam.log || true
 
       - name: Upload manuscript PDF
         if: success()
@@ -60,5 +73,6 @@ jobs:
           path: |
             paper/main.pdf
             paper/submission.pdf
+            paper/submission-siam.pdf
           if-no-files-found: error
           retention-days: 30
