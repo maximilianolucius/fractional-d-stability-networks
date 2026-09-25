@@ -6,6 +6,7 @@ on:
       - q1-manuscript-20260925
     paths:
       - 'paper/**'
+      - 'reference-paper/Definitions/**'
       - '.github/workflows/paper.yml'
   workflow_dispatch:
 
@@ -31,6 +32,20 @@ jobs:
       - name: Generate manuscript figures
         run: |
           python3 paper/figures/generate_figures.py
+
+      - name: Prepare Mathematics MDPI template
+        run: |
+          rm -rf paper/Definitions
+          cp -R reference-paper/Definitions paper/Definitions
+          test -s paper/Definitions/mdpi.cls
+          test -s paper/Definitions/journalnames.tex
+          test -s paper/Definitions/mdpi.bst
+
+      - name: Build Mathematics MDPI submission
+        working-directory: paper
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error submission-mdpi.tex
+          test -s submission-mdpi.pdf
 
       - name: Acquire current SIAM macros
         run: |
@@ -77,6 +92,8 @@ jobs:
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission.log || true
           echo "=== submission-siam.log ==="
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-siam.log || true
+          echo "=== submission-mdpi.log ==="
+          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-mdpi.log || true
 
 
       - name: Build editor submission package
@@ -88,10 +105,9 @@ jobs:
           rm -rf dist
           mkdir -p "$PKG/sections" "$PKG/figures/generated"
 
-          cp paper/submission-siam.tex "$PKG/$SLUG.tex"
+          cp paper/submission-mdpi.tex "$PKG/$SLUG.tex"
           cp paper/references.bib "$PKG/references.bib"
-          cp paper/siamart251216.cls "$PKG/siamart251216.cls"
-          cp paper/siamplain.bst "$PKG/siamplain.bst"
+          cp -R reference-paper/Definitions "$PKG/Definitions"
 
           cp paper/sections/01-introduction-submission.tex "$PKG/sections/"
           cp paper/sections/02-framework-submission.tex "$PKG/sections/"
@@ -102,7 +118,6 @@ jobs:
           cp paper/sections/07-computational-validation-submission.tex "$PKG/sections/"
           cp paper/sections/08-discussion-submission.tex "$PKG/sections/"
           cp paper/sections/09-conclusion-submission.tex "$PKG/sections/"
-          cp paper/sections/10-declarations.tex "$PKG/sections/"
 
           for i in $(seq -w 1 12); do
             cp paper/figures/generated/panel${i}_*.pdf "$PKG/figures/generated/"
@@ -113,14 +128,15 @@ jobs:
           Exact Positive-Diagonal Matignon Stability in Dimension Three:
           A Fractional Deformation of Cain's D-Stability Threshold
 
-          Editor-ready source package.
+          Mathematics / MDPI editor-ready source package.
+          Authors: Ibrahim Alraddadi and Thoraya N. Alharthi
           Source commit: ${GITHUB_SHA}
 
           Build:
             latexmk -pdf -interaction=nonstopmode -halt-on-error $SLUG.tex
 
-          The package is self-contained: SIAM class/BST, bibliography,
-          all included section sources, and all submission figures are present.
+          The package is self-contained and uses the Mathematics/MDPI template
+          from reference-paper/Definitions.
           EOF
 
           (
@@ -147,6 +163,7 @@ jobs:
             paper/main.pdf
             paper/submission.pdf
             paper/submission-siam.pdf
+            paper/submission-mdpi.pdf
             dist/exact_positive_diagonal_matignon_stability_dimension_three.pdf
             dist/submission.zip
           if-no-files-found: error
