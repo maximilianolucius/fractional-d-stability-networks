@@ -93,3 +93,34 @@ The following can move to an appendix or supplement while retaining the theorem 
 Do not move a proof to unrefereed supplementary material if the main theorem would become logically dependent on that material.
 
 If SIMAX length pressure remains severe after normal prose/table/figure compression, prefer a refereed appendix within the manuscript over an unrefereed supplement for load-bearing mathematics.
+
+
+## Measured page distribution of the proof-complete build
+
+A clean 37-page article-class build before final Wave 2 integration distributed approximately as follows:
+
+| Component | Pages in technical build |
+|---|---:|
+| Title/abstract + Introduction | 1 |
+| Framework / orbit reduction | 3 |
+| Dimension two | 2 |
+| Exact 3x3 threshold | 6 |
+| Threshold geometry/asymptotics/realizability | 13 |
+| Ecological interpretation | 3 |
+| Computational validation | 3 |
+| Discussion | 3 |
+| Conclusion | 1 |
+| Bibliography | 2 |
+
+The main compression reservoir is therefore Section 5, followed by Sections 4, 6--8.
+
+### Realistic compression target
+
+Do not mechanically force the proof-complete mathematics into 20 article-class pages.
+
+First target after Wave 2:
+- approximately 24--28 pages in the technical article layout while preserving load-bearing proofs;
+- then convert to SIAM macros and reassess actual journal pages;
+- aim toward the nominal 20-page SIMAX policy through typography-neutral compression, compact figures/tables, and relocation of non-load-bearing numerical detail.
+
+If a strict 20-page version would require moving a load-bearing proof to unrefereed supplementary material, prefer a moderately longer main article and explain the necessity through the theorem density. SIMAX explicitly allows longer papers, although they are harder to referee.
