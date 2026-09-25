@@ -1,219 +1,317 @@
-# Claim registry
+# Claim registry — Chief canonical state
 
-**Chief status 2026-09-24: NOVELTY AUDIT REOPENED — SECOND-PASS WEB AUDIT INCORPORATED.**
+**Date:** 2026-09-24  
+**Status:** theorem package developed; independent adversarial proof audit pending.
 
-The baseline audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is superseded where necessary by `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
+No theorem is submission-certified until the independent proof audit passes. "Novelty survives" means no theorem-equivalent prior art was found in the targeted audit; it is not a substitute for the final pre-submission literature check.
 
-| ID | Statement / object | Novelty status | Proof status | Mandatory dependency |
+| ID | Statement / object | Novelty status | Proof status | Canonical source |
 |---|---|---|---|---|
-| C-01 | Matignon sector criterion | KNOWN/STANDARD | IMPORTED | Matignon; Brandibur–Garrappa–Kaslik |
-| C-02 | Fractionally stable while integer-order unstable | DERIVABLE BUT NOT NOVEL | elementary | motivation only |
-| C-03 | graph-indexed `S_alpha(G)` | DEFINITION ONLY / NEEDS THEOREM | OPEN | fractional consensus + integer-order topology/spectrum |
-| C-04 | `F_alpha = {A: sigma(DA) subset Sigma_alpha for all D>0}` | KNOWN GENERALIZED-D-STABILITY FRAMEWORK; EXACT SUBCLASS CHARACTERIZATION MAY BE NEW | framework known / low-dimensional results below | Kushel 2019; Kushel–Pavani 2020/2021; Kushel 2023 |
-| C-05 | topology/motifs characterize genuinely non-Hurwitz fractional D-stability | REOPENED — SINGLE-CYCLE NOVELTY REJECTED | OPEN beyond single cycle | Siami 2020/2021 + Arcak/Sontag |
-| C-06 | perturbational robustness / interior of fractional D-stability | CONCEPT HAS CLASSICAL PRIOR ART; FRACTIONAL NON-HURWITZ VERSION MAY BE NEW | PARTIAL | Hartfiel 1980; Abed 1986; Lee–Edgar 2001; Casasanta–Simpson-Porco 2026 |
-| C-07 | exact 2×2 classification of F_alpha; no open purely-fractional separation in n=2 | STRUCTURAL RESULT; NOVELTY SECONDARY / STILL AUDITING | **THEOREM — analytic proof in reopened audit** | trace/determinant scaling |
-| C-08 | min dimension with nonempty interior of P_alpha equals 3 for 0<alpha<=2/3 | **STRONG NOVELTY CANDIDATE — NOT FROZEN** | **THEOREM — analytic proof modulo Kellogg P-matrix wedge theorem** | Kellogg P-matrix spectral wedge + C-07 |
-| C-09 | min dimension with nonempty interior of P_alpha equals 3 for every 0<alpha<1 | **NOVELTY SURVIVES TARGETED AUDIT — PROVISIONAL FLAGSHIP THEOREM** | **THEOREM — internal analytic proof complete** | C-07 + C-08 + cubic angular certificate + uniform AM-GM diagonal-orbit bound; see `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
-| C-10 | exact variational 3×3 characterization on the full-dimensional strict-P(-A) stratum | **NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL FLAGSHIP PACKAGE** | **THEOREM — internal analytic proof complete** | four orbit invariants + exact simplex threshold T_alpha; recovers Cain at alpha=1; see `research/THEOREM_C10_EXACT_3X3.md` and `research/novelty/C10_TARGETED_AUDIT.md` |
-| C-11 | exact orbit minimum Phi(A) and fractional Cain-type 3x3 certificate | STRUCTURAL THEOREM / SUPPORTS FLAGSHIP; standalone novelty not required | **THEOREM — analytic proof complete** | Cain 1976 classical 3x3 criterion + C-09 cubic sector lemma; see `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` |
-| C-12 | GLV abundance-scaling invariance: J=diag(x*)A has the same F_alpha, D_H and P_alpha membership as A | APPLICATION COROLLARY / ECOLOGICAL BRIDGE | **THEOREM — immediate group-orbit proof** | positive left-diagonal orbit invariance; C-11 gives Phi(J)=Phi(A) |
+| C-01 | Matignon sector criterion for commensurate Caputo systems | KNOWN / STANDARD | IMPORTED THEOREM | Matignon; Brandibur-Garrappa-Kaslik |
+| C-02 | fractionally stable while integer-order unstable | KNOWN / DERIVABLE | elementary | motivation only |
+| C-03 | graph-indexed stability set S_alpha(G) | DEFINITION ONLY | no standalone theorem | subordinate to exact structural results |
+| C-04 | F_alpha = {A: sigma(DA) subset Sigma_alpha for every D>0} | generalized-D-stability FRAMEWORK KNOWN | definition/framework | Kushel 2019; Kushel-Pavani |
+| C-05 | single-cycle fractional D-stability/secant condition | CENTRAL NOVELTY REJECTED | substantially prior art | Siami 2020/2021 |
+| C-06 | robustness/interior/strong D-stability as a generic concept | CLASSICAL PRIOR ART | framework known | Hartfiel; Abed; Lee-Edgar |
+| C-07 | exact real 2x2 classification of F_alpha; int(P_alpha^(2)) empty | structural result; novelty secondary | **INTERNAL THEOREM** | reopened audit |
+| C-08 | dimension-3 open separation for alpha<=2/3 via P-matrix wedge | ingredient of C-09 | **INTERNAL THEOREM** modulo Kellogg | Kellogg + C-07 |
+| C-09 | minimum dimension with nonempty interior of P_alpha is 3 for every 0<alpha<1 | **NOVELTY SURVIVES TARGETED AUDIT — FLAGSHIP** | **INTERNAL THEOREM** | `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
+| C-10 | exact variational 3x3 characterization on the full-dimensional strict-P(-A) stratum | **NOVELTY SURVIVES TARGETED SEARCH — FLAGSHIP PACKAGE** | **INTERNAL THEOREM** | `research/THEOREM_C10_EXACT_3X3.md` |
+| C-11 | exact orbit minimum Phi(A) and simple fractional Cain sufficient certificate | structural/supporting result; standalone novelty unnecessary | **INTERNAL THEOREM** | `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` |
+| C-12 | GLV abundance-scaling invariance of F_alpha, D_H, P_alpha and orbit invariants | application bridge | **INTERNAL COROLLARY** | positive-diagonal orbit action |
+| C-13 | exact ecological loop-coordinate form of C-10 | structural/ecological corollary; loop analysis itself classical | **INTERNAL COROLLARY** | `research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md` |
 
-## Current objects
+## Central definitions
 
-```text
-Σ_α = { z ≠ 0 : |arg z| > απ/2 }
+For fixed \(0<\alpha<1\),
 
-F_α^(n) = { A ∈ R^(n×n) : σ(DA) ⊂ Σ_α for every D > 0 }
+\[
+\Sigma_\alpha
+=
+\{z\ne0:|\arg z|>\alpha\pi/2\},
+\]
 
-P_α^(n) = F_α^(n) \ D_H^(n)
-```
+\[
+\mathcal F_\alpha^{(n)}
+=
+\{A\in\mathbb R^{n\times n}:
+\sigma(DA)\subset\Sigma_\alpha
+\text{ for every positive diagonal }D\},
+\]
 
-The main scientific target is now **low-dimensional structural mathematics for P_α^(n)** before any graph-family generalization.
+and
 
-## C-07 — exact 2×2 classification
+\[
+\mathcal P_\alpha^{(n)}
+=
+\mathcal F_\alpha^{(n)}
+\setminus
+\mathcal D_H^{(n)},
+\]
 
-For every real A = [[a,b],[c,d]] and every 0 < α < 1,
+where \(\mathcal D_H^{(n)}\) is classical Hurwitz D-stability.
 
-```text
-A ∈ F_α^(2)  iff  det(A)>0, a<=0, d<=0.
-```
+## C-07 — exact 2x2 result
+
+For every real
+
+\[
+A=
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}
+\]
+
+and every \(0<\alpha<1\),
+
+\[
+A\in\mathcal F_\alpha^{(2)}
+\iff
+\det A>0,\quad a\le0,\quad d\le0.
+\]
 
 Moreover,
 
-```text
-P_α^(2) = { [[0,b],[c,0]] : bc<0 }
-```
+\[
+\mathcal P_\alpha^{(2)}
+=
+\left\{
+\begin{pmatrix}
+0&b\\c&0
+\end{pmatrix}:bc<0
+\right\},
+\]
 
-and therefore
+so
 
-```text
-int_R4 P_α^(2) = empty.
-```
+\[
+\operatorname{int}\mathcal P_\alpha^{(2)}=\varnothing.
+\]
 
-Proof: `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
+## C-09 — provisional flagship dimension theorem
 
-## C-08 — proved dimension-three separation for 0 < α ≤ 2/3
+For every \(0<\alpha<1\),
 
-Use
+\[
+\boxed{
+\min\left\{
+n:
+\operatorname{int}\mathcal P_\alpha^{(n)}
+\ne\varnothing
+\right\}
+=3.
+}
+\]
 
-```text
-A_γ = [ [-1, 0, -γ],
-        [ γ,-1,  0],
-        [ 0, γ, -1] ],   γ>2.
-```
+Targeted novelty verdict: **NOVELTY SURVIVES**.
 
-Then -A_γ is a strict P-matrix. By Kellogg's spectral wedge theorem, for every D > 0,
+## C-10 — exact 3x3 robust-stratum characterization
 
-```text
-|arg λ(DA_γ)| > π/3.
-```
+Let \(-A\) be a strict P-matrix and define
 
-Thus A_γ ∈ F_α^(3) for 0 < α ≤ 2/3. But
+\[
+p_i=-a_{ii},
+\qquad
+m_{ij}=\det A[\{i,j\}],
+\qquad
+q=-\det A.
+\]
 
-```text
-σ(A_γ) =
-{ -1-γ,
-  -1+γ/2 ± i(√3 γ/2) }.
-```
+Define the positive-left-diagonal orbit invariants
 
-Hence A_γ is not Hurwitz for γ>2. Strict P-matrix inequalities and positive spectral abscissa persist under sufficiently small full-matrix perturbations, yielding an open ball contained in P_α^(3).
+\[
+\beta_{12}=\frac{m_{12}}{p_1p_2},
+\quad
+\beta_{13}=\frac{m_{13}}{p_1p_3},
+\quad
+\beta_{23}=\frac{m_{23}}{p_2p_3},
+\]
 
-Therefore
+and
 
-```text
-min { n : int P_α^(n) != empty } = 3
-for every 0 < α ≤ 2/3.
-```
+\[
+\kappa=\frac{q}{p_1p_2p_3}.
+\]
 
-**Important:** this is an internal analytic theorem result; the **novelty claim remains under active literature audit**.
+For \(2/3<\alpha<1\), C-10 defines an explicit simplex threshold \(T_\alpha(\beta)\) and proves
 
-## C-09 — dimension threshold now internally proved for all 0<α<1
+\[
+\boxed{
+A\in\mathcal F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta).
+}
+\]
 
-`research/THEOREM_C09_DIMENSION_THRESHOLD.md` gives an analytic proof that
+The classical limit is
 
-```text
-min { n : int P_α^(n) != empty } = 3
-for every 0 < α < 1.
-```
+\[
+T_1(\beta)
+=
+\left(
+\sqrt{\beta_{12}}
++\sqrt{\beta_{13}}
++\sqrt{\beta_{23}}
+\right)^2,
+\]
 
-For `2/3<α<1`, the proof uses a positive-coefficient cubic angular certificate
+which recovers Cain's exact strict-P/type-2 \(3\times3\) D-stability threshold.
 
-```text
-(a_D b_D)/c_D > (1 - 2 cos(απ/2))^2
-```
+Furthermore,
 
-and a uniform AM-GM lower bound over all positive diagonal scalings. The proof status is upgraded to THEOREM internally; the novelty status is not frozen until the targeted audit in `research/NOVELTY_FOLLOWUP_C09_TASK.md` is completed.
+\[
+T_\alpha(\beta)>T_1(\beta)
+\qquad(2/3<\alpha<1),
+\]
 
-## C-10 — remaining exact-characterization frontier
+so the exact full-dimensional genuinely fractional band is
 
-An exact necessary-and-sufficient 3×3 characterization of `F_α` remains OPEN and could strengthen the paper beyond the dimension-threshold theorem.
+\[
+\boxed{
+T_1(\beta)<\kappa<T_\alpha(\beta).
+}
+\]
 
-## Q1 gate
+For \(0<\alpha\le2/3\),
 
-No central-paper drafting until there is:
+\[
+\operatorname{int}\mathcal F_\alpha^{(3)}
+=
+\{A:-A\text{ strict P}\},
+\]
 
-1. one exact characterization theorem;
-2. one genuine separation/obstruction theorem versus classical D-stability and Siami/Kushel prior art;
-3. one nontrivial structural extension: complete dimension threshold, exact 3×3 criterion, or motif theorem not reducible to Siami.
+and
 
-## Evidence labels
+\[
+\operatorname{int}\mathcal P_\alpha^{(3)}
+=
+\{A:-A\text{ strict P},\ \kappa>T_1(\beta)\}.
+\]
 
-- `THEOREM` — analytic proof.
-- `IMPORTED THEOREM` — published result used as a lemma.
-- `CERTIFIED COMPUTATION` — rigorous certificate.
-- `NUMERICAL CORROBORATION` — floating-point evidence only.
-- `OPEN` — unresolved.
+## C-11 — simple sufficient certificate
 
-Finite diagonal sampling is never proof.
+Define
 
-
-## Chief decision on C-09
-
-The dedicated audit `research/novelty/C09_TARGETED_AUDIT.md` returns:
-
-```text
-NOVELTY SURVIVES
-```
-
-for the combined dimension/interior theorem. Known ingredients remain imported and must be credited: optimal fractional Routh-Hurwitz theory, Kellogg's P-matrix wedge, generalized/relative D-stability, classical robust/interior D-stability, and Siami's cyclic fractional secant result.
-
-
-## C-11/C-12 — structural bridge to classical D-stability and ecology
-
-For strict-P 3x3 matrices define
-
-[
-\Phi(A)=
+\[
+\Phi(A)
+=
 \frac{
-(\sqrt{p_1m_{23}}+\sqrt{p_2m_{13}}+\sqrt{p_3m_{12}})^2
-}{-\det A}.
-]
+\left(
+\sqrt{p_1m_{23}}
++\sqrt{p_2m_{13}}
++\sqrt{p_3m_{12}}
+\right)^2
+}{q}.
+\]
 
 Then
 
-[
-\inf_{D>0}\frac{a_Db_D}{c_D}=\Phi(A).
-]
-
-Cain's classical 3x3 D-stability threshold is \(\Phi(A)>1\) in the strict-P case. For \(2/3<\alpha<1\), the project proves the fractional sufficient certificate
-
-[
-\Phi(A)>
-(1-2\cos(\alpha\pi/2))^2
-\Longrightarrow
-A\in F_\alpha^{(3)}.
-]
-
-The right-hand threshold is strictly below one and converges to one as \(\alpha\to1^-\).
-
-For GLV Jacobians \(J=\operatorname{diag}(x^*)A\) with \(x^*>0\), positive diagonal orbit reparametrization gives
-
-[
-J\in F_\alpha \iff A\in F_\alpha,
-\qquad
-J\in D_H \iff A\in D_H,
-\qquad
-J\in P_\alpha \iff A\in P_\alpha,
-]
-
-and \(\Phi(J)=\Phi(A)\).
-
-
-## C-10 exact threshold formulation
-
-For strict-P(-A) define the orbit invariants
-
-[
-\beta_{12}=m_{12}/(p_1p_2),\quad
-\beta_{13}=m_{13}/(p_1p_3),\quad
-\beta_{23}=m_{23}/(p_2p_3),\quad
-\kappa=(-\det A)/(p_1p_2p_3).
-]
-
-For 2/3<alpha<1, C-10 proves
-
-[
-A\in F_\alpha^{(3)}
-\iff
-\kappa<T_\alpha(\beta),
-]
-
-where (T_\alpha) is the exact two-dimensional simplex minimum in
-`research/THEOREM_C10_EXACT_3X3.md`.
-
-Moreover,
-
-[
-T_\alpha(\beta)>T_1(\beta)
+\[
+\inf_{D\succ0}\frac{a_Db_D}{c_D}
 =
-(\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}})^2,
-]
+\Phi(A).
+\]
 
-so the full-dimensional genuinely fractional band is exactly
+For \(2/3<\alpha<1\),
 
-[
-T_1(\beta)<\kappa<T_\alpha(\beta).
-]
+\[
+\Phi(A)>
+\left(1-2\cos(\alpha\pi/2)\right)^2
+\Longrightarrow
+A\in\mathcal F_\alpha^{(3)}.
+\]
 
-C-11 remains a simpler sufficient scalar certificate; C-10 proves that it is not necessary.
+C-10 and the Siami cyclic family show this scalar condition is sufficient but **not necessary**.
+
+## C-12/C-13 — GLV and motif interpretation
+
+For a positive GLV equilibrium,
+
+\[
+J=\operatorname{diag}(x^*)A,
+\]
+
+positive diagonal orbit reparametrization gives
+
+\[
+J\in\mathcal F_\alpha
+\iff
+A\in\mathcal F_\alpha,
+\]
+
+\[
+J\in\mathcal D_H
+\iff
+A\in\mathcal D_H,
+\]
+
+and
+
+\[
+J\in\mathcal P_\alpha
+\iff
+A\in\mathcal P_\alpha.
+\]
+
+The pair-loop coordinates are
+
+\[
+\beta_{ij}
+=
+1-\frac{a_{ij}a_{ji}}{p_ip_j},
+\]
+
+and, with
+
+\[
+L_3
+=
+\frac{
+a_{12}a_{23}a_{31}
++
+a_{13}a_{32}a_{21}
+}{
+p_1p_2p_3
+},
+\]
+
+\[
+\kappa
+=
+\beta_{12}+\beta_{13}+\beta_{23}-2-L_3.
+\]
+
+Thus C-10 admits an exact feedback-motif interpretation.
+
+## Prior-art locks
+
+Do not claim as new:
+
+- Matignon stabilization;
+- critical-order monotonicity;
+- fixed-polynomial fractional Routh-Hurwitz;
+- generalized D-stability;
+- relative D-stability / sector gaps;
+- strong D-stability / interior as a concept;
+- single-cycle fractional secant conditions;
+- P-matrix spectral wedges;
+- Cain's classical 3x3 D-stability theorem;
+- generic ecological loop analysis.
+
+## Q1 gate
+
+Before final manuscript drafting:
+
+1. adversarial proof audit of C-07/C-09/C-10/C-11 must PASS or PASS WITH MINOR FIX;
+2. final independent specialist novelty audit of C-10;
+3. exact bibliographic theorem numbers and sign conventions checked;
+4. test suite green;
+5. no numerical sampling used as theorem evidence.
+
+## Evidence labels
+
+- **INTERNAL THEOREM** — analytic proof present in repository; independent audit pending.
+- **IMPORTED THEOREM** — published result used as lemma.
+- **CERTIFIED COMPUTATION** — rigorous computational certificate.
+- **NUMERICAL CORROBORATION** — floating-point evidence only.
+- **OPEN** — unresolved.
