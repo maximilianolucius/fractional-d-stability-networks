@@ -15,14 +15,14 @@ No theorem is submission-certified until the independent proof audit passes. "No
 | C-06 | robustness/interior/strong D-stability as a generic concept | CLASSICAL PRIOR ART | framework known | Hartfiel; Abed; Lee-Edgar |
 | C-07 | exact real 2x2 classification of F_alpha; int(P_alpha^(2)) empty | structural result; novelty secondary | **INTERNAL THEOREM** | reopened audit |
 | C-08 | dimension-3 open separation for alpha<=2/3 via P-matrix wedge | ingredient of C-09 | **INTERNAL THEOREM** modulo Kellogg | Kellogg + C-07 |
-| C-09 | minimum dimension with nonempty interior of P_alpha is 3 for every 0<alpha<1 | **NOVELTY SURVIVES TARGETED AUDIT — FLAGSHIP** | **INTERNAL THEOREM** | `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
-| C-10 | exact variational 3x3 characterization on the full-dimensional strict-P(-A) stratum | **NOVELTY SURVIVES TARGETED SEARCH — FLAGSHIP PACKAGE** | **INTERNAL THEOREM** | `research/THEOREM_C10_EXACT_3X3.md` |
+| C-09 | minimum dimension with nonempty interior of P_alpha is 3 for every 0<alpha<1 | **NOVEL WITH NARROWED CLAIM — FLAGSHIP** | **INTERNAL THEOREM** | `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
+| C-10 | exact variational 3x3 characterization on the full-dimensional strict-P(-A) stratum | **NOVEL WITH NARROWED CLAIM — FLAGSHIP PACKAGE** | **INTERNAL THEOREM** | `research/THEOREM_C10_EXACT_3X3.md` |
 | C-11 | exact orbit minimum Phi(A) and simple fractional Cain sufficient certificate | structural/supporting result; standalone novelty unnecessary | **INTERNAL THEOREM** | `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` |
 | C-12 | GLV abundance-scaling invariance of F_alpha, D_H, P_alpha and orbit invariants | application bridge | **INTERNAL COROLLARY** | positive-diagonal orbit action |
 | C-13 | exact ecological loop-coordinate form of C-10 | structural/ecological corollary; loop analysis itself classical | **INTERNAL COROLLARY** | `research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md` |
 | C-14 | strict monotonicity of T_alpha and sharp alpha->1 collapse rate | supporting structural corollary; standalone novelty not required | **INTERNAL COROLLARY** | `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` |
-| C-15 | strict logit convexity, unique optimizer, explicit threshold-surface parametrization, alpha->2/3 asymptotic, and realizability of the full band | structural strengthening of C-10; standalone novelty pending | **INTERNAL THEOREM** | `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` |
-| C-16 | general positive-diagonal orbit reduction to a simplex using normalized principal-minor invariants | structural proposition; standalone novelty not claimed | **INTERNAL PROPOSITION** | `research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md` |
+| C-15 | strict logit convexity, unique optimizer, explicit threshold-surface parametrization, alpha->2/3 asymptotic, and realizability of the full band | **NOVEL WITH NARROWED CLAIM — theorem-specific geometry** | **INTERNAL THEOREM** | `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` |
+| C-16 | general positive-diagonal orbit reduction to a simplex using normalized principal-minor invariants | **NOT NOVEL — structural lemma/proposition only** | **INTERNAL PROPOSITION** | `research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md` |
 
 ## Central definitions
 
@@ -106,7 +106,7 @@ n:
 }
 \]
 
-Targeted novelty verdict: **NOVELTY SURVIVES**.
+Final specialist novelty verdict: **NOVEL WITH NARROWED CLAIM**.
 
 ## C-10 — exact 3x3 robust-stratum characterization
 
@@ -401,3 +401,23 @@ B_k(x)=sum_{|I|=k} beta_I product_{i in I} x_i.
 ```
 
 There are exactly `2^n-n-1` nontrivial orbit invariants: 4 in n=3 and 11 in n=4.
+
+
+## Final novelty gate — Chief decision
+
+The final specialist audit returns:
+
+- C-09: **NOVEL WITH NARROWED CLAIM**;
+- C-10: **NOVEL WITH NARROWED CLAIM**;
+- C-15: **NOVEL WITH NARROWED CLAIM**;
+- C-16: **NOT NOVEL** as a standalone contribution.
+
+Overall manuscript verdict:
+
+```text
+NOVELTY GATE PASSED WITH REPOSITIONING
+```
+
+The paper must position C-10 as an **explicit exact real-3x3 elimination/solution** of the known generalized positive-diagonal forbidden-boundary problem for the Matignon reflex sector. It must not claim to introduce fractional D-stability or to provide the first abstract necessary-and-sufficient generalized-D-stability criterion.
+
+C-16 remains useful structural machinery and may be stated as a lemma/proposition, but carries no priority claim.
