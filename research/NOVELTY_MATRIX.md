@@ -17,7 +17,7 @@
 | Cain 1984; Hartfiel 1980 | interior/topology of classical D-stable matrices | yes | half-plane | structural | Interior/robustness language is classical |
 | Abed 1986; Lee–Edgar 2001 | strong/robust classical D-stability | yes | half-plane | robust criteria | “strong D-stability” is occupied terminology/concept |
 | Kushel 2019 | general region/multiplier/operation stability framework | yes | arbitrary region | framework | F_α is an instance of known generalized D-stability |
-| **Kushel–Pavani 2020/2022, Theorem 3.3** | forbidden-boundary characterization for conic relative D-stability **and complement of the closed conic sector**; determinant nonvanishing for every positive D | **yes** | **sector/complement** | **abstract N&S** | **Closest conceptual theorem.** After sign reversal it covers the abstract Matignon complement problem. C-10 is therefore not the first N&S criterion; surviving novelty is explicit 3×3 elimination to κ<T_α(β) |
+| **Kushel–Pavani 2020/2022, conic/complement forbidden-boundary theorem (Theorem 6 in the accessible preprint, Section 3.2)** | forbidden-boundary characterization for conic relative D-stability **and complement of the closed conic sector**; determinant nonvanishing for every positive D | **yes** | **sector/complement** | **abstract N&S** | **Closest conceptual theorem.** After sign reversal it covers the abstract Matignon complement problem. C-10 is therefore not the first N&S criterion; surviving novelty is explicit 3×3 elimination to κ<T_α(β) |
 | Kushel–Pavani 2021 | diagonal region-dominance/generalized D-stability; fractional applications | yes for specified classes | yes | sufficient | Direct prior art for fractional multiplicative region stability; no exact C-10 threshold |
 | Kushel 2023 | relative D-stability, determinant bounds and sector gaps | yes | sector | sufficient/bounds | Sector gaps are not new; no T_α equivalence |
 | Kushel 2016 “D_θ-stability” | D-stability for θ-**ordered diagonal entries**, with θ a permutation/order | yes | **not angular** | classical criteria | False terminology collision; does not threaten C-10 |
@@ -77,7 +77,7 @@ with four positive-left-diagonal invariants
 ### Already known
 
 - generalized region/multiplier D-stability: Kushel;
-- abstract N&S forbidden-boundary criterion for cone/complement under all D: Kushel–Pavani Theorem 3.3;
+- abstract N&S forbidden-boundary criterion for cone/complement under all D: Kushel–Pavani the conic/complement equivalence theorem (Theorem 6 in the accessible preprint, Section 3.2; verify published theorem numbering before submission);
 - exact α=1 3×3 all-D homogeneous optimization/principal-minor threshold: Cain;
 - exact 3×3 all-D inertia classifications: Bahl–Cain;
 - fixed-cubic sector/fractional root-location conditions;
