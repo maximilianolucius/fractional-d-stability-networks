@@ -1,44 +1,180 @@
 \section{Exact three-dimensional Matignon threshold}
+\label{sec:exact-3x3}
 
-Assume throughout this section that \(-A\) is a strict P-matrix. Define
+Throughout this section \(A\in\mathbb R^{3\times3}\). We first work on the strict-\(P(-A)\) stratum,
 \[
 p_i=-a_{ii}>0,
 \qquad
-m_{ij}=\det A[\{i,j\}]>0,
+m_{12},m_{13},m_{23}>0,
 \qquad
 q=-\det A>0,
 \]
+and later show that this stratum contains every interior point of \(\mathcal F_\alpha^{(3)}\).
+
+For
+\[
+D=\operatorname{diag}(d_1,d_2,d_3)\succ0,
+\]
+write
+\[
+\det(\lambda I-DA)
+=
+\lambda^3+a_D\lambda^2+b_D\lambda+c_D.
+\]
+Then
+\[
+a_D=p_1d_1+p_2d_2+p_3d_3,
+\]
+\[
+b_D
+=
+m_{12}d_1d_2
++
+m_{13}d_1d_3
++
+m_{23}d_2d_3,
+\]
 and
 \[
-\beta_{ij}=\frac{m_{ij}}{p_ip_j},
+c_D=q\,d_1d_2d_3.
+\]
+The four orbit invariants introduced in Section~\ref{sec:framework} are
+\[
+\beta_{12}=\frac{m_{12}}{p_1p_2},
+\qquad
+\beta_{13}=\frac{m_{13}}{p_1p_3},
+\qquad
+\beta_{23}=\frac{m_{23}}{p_2p_3},
 \qquad
 \kappa=\frac{q}{p_1p_2p_3}.
 \]
 
-For \(D=\operatorname{diag}(d_1,d_2,d_3)\succ0\), the normalized orbit coordinates are
+\subsection{The exact cubic ray boundary}
+
+The fixed-polynomial part of the argument belongs to the broader fractional Routh--Hurwitz/root-location literature \citep{CermakNechvatal2017,Bourafa2020}. We record the precise form needed for diagonal-orbit elimination.
+
+\begin{lemma}[Exact cubic Matignon boundary]
+\label{lem:cubic-boundary}
+Let
 \[
-x_i=\frac{p_id_i}{a_D},
+p(\lambda)=\lambda^3+a\lambda^2+b\lambda+c,
 \qquad
-a_D=\sum_i p_id_i,
+a,b,c>0,
 \]
-so \(x\in\Delta_2^\circ\). Define
+and let
 \[
-B_\beta(x)
+\frac{\pi}{3}<\theta<\frac{\pi}{2}.
+\]
+Set
+\[
+u=\cos\theta\in(0,1/2),
+\qquad
+K=1-4u^2>0,
+\]
+and define
+\[
+r_\theta(a,b)
 =
-\beta_{12}x_1x_2+
-\beta_{13}x_1x_3+
-\beta_{23}x_2x_3.
+\frac{ua+\sqrt{u^2a^2+Kb}}{K},
+\]
+\[
+H_\theta(a,b)
+=
+r_\theta(a,b)^2
+\left(
+a+2u\,r_\theta(a,b)
+\right).
 \]
 Then
 \[
-\frac{b_D}{a_D^2}=B_\beta(x),
+|\arg\lambda_j|>\theta
+\quad\text{for every root }\lambda_j
+\]
+if and only if
+\[
+c<H_\theta(a,b).
+\]
+At equality, a conjugate pair lies exactly on the rays
+\[
+|\arg\lambda|=\theta.
+\]
+Moreover,
+\[
+H_\theta(sa,s^2b)=s^3H_\theta(a,b),
 \qquad
-\frac{c_D}{a_D^3}=\kappa x_1x_2x_3.
+s>0.
+\]
+\end{lemma}
+
+\begin{proof}
+A polynomial with positive coefficients has no positive real zero. Hence a root can leave the open region
+\[
+\{z\neq0:|\arg z|>\theta\}
+\]
+only through one of the two boundary rays.
+
+Put
+\[
+\lambda=re^{i\theta},
+\qquad r>0.
+\]
+The imaginary part of
+\[
+\lambda^3+a\lambda^2+b\lambda+c=0
+\]
+gives, after division by \(r\sin\theta\),
+\[
+r^2\frac{\sin3\theta}{\sin\theta}
++
+ar\frac{\sin2\theta}{\sin\theta}
++b=0.
+\]
+Using
+\[
+\frac{\sin3\theta}{\sin\theta}
+=
+4u^2-1=-K,
+\qquad
+\frac{\sin2\theta}{\sin\theta}=2u,
+\]
+we obtain
+\[
+Kr^2-2uar-b=0.
+\]
+Since \(K>0\), this quadratic has exactly one positive root,
+\[
+r=r_\theta(a,b).
+\]
+Substitution into the real part yields
+\[
+c=r^2(a+2ur)=H_\theta(a,b).
+\]
+Thus for fixed \(a,b>0\) there is exactly one positive value of \(c\) at which a root touches either boundary ray.
+
+It remains to determine which side is stable. For \(c>0\) sufficiently small, one root is a small negative real root and the other two are a small perturbation of the roots of
+\[
+\lambda^2+a\lambda+b,
+\]
+which is Hurwitz. Hence all three root arguments have magnitude strictly larger than \(\theta<\pi/2\). On the other hand, as \(c\to\infty\), the roots approach the cube-root directions of \(-c\), including the angles
+\[
+\pm\frac{\pi}{3},
+\]
+which violate \(\theta>\pi/3\). Continuity of the roots, together with uniqueness of the ray-contact value, therefore gives stability exactly for
+\[
+c<H_\theta(a,b).
 \]
 
-\subsection{Exact cubic boundary}
+Finally, direct substitution shows
+\[
+r_\theta(sa,s^2b)=s\,r_\theta(a,b),
+\]
+and hence
+\[
+H_\theta(sa,s^2b)=s^3H_\theta(a,b).
+\]
+\end{proof}
 
-Let
+For \(2/3<\alpha<1\), set
 \[
 \theta=\frac{\alpha\pi}{2},
 \qquad
@@ -46,34 +182,78 @@ u=\cos\theta,
 \qquad
 K=1-4u^2,
 \]
-and assume \(2/3<\alpha<1\), so \(K>0\). For the normalized cubic
-\[
-z^3+z^2+bz+c,
-\]
-define
+and define the normalized cubic boundary
 \[
 r_\alpha(b)
 =
 \frac{u+\sqrt{u^2+Kb}}{K},
 \]
-and
 \[
 h_\alpha(b)
 =
-r_\alpha(b)^2\bigl(1+2u\,r_\alpha(b)\bigr).
+r_\alpha(b)^2
+\left(
+1+2u\,r_\alpha(b)
+\right).
 \]
-Fixed-polynomial sector criteria belong to the existing fractional Routh--Hurwitz literature \citep{CermakNechvatal2017,Bourafa2020}; the value of this representation is that it can be combined exactly with the full diagonal orbit.
+
+\subsection{Exact elimination of the positive diagonal multiplier}
+
+Let
+\[
+s=a_D
+\]
+and introduce the normalized orbit coordinate
+\[
+x_i=\frac{p_id_i}{s},
+\qquad
+x\in\Delta_2^\circ.
+\]
+By Lemma~\ref{lem:simplex-reduction},
+\[
+\frac{b_D}{s^2}
+=
+B_\beta(x)
+:=
+\beta_{12}x_1x_2
++
+\beta_{13}x_1x_3
++
+\beta_{23}x_2x_3,
+\]
+and
+\[
+\frac{c_D}{s^3}
+=
+\kappa x_1x_2x_3.
+\]
 
 Define
 \[
+\boxed{
 T_\alpha(\beta)
 =
 \min_{x\in\Delta_2^\circ}
-\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
+\frac{
+h_\alpha(B_\beta(x))
+}{
+x_1x_2x_3
+}.
+}
 \]
+The minimum is attained in the interior. Indeed, \(B_\beta(x)\ge0\) on the closed simplex, \(h_\alpha\) has a strictly positive continuous extension to \(b=0\), and
+\[
+x_1x_2x_3\to0
+\]
+at the simplex boundary. Hence the objective diverges there.
 
-\begin{theorem}[Exact real-\(3\times3\) criterion]
-Let \(-A\) be a strict P-matrix and \(2/3<\alpha<1\). Then
+\begin{theorem}[Exact real-\(3\times3\) positive-diagonal Matignon criterion]
+\label{thm:C10}
+Let \(-A\) be a strict P-matrix and let
+\[
+\frac23<\alpha<1.
+\]
+Then
 \[
 \boxed{
 A\in\mathcal F_\alpha^{(3)}
@@ -83,42 +263,290 @@ A\in\mathcal F_\alpha^{(3)}
 \]
 \end{theorem}
 
-The theorem is an explicit elimination of the universal diagonal multiplier in the generalized forbidden-boundary problem of \citet{KushelPavani2022}. It is not a claim of first abstract necessary-and-sufficient generalized-D-stability theory.
-
-At \(\alpha=1\),
+\begin{proof}
+For any \(D\succ0\), write \(s=a_D>0\) and let \(x\in\Delta_2^\circ\) be the normalized orbit coordinate. The characteristic polynomial is
 \[
-h_1(b)=b,
+\lambda^3+s\lambda^2+s^2B_\beta(x)\lambda
++s^3\kappa x_1x_2x_3.
 \]
-and the threshold becomes
+Lemma~\ref{lem:cubic-boundary} and its homogeneity imply
+\[
+\sigma(DA)\subset\Sigma_\alpha
+\]
+if and only if
+\[
+s^3\kappa x_1x_2x_3
+<
+s^3 h_\alpha(B_\beta(x)).
+\]
+After cancellation,
+\[
+\kappa
+<
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
+\]
+By Lemma~\ref{lem:simplex-reduction}, varying \(D\succ0\) modulo common scale is equivalent to varying \(x\) over the entire open simplex. Therefore the inequality holds for every positive diagonal multiplier if and only if
+\[
+\kappa<T_\alpha(\beta).
+\]
+\end{proof}
+
+Theorem~\ref{thm:C10} is the principal elimination result of the paper. The generalized all-\(D\) forbidden-boundary problem itself is not new \citep{Kushel2019,KushelPavani2022}; the contribution is the explicit invariant-space solution in the real three-dimensional Matignon problem.
+
+\subsection{Necessity of the P-matrix stratum for interior points}
+
+The strict-P assumption is not an arbitrary restriction when one studies robust/full-dimensional fractional D-stability.
+
+\begin{lemma}[\(P_0\) necessity]
+\label{lem:P0}
+If
+\[
+A\in\mathcal F_\alpha^{(3)}
+\]
+for some \(0<\alpha<1\), then
+\[
+-a_{ii}\ge0
+\qquad(i=1,2,3),
+\]
+all order-two principal minors of \(A\) are nonnegative, and
+\[
+-\det A>0.
+\]
+Equivalently, \(-A\) is a \(P_0\)-matrix with strictly positive determinant.
+\end{lemma}
+
+\begin{proof}
+Suppose first that \(a_{ii}>0\). Keep the \(i\)-th row scaling positive and let the other two row scalings tend to zero. The limiting matrix has a positive real eigenvalue \(d_i a_{ii}\). By continuity, a nearby strictly positive diagonal scaling still has a positive real eigenvalue, contradicting membership in \(\mathcal F_\alpha^{(3)}\).
+
+Now suppose an order-two principal minor of \(A\) is negative. Let the remaining row scaling tend to zero. The limiting \(2\times2\) principal block has negative determinant, hence two real eigenvalues of opposite signs and therefore one positive real eigenvalue. Again this persists for nearby positive diagonal scalings.
+
+Finally, take \(D=I\). A real \(3\times3\) matrix has at least one real eigenvalue. Matignon stability excludes nonnegative real eigenvalues, so the real eigenvalue is negative. The remaining two eigenvalues are either both negative real numbers or a conjugate pair whose product is positive. In either case
+\[
+\det A<0.
+\]
+Thus \(-\det A>0\).
+\end{proof}
+
+\begin{corollary}[Strict-P interior]
+\label{cor:strictP-interior}
+If
+\[
+A\in\operatorname{int}\mathcal F_\alpha^{(3)},
+\]
+then \(-A\) is a strict P-matrix.
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:P0} gives nonnegative signed principal minors. If an order-one signed principal minor vanished, an arbitrarily small perturbation of the corresponding diagonal entry would make it negative and violate Lemma~\ref{lem:P0}. If an order-two principal minor vanished, an arbitrarily small perturbation of that \(2\times2\) principal block can make its determinant negative. Thus no matrix with a vanishing order-one or order-two signed principal minor can be an interior point. The determinant condition is already strict.
+\end{proof}
+
+\subsection{Complete classification of the full-dimensional interior}
+
+Kellogg's eigenvalue theorem for strict P-matrices \citep{Kellogg1972} states that if \(M\) is an \(n\times n\) strict P-matrix, then every eigenvalue \(\mu\) satisfies
+\[
+|\arg\mu|
+<
+\pi-\frac{\pi}{n}.
+\]
+For \(M=-DA\) with \(n=3\), rotation by \(\pi\) gives
+\[
+|\arg\lambda(DA)|
+>
+\frac{\pi}{3}.
+\]
+Therefore every strict-\(P(-A)\) matrix belongs to \(\mathcal F_\alpha^{(3)}\) whenever
+\[
+0<\alpha\le\frac23.
+\]
+
+\begin{theorem}[Interior of \(\mathcal F_\alpha^{(3)}\)]
+\label{thm:interior-F}
+For \(0<\alpha\le2/3\),
+\[
+\boxed{
+\operatorname{int}\mathcal F_\alpha^{(3)}
+=
+\{A:-A\text{ is a strict P-matrix}\}.
+}
+\]
+For \(2/3<\alpha<1\),
+\[
+\boxed{
+\operatorname{int}\mathcal F_\alpha^{(3)}
+=
+\left\{
+A:
+-A\text{ strict P},
+\ \kappa<T_\alpha(\beta)
+\right\}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+For \(0<\alpha\le2/3\), strict-P sufficiency is the Kellogg argument above, and necessity for interior points is Corollary~\ref{cor:strictP-interior}.
+
+Let now \(2/3<\alpha<1\). Necessity follows from Corollary~\ref{cor:strictP-interior} and Theorem~\ref{thm:C10}. Conversely, strict-P conditions are open. The objective defining \(T_\alpha\) diverges at the simplex boundary and depends continuously on \((\alpha,\beta,x)\). Around any fixed positive \(\beta\), all minimizers therefore lie in a common compact subset of the open simplex. Consequently \(T_\alpha(\beta)\) is continuous locally in \(\beta\). If
+\[
+\kappa<T_\alpha(\beta),
+\]
+the strict gap persists under sufficiently small perturbations of \(A\), so \(A\) is an interior point.
+\end{proof}
+
+\subsection{Exact recovery of Cain and the genuinely fractional band}
+
+At the integer-order endpoint,
+\[
+u\to0,
+\qquad
+K\to1,
+\qquad
+h_\alpha(b)\to b.
+\]
+Therefore
+\[
+T_\alpha(\beta)\to T_1(\beta),
+\]
+where
 \[
 T_1(\beta)
 =
 \min_{x\in\Delta_2^\circ}
-\left(
+\frac{B_\beta(x)}{x_1x_2x_3}.
+\]
+Since
+\[
+\frac{B_\beta(x)}{x_1x_2x_3}
+=
 \frac{\beta_{12}}{x_3}
 +
 \frac{\beta_{13}}{x_2}
 +
-\frac{\beta_{23}}{x_1}
-\right)
-=
-\left(
-\sqrt{\beta_{12}}+
-\sqrt{\beta_{13}}+
-\sqrt{\beta_{23}}
-\right)^2.
+\frac{\beta_{23}}{x_1},
 \]
-This is precisely Cain's real-\(3\times3\) strict-P threshold \citep{Cain1976}.
-
-For \(2/3<\alpha<1\), one has \(h_\alpha(b)>b\), hence
-\[
-T_\alpha(\beta)>T_1(\beta).
-\]
-Therefore the exact genuinely fractional full-dimensional band is
+Cauchy--Schwarz gives
 \[
 \boxed{
-T_1(\beta)<\kappa<T_\alpha(\beta).
+T_1(\beta)
+=
+\left(
+\sqrt{\beta_{12}}
++
+\sqrt{\beta_{13}}
++
+\sqrt{\beta_{23}}
+\right)^2.
 }
 \]
+The minimizing point is
+\[
+x_1^*
+=
+\frac{\sqrt{\beta_{23}}}
+{\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}}},
+\]
+with the other coordinates obtained cyclically.
 
-For \(0<\alpha\le2/3\), Kellogg's P-matrix eigenvalue wedge \citep{Kellogg1972} implies that every strict-\(P(-A)\) matrix is fractionally D-stable.
+This is exactly the classical real-\(3\times3\) D-stability threshold of Cain \citep{Cain1976}. Indeed, on the strict-P stratum, every normalized cubic has positive coefficients, and the Routh--Hurwitz condition is
+\[
+a_Db_D>c_D.
+\]
+After normalization this is
+\[
+\kappa
+<
+\frac{B_\beta(x)}{x_1x_2x_3}
+\]
+for every \(x\), hence precisely
+\[
+\kappa<T_1(\beta).
+\]
+
+For \(2/3<\alpha<1\), the fractional threshold is strictly larger.
+
+\begin{lemma}[Strict fractional expansion of Cain's boundary]
+\label{lem:Talpha-gt-T1}
+For every \(b>0\) and \(2/3<\alpha<1\),
+\[
+h_\alpha(b)>b.
+\]
+Consequently,
+\[
+T_\alpha(\beta)>T_1(\beta)
+\qquad
+\text{for every }\beta\in\mathbb R_{>0}^3.
+\]
+\end{lemma}
+
+\begin{proof}
+Let
+\[
+r=r_\alpha(b).
+\]
+From the boundary equation,
+\[
+b=Kr^2-2ur.
+\]
+Hence
+\[
+\begin{aligned}
+h_\alpha(b)-b
+&=
+r^2(1+2ur)-Kr^2+2ur\\
+&=
+(1-K)r^2+2ur(r^2+1)\\
+&=
+4u^2r^2+2ur(r^2+1)>0.
+\end{aligned}
+\]
+For the threshold inequality, evaluate the two objectives at a minimizer of the fractional objective:
+\[
+T_\alpha
+>
+\frac{B_\beta(x_\alpha^*)}{x_1^*x_2^*x_3^*}
+\ge
+T_1.
+\]
+\end{proof}
+
+\begin{corollary}[Exact genuinely fractional band]
+\label{cor:exact-band}
+For \(2/3<\alpha<1\),
+\[
+\boxed{
+\operatorname{int}\mathcal P_\alpha^{(3)}
+=
+\left\{
+A:
+-A\text{ strict P},
+\quad
+T_1(\beta)<\kappa<T_\alpha(\beta)
+\right\}.
+}
+\]
+For \(0<\alpha\le2/3\),
+\[
+\boxed{
+\operatorname{int}\mathcal P_\alpha^{(3)}
+=
+\left\{
+A:
+-A\text{ strict P},
+\quad
+\kappa>T_1(\beta)
+\right\}.
+}
+\]
+\end{corollary}
+
+\begin{proof}
+For \(2/3<\alpha<1\), Theorem~\ref{thm:interior-F} gives the fractional condition and the Routh--Hurwitz/Cain calculation gives
+\[
+A\in\mathcal D_H^{(3)}
+\iff
+\kappa<T_1(\beta).
+\]
+The strict inequalities define the interior of the difference. At equality \(\kappa=T_1\), every neighborhood contains classically D-stable points, so the equality surface is not interior to \(\mathcal P_\alpha^{(3)}\).
+
+For \(0<\alpha\le2/3\), every strict-\(P(-A)\) matrix is fractionally D-stable by Kellogg, while classical D-stability is again equivalent to \(\kappa<T_1(\beta)\). The equality surface is not interior for the same reason.
+\end{proof}
