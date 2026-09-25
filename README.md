@@ -2,7 +2,7 @@
 
 Public research repository for the development of an exact theory of **fractional D-stability under positive diagonal scaling**, with a three-species ecological-network / generalized Lotka–Volterra interpretation.
 
-> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: the final specialist novelty audit has passed **with repositioning**, while the independent adversarial proof audit and the final high-precision compute validation remain outstanding.
+> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: the final specialist novelty audit has passed **with repositioning** and the independent adversarial **proof gate has passed**; the final high-precision compute validation remains outstanding.
 
 The repository is public:
 
@@ -403,7 +403,7 @@ Required final artifact:
 
 `research/PROOF_AUDIT_C07_C09_C10_C11.md`
 
-At the time of this README update, that final audit report is **not yet present on `main`**.
+The independent proof audit is now present on `main` and has passed after all requested minor fixes were applied. See `research/PROOF_AUDIT_C07_C09_C10_C11.md` and `research/CHIEF_PROOF_AUDIT_CLOSURE.md`.
 
 ### Lane B — high-compute validation / discovery
 
@@ -611,7 +611,7 @@ Its mathematics does **not** establish novelty for this project.
 
 [`paper/`](paper/) is still a scaffold. The final manuscript is deliberately **locked** until the following gates are satisfied:
 
-1. adversarial proof audit passes C-07/C-09/C-10/C-11/C-14/C-15/C-16;
+1. adversarial proof audit: **PASSED**;
 2. high-compute wave finds no persistent counterexample;
 3. final specialist novelty audit: **PASSED WITH REPOSITIONING**;
 4. exact bibliographic theorem numbers and sign conventions are verified;
