@@ -1,7 +1,7 @@
 # Q1 Manuscript Status
 
 **Branch:** \`q1-manuscript-20260925\`  
-**Phase:** proof-complete technical manuscript v1.5 — internal referee pass 2 completed  
+**Phase:** proof-complete technical v2 + compact submission draft; Compute Wave 2 integrated
 **Scientific gates:** novelty PASS WITH REPOSITIONING; proof PASS; compute PASS.
 
 ## Current manuscript state
@@ -79,3 +79,23 @@ The manuscript theorem reconciliation is recorded in:
 The second internal referee pass is recorded in:
 
 `research/MANUSCRIPT_REFEREE_PASS_2.md`.
+
+
+## Wave 2 closure
+
+Compute Wave 2 returned \`COMPUTE2_PASS\` and has been Chief-reviewed and merged to \`main\`.
+
+- tests: 135/135;
+- certified atlas: 938/938, with 903 unconditional x-space certificates and 35 additional C-15-assisted logit certificates;
+- canonical witnesses: 35;
+- C-15 checks: 128,000 float + 2,500 HP;
+- unresolved C-10/C-15 discrepancies: 0;
+- P6 n=4 shared-edge result remains exploratory and is excluded from current manuscript claims.
+
+## Current manuscript variants
+
+- \`paper/main.tex\`: proof-complete technical manuscript, 39 pages in the neutral article layout;
+- \`paper/submission.tex\`: compact submission draft, 24 pages in the same neutral layout;
+- \`paper/submission-siam.tex\`: current-SIAM-class draft using \`siamart251216\`; page-count gate pending CI.
+
+The compact version retains the full load-bearing proofs of C-10, the strict-P interior classification, C-15 strict convexity, C-14, and C-09. Secondary threshold geometry remains preserved in the technical manuscript.
