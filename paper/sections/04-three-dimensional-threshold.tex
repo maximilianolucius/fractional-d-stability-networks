@@ -337,7 +337,25 @@ then \(-A\) is a strict P-matrix.
 \end{corollary}
 
 \begin{proof}
-Lemma~\ref{lem:P0} gives nonnegative signed principal minors. If an order-one signed principal minor vanished, an arbitrarily small perturbation of the corresponding diagonal entry would make it negative and violate Lemma~\ref{lem:P0}. If an order-two principal minor vanished, an arbitrarily small perturbation of that \(2\times2\) principal block can make its determinant negative. Thus no matrix with a vanishing order-one or order-two signed principal minor can be an interior point. The determinant condition is already strict.
+Lemma~\ref{lem:P0} gives nonnegative signed principal minors. Suppose first that an order-one signed principal minor vanishes, say \(p_i=-a_{ii}=0\). Increasing \(a_{ii}\) by an arbitrarily small positive amount makes \(p_i<0\), and Lemma~\ref{lem:P0} excludes the perturbed matrix from \(\mathcal F_\alpha^{(3)}\).
+
+Now suppose an order-two principal minor vanishes. Let \(B\) be the corresponding \(2\times2\) principal block, so \(\det B=0\). If \(\operatorname{rank}B=1\), then \(\operatorname{adj}(B)\neq0\). Hence one can choose a \(2\times2\) perturbation \(H\) with
+\[
+\operatorname{tr}(\operatorname{adj}(B)H)<0.
+\]
+Since
+\[
+\det(B+tH)
+=
+t\,\operatorname{tr}(\operatorname{adj}(B)H)+O(t^2),
+\]
+the determinant is negative for all sufficiently small \(t>0\). If \(B=0\), the perturbation
+\[
+t\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\]
+has determinant \(-t^2<0\). Thus every neighborhood of a matrix with a vanishing order-two principal minor contains a matrix forbidden by Lemma~\ref{lem:P0}.
+
+Therefore no interior point can have a vanishing order-one or order-two signed principal minor. The determinant condition in Lemma~\ref{lem:P0} is already strict, so \(-A\) is a strict P-matrix.
 \end{proof}
 
 \subsection{Complete classification of the full-dimensional interior}
