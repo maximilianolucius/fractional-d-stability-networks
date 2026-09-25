@@ -1,219 +1,265 @@
-# C-10 targeted novelty audit — exact 3x3 variational characterization
+# C-10 targeted novelty audit — final specialist update
 
-**Date:** 2026-09-24
-**Role:** Chief Researcher
-**Target:** `research/THEOREM_C10_EXACT_3X3.md`
-**Verdict:** **NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL, INCLUDING LOW-DIMENSIONAL INERTIA/SECTOR PREDECESSORS**
+**Date:** 2026-09-25  
+**Status:** supersedes the provisional 2026-09-24 positioning where inconsistent  
+**Final C-10 verdict:** **NOVEL WITH NARROWED CLAIM**  
+**Overall gate context:** see `FINAL_C10_C15_SPECIALIST_AUDIT.md`
 
-## Exact object audited
+## Exact object
 
-For real 3x3 matrices on the full-dimensional strict-P(-A) stratum, the project eliminates the entire positive left-diagonal orbit modulo common scale and represents it by the open simplex
+On the real 3×3 strict-P(-A) stratum, define
 
-[
-x_i=rac{p_i d_i}{a_D},qquad x_i>0,quad sum_i x_i=1.
-]
+```text
+p_i  = -a_ii > 0
+m_ij = det A[{i,j}] > 0
+q    = -det A > 0
 
-The orbit is determined by four positive invariants
+β_ij = m_ij/(p_i p_j)
+κ    = q/(p_1 p_2 p_3).
+```
 
-[
-eta_{12}=rac{m_{12}}{p_1p_2},quad
-eta_{13}=rac{m_{13}}{p_1p_3},quad
-eta_{23}=rac{m_{23}}{p_2p_3},quad
-kappa=rac{-det A}{p_1p_2p_3}.
-]
+For every positive diagonal D, the orbit modulo common positive scale is represented by x in the open 2-simplex and the normalized characteristic polynomial is
 
-For 2/3<alpha<1 the exact theorem is
+```text
+z^3 + z^2 + B_β(x) z + κ x_1x_2x_3,
 
-[
-Ain F_alpha^{(3)}
+B_β(x)
+ = β_12 x_1x_2
+ + β_13 x_1x_3
+ + β_23 x_2x_3.
+```
+
+For 2/3 < α < 1, the project proves
+
+```text
+A ∈ F_α^(3)
 iff
-kappa<T_alpha(eta),
-]
+κ < T_α(β),
 
-where
+T_α(β)
+ = min_x h_α(B_β(x))/(x_1x_2x_3).
+```
 
-[
-T_alpha(eta)
-=
-min_{xinDelta_2^circ}
-rac{h_alpha(B_eta(x))}{x_1x_2x_3}
-]
+At α=1,
 
-and (h_alpha) is the exact normalized cubic Matignon boundary.
+```text
+T_1(β)
+ = (sqrt(β_12)+sqrt(β_13)+sqrt(β_23))^2,
+```
 
-The same theorem gives
+recovering the strict-P classical Cain threshold.
 
-[
-operatorname{int}P_alpha^{(3)}
-=
-{A:-A	ext{ strict P}, T_1(eta)<kappa<T_alpha(eta)}.
-]
+---
 
-At alpha=1,
+# 1. New final-audit correction: Kushel–Pavani already give the abstract N&S theorem
 
-[
-T_1(eta)=
-(sqrt{eta_{12}}+sqrt{eta_{13}}+sqrt{eta_{23}})^2,
-]
+The previous targeted audit correctly identified Kushel–Pavani as the closest framework but understated the exactness of the overlap.
 
-recovering Cain's exact 3x3 D-stability threshold.
+In *The problem of generalized D-stability in unbounded LMI regions and its computational aspects* (arXiv:2004.11172; later JDDE), the authors define generalized multiplicative D-stability with the quantifier over **every positive diagonal multiplier**.
 
-## Closest prior art
+Their forbidden-boundary theorem gives the usual equivalence:
 
-### Cain 1976
+```text
+region-D-stability
+iff
+initial region stability + no boundary crossing for any positive diagonal D.
+```
 
-Cain gives a complete characterization of real 3x3 classical D-stable matrices. The project must credit this result as the alpha=1 endpoint.
+More importantly, **Theorem 3.3 explicitly gives equivalent necessary-and-sufficient conditions for a conic region and for the complement of the closed conic region**, including determinant nonvanishing conditions for every positive diagonal D.
 
-The current result is not a rediscovery of Cain: it constructs the alpha-dependent Matignon threshold (T_alpha) and proves exact positive-diagonal-orbit equivalence for all 2/3<alpha<1.
+After the sign substitution B=-A:
 
-### Cain 1984 / Hartfiel / robust D-stability
+- the project Matignon region Σ_α is the complement of a positive cone of half-angle θ=απ/2;
+- σ(DB)=-σ(DA);
+- hence B is required to remain in the complement of the corresponding negative cone under every positive diagonal multiplier.
 
-These works study interiors and robust classical D-stability. They occupy the topology/robustness concepts, but not the fractional Matignon threshold.
+Therefore C-10 must **not** be described as:
 
-### Kushel 2019; Kushel-Pavani 2020/2021
+- the first necessary-and-sufficient criterion for fractional multiplicative D-stability;
+- the first treatment of the nonconvex Matignon complement under positive diagonal scaling;
+- the first forbidden-boundary characterization.
 
-The generalized-D-stability framework permits arbitrary spectral regions and multiplier classes. The forbidden-boundary theorem says, abstractly, that region D-stability is equivalent to stability plus avoidance of the region boundary under all positive diagonal multipliers.
+Those claims are occupied.
 
-This is the closest conceptual framework.
+### What C-10 adds beyond Theorem 3.3
 
-What was not located there is the present low-dimensional elimination:
+Kushel–Pavani leave the universal D quantifier in the condition. They do not derive for arbitrary real strict-P(-A) 3×3 matrices:
 
-- no normalization of the complete 3x3 positive diagonal orbit to a simplex;
-- no four-invariant reduction ((eta_{12},eta_{13},eta_{23},kappa));
-- no exact scalar threshold (T_alpha(eta));
-- no exact fractional-only band between (T_1) and (T_alpha).
+```text
+(β_12,β_13,β_23,κ)
+    +
+a two-dimensional simplex
+    +
+an explicit fixed-cubic Matignon boundary
+    =>
+κ < T_α(β).
+```
 
-Thus C-10 can be viewed as an explicit solution of the generalized forbidden-boundary problem for the 3x3 Matignon region on its robust stratum.
+Thus the surviving novelty is **explicit low-dimensional elimination**, not existence of an abstract N&S framework.
 
-### Fractional Routh-Hurwitz literature
+---
 
-Cermak-Nechvatal and Bourafa-Abdelouahab-Moussaoui provide exact fixed-polynomial fractional root-location criteria. Joya-Furuta and related coefficient-domain work also characterize polynomial sector stability.
+# 2. Cain 1976 is more structurally overlapping than the previous audit stated
 
-These results occupy the fixed-cubic component (h_alpha).
+Cain does not merely give an α=1 final criterion.
 
-They do not quantify over (D), do not eliminate (D), and do not produce a matrix-orbit invariant necessary-and-sufficient criterion.
+For D=diag(x,y,z), his proof writes the Routh–Hurwitz all-D condition as a homogeneous expression involving:
 
-### Bahl-Cain 1977 — inertia of diagonal multiples
+- the order-one principal minors;
+- the order-two principal minors;
+- det A;
+- x,y,z.
 
-C. A. Bahl and B. E. Cain, *The inertia of diagonal multiples of 3x3 real matrices*, Linear Algebra and its Applications 18(3) (1977), 267-280, DOI 10.1016/0024-3795(77)90056-8.
+He then minimizes the resulting homogeneous ratio over x,y,z>0 and obtains the exact determinant threshold.
 
-This is a particularly close low-dimensional predecessor: it characterizes classes of 3x3 real matrices whose inertia is preserved under every positive diagonal multiplier, using algebraic conditions on principal minors.
+Therefore the following C-10 ingredients are already classical at α=1:
 
-**Overlap:** exact low-dimensional positive-diagonal-orbit classification.
+1. write all-D stability through principal-minor coefficient formulas;
+2. quotient out common positive scale through homogeneity;
+3. reduce to an optimization over diagonal ratios;
+4. obtain an exact determinant threshold.
 
-**Non-overlap:** inertia records the counts of eigenvalues in left/right half-planes and on the imaginary axis. C-10 requires angular localization relative to the Matignon rays inside a non-half-plane region, produces an alpha-dependent threshold, and isolates spectra that may lie in the right-half-plane sliver while remaining fractionally stable.
+C-10 should be presented explicitly as an **α-dependent Matignon deformation / extension of Cain's exact 3×3 mechanism**, not merely as a theorem whose endpoint happens to equal Cain.
 
-Thus Bahl-Cain is mandatory positioning but does not imply C-10.
+What is not in Cain is the angular Matignon boundary for α<1, including right-half-plane points, or the threshold T_α(β).
 
-### Joya-Furuta 1991 — sector-stable polynomial coefficient domains
+---
 
-K. Joya and K. Furuta, *A Necessary and Sufficient Condition for the D-Stability of Convex Combinations of D-Stable Polynomials*, Trans. SICE 27(3) (1991), 298-305, DOI 10.9746/sicetr1965.27.298.
+# 3. Bahl–Cain 1977 remains close but non-equivalent
 
-They derive explicit coefficient-space descriptions for monic polynomials whose roots lie in prescribed convex domains including sectors.
+Bahl–Cain characterize real 3×3 matrices for which MD has prescribed inertia under every positive diagonal D.
 
-**Overlap:** exact sector root-location in polynomial coefficient space.
+That theorem is exact and uses principal minors, but inertia sees only counts in left/right half-planes. It cannot distinguish:
 
-**Non-overlap:** no positive-diagonal matrix orbit, no principal-minor orbit invariants, no GLV row-scaling interpretation, and no deformation of the 3x3 Cain matrix criterion.
+```text
+απ/2 < |arg λ| <= π/2
+```
 
-### Siami 2020/2021
+from
 
-Siami gives an exact/sufficient fractional secant condition for the single-cycle family. This is recovered as a structured slice of C-10, not the source of novelty.
+```text
+0 < |arg λ| <= απ/2
+```
 
-Indeed, for the symmetric cyclic family (A_gamma), C-10 reproduces the exact Siami threshold while also applying to unrestricted perturbations and arbitrary strict-P 3x3 matrices.
+inside the right half-plane.
 
-## Searches performed
+Therefore replacing “inertia” by “Matignon angle” is not a formal specialization. The angular root-boundary calculation and threshold deformation are genuinely additional mathematics.
 
-Targeted searches included combinations of:
+---
 
-- 3x3 fractional D-stability necessary sufficient;
-- sector D-stability 3x3 principal minors;
-- generalized D-stability three-dimensional sector;
-- inertia of diagonal multiples of 3x3 matrices;
-- D-stable polynomials in sector coefficient domains;
-- Matignon positive diagonal scaling principal minors;
-- forbidden boundary 3x3 cubic;
-- fractional D-stability Routh-Hurwitz diagonal scaling.
+# 4. Fixed cubic h_α is not the novelty target
 
-No equivalent theorem was found.
+Fractional Routh–Hurwitz and sector-stable polynomial literature already covers substantial fixed-polynomial root-location territory:
 
-## Novelty boundary
+- Čermák–Nechvátal;
+- Bourafa–Abdelouahab–Moussaoui;
+- Joya–Furuta domain/sector-stable polynomial coefficient descriptions;
+- Holtz–Khrushchev–Kushel forbidden-sector polynomial results.
+
+The paper should therefore treat the exact cubic boundary function h_α as a component lemma, not as an independent priority claim, unless an exhaustive theorem-level comparison establishes otherwise.
+
+The candidate novelty is its combination with the entire positive-diagonal matrix orbit.
+
+---
+
+# 5. Siami is exactly the symmetric structured slice
+
+For the single negative-feedback 3-cycle,
+
+```text
+β = (1,1,1).
+```
+
+C-15 gives
+
+```text
+T_α(1,1,1) = 1 + R_3(α)^3,
+```
+
+equivalent to Siami's cycle threshold.
+
+This is important prior art, but it does not exhaust C-10:
+
+- β is invariant under positive left-diagonal scaling;
+- principal minors, hence β and κ, are invariant under diagonal similarity;
+- generic positive β triples cannot be converted to (1,1,1) by those transformations.
+
+Thus Siami is a one-dimensional/symmetric invariant slice of the general threshold surface.
+
+---
+
+# 6. Kushel 2016 D_theta is not an angular-sector collision
+
+The paper *On a criterion of D-stability for P-matrices* uses θ as a permutation/order of indices.
+
+A diagonal matrix is θ-ordered when its diagonal entries satisfy that order, and D_θ-stability means stability for all such ordered diagonal multipliers.
+
+It has no spectral-angle θ and does not subsume C-10.
+
+---
+
+# 7. Fractional “D-stability” terminology
+
+Mohsenipour–Liu 2020 was verified from its primary publisher record: its “robust D-stability” concerns uncertain characteristic equations, root/value sets and prescribed pole regions.
+
+It is D-**region** stability, not
+
+```text
+σ(DA) ⊂ Σ_α  for every positive diagonal D.
+```
+
+Shao et al. 2017 remains a bibliographic access flag: title/DOI/proceedings record are verified, but the primary body was not retrieved. All accessible citation context places it in the same D-region/pole-location line. This does not block the C-10 novelty conclusion because the much stronger multiplicative-D generalized theorem of Kushel–Pavani has already been compared directly.
+
+---
+
+# 8. Final novelty boundary for C-10
+
+## Already occupied
 
 Do not claim novelty for:
 
-- fixed-cubic Matignon/Routh-Hurwitz boundary (h_alpha);
-- Cain's alpha=1 criterion;
-- generalized D-stability;
-- the forbidden-boundary principle;
-- the simplex as a generic normalization trick.
+- generalized multiplicative D-stability;
+- arbitrary-region multiplier frameworks;
+- forbidden-boundary N&S theory for a cone or its complement;
+- principal-minor characteristic-coefficient formulas;
+- homogeneous optimization over positive diagonal ratios at α=1;
+- Cain's 3×3 classical threshold;
+- Bahl–Cain inertia classifications;
+- fixed-cubic fractional/sector root localization;
+- Siami's single-cycle fractional secant threshold.
 
-The candidate novelty is the **combined exact elimination theorem**:
+## Surviving candidate contribution
 
-> on the full-dimensional 3x3 stratum, the complete positive-diagonal Matignon-stability problem reduces exactly to four orbit invariants and one explicit two-dimensional variational threshold, continuously deforming Cain's criterion and giving an exact genuinely fractional band.
+The defensible claim is:
 
-## Residual risk
+> For arbitrary real 3×3 matrices on the full-dimensional strict-P(-A) stratum, the complete positive-diagonal Matignon generalized-D-stability problem can be **explicitly solved** by eliminating the universal diagonal multiplier and reducing it to four orbit invariants and the exact scalar inequality κ<T_α(β). This yields the exact genuinely fractional band between the classical Cain surface and the fractional threshold surface.
 
-The residual risk is an older low-dimensional generalized-region D-stability paper that contains an equivalent coefficient/orbit elimination under different terminology. No such result was located in the targeted search.
+No theorem equivalent to that explicit elimination was located in the final specialist search.
 
-A final independent specialist literature audit is still required before submission.
+---
 
-## Verdict
+# 9. Approved final verdict
 
-**NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL**
+## **C-10: NOVEL WITH NARROWED CLAIM**
 
-Mathematical status: internally proved.
-Research value: potentially stronger than C-09 because it explains and generalizes the dimension-threshold theorem.
-Publication strategy: elevate C-10 beside C-09 as a flagship theorem package, pending adversarial proof audit and final independent novelty verification.
+Recommended paper language:
 
+> “We give an explicit exact real-3×3 solution of the positive-diagonal generalized-D-stability problem for the Matignon reflex sector on the strict-P(-A) stratum.”
 
-## Addendum — Shao 2017 terminology collision
+Avoid:
 
-A targeted follow-up found K. Shao et al., “Necessary and sufficient D-stability condition of fractional-order linear systems,” CCC 2017, DOI 10.23919/ChiCC.2017.8027318.
+> “We introduce fractional D-stability.”
 
-Despite the title, accessible citation context places this work in the **desired pole-region / \mathcal D-stability** control literature, not in positive-diagonal multiplicative matrix D-stability. This interpretation is reinforced by Mohsenipour–Liu 2020, which uses “robust D-stability” explicitly for root-location regions, characteristic-polynomial value sets, and uncertain closed-loop poles.
+Avoid:
 
-No accessible evidence shows the Shao paper quantifying over (DA) for all positive diagonal matrices (D). Therefore it does not presently kill C-10. Full-text verification remains a final pre-submission bibliography task.
+> “We give the first necessary-and-sufficient generalized-D-stability criterion.”
 
-Detailed note: `research/novelty/D_STABILITY_TERMINOLOGY_COLLISION.md`.
+Avoid:
 
+> “Prior work cannot treat the nonconvex Matignon region.”
 
-## 2026 current-literature addendum — Kushel recursive framework and exact positioning
+For full source verification and final C-09/C-15/C-16 verdicts, see:
 
-A final current-literature sweep through 2026-09-25 adds two points that should be explicit in the manuscript positioning.
-
-### Kushel–Pavani 2021 is the closest generalized-region precedent
-
-Kushel and Pavani define multiplicative \(D\)-stability using arbitrary positive diagonal multipliers and develop \((\mathfrak D,D)\)-stability for unbounded LMI regions. They prove that diagonal \(\mathfrak D\)-dominance can imply preservation of spectral localization under every positive diagonal multiplier.
-
-Their paper also gives sufficient conditions for fractional-order systems through conic-sector localization and diagonal dominance.
-
-This is **direct conceptual prior art** for the phrase "fractional D-stability under positive diagonal scaling" and must be cited prominently.
-
-However, the result is not an exact characterization of the project object:
-
-- their conic LMI sectors are convex sectors around the negative real axis;
-- the project Matignon region for \(0<\alpha<1\),
-  \[
-  |\arg\lambda|>\alpha\pi/2,
-  \]
-  is a nonconvex reflex sector that includes a right-half-plane sliver;
-- their diagonal-dominance conditions are sufficient;
-- they do not give a necessary-and-sufficient real \(3\times3\) principal-minor/orbit criterion;
-- they do not eliminate the full diagonal multiplier to the four-invariant threshold \(T_\alpha(\beta)\).
-
-Thus the correct novelty language is **not** "first fractional D-stability concept". It is the exact low-dimensional solution of a multiplicative generalized-D-stability problem in the full Matignon region.
-
-### Kushel 2026 recursive determinantal framework
-
-Olga Kushel's 2026 preprint, *Recursive determinantal framework for testing D-stability. I* (arXiv:2604.16526), develops a delete/zero recursion based on real and imaginary parts of determinants and obtains a hierarchy of sufficient conditions for classical multiplicative D-stability, expressed through principal minors.
-
-This is relevant as the newest principal-minor D-stability work and should enter the final bibliography audit.
-
-It does **not** presently collide with C-10/C-15:
-
-- spectral target: classical half-plane D-stability;
-- result type: hierarchy of sufficient conditions;
-- no Matignon/reflex-sector exact characterization;
-- no exact four-invariant threshold for \(3\times3\);
-- no C-15 convex threshold geometry.
-
-**2026 update verdict:** no novelty kill found; Kushel–Pavani 2021 should be elevated to closest conceptual predecessor, and Kushel 2026 should be cited as current classical D-stability methodology.
+- `FINAL_C10_C15_SPECIALIST_AUDIT.md`
+- `FINAL_BIBLIOGRAPHY_VERIFICATION.md`
+- `../NOVELTY_MATRIX.md`
