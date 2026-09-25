@@ -1,0 +1,81 @@
+%=====================================================================
+% Exact Positive-Diagonal Matignon Stability in Dimension Three
+% Mathematics / MDPI submission entry point
+%=====================================================================
+\documentclass[mathematics,article,submit,pdftex,moreauthors]{Definitions/mdpi}
+
+\usepackage{amsmath,amssymb,amsthm}
+\emergencystretch=2em
+\graphicspath{{figures/generated/}}
+
+% Compatibility aliases for the modular theorem files.
+\newenvironment{theorem}[1][]{\begin{Theorem}[#1]}{\end{Theorem}}
+\newenvironment{lemma}[1][]{\begin{Lemma}[#1]}{\end{Lemma}}
+\newenvironment{corollary}[1][]{\begin{Corollary}[#1]}{\end{Corollary}}
+\newenvironment{proposition}[1][]{\begin{Proposition}[#1]}{\end{Proposition}}
+\newenvironment{definition}[1][]{\begin{Definition}[#1]}{\end{Definition}}
+\newenvironment{remark}[1][]{\begin{Remark}[#1]}{\end{Remark}}
+\newenvironment{assumption}[1][]{\begin{Assumption}[#1]}{\end{Assumption}}
+
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\externaleditor{}
+\datereceived{}
+\daterevised{}
+\dateaccepted{}
+\datepublished{}
+\hreflink{https://doi.org/}
+
+\Title{Exact Positive-Diagonal Matignon Stability in Dimension Three:
+A Fractional Deformation of Cain's D-Stability Threshold}
+
+\Author{{Ibrahim Alraddadi} $^{1}$ and Thoraya N. Alharthi $^{2,*}$}
+
+\AuthorNames{Ibrahim Alraddadi and Thoraya N. Alharthi}
+
+\address{%
+$^{1}$ \quad Department of Mathematics, Faculty of Science, Islamic University of Madinah, Madinah, {42351}, Saudi Arabia; ialraddadi@iu.edu.sa\\
+$^{2}$ \quad Department of Mathematics, College of Science, University of Bisha, {P.O. Box 551}, Bisha 61922, Saudi Arabia}
+
+\corres{Correspondence: talhrthe@ub.edu.sa}
+
+\abstract{We study positive-diagonal multiplicative stability for commensurate fractional-order systems in the Matignon region. For real \(3\times3\) matrices on the full-dimensional strict-\(P(-A)\) stratum, we eliminate the universal positive-diagonal multiplier exactly. Four orbit invariants reduce the complete diagonal orbit to a two-dimensional simplex, and fractional D-stability is equivalent to the scalar inequality \(\kappa<T_\alpha(\beta)\). At integer order, \(T_\alpha\) reduces exactly to Cain's classical real-\(3\times3\) D-stability boundary; for \(2/3<\alpha<1\), the strict band between the classical and fractional thresholds is genuinely fractional and full dimensional. The threshold problem is globally strictly convex in logit coordinates, has a unique smooth optimizer, and admits a sharp classical-order expansion. Consequently, dimension three is the smallest real dimension in which the fractional difference from Hurwitz D-stability has nonempty full-dimensional interior. For three-species generalized Lotka--Volterra systems, the invariants become abundance-independent reciprocal-pair and directed-cycle feedback coordinates. High-precision and interval-certified computations independently corroborate the analytic results.}
+
+\keyword{D-stability; fractional-order systems; Matignon stability; P-matrices; positive diagonal scaling; generalized Lotka--Volterra systems}
+
+\MSC{15A18; 34A08; 93D20}
+
+\begin{document}
+
+\input{sections/01-introduction-submission}
+\input{sections/02-framework-submission}
+\input{sections/03-dimension-two-submission}
+\input{sections/04-three-dimensional-threshold}
+\input{sections/05-threshold-geometry-submission}
+\input{sections/06-ecological-interpretation-submission}
+\input{sections/07-computational-validation-submission}
+\input{sections/08-discussion-submission}
+\input{sections/09-conclusion-submission}
+
+\authorcontributions{Conceptualization, I.A. and T.N.A.; methodology, I.A. and T.N.A.; formal analysis, I.A. and T.N.A.; verification software, I.A.; writing---original draft, I.A.; writing---review and editing, I.A. and T.N.A. All authors have read and agreed to the published version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\dataavailability{The mathematical derivations, reproducibility code, figure-generation scripts, and computational certification materials supporting this study are available in the public project repository cited in Section~\ref{sec:computation}. The original contributions presented in this study are included in the article; further inquiries can be directed to the corresponding author.}
+
+\acknowledgments{The authors are thankful to the Deanship of Graduate Studies and Scientific Research at University of Bisha for supporting this work through the Fast-Track Research Support Program. During the preparation of this manuscript, the authors used OpenAI ChatGPT (GPT-5.6 Sol, September 2026) to assist with literature organization, proof exploration, consistency checking, code review, and manuscript drafting. The authors reviewed and independently checked the resulting mathematical arguments, citations, computations, and code, and take full responsibility for the content of this publication.}
+
+\conflictsofinterest{The authors declare no conflicts of interest.}
+
+\reftitle{References}
+\bibliographystyle{Definitions/mdpi}
+\bibliography{references}
+
+\end{document}
