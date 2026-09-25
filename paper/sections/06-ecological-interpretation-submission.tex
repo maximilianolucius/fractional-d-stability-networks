@@ -1,0 +1,124 @@
+\section{Three-species ecological interpretation}
+\label{sec:ecology}
+
+For the commensurate fractional generalized Lotka--Volterra system
+\[
+{}^C D_t^\alpha x_i
+=
+x_i\left(r_i+\sum_{j=1}^3a_{ij}x_j\right),
+\]
+a positive equilibrium \(x^*\gg0\) has Jacobian
+\[
+J=\operatorname{diag}(x^*)A.
+\]
+The results below concern local Jacobian stability. Principal-minor and cycle decompositions are classical in ecological stability analysis \citep{ClarkHallam1982,Kinkhabwala2015}; the point here is that the exact fractional all-diagonal boundary can be written directly in those coordinates.
+
+\begin{proposition}[Positive-equilibrium orbit equivalence]
+\label{prop:GLV-invariance}
+For every \(x^*\gg0\),
+\[
+J\in\mathcal F_\alpha^{(3)}
+\iff
+A\in\mathcal F_\alpha^{(3)},
+\qquad
+J\in\mathcal D_H^{(3)}
+\iff
+A\in\mathcal D_H^{(3)}.
+\]
+Hence \(J\in\mathcal P_\alpha^{(3)}\iff A\in\mathcal P_\alpha^{(3)}\), and the four invariants \((\beta,\kappa)\) are unchanged.
+\end{proposition}
+
+\begin{proof}
+If \(E=\operatorname{diag}(x^*)\), then
+\[
+\{DJ:D\succ0\}
+=
+\{DEA:D\succ0\}
+=
+\{\widetilde D A:\widetilde D\succ0\},
+\]
+because \(D\mapsto DE\) is a bijection of the positive diagonal cone. The invariant ratios are unchanged by the same row scaling.
+\end{proof}
+
+Write
+\[
+p_i=-a_{ii}>0,
+\qquad
+g_{ij}=\frac{a_{ij}a_{ji}}{p_ip_j}.
+\]
+Then
+\[
+\boxed{\beta_{ij}=1-g_{ij}.}
+\]
+Thus opposite-sign reciprocal interactions have \(g_{ij}<0\) and increase \(\beta_{ij}\), whereas same-sign reciprocal interactions have \(g_{ij}>0\) and decrease it, subject to strict P.
+
+For the two oriented three-cycle products,
+\[
+\ell_{123}
+=
+\frac{a_{12}a_{23}a_{31}}{p_1p_2p_3},
+\qquad
+\ell_{132}
+=
+\frac{a_{13}a_{32}a_{21}}{p_1p_2p_3},
+\]
+put
+\[
+L_3=\ell_{123}+\ell_{132}.
+\]
+
+\begin{proposition}[Determinant-loop identity]
+\label{prop:loop-identity}
+\[
+\boxed{
+\kappa
+=
+\beta_{12}+\beta_{13}+\beta_{23}-2-L_3.
+}
+\]
+\end{proposition}
+
+\begin{proof}
+Expanding \(\det A\) and dividing by \(p_1p_2p_3\) gives
+\[
+\frac{\det A}{p_1p_2p_3}
+=
+-1+L_3+g_{12}+g_{13}+g_{23}.
+\]
+Use \(\kappa=-\det A/(p_1p_2p_3)\) and \(g_{ij}=1-\beta_{ij}\).
+\end{proof}
+
+\begin{corollary}[Exact loop-space fractional band]
+\label{cor:loop-band}
+For \(2/3<\alpha<1\), set
+\[
+C_\beta=\beta_{12}+\beta_{13}+\beta_{23}-2.
+\]
+On the strict-P stratum,
+\[
+A\in\operatorname{int}\mathcal P_\alpha^{(3)}
+\]
+if and only if
+\[
+\boxed{
+C_\beta-T_\alpha(\beta)
+<
+L_3
+<
+C_\beta-T_1(\beta).
+}
+\]
+\end{corollary}
+
+\begin{proof}
+Substitute \(\kappa=C_\beta-L_3\) into Corollary~\ref{cor:exact-band}.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.68\linewidth]{fig_ecological_band.pdf}
+\caption{Cain and fractional loop-space boundaries for \(\beta=(3,0.5,1)\). The genuinely fractional region lies between the two curves.}
+\label{fig:ecological-band}
+\end{figure}
+
+The ecological interpretation is therefore invariant under positive equilibrium abundance scaling. It separates normalized reciprocal-pair feedback \(\beta_{ij}=1-g_{ij}\) from total directed three-cycle feedback \(L_3\). This is a structural local-stability statement; it does not assert equilibrium feasibility, global persistence, or a causal effect of changing one biological interaction coefficient in isolation.
