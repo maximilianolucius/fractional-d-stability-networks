@@ -75,7 +75,32 @@ def s4():
     return {"identity_holds": sp.simplify(lhs - rhs) == 0}
 
 
+def s5():
+    """Exact series of T_alpha(1,1,1) = 1 + R3^3 at alpha = 1 - eps (second-order coefficient)."""
+    e = sp.symbols("epsilon", positive=True)
+    th = sp.pi / 2 - sp.pi * e / 2
+    R3 = sp.cos(sp.pi * e / 2) / sp.sin(sp.pi / 6 - sp.pi * e / 2)
+    ser = sp.series(1 + R3**3, e, 0, 4).removeO()
+    coeffs = [sp.nsimplify(sp.simplify(ser.coeff(e, k))) for k in range(4)]
+    del th
+    return {"coefficients": [str(sp.simplify(c)) for c in coeffs],
+            "numeric": [float(c) for c in coeffs]}
+
+
+def s6():
+    """C-11 certified fraction of the band as alpha -> 1:
+    (T1/rho - T1)/(T_alpha - T1) -> 2 pi T1 / C = 2 sqrt(S G)/(S + G) <= 1 (AM-GM)."""
+    S, G, e = sp.symbols("S G epsilon", positive=True)
+    rho = (1 - 2 * sp.sin(sp.pi * e / 2)) ** 2
+    lead = sp.limit((1 / rho - 1) / e, e, 0)
+    C = sp.pi * (S ** sp.Rational(5, 2) / sp.sqrt(G) + S ** sp.Rational(3, 2) * sp.sqrt(G))
+    frac = sp.simplify(lead * S**2 / C)
+    return {"(1/rho-1)/eps -> ": str(lead), "limit_fraction": str(frac),
+            "equals_2sqrt(SG)/(S+G)": sp.simplify(frac - 2 * sp.sqrt(S * G) / (S + G)) == 0}
+
+
 if __name__ == "__main__":
-    out = {"S1_elasticity": s1(), "S2_symmetric_siami": s2(), "S3_two_thirds": s3(), "S4_C14_constant": s4()}
+    out = {"S1_elasticity": s1(), "S2_symmetric_siami": s2(), "S3_two_thirds": s3(), "S4_C14_constant": s4(),
+           "S5_symmetric_series": s5(), "S6_C11_limit_fraction": s6()}
     print(json.dumps(out, indent=2, default=str))
     dump("SYMBOLIC_CHECKS.json", out)

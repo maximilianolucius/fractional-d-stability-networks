@@ -22,5 +22,24 @@
   },
   "S4_C14_constant": {
     "identity_holds": true
+  },
+  "S5_symmetric_series": {
+    "coefficients": [
+      "9",
+      "12*sqrt(3)*pi",
+      "36*pi**2",
+      "31*sqrt(3)*pi**3"
+    ],
+    "numeric": [
+      9.0,
+      65.29677711243184,
+      355.3057584392169,
+      1664.8378434783378
+    ]
+  },
+  "S6_C11_limit_fraction": {
+    "(1/rho-1)/eps -> ": "2*pi",
+    "limit_fraction": "2*sqrt(G)*sqrt(S)/(G + S)",
+    "equals_2sqrt(SG)/(S+G)": true
   }
 }

@@ -1,0 +1,357 @@
+{
+  "L3_alpha": {
+    "no_pair_loops_111": {
+      "beta": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "T1": 9.0,
+      "W_at_0.9": 12.934967727204416,
+      "W_at_0.99": 0.6902809541543626,
+      "G": 0.0,
+      "realizable_band_everywhere": true
+    },
+    "all_antagonistic_333": {
+      "beta": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "T1": 27.0,
+      "W_at_0.9": 30.66913879480034,
+      "W_at_0.99": 1.7801317532494976,
+      "G": -8.0,
+      "realizable_band_everywhere": true
+    },
+    "antagonistic_mixed_1.5_4_2": {
+      "beta": [
+        1.5,
+        4.0,
+        2.0
+      ],
+      "T1": 21.519935350196494,
+      "W_at_0.9": 25.283863838486436,
+      "W_at_0.99": 1.4370138877014265,
+      "G": -1.5,
+      "realizable_band_everywhere": true
+    },
+    "all_mutualistic_competitive_0.5": {
+      "beta": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "T1": 4.500000000000001,
+      "W_at_0.9": 8.634661053094039,
+      "W_at_0.99": 0.42974011284846036,
+      "G": 0.125,
+      "realizable_band_everywhere": true
+    },
+    "mutualistic_mixed_0.2_0.8_0.5": {
+      "beta": [
+        0.2,
+        0.8,
+        0.5
+      ],
+      "T1": 4.197366596101029,
+      "W_at_0.9": 8.611845015516485,
+      "W_at_0.99": 0.42947971968867077,
+      "G": 0.07999999999999999,
+      "realizable_band_everywhere": true
+    },
+    "mixed_3_0.5_1": {
+      "beta": [
+        3.0,
+        0.5,
+        1.0
+      ],
+      "T1": 11.827804920294026,
+      "W_at_0.9": 16.349585122443457,
+      "W_at_0.99": 0.8910790142653293,
+      "G": -0.0,
+      "realizable_band_everywhere": true
+    },
+    "mixed_5_0.2_0.2": {
+      "beta": [
+        5.0,
+        0.2,
+        0.2
+      ],
+      "T1": 9.8,
+      "W_at_0.9": 17.078857615365777,
+      "W_at_0.99": 0.9719839102918822,
+      "G": -2.5600000000000005,
+      "realizable_band_everywhere": true
+    },
+    "weak_pair_loops_1.01_0.99_1.005": {
+      "beta": [
+        1.01,
+        0.99,
+        1.005
+      ],
+      "T1": 9.014837402241936,
+      "W_at_0.9": 12.94909997805493,
+      "W_at_0.99": 0.6911311635011804,
+      "G": 4.999999999999902e-07,
+      "realizable_band_everywhere": true
+    },
+    "strong_antagonism_20_20_20": {
+      "beta": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "T1": 180.00000000000003,
+      "W_at_0.9": 252.1345317405409,
+      "W_at_0.99": 17.276327829556767,
+      "G": -6859.0,
+      "realizable_band_everywhere": true
+    }
+  },
+  "pairloop": {
+    "files": [
+      "pairloop_alpha0.75_g23_0.0.csv",
+      "pairloop_alpha0.75_g23_-2.0.csv",
+      "pairloop_alpha0.75_g23_0.5.csv",
+      "pairloop_alpha0.9_g23_0.0.csv",
+      "pairloop_alpha0.9_g23_-2.0.csv",
+      "pairloop_alpha0.9_g23_0.5.csv",
+      "pairloop_alpha0.99_g23_0.0.csv",
+      "pairloop_alpha0.99_g23_-2.0.csv",
+      "pairloop_alpha0.99_g23_0.5.csv"
+    ],
+    "grid": "g12,g13 in linspace(-6,0.95,140); beta=1-g"
+  },
+  "width_asymptotics": {
+    "no_pair_loops_111": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000005447943106,
+      "C_beta": 65.29677711243184,
+      "W*K^3/27 at 2/3+1e-7": 0.9999999999999022
+    },
+    "all_antagonistic_333": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000004714824529,
+      "C_beta": 169.64600329384882,
+      "W*K^3/27 at 2/3+1e-7": 1.0000010882792236
+    },
+    "antagonistic_mixed_1.5_4_2": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000004923331292,
+      "C_beta": 136.65777335361932,
+      "W*K^3/27 at 2/3+1e-7": 1.0000008162093303
+    },
+    "all_mutualistic_competitive_0.5": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000006045620335,
+      "C_beta": 40.40031965009873,
+      "W*K^3/27 at 2/3+1e-7": 0.9999997279300703
+    },
+    "mutualistic_mixed_0.2_0.8_0.5": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000006013720137,
+      "C_beta": 40.388924492231666,
+      "W*K^3/27 at 2/3+1e-7": 0.9999997279300632
+    },
+    "mixed_3_0.5_1": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.000000527807724,
+      "C_beta": 84.44124574685384,
+      "W*K^3/27 at 2/3+1e-7": 1.000000272069673
+    },
+    "mixed_5_0.2_0.2": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000004100584894,
+      "C_beta": 93.09297627914012,
+      "W*K^3/27 at 2/3+1e-7": 1.000000435311375
+    },
+    "weak_pair_loops_1.01_0.99_1.005": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.000000544147464,
+      "C_beta": 65.37795565882362,
+      "W*K^3/27 at 2/3+1e-7": 1.0000000009068033
+    },
+    "strong_antagonism_20_20_20": {
+      "W/(C(1-alpha)) at 1-1e-7": 1.0000002723053159,
+      "C_beta": 1679.0923718530755,
+      "W*K^3/27 at 2/3+1e-7": 1.0000103386534516
+    }
+  },
+  "symmetric_width": {
+    "0.7": {
+      "W_monotone_increasing_in_b": true,
+      "W_over_T1_monotone_decreasing_in_b": false,
+      "W_at_b=0.5(mutualistic)": 4520.149035692033,
+      "W_at_b=1(no loops)": 4926.488727323189,
+      "W_at_b=3(antagonistic)": 6556.404272300406
+    },
+    "0.8": {
+      "W_monotone_increasing_in_b": true,
+      "W_over_T1_monotone_decreasing_in_b": false,
+      "W_at_b=0.5(mutualistic)": 66.11169958512126,
+      "W_at_b=1(no loops)": 87.71549414674165,
+      "W_at_b=3(antagonistic)": 175.64428623837807
+    },
+    "0.9": {
+      "W_monotone_increasing_in_b": true,
+      "W_over_T1_monotone_decreasing_in_b": false,
+      "W_at_b=0.5(mutualistic)": 8.634634436986028,
+      "W_at_b=1(no loops)": 12.934967727204416,
+      "W_at_b=3(antagonistic)": 30.66976314756452
+    },
+    "0.95": {
+      "W_monotone_increasing_in_b": true,
+      "W_over_T1_monotone_decreasing_in_b": false,
+      "W_at_b=0.5(mutualistic)": 2.8268323331037144,
+      "W_at_b=1(no loops)": 4.417220438733944,
+      "W_at_b=3(antagonistic)": 11.023931185464095
+    },
+    "0.99": {
+      "W_monotone_increasing_in_b": true,
+      "W_over_T1_monotone_decreasing_in_b": false,
+      "W_at_b=0.5(mutualistic)": 0.4297072809351381,
+      "W_at_b=1(no loops)": 0.6902378055158742,
+      "W_at_b=3(antagonistic)": 1.780091591289479
+    }
+  },
+  "direct_validation": {
+    "label": "FLOAT direct eigenvalue optimisation (independent of C-10)",
+    "cases": 8100,
+    "all_agree": true,
+    "detail": {
+      "no_pair_loops_111|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "no_pair_loops_111|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "no_pair_loops_111|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "all_antagonistic_333|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "all_antagonistic_333|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "all_antagonistic_333|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "antagonistic_mixed_1.5_4_2|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "antagonistic_mixed_1.5_4_2|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "antagonistic_mixed_1.5_4_2|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "all_mutualistic_competitive_0.5|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "all_mutualistic_competitive_0.5|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "all_mutualistic_competitive_0.5|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mutualistic_mixed_0.2_0.8_0.5|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mutualistic_mixed_0.2_0.8_0.5|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mutualistic_mixed_0.2_0.8_0.5|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mixed_3_0.5_1|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mixed_3_0.5_1|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mixed_3_0.5_1|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mixed_5_0.2_0.2|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mixed_5_0.2_0.2|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "mixed_5_0.2_0.2|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "weak_pair_loops_1.01_0.99_1.005|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "weak_pair_loops_1.01_0.99_1.005|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "weak_pair_loops_1.01_0.99_1.005|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "strong_antagonism_20_20_20|alpha=0.75": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "strong_antagonism_20_20_20|alpha=0.9": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      },
+      "strong_antagonism_20_20_20|alpha=0.99": {
+        "n": 300,
+        "fractional_membership_agrees": 300,
+        "hurwitz_D_stability_agrees": 300
+      }
+    }
+  },
+  "wall_seconds": 216.65,
+  "memory": {
+    "self_peak_rss_mb": 1438.1,
+    "max_child_peak_rss_mb": 0.0
+  }
+}
