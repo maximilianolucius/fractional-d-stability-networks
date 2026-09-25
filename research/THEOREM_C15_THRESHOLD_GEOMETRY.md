@@ -1,7 +1,8 @@
 # C-15 — Convex geometry and explicit parametrization of the exact 3x3 threshold
 
 **Date:** 2026-09-25  
-**Status:** INTERNAL ANALYTIC THEOREM  
+**Status:** INTERNAL ANALYTIC THEOREM — proof-audited with minor fixes applied  
+**Novelty status:** FINAL SPECIALIST VERDICT — NOVEL WITH NARROWED CLAIM  
 **Origin:** discovered during Compute Wave 1; independently re-derived by the Chief  
 **Role:** strengthens C-10 by replacing a generic variational minimum with a strictly convex two-variable problem having a unique optimizer and an explicit global surface parametrization.
 
@@ -932,33 +933,43 @@ Therefore already at \(\kappa=T_1\),
 
 The inequality remains true for every larger \(\kappa\).
 
-Choose a real root \(\ell\) of
+Choose a real nonzero root \(\ell\) of
 
 \[
 \ell^2-L_3\ell+G=0.
 \]
 
-Set \(p_1=p_2=p_3=1\). Choose six off-diagonal entries with pair products
+Set \(p_1=p_2=p_3=1\), so \(a_{11}=a_{22}=a_{33}=-1\). One explicit real construction is
+
+\[
+a_{12}=a_{23}=1,
+\qquad
+a_{31}=\ell,
+\]
+
+\[
+a_{21}=g_{12},
+\qquad
+a_{32}=g_{23},
+\qquad
+a_{13}=g_{13}/\ell.
+\]
+
+Then
 
 \[
 a_{ij}a_{ji}=g_{ij}
 \]
 
-and oriented loop product
-
-\[
-a_{12}a_{23}a_{31}=\ell.
-\]
-
-The opposite loop product is then automatically
+for all three reciprocal pairs, the forward three-cycle product is \(\ell\), and the reverse product is
 
 \[
 a_{13}a_{32}a_{21}=G/\ell.
 \]
 
-This constructs a real matrix with the desired \(\beta\), \(L_3\), and hence \(\kappa\).
+Hence the total directed three-cycle feedback is \(L_3\), so the resulting matrix has exactly the prescribed \(\beta\) and \(\kappa\).
 
-The degenerate case \(G=0\) follows by taking one oriented loop product zero and tuning the other to \(L_3\).
+If \(G=0\), then for \(\kappa\ge T_1(\beta)\) the required \(L_3\) is strictly negative. The quadratic therefore has the nonzero root \(\ell=L_3\), and the same construction applies; any zero \(g_{ij}\) simply produces the corresponding zero reciprocal entry.
 
 QED.
 
@@ -975,4 +986,4 @@ C-15 strengthens the C-10 package in four ways:
 
 The \(\alpha\downarrow2/3\) asymptotic also explains analytically why the low-order Kellogg regime appears as an infinite-threshold limit.
 
-None of these statements should be promoted as separately novel until literature audit; their current role is to sharpen and simplify the flagship C-10 theorem package.
+The final specialist audit classifies the theorem-specific C-15 geometry as **NOVEL WITH NARROWED CLAIM**. Generic logit/log-sum-exp/convex-optimization machinery is standard; the novelty claim is restricted to this exact threshold functional and its consequences.
