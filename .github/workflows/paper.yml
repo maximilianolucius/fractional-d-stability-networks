@@ -24,6 +24,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y latexmk texlive-latex-extra texlive-bibtex-extra
 
+      - name: Install figure dependencies
+        run: |
+          python3 -m pip install --break-system-packages pandas matplotlib
+
+      - name: Generate manuscript figures
+        run: |
+          python3 paper/figures/generate_figures.py
+
       - name: Build manuscript
         working-directory: paper
         run: |
