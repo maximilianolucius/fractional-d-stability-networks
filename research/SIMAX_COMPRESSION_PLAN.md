@@ -62,3 +62,34 @@ Additional Wave 2 plots go to supplement.
 ## Trigger
 
 Do not perform this compression until Wave 2 produces final figure data and canonical witness selection; otherwise the main/supplement split would have to be redone.
+
+
+## Proof dependency lock
+
+The following proof material must remain in the refereed main article because removing it would make the flagship theorem depend on an unrefereed supplement:
+
+1. exact cubic ray-boundary derivation;
+2. orbit/simplex normalization;
+3. proof of the iff threshold theorem;
+4. P0 necessity and strict-P interior argument;
+5. recovery of Cain and strict inequality \(T_\alpha>T_1\);
+6. strict logit-convexity theorem;
+7. minimum-dimension theorem.
+
+The following can move to an appendix or supplement while retaining the theorem statement and essential formula in the main article:
+
+1. detailed algebra of the global \((x,r)\) threshold-surface parametrization;
+2. second-order bookkeeping in the \(\alpha\downarrow2/3\) expansion;
+3. full C-11 Cauchy--Schwarz certificate derivation;
+4. C-11 coverage-fraction proof;
+5. detailed realizability sign-case analysis, provided the explicit construction and theorem remain in the main text;
+6. full computational stress-test table;
+7. extreme-scaling numerical pathology;
+8. interval branch-and-bound implementation detail;
+9. Wave 2 robustness tables and extended witness library.
+
+## Compression rule
+
+Do not move a proof to unrefereed supplementary material if the main theorem would become logically dependent on that material.
+
+If SIMAX length pressure remains severe after normal prose/table/figure compression, prefer a refereed appendix within the manuscript over an unrefereed supplement for load-bearing mathematics.
