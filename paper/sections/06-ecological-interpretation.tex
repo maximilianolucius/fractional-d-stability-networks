@@ -1,0 +1,68 @@
+\section{Three-species ecological interpretation}
+
+Consider a generalized Lotka--Volterra equilibrium with positive abundance vector \(x^*\), so that its Jacobian can be written
+\[
+J=\operatorname{diag}(x^*)A.
+\]
+Positive left multiplication merely reparametrizes the same positive-diagonal orbit. Hence
+\[
+J\in\mathcal F_\alpha
+\iff
+A\in\mathcal F_\alpha,
+\qquad
+J\in\mathcal D_H
+\iff
+A\in\mathcal D_H,
+\]
+and therefore
+\[
+J\in\mathcal P_\alpha
+\iff
+A\in\mathcal P_\alpha.
+\]
+Thus the classification is independent of the particular positive equilibrium abundance vector.
+
+Let
+\[
+g_{ij}
+=
+\frac{a_{ij}a_{ji}}{p_ip_j}.
+\]
+Then the pair-loop coordinates are
+\[
+\boxed{
+\beta_{ij}=1-g_{ij}.
+}
+\]
+If
+\[
+L_3
+=
+\frac{
+a_{12}a_{23}a_{31}
++
+a_{13}a_{32}a_{21}
+}{
+p_1p_2p_3
+},
+\]
+then
+\[
+\boxed{
+\kappa
+=
+\beta_{12}+\beta_{13}+\beta_{23}-2-L_3.
+}
+\]
+
+These identities translate the exact matrix threshold into normalized reciprocal-pair and directed-three-cycle feedback coordinates. Generic loop/principal-minor decompositions are classical; the contribution here is the exact fractional all-diagonal threshold inherited from the matrix theorem.
+
+Because the threshold minimizer is unique, the envelope theorem gives an exact pair-loop sensitivity. If \(\{i,j,k\}=\{1,2,3\}\),
+\[
+\boxed{
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}>0.
+}
+\]
+This statement is conditional on holding the determinant coordinate \(\kappa\) fixed; changing an ecological interaction coefficient generally changes both \(\beta\) and \(\kappa\).
