@@ -1,0 +1,33 @@
+name: Paper build
+
+on:
+  push:
+    branches:
+      - q1-manuscript-20260925
+    paths:
+      - 'paper/**'
+      - '.github/workflows/paper.yml'
+  workflow_dispatch:
+
+jobs:
+  build-paper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-bibtex-extra
+
+      - name: Build manuscript
+        working-directory: paper
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+          test -s main.pdf
+
+      - name: Show warnings
+        if: always()
+        working-directory: paper
+        run: |
+          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" main.log || true
