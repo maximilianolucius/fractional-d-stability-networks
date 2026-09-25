@@ -15,7 +15,7 @@ The baseline audit at commit `0b3b4df394eceec0dc9951a33fda01560de2f731` is super
 | C-07 | exact 2×2 classification of F_alpha; no open purely-fractional separation in n=2 | STRUCTURAL RESULT; NOVELTY SECONDARY / STILL AUDITING | **THEOREM — analytic proof in reopened audit** | trace/determinant scaling |
 | C-08 | min dimension with nonempty interior of P_alpha equals 3 for 0<alpha<=2/3 | **STRONG NOVELTY CANDIDATE — NOT FROZEN** | **THEOREM — analytic proof modulo Kellogg P-matrix wedge theorem** | Kellogg P-matrix spectral wedge + C-07 |
 | C-09 | min dimension with nonempty interior of P_alpha equals 3 for every 0<alpha<1 | **NOVELTY SURVIVES TARGETED AUDIT — PROVISIONAL FLAGSHIP THEOREM** | **THEOREM — internal analytic proof complete** | C-07 + C-08 + cubic angular certificate + uniform AM-GM diagonal-orbit bound; see `research/THEOREM_C09_DIMENSION_THRESHOLD.md` |
-| C-10 | exact 3×3 characterization of F_alpha for 2/3<alpha<1 | POTENTIALLY TITLE-WORTHY | OPEN | fractional analogue of Cain + Kushel forbidden-boundary framework |
+| C-10 | exact variational 3×3 characterization on the full-dimensional strict-P(-A) stratum | **NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL FLAGSHIP PACKAGE** | **THEOREM — internal analytic proof complete** | four orbit invariants + exact simplex threshold T_alpha; recovers Cain at alpha=1; see `research/THEOREM_C10_EXACT_3X3.md` and `research/novelty/C10_TARGETED_AUDIT.md` |
 | C-11 | exact orbit minimum Phi(A) and fractional Cain-type 3x3 certificate | STRUCTURAL THEOREM / SUPPORTS FLAGSHIP; standalone novelty not required | **THEOREM — analytic proof complete** | Cain 1976 classical 3x3 criterion + C-09 cubic sector lemma; see `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` |
 | C-12 | GLV abundance-scaling invariance: J=diag(x*)A has the same F_alpha, D_H and P_alpha membership as A | APPLICATION COROLLARY / ECOLOGICAL BRIDGE | **THEOREM — immediate group-orbit proof** | positive left-diagonal orbit invariance; C-11 gives Phi(J)=Phi(A) |
 
@@ -178,3 +178,42 @@ J\in P_\alpha \iff A\in P_\alpha,
 ]
 
 and \(\Phi(J)=\Phi(A)\).
+
+
+## C-10 exact threshold formulation
+
+For strict-P(-A) define the orbit invariants
+
+[
+\beta_{12}=m_{12}/(p_1p_2),\quad
+\beta_{13}=m_{13}/(p_1p_3),\quad
+\beta_{23}=m_{23}/(p_2p_3),\quad
+\kappa=(-\det A)/(p_1p_2p_3).
+]
+
+For 2/3<alpha<1, C-10 proves
+
+[
+A\in F_\alpha^{(3)}
+\iff
+\kappa<T_\alpha(\beta),
+]
+
+where (T_\alpha) is the exact two-dimensional simplex minimum in
+`research/THEOREM_C10_EXACT_3X3.md`.
+
+Moreover,
+
+[
+T_\alpha(\beta)>T_1(\beta)
+=
+(\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}})^2,
+]
+
+so the full-dimensional genuinely fractional band is exactly
+
+[
+T_1(\beta)<\kappa<T_\alpha(\beta).
+]
+
+C-11 remains a simpler sufficient scalar certificate; C-10 proves that it is not necessary.
