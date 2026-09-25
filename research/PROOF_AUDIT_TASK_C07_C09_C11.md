@@ -1,4 +1,4 @@
-# Independent proof audit task — C-07 / C-09 / C-10 / C-11 / C-14
+# Independent proof audit task — C-07 / C-09 / C-10 / C-11 / C-14 / C-15
 
 **Priority:** P0
 **Role:** adversarial mathematical verifier
@@ -11,7 +11,8 @@
 3. `research/THEOREM_C10_EXACT_3X3.md` — C-10.
 4. `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` — C-11.
 5. `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` — C-14.
-6. `research/novelty/C09_TARGETED_AUDIT.md` and `research/novelty/C10_TARGETED_AUDIT.md` — novelty boundaries only.
+6. `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` — C-15.
+7. `research/novelty/C09_TARGETED_AUDIT.md` and `research/novelty/C10_TARGETED_AUDIT.md` — novelty boundaries only.
 
 ## Mandatory checks
 
@@ -56,6 +57,15 @@
 - Verify the envelope-theorem step and the coefficient C(beta).
 - Check the symmetric beta=(1,1,1) coefficient 12*pi*sqrt(3) against the Siami slice.
 
+### C-15
+- Verify the elasticity formula E=b h'/h and the bounds 0<E<3/2.
+- Verify phi''>0 and the positive-definite Hessian decomposition in logit coordinates.
+- Verify coercivity and uniqueness/nondegeneracy of the threshold optimizer.
+- Verify the symmetric and two-equal slice reductions.
+- Re-derive the explicit beta_ij(x,r) parametrization and prove its bijectivity.
+- Verify the alpha->2/3+ expansion through the K^-2 coefficient.
+- Verify the realizability theorem for every beta>0 and kappa>=T1(beta), including G<=0, G>0 and G=0 cases.
+
 ## Computational corroboration
 
 Run the full test suite. Add independent random/property tests if helpful, but label them corroboration only.
@@ -64,7 +74,7 @@ Run the full test suite. Add independent random/property tests if helpful, but l
 
 Create `research/PROOF_AUDIT_C07_C09_C10_C11.md`.
 
-For every theorem C-07, C-09, C-10, C-11 and C-14 return exactly one:
+For every theorem C-07, C-09, C-10, C-11, C-14 and C-15 return exactly one:
 - PASS
 - PASS WITH MINOR FIX
 - FAIL
