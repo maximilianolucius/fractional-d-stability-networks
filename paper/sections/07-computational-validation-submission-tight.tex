@@ -1,0 +1,66 @@
+\section{Computational certification and reproducibility}
+\label{sec:computation}
+
+All theorem claims above are analytic. Computation was used only as an independent falsification and certification layer. Two routes were kept separate: an invariant-space implementation of
+\[
+T_\alpha(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3},
+\]
+and direct optimization of the spectral margin
+\[
+\min_{D\succ0}
+\left[
+\min_{\lambda\in\sigma(DA)}
+|\arg\lambda|-\frac{\alpha\pi}{2}
+\right].
+\]
+The latter uses only eigenvalues of the full matrix \(DA\), so agreement tests the elimination theorem rather than a second implementation of the same formula.
+
+Across two campaigns, \(2{,}180{,}000\) adversarial matrix/order cases produced no genuine discrepancy with Theorem~\ref{thm:C10}; all \(56{,}234\) numerically delicate cases were independently recomputed in multiprecision. A second atlas enclosed \(938\) threshold values by interval arithmetic. Of these, \(903\) had a global branch-and-bound certificate independent of Theorem~\ref{thm:strict-convexity}; \(35\) extreme-anisotropy cases used the proved convexity/uniqueness result to complete localization. The worst relative interval width was \(1.1\times10^{-35}\), and every independent 50-digit optimizer lay inside its reported enclosure.
+
+The \(35\)-matrix canonical library includes symmetric and nonsymmetric examples, matrices near the Cain and fractional boundaries, mixed-sign ecological examples, and matrices that are Hurwitz at \(D=I\) but not Hurwitz D-stable. One representative is
+\[
+A=
+\begin{pmatrix}
+-1&-3/2&0\\
+-1/2&-1&-3\\
+-3&0&-2
+\end{pmatrix},
+\qquad
+\alpha=0.7.
+\]
+Here
+\[
+\beta=(1/4,1,1),
+\qquad
+\kappa=7,
+\qquad
+T_1=6.25,
+\qquad
+T_\alpha\approx4726.94.
+\]
+Although
+\[
+\max\Re\sigma(A)\approx-0.0789,
+\]
+the Cain-minimizing positive diagonal gives
+\[
+\max\Re\sigma(D_HA)\approx0.0384>0.
+\]
+Thus \(A\) itself is Hurwitz, its classical positive-diagonal orbit is not, but its full orbit is Matignon-stable at \(\alpha=0.7\).
+
+The C-15 differential structure was also checked at \(8{,}000\) parameter points. The \(500\) worst floating-point cases were recomputed at 40 digits; the identity
+\[
+\frac{\partial T_\alpha}{\partial\beta_{ij}}
+=
+\frac{h_\alpha'(B^*)}{x_k^*}
+\]
+then agreed to at worst \(2.4\times10^{-33}\), and the logit Hessian remained positive definite in every tested case. The final repository test suite has \(135\) passing tests and no failures.
+
+All scripts, fixed seeds, software metadata, interval certificates, canonical matrices, and figure-source data are maintained in the public repository
+\[
+\text{\url{https://github.com/maximilianolucius/fractional-d-stability-networks}}.
+\]
+The numerical evidence is reproducible but logically secondary: no theorem is inferred from finite sampling.
