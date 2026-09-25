@@ -1,0 +1,55 @@
+\section{Dimension two: exact obstruction}
+\label{sec:dimension-two}
+
+Let
+\[
+A=\begin{pmatrix}a&b\\c&d\end{pmatrix}.
+\]
+
+\begin{theorem}[Exact \(2\times2\) classification]
+\label{thm:2x2}
+For every \(0<\alpha<1\),
+\[
+A\in\mathcal F_\alpha^{(2)}
+\iff
+\det A>0,\qquad a\le0,\qquad d\le0.
+\]
+\end{theorem}
+
+\begin{proof}
+For \(D=\operatorname{diag}(x,y)\succ0\),
+\[
+\operatorname{tr}(DA)=xa+yd,
+\qquad
+\det(DA)=xy\det A.
+\]
+If \(\det A\le0\), \(DA\) has either a zero eigenvalue or a positive real eigenvalue. If \(a>0\), fix \(x>0\) and let \(y\downarrow0\); the limiting matrix has the simple positive eigenvalue \(xa\), so nearby positive \(y\) violate Matignon stability. Hence \(a\le0\), and similarly \(d\le0\).
+
+Conversely, if \(\det A>0\) and \(a,d\le0\), every \(DA\) has positive determinant and nonpositive trace. Real eigenvalues are then strictly negative; a nonreal conjugate pair has nonpositive real part and therefore argument magnitude at least \(\pi/2>\alpha\pi/2\).
+\end{proof}
+
+Classical Hurwitz D-stability additionally requires
+\[
+xa+yd<0
+\quad\forall x,y>0,
+\]
+so under the theorem hypotheses it fails exactly when \(a=d=0\). Therefore
+\[
+\mathcal P_\alpha^{(2)}
+=
+\left\{
+\begin{pmatrix}0&b\\c&0\end{pmatrix}:bc<0
+\right\}.
+\]
+
+\begin{corollary}[No robust two-dimensional separation]
+\label{cor:2x2-empty-interior}
+For every \(0<\alpha<1\),
+\[
+\operatorname{int}_{\mathbb R^4}\mathcal P_\alpha^{(2)}=\varnothing.
+\]
+\end{corollary}
+
+\begin{proof}
+The set is contained in the codimension-two subspace \(a=d=0\).
+\end{proof}
