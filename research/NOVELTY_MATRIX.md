@@ -33,9 +33,9 @@ Project theorem:
 
 [
 min{n:operatorname{int}(F_alpha^{(n)}setminus D_H^{(n)})
-eqarnothing}=3
+eq\varnothing}=3
 quad
-orall,0<alpha<1.
+\forall,0<alpha<1.
 ]
 
 No located prior result combines:
@@ -54,13 +54,13 @@ No located prior result combines:
 On the strict-P(-A) full-dimensional stratum, the project reduces the complete positive diagonal orbit to four invariants
 
 [
-(eta_{12},eta_{13},eta_{23},kappa)
+(\beta_{12},\beta_{13},\beta_{23},kappa)
 ]
 
 and the simplex threshold
 
 [
-T_alpha(eta).
+T_alpha(\beta).
 ]
 
 For 2/3<alpha<1,
@@ -68,7 +68,7 @@ For 2/3<alpha<1,
 [
 Ain F_alpha^{(3)}
 iff
-kappa<T_alpha(eta).
+kappa<T_alpha(\beta).
 ]
 
 The alpha=1 limit is exactly Cain's threshold.
