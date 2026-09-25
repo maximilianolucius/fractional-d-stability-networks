@@ -78,6 +78,66 @@ jobs:
           echo "=== submission-siam.log ==="
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" submission-siam.log || true
 
+
+      - name: Build editor submission package
+        if: success()
+        run: |
+          set -euo pipefail
+          SLUG=exact_positive_diagonal_matignon_stability_dimension_three
+          PKG=dist/$SLUG
+          rm -rf dist
+          mkdir -p "$PKG/sections" "$PKG/figures/generated"
+
+          cp paper/submission-siam.tex "$PKG/$SLUG.tex"
+          cp paper/references.bib "$PKG/references.bib"
+          cp paper/siamart251216.cls "$PKG/siamart251216.cls"
+          cp paper/siamplain.bst "$PKG/siamplain.bst"
+
+          cp paper/sections/01-introduction-submission.tex "$PKG/sections/"
+          cp paper/sections/02-framework-submission.tex "$PKG/sections/"
+          cp paper/sections/03-dimension-two-submission.tex "$PKG/sections/"
+          cp paper/sections/04-three-dimensional-threshold.tex "$PKG/sections/"
+          cp paper/sections/05-threshold-geometry-submission.tex "$PKG/sections/"
+          cp paper/sections/06-ecological-interpretation-submission.tex "$PKG/sections/"
+          cp paper/sections/07-computational-validation-submission.tex "$PKG/sections/"
+          cp paper/sections/08-discussion-submission.tex "$PKG/sections/"
+          cp paper/sections/09-conclusion-submission.tex "$PKG/sections/"
+          cp paper/sections/10-declarations.tex "$PKG/sections/"
+
+          for i in $(seq -w 1 12); do
+            cp paper/figures/generated/panel${i}_*.pdf "$PKG/figures/generated/"
+            cp paper/figures/generated/panel${i}_*.png "$PKG/figures/generated/"
+          done
+
+          cat > "$PKG/README.txt" <<EOF
+          Exact Positive-Diagonal Matignon Stability in Dimension Three:
+          A Fractional Deformation of Cain's D-Stability Threshold
+
+          Editor-ready source package.
+          Source commit: ${GITHUB_SHA}
+
+          Build:
+            latexmk -pdf -interaction=nonstopmode -halt-on-error $SLUG.tex
+
+          The package is self-contained: SIAM class/BST, bibliography,
+          all included section sources, and all submission figures are present.
+          EOF
+
+          (
+            cd "$PKG"
+            latexmk -pdf -interaction=nonstopmode -halt-on-error "$SLUG.tex"
+            test -s "$SLUG.pdf"
+          )
+
+          cp "$PKG/$SLUG.pdf" "dist/$SLUG.pdf"
+
+          (
+            cd dist
+            zip -qr submission.zip "$SLUG"
+          )
+          test -s dist/submission.zip
+          test -s "dist/$SLUG.pdf"
+
       - name: Upload manuscript PDF
         if: success()
         uses: actions/upload-artifact@v4
@@ -87,5 +147,7 @@ jobs:
             paper/main.pdf
             paper/submission.pdf
             paper/submission-siam.pdf
+            dist/exact_positive_diagonal_matignon_stability_dimension_three.pdf
+            dist/submission.zip
           if-no-files-found: error
           retention-days: 30
