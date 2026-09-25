@@ -1,0 +1,53 @@
+\section{Dimension two: exact obstruction}
+
+Let
+\[
+A=
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}.
+\]
+
+\begin{theorem}[Exact \(2\times2\) classification]
+For every \(0<\alpha<1\),
+\[
+A\in\mathcal F_\alpha^{(2)}
+\iff
+\det A>0,\qquad a\le0,\qquad d\le0.
+\]
+\end{theorem}
+
+\begin{proof}
+For \(D=\operatorname{diag}(x,y)\succ0\),
+\[
+\operatorname{tr}(DA)=xa+yd,
+\qquad
+\det(DA)=xy\det A.
+\]
+If \(\det A\le0\), a zero or positive real eigenvalue occurs. If \(a>0\), keeping \(x>0\) fixed and letting \(y\downarrow0\) produces a persistent positive eigenvalue near \(xa\); similarly \(d>0\) is impossible. Conversely, \(\det A>0\) together with \(a,d\le0\) gives nonpositive trace for every \(D\). The eigenvalues are either both negative real or a complex-conjugate pair with nonpositive real part, hence their argument magnitudes are at least \(\pi/2>\alpha\pi/2\).
+\end{proof}
+
+Classical Hurwitz D-stability additionally requires that \(a\) and \(d\) are not both zero. Therefore
+\[
+\mathcal P_\alpha^{(2)}
+=
+\left\{
+\begin{pmatrix}
+0&b\\
+c&0
+\end{pmatrix}
+:bc<0
+\right\}.
+\]
+
+\begin{corollary}
+For every \(0<\alpha<1\),
+\[
+\operatorname{int}_{\mathbb R^4}\mathcal P_\alpha^{(2)}
+=
+\varnothing.
+\]
+\end{corollary}
+
+Thus dimension two can exhibit fractional-only D-stability, but only on a lower-dimensional boundary set. A robust full-dimensional separation from classical D-stability cannot occur before dimension three.
