@@ -40,6 +40,9 @@ jobs:
           test -s paper/Definitions/mdpi.cls
           test -s paper/Definitions/journalnames.tex
           test -s paper/Definitions/mdpi.bst
+          pdftops -eps paper/Definitions/logo-mdpi-eps-converted-to.pdf paper/Definitions/logo-mdpi.eps
+          pdftops -eps paper/Definitions/mathematics-logo-eps-converted-to.pdf paper/Definitions/mathematics-logo.eps
+          pdftops -eps paper/Definitions/logo-updates-eps-converted-to.pdf paper/Definitions/logo-updates.eps
 
       - name: Build Mathematics MDPI submission
         working-directory: paper
@@ -107,7 +110,7 @@ jobs:
 
           cp paper/submission-mdpi.tex "$PKG/$SLUG.tex"
           cp paper/references.bib "$PKG/references.bib"
-          cp -R reference-paper/Definitions "$PKG/Definitions"
+          cp -R paper/Definitions "$PKG/Definitions"
 
           cp paper/sections/01-introduction-submission.tex "$PKG/sections/"
           cp paper/sections/02-framework-submission.tex "$PKG/sections/"
