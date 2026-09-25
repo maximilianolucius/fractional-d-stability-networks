@@ -7,6 +7,10 @@ from fdsn.cubic_certificate import (
     negative_is_strict_p_matrix,
     orbit_minimizing_diagonal,
     passes_fractional_cain_certificate,
+    fractional_orbit_invariants,
+    fractional_orbit_threshold,
+    classical_cain_threshold_from_invariants,
+    passes_exact_variational_certificate,
 )
 from fdsn.spectral import is_integer_order_stable
 
@@ -72,3 +76,56 @@ def test_fractional_threshold_tends_to_classical_cain_threshold():
     values = [fractional_cain_threshold(a) for a in (0.9, 0.99, 0.9999)]
     assert values[0] < values[1] < values[2] < 1.0
     assert abs(values[-1] - 1.0) < 1e-3
+
+
+
+def test_c10_invariants_are_left_diagonal_invariant():
+    A = a_gamma(2.3)
+    E = np.diag([0.3, 2.0, 6.0])
+    beta_a, kappa_a = fractional_orbit_invariants(A)
+    beta_b, kappa_b = fractional_orbit_invariants(E @ A)
+    np.testing.assert_allclose(beta_a, beta_b, rtol=1e-12, atol=1e-12)
+    np.testing.assert_allclose(kappa_a, kappa_b, rtol=1e-12, atol=1e-12)
+
+
+def test_c10_symmetric_cycle_threshold_matches_siami_formula():
+    alpha = 0.9
+    A = a_gamma(2.2)
+    threshold = fractional_orbit_threshold(A, alpha)
+
+    theta = alpha * np.pi / 2.0
+    r3 = np.sin(theta) / np.sin(theta - np.pi / 3.0)
+    expected_kappa_threshold = 1.0 + r3**3
+
+    np.testing.assert_allclose(
+        threshold,
+        expected_kappa_threshold,
+        rtol=1e-8,
+        atol=1e-8,
+    )
+
+
+def test_c10_classical_limit_is_cain_threshold_for_symmetric_cycle():
+    A = a_gamma(2.2)
+    np.testing.assert_allclose(
+        classical_cain_threshold_from_invariants(A),
+        9.0,
+        rtol=1e-12,
+        atol=1e-12,
+    )
+
+
+def test_phi_certificate_is_not_necessary_but_c10_accepts_gap_point():
+    alpha = 0.9
+    theta = alpha * np.pi / 2.0
+    rho = (1.0 - 2.0 * np.cos(theta)) ** 2
+    gamma_phi = (9.0 / rho - 1.0) ** (1.0 / 3.0)
+    r3 = np.sin(theta) / np.sin(theta - np.pi / 3.0)
+
+    gamma = 0.5 * (gamma_phi + r3)
+    A = a_gamma(gamma)
+
+    assert gamma > 2.0
+    assert fractional_cain_phi(A) < fractional_cain_threshold(alpha)
+    assert not passes_fractional_cain_certificate(A, alpha)
+    assert passes_exact_variational_certificate(A, alpha)
