@@ -1,4 +1,4 @@
-# Independent proof audit task — C-07 / C-09 / C-10 / C-11
+# Independent proof audit task — C-07 / C-09 / C-10 / C-11 / C-14
 
 **Priority:** P0
 **Role:** adversarial mathematical verifier
@@ -10,7 +10,8 @@
 2. `research/THEOREM_C09_DIMENSION_THRESHOLD.md` — C-09.
 3. `research/THEOREM_C10_EXACT_3X3.md` — C-10.
 4. `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` — C-11.
-5. `research/novelty/C09_TARGETED_AUDIT.md` and `research/novelty/C10_TARGETED_AUDIT.md` — novelty boundaries only.
+5. `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` — C-14.
+6. `research/novelty/C09_TARGETED_AUDIT.md` and `research/novelty/C10_TARGETED_AUDIT.md` — novelty boundaries only.
 
 ## Mandatory checks
 
@@ -48,6 +49,13 @@
 - Verify the fractional threshold rho_alpha and alpha->1 limit.
 - Verify invariance of Phi under positive left-diagonal scaling and the GLV orbit equivalence.
 
+### C-14
+- Verify strict monotonicity of T_alpha(beta) in alpha.
+- Re-derive the expansion of h_alpha(b) at alpha=1.
+- Verify uniqueness/nondegeneracy of the classical simplex minimizer.
+- Verify the envelope-theorem step and the coefficient C(beta).
+- Check the symmetric beta=(1,1,1) coefficient 12*pi*sqrt(3) against the Siami slice.
+
 ## Computational corroboration
 
 Run the full test suite. Add independent random/property tests if helpful, but label them corroboration only.
@@ -56,7 +64,7 @@ Run the full test suite. Add independent random/property tests if helpful, but l
 
 Create `research/PROOF_AUDIT_C07_C09_C10_C11.md`.
 
-For every theorem return exactly one:
+For every theorem C-07, C-09, C-10, C-11 and C-14 return exactly one:
 - PASS
 - PASS WITH MINOR FIX
 - FAIL
