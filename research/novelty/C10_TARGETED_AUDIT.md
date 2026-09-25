@@ -3,7 +3,7 @@
 **Date:** 2026-09-24
 **Role:** Chief Researcher
 **Target:** `research/THEOREM_C10_EXACT_3X3.md`
-**Verdict:** **NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL**
+**Verdict:** **NOVELTY SURVIVES TARGETED SEARCH — PROVISIONAL, INCLUDING LOW-DIMENSIONAL INERTIA/SECTOR PREDECESSORS**
 
 ## Exact object audited
 
@@ -93,6 +93,28 @@ These results occupy the fixed-cubic component (h_alpha).
 
 They do not quantify over (D), do not eliminate (D), and do not produce a matrix-orbit invariant necessary-and-sufficient criterion.
 
+### Bahl-Cain 1977 — inertia of diagonal multiples
+
+C. A. Bahl and B. E. Cain, *The inertia of diagonal multiples of 3x3 real matrices*, Linear Algebra and its Applications 18(3) (1977), 267-280, DOI 10.1016/0024-3795(77)90056-8.
+
+This is a particularly close low-dimensional predecessor: it characterizes classes of 3x3 real matrices whose inertia is preserved under every positive diagonal multiplier, using algebraic conditions on principal minors.
+
+**Overlap:** exact low-dimensional positive-diagonal-orbit classification.
+
+**Non-overlap:** inertia records the counts of eigenvalues in left/right half-planes and on the imaginary axis. C-10 requires angular localization relative to the Matignon rays inside a non-half-plane region, produces an alpha-dependent threshold, and isolates spectra that may lie in the right-half-plane sliver while remaining fractionally stable.
+
+Thus Bahl-Cain is mandatory positioning but does not imply C-10.
+
+### Joya-Furuta 1991 — sector-stable polynomial coefficient domains
+
+K. Joya and K. Furuta, *A Necessary and Sufficient Condition for the D-Stability of Convex Combinations of D-Stable Polynomials*, Trans. SICE 27(3) (1991), 298-305, DOI 10.9746/sicetr1965.27.298.
+
+They derive explicit coefficient-space descriptions for monic polynomials whose roots lie in prescribed convex domains including sectors.
+
+**Overlap:** exact sector root-location in polynomial coefficient space.
+
+**Non-overlap:** no positive-diagonal matrix orbit, no principal-minor orbit invariants, no GLV row-scaling interpretation, and no deformation of the 3x3 Cain matrix criterion.
+
 ### Siami 2020/2021
 
 Siami gives an exact/sufficient fractional secant condition for the single-cycle family. This is recovered as a structured slice of C-10, not the source of novelty.
@@ -106,6 +128,8 @@ Targeted searches included combinations of:
 - 3x3 fractional D-stability necessary sufficient;
 - sector D-stability 3x3 principal minors;
 - generalized D-stability three-dimensional sector;
+- inertia of diagonal multiples of 3x3 matrices;
+- D-stable polynomials in sector coefficient domains;
 - Matignon positive diagonal scaling principal minors;
 - forbidden boundary 3x3 cubic;
 - fractional D-stability Routh-Hurwitz diagonal scaling.
