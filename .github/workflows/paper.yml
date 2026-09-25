@@ -35,3 +35,12 @@ jobs:
         working-directory: paper
         run: |
           grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined" main.log || true
+
+      - name: Upload manuscript PDF
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q1-manuscript-pdf
+          path: paper/main.pdf
+          if-no-files-found: error
+          retention-days: 30
