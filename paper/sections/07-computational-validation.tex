@@ -1,24 +1,151 @@
 \section{Independent computational validation}
+\label{sec:computation}
 
-The analytic results do not rely on finite diagonal sampling. Computation is used only for adversarial falsification, certification of representative threshold values, and reproducible illustrations.
+The results in Sections~\ref{sec:exact-3x3}--\ref{sec:threshold-geometry} are analytic. Finite sampling of positive diagonal multipliers cannot establish D-stability and is never used as proof. Computation was instead organized as an adversarial falsification and certification layer.
 
-The final validation campaign consisted of:
+\subsection{Independent numerical routes}
+
+Two distinct routes were compared.
+
+\paragraph{Invariant-space route.}
+The exact threshold implementation computes
+\[
+T_\alpha(\beta)
+=
+\min_{x\in\Delta_2^\circ}
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}
+\]
+using logit coordinates, analytic gradients and Hessians, and high-precision refinement. Selected anchor points are enclosed by interval branch-and-bound.
+
+\paragraph{Direct spectral route.}
+Independently of the threshold formula, the code minimizes
+\[
+\min_{D\succ0}
+\left[
+\min_{\lambda\in\sigma(DA)}
+|\arg\lambda|
+-
+\frac{\alpha\pi}{2}
+\right]
+\]
+over two log-diagonal ratios. This route uses only eigenvalues of the full matrix \(DA\). The search combined a deterministic log-grid, local pattern/Nelder--Mead refinement, multiple starts, and differential evolution for selected cases.
+
+Agreement between these routes tests the elimination theorem rather than merely retesting one implementation of the same formula.
+
+\subsection{Adversarial campaign}
+
+The final Wave~1 campaign contained
+\[
+2{,}180{,}000
+\]
+matrix/order or control cases. Table~\ref{tab:stress} summarizes the mechanisms.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Adversarial validation of Theorem~\ref{thm:C10}. \emph{HP flagged} denotes cases selected for independent high-precision re-evaluation because the direct spectral margin or the invariant-space distance to the threshold was numerically delicate.}
+\label{tab:stress}
+\begin{tabular}{lrrr}
+\toprule
+Mechanism & Cases & Float mismatches & HP flagged\\
+\midrule
+Entry-space strict-P ensembles & 520,000 & 0 & 0\\
+Invariant-space sampling & 300,000 & 0 & 0\\
+Perturbed cyclic witnesses & 150,000 & 0 & 0\\
+Near exact fractional boundary & 450,000 & 0 & 24,386\\
+Near Cain boundary & 100,000 & 0 & 0\\
+Near principal-minor boundaries & 120,000 & 0 & 1,714\\
+Near \(\alpha=2/3\) & 120,000 & 0 & 22,593\\
+Near \(\alpha=1\) & 180,000 & 0 & 2,474\\
+Extreme anisotropy & 120,000 & 0 & 5,079\\
+Non-\(P_0\) controls & 60,000 & 0 & 0\\
+Classical \(\alpha=1\) controls & 60,000 & 0 & 0\\
+\midrule
+Total & 2,180,000 & 0 & 56,234\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Every one of the
+\[
+56{,}234
+\]
+flagged cases was recomputed from the stored binary matrix entries using high-precision arithmetic. Invariants and \(T_\alpha\) were recomputed at 60 digits; direct eigenvalue margins and local optimization were independently recomputed at 40 digits from the direct optimizer and from a separate start. All
+\[
+56{,}234/56{,}234
+\]
+cases agreed with Theorem~\ref{thm:C10}. No case survived as a genuine counterexample.
+
+\subsection{Extreme-scaling pathology and its resolution}
+
+The most serious apparent failures arose from extremely unbalanced diagonal multipliers. When a diagonal ratio reaches \(e^{50}\) or more, one eigenvalue can be tens or hundreds of decimal orders below the spectral radius. Its floating-point sign and argument are then numerically meaningless.
+
+An early unrestricted multiprecision pattern search produced apparent negative margins after escaping to log-diagonal magnitudes as large as approximately \(205\). Those cases were re-evaluated with precision scaled to the magnitude of the diagonal imbalance and with a bounded independent search. The apparent failures disappeared.
+
+A dedicated audit then evaluated \(1{,}350\) strict-P cases at 250 digits over diagonal ratios up to \(10^{60}\) in twelve extreme corner patterns. It produced
+\[
+0
+\]
+negative margins; the smallest observed margin was approximately
+\[
+1.6\times10^{-4}.
+\]
+This exercise is important methodologically: eigenvalue angles should not be trusted when the relevant eigenvalue is far below the spectral radius unless precision is increased accordingly.
+
+\subsection{Certified threshold anchors}
+
+Sixty representative values of \(T_\alpha(\beta)\) were enclosed using outward-rounded interval arithmetic. The certified relative bracket widths were of order
+\[
+10^{-39}.
+\]
+The certification uses:
+\begin{enumerate}
+\item a boundary-strip exclusion from the divergence of the objective as \(x_1x_2x_3\to0\);
+\item an interval-positive-definite Hessian box around the high-precision minimizer;
+\item branch-and-bound with monotonic and mean-value interval estimates elsewhere.
+\end{enumerate}
+These certified anchors test not only numerical optimization but the claimed global minimum.
+
+\subsection{Additional independent checks}
+
+The same computational campaign produced:
 \begin{itemize}
-\item 121 repository tests, all passing;
-\item 2,060,000 C-10 matrix/order cases generated by four mechanisms and multiple boundary-focused families;
-\item 120,000 control cases;
-\item 56,234 flagged near-boundary or numerically delicate cases re-evaluated at high precision;
-\item an independent direct spectral optimization over positive diagonal ratios using eigenvalues of the full matrix \(DA\), separate from the C-10 threshold optimizer;
-\item 1,350 strict-P extreme-scaling audits at 250 digits;
-\item 60 interval-certified values of \(T_\alpha\), with relative enclosure width approximately \(10^{-39}\);
-\item 8,100 direct validations of ecological phase-region classifications.
+\item \(121/121\) passing repository tests;
+\item \(8{,}100/8{,}100\) independently generated ecological matrices whose direct spectral classification agreed with the exact C-10/C-13 phase regions;
+\item \(210{,}000\) \((\beta,\alpha)\) pairs with no violation of the soundness inequality for Corollary~\ref{cor:Phi-certificate};
+\item high-precision verification of the first-order classical-limit rate in Theorem~\ref{thm:C14} down to \(1-\alpha=10^{-10}\);
+\item agreement of the symmetric formula
+\[
+T_\alpha(1,1,1)=1+R_3(\alpha)^3
+\]
+to approximately \(10^{-107}\) relative scale in high precision.
 \end{itemize}
 
-No genuine discrepancy with C-10 survived high-precision re-evaluation:
+The final computational verdict was therefore
 \[
-\boxed{\text{GENUINE\_C10\_COUNTEREXAMPLES}=0.}
+\boxed{\texttt{COMPUTE\_PASS}},
 \]
+with zero genuine C-10 discrepancies.
 
-The campaign also exposed a numerical pathology relevant for reproducibility: at extremely unbalanced diagonal scalings, eigenvalues many orders of magnitude below the spectral radius can acquire meaningless floating-point angles. The final protocol therefore either bounds the log-diagonal search or increases arithmetic precision with the scaling magnitude.
+\subsection{Reproducibility and evidence levels}
 
-All scripts, seeds, compact result files, interval certificates and worst-case examples are included in the repository. The numerical layer corroborates the proofs but is not used as proof of D-stability.
+All scripts, seeds, compact result files, worst-case matrices, environment metadata, and interval-certified anchors are stored in the public repository. Numerical outputs are explicitly separated into three evidence levels:
+\begin{description}
+\item[NUMERICAL] standard floating-point computation;
+\item[HP] arbitrary-precision computation;
+\item[CERTIFIED] outward-rounded interval enclosure or an exact symbolic identity.
+\end{description}
+
+The logical role of this section is deliberately secondary:
+\[
+\text{analytic proof}
+\Longrightarrow
+\text{theorem},
+\]
+whereas
+\[
+\text{computation}
+\Longrightarrow
+\text{falsification attempt, corroboration, or certification of examples}.
+\]
+No theorem in the paper is inferred from Monte Carlo frequency.
