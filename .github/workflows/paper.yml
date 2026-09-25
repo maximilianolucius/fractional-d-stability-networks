@@ -9,6 +9,10 @@ on:
       - '.github/workflows/paper.yml'
   workflow_dispatch:
 
+concurrency:
+  group: paper-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-paper:
     runs-on: ubuntu-latest
