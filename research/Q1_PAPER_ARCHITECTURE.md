@@ -13,7 +13,7 @@ Its mathematical center is:
 
 ## Flagship theorem package
 
-### Proposition 0 — general positive-diagonal orbit reduction (C-16)
+### Lemma 0 — general positive-diagonal orbit reduction (C-16; standard structural machinery)
 
 For strict-P(-A) in dimension n, positive diagonal scaling modulo common scalar is exactly the open simplex
 
@@ -29,7 +29,7 @@ The normalized characteristic polynomial depends only on the normalized principa
 
 nontrivial orbit invariants.
 
-This is structural machinery, not the main novelty. It makes explicit that the difficult part of the project is dimension-specific root geometry, not the diagonal multiplier itself.
+The final specialist audit classifies C-16 as **not novel**. It is retained only as standard structural machinery, with citations to the classical principal-minor characteristic-coefficient identity and positive projective normalization. It makes explicit that the difficult part of the project is dimension-specific root geometry, not the diagonal multiplier itself.
 
 ### Theorem A — exact 2x2 obstruction (C-07)
 
@@ -43,7 +43,7 @@ A\in\mathcal F_\alpha^{(2)}
 
 The genuinely fractional difference class has empty full-dimensional interior.
 
-### Theorem B — exact robust 3x3 characterization (C-10)
+### Theorem B — explicit exact real-3x3 Matignon orbit elimination (C-10)
 
 On the full-dimensional strict-P(-A) stratum, the positive diagonal orbit is represented exactly by four invariants
 
@@ -65,7 +65,7 @@ A\in\mathcal F_\alpha^{(3)}
 
 For \(0<\alpha\le2/3\), strict-P(-A) is sufficient and, for interior points, necessary.
 
-### Theorem C — geometry of the exact threshold (C-15)
+### Theorem C — theorem-specific geometry of the exact threshold (C-15)
 
 For \(2/3<\alpha<1\), the logarithm of the C-10 threshold objective is globally **strictly convex in logit simplex coordinates**.
 
@@ -196,6 +196,26 @@ as \(\alpha\to1^-\).
 
 This quantifies the collapse of the memory-only band toward classical D-stability.
 
+## Novelty positioning lock
+
+The final specialist audit returns **NOVELTY GATE PASSED WITH REPOSITIONING**.
+
+The manuscript must explicitly credit:
+
+- Kushel/Kushel–Pavani for generalized multiplicative region D-stability and the abstract forbidden-boundary N&S principle for conic regions/complements;
+- Cain for the exact classical real-3x3 homogeneous all-D threshold mechanism;
+- Bahl–Cain for exact real-3x3 all-D inertia classifications;
+- fixed-polynomial fractional/sector root-location literature;
+- Siami for the symmetric cyclic slice.
+
+The new contribution is the **explicit exact elimination of the full positive-diagonal multiplier in the real 3x3 Matignon problem**, together with C-09 and the specific C-15 threshold geometry.
+
+Do not claim:
+- introduction of fractional D-stability;
+- first abstract N&S generalized-D-stability criterion;
+- first treatment of a sector complement;
+- novelty of C-16.
+
 ## Suggested section order
 
 1. **Introduction**
@@ -283,7 +303,7 @@ Before final prose drafting require:
 
 - adversarial proof audit: PASS or PASS WITH MINOR FIX for C-07/C-09/C-10/C-11/C-14/C-15/C-16;
 - high-compute wave: no persistent counterexample;
-- final specialist novelty audit of C-10;
+- final specialist novelty audit: **PASSED WITH REPOSITIONING**;
 - exact citation and sign-convention verification for Cain, Matignon, Kushel/Kushel-Pavani, Siami, Cermak-Nechvatal, Bourafa et al.;
 - reproducible tests green;
 - no central statement dependent on finite diagonal sampling.
