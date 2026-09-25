@@ -1,45 +1,100 @@
-# Scope matrix
+# Scope matrix — canonical Chief state
 
-Use this table to prevent a benchmark, a prior-art corollary, or finite computation from being promoted into a general theorem.
+**Date:** 2026-09-24
 
-**Updated 2026-09-24 — second-pass reopened audit.** The previous statement that existing literature was blind to the non-convex Matignon complement is withdrawn. Siami substantially occupies the single-cycle fractional secant target; Kushel/Kushel–Pavani supply generalized-D-stability and forbidden-boundary machinery; Abed and successors occupy the classical robustness/interior concept.
+Use this file to prevent a prior-art corollary, benchmark, or numerical observation from being promoted into a theorem.
 
-| Claim ID | Whole matrix/model family | Family under conditions | One-parameter slice | Benchmark only | Certified box only | Numerical observation only |
-|---|---:|---:|---:|---:|---:|---|
-| C-01 | imported Matignon theorem |  |  |  |  |  |
-| C-02 | DERIVABLE BUT NOT NOVEL |  |  | examples only |  |  |
-| C-03 | definition only; no theorem yet |  |  |  |  |  |
-| C-04 | generalized-D-stability framework already known | exact low-dimensional subclasses may be new |  |  |  | sampler = falsification only |
-| C-05 | no general theorem | single cycle substantially occupied by Siami; multi-cycle/cactus still open if non-reducible | possible | possible | possible | exploratory |
-| C-06 | classical strong/robust D-stability known | fractional genuinely non-Hurwitz interior is project target | possible | possible | possible | exploratory |
-| C-07 | **THEOREM for all real 2×2 matrices and all 0<α<1** |  |  |  |  |  |
-| C-08 | **THEOREM: dimension-three open separation for 0<α<=2/3** | explicit strict P-matrix neighborhood | A_γ is witness/center, not the whole theorem |  |  |  |
-| C-09 | **THEOREM for every 0<α<1: minimal robust genuinely-fractional dimension is 3** | explicit full-dimensional neighborhoods around `A_γ`; high-order proof via cubic angular certificate + AM-GM orbit bound | `A_γ` is a witness/center |  |  | sampler not used in proof |
-| C-10 | OPEN exact 3×3 characterization | target: explicit cubic/principal-minor criterion | boundary-ray parameterizations useful |  | possible | exploratory |
+| Claim | Exact current scope | Proof/evidence status | Forbidden overstatement |
+|---|---|---|---|
+| C-01 Matignon | all commensurate linear systems under imported hypotheses | IMPORTED THEOREM | never claim as project novelty |
+| C-02 purely fractional stabilization | matrix/Jacobian phenomenon | KNOWN / DERIVABLE | motivation only |
+| C-03 S_alpha(G) | definition | DEFINITION ONLY | no contribution without theorem |
+| C-04 generalized fractional D-stability | general framework | PRIOR ART | do not rename as novelty |
+| C-05 single cycle/secant | structured cyclic family | SUBSTANTIALLY PRIOR ART (Siami) | not a flagship theorem |
+| C-06 robustness/interior concept | general D-stability topology | CLASSICAL PRIOR ART | "strong" / "open" alone not novel |
+| C-07 exact 2x2 F_alpha | **all real 2x2 matrices, all 0<alpha<1** | INTERNAL THEOREM | none beyond stated matrix class |
+| C-08 low-order dimension-3 separation | real 3x3, 0<alpha<=2/3 | INTERNAL THEOREM modulo Kellogg | ingredient only |
+| C-09 minimum robust dimension | **all 0<alpha<1; dimension threshold 3** | INTERNAL THEOREM; targeted novelty survived | not submission-certified until proof audit |
+| C-10 exact 3x3 characterization | **full-dimensional strict-P(-A) stratum; exact interior classification** | INTERNAL THEOREM; targeted novelty search survived provisionally | do not silently claim boundary-stratum classification |
+| C-11 Phi certificate | strict-P(-A), 2/3<alpha<1 | INTERNAL THEOREM; sufficient only | Phi condition is NOT necessary |
+| C-12 GLV abundance invariance | positive equilibria x*>0 | INTERNAL COROLLARY | does not establish feasibility/existence of x* |
+| C-13 motif coordinates | three-species strict-P robust stratum | INTERNAL COROLLARY | loop analysis itself is classical |
 
-## Current hard boundary
+## Exact hard boundaries
 
-The strongest proved project statement is presently:
+### Dimension 2
 
-```text
-min { n : int P_α^(n) != empty } = 3
-for every 0 < α <= 2/3.
-```
+For every 0<alpha<1,
 
-Proof: `research/novelty/REOPENED_AUDIT_2026-09-24.md`.
+[
+Ain F_alpha^{(2)}
+iff
+det A>0,quad a_{11}le0,quad a_{22}le0.
+]
 
-The high-order range
+The genuinely fractional difference class has empty full-dimensional interior.
 
-```text
-2/3 < α < 1
-```
+### Dimension 3, robust/full-dimensional stratum
 
-is now **internally proved** in `research/THEOREM_C09_DIMENSION_THRESHOLD.md`. However, bibliographic novelty is still under targeted audit. No title or abstract may call C-09 novel until that audit is closed.
+Any interior point of (F_alpha^{(3)}) must have (-A) strict P.
 
-## Single-cycle restriction
+For 0<alpha<=2/3,
 
-A theorem whose only mathematical content is a fractional secant condition on a one-cycle network is not an approved novelty target because Siami 2020/2021 already proves the relevant fractional cyclic stability condition, and the key cycle ratio is invariant under positive left-diagonal row scaling.
+[
+operatorname{int}F_alpha^{(3)}
+=
+{A:-A	ext{ strict P}}.
+]
 
-## Robustness restriction
+For 2/3<alpha<1,
 
-"Open", "robust", "strong D-stable", or "uniform margin" language must cite and distinguish Hartfiel/Abed/Lee–Edgar and current robust-D-stability work. The project contribution, if any, must be specific to the Matignon angular region and the genuinely non-Hurwitz class P_α.
+[
+operatorname{int}F_alpha^{(3)}
+=
+{A:-A	ext{ strict P}, kappa<T_alpha(eta)}.
+]
+
+The exact genuinely fractional interior is
+
+[
+operatorname{int}P_alpha^{(3)}
+=
+{A:-A	ext{ strict P}, T_1(eta)<kappa<T_alpha(eta)}
+]
+
+for 2/3<alpha<1.
+
+For 0<alpha<=2/3,
+
+[
+operatorname{int}P_alpha^{(3)}
+=
+{A:-A	ext{ strict P}, kappa>T_1(eta)}.
+]
+
+### Boundary strata
+
+Matrices with zero order-one or order-two signed principal minors may belong to (F_alpha), but C-10 does **not** claim a complete classification of all such lower-dimensional boundary strata.
+
+This is not needed for the full-dimensional Q1 theorem package.
+
+## Evidence discipline
+
+- C-07/C-09/C-10/C-11: analytic proofs exist but await adversarial independent audit.
+- Numerical diagonal sampling is falsification/corroboration only.
+- The numerical optimizer for (T_alpha) evaluates an analytically defined exact variational threshold; numerical minimization is not itself the theorem proof.
+- The cyclic (A_gamma) family is a witness/special slice, not the general theorem.
+
+## Prior-art locks
+
+The following are occupied:
+- fixed fractional cubic root location;
+- single-cycle fractional secant;
+- generalized D-stability and forbidden-boundary principles;
+- relative D-stability / sector gaps;
+- classical D-stability interior/robustness;
+- classical loop analysis.
+
+## Manuscript lock
+
+Final manuscript prose remains locked until the adversarial proof audit passes.
