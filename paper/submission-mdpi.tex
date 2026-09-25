@@ -1,0 +1,52 @@
+\documentclass[mathematics,article,submit,pdftex,moreauthors]{Definitions/mdpi}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,graphicx,microtype,xurl}
+\graphicspath{{figures/generated/}}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+
+\firstpage{1}
+\makeatletter\setcounter{page}{\@firstpage}\makeatother
+\pubvolume{1}\issuenum{1}\articlenumber{0}\pubyear{2026}\copyrightyear{2026}
+\datereceived{}\daterevised{}\dateaccepted{}\datepublished{}
+\hreflink{https://doi.org/}
+
+\Title{Exact Positive-Diagonal Matignon Stability in Dimension Three}
+\Author{{Ibrahim Alraddadi}$^{1}$ and Thoraya N. Alharthi $^{2,*}$}
+\AuthorNames{Ibrahim Alraddadi and Thoraya N. Alharthi}
+\address{$^{1}$ \quad Department of Mathematics, Faculty of Science, Islamic University of Madinah, Madinah 42351, Saudi Arabia; ialraddadi@iu.edu.sa\\
+$^{2}$ \quad Department of Mathematics, College of Science, University of Bisha, P.O. Box 551, Bisha 61922, Saudi Arabia}
+\corres{Correspondence: talhrthe@ub.edu.sa}
+
+\abstract{We study positive-diagonal multiplicative stability for commensurate fractional-order systems in the Matignon region. For real $3\times3$ matrices on the full-dimensional strict-$P(-A)$ stratum, four orbit invariants reduce the complete positive-diagonal orbit to a two-dimensional simplex and fractional D-stability is equivalent to $\kappa<T_\alpha(\beta)$. The threshold reduces exactly to Cain's classical boundary at integer order; for $2/3<\alpha<1$, the strict band $T_1(\beta)<\kappa<T_\alpha(\beta)$ is genuinely fractional and full dimensional. The threshold problem is globally strictly convex in logit coordinates, has a unique smooth optimizer, and admits a sharp classical-order expansion. Dimension three is the smallest real dimension in which the fractional difference from Hurwitz D-stability has nonempty full-dimensional interior. For three-species generalized Lotka--Volterra systems, the invariants become abundance-independent reciprocal-pair and directed-cycle feedback coordinates. High-precision and interval-certified computations independently corroborate the analytic results.}
+\keyword{D-stability; fractional-order systems; Matignon stability; P-matrices; positive diagonal scaling; generalized Lotka--Volterra systems}
+\MSC{15A18; 34A08; 93D20}
+
+\begin{document}
+\input{sections/01-introduction-submission}
+\input{sections/02-framework-submission-tight}
+\input{sections/03-dimension-two-submission-tight}
+\input{sections/04-three-dimensional-threshold-submission-tight}
+\input{sections/05-threshold-geometry-submission}
+\input{sections/06-ecological-interpretation-submission}
+\input{sections/07-computational-validation-submission-tight}
+\input{sections/08-discussion-submission}
+\input{sections/09-conclusion-submission}
+
+\authorcontributions{Conceptualization, methodology, formal analysis, investigation, writing---original draft, writing---review and editing, I.A. and T.N.A.; software and validation, I.A. and T.N.A. All authors have read and agreed to the published version of the manuscript.}
+\funding{This research received no external funding.}
+\dataavailability{All computational scripts and reproducibility materials used in this study are included in the accompanying submission materials and project repository.}
+\conflictsofinterest{The authors declare no conflicts of interest.}
+
+\section*{Declaration on Generative AI Use}
+Generative AI tools, including OpenAI ChatGPT, were used to assist with drafting and editing, organization of literature searches, mathematical proof exploration and consistency checking, development and review of symbolic and numerical code, and preparation of reproducibility materials. These tools are not authors. The authors assume responsibility for all content.
+
+\bibliographystyle{Definitions/mdpi}
+\bibliography{references,previous-paper}
+\end{document}
