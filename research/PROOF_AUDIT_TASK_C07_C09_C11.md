@@ -1,4 +1,4 @@
-# Independent proof audit task — C-07 / C-09 / C-10 / C-11 / C-14 / C-15
+# Independent proof audit task — C-07 / C-09 / C-10 / C-11 / C-14 / C-15 / C-16
 
 **Priority:** P0
 **Role:** adversarial mathematical verifier
@@ -12,7 +12,8 @@
 4. `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` — C-11.
 5. `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` — C-14.
 6. `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` — C-15.
-7. `research/novelty/C09_TARGETED_AUDIT.md` and `research/novelty/C10_TARGETED_AUDIT.md` — novelty boundaries only.
+7. `research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md` — C-16.
+8. `research/novelty/C09_TARGETED_AUDIT.md` and `research/novelty/C10_TARGETED_AUDIT.md` — novelty boundaries only.
 
 ## Mandatory checks
 
@@ -66,6 +67,13 @@
 - Verify the alpha->2/3+ expansion through the K^-2 coefficient.
 - Verify the realizability theorem for every beta>0 and kappa>=T1(beta), including G<=0, G>0 and G=0 cases.
 
+### C-16
+- Verify the characteristic-coefficient formula from principal minors for arbitrary n.
+- Verify invariance of beta_I under positive left-diagonal scaling.
+- Verify the bijection between positive diagonal scalings modulo common scale and the open simplex.
+- Verify the normalized polynomial formula and the count 2^n-n-1 of nontrivial invariants.
+- Check the n=3 recovery of C-10 notation and the n=4 count of 11 invariants.
+
 ## Computational corroboration
 
 Run the full test suite. Add independent random/property tests if helpful, but label them corroboration only.
@@ -74,7 +82,7 @@ Run the full test suite. Add independent random/property tests if helpful, but l
 
 Create `research/PROOF_AUDIT_C07_C09_C10_C11.md`.
 
-For every theorem C-07, C-09, C-10, C-11, C-14 and C-15 return exactly one:
+For every theorem/proposition C-07, C-09, C-10, C-11, C-14, C-15 and C-16 return exactly one:
 - PASS
 - PASS WITH MINOR FIX
 - FAIL
