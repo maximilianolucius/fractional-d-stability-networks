@@ -2,7 +2,7 @@
 
 **Date prepared:** 2026-09-25  
 **Assigned by:** Chief Researcher  
-**Status:** **QUEUED / DO NOT START YET**  
+**Status:** **UNLOCKED — COMPUTE WAVE 1 PASSED**  
 **Start condition:** Compute Wave 1 must finish with \`COMPUTE_PASS\` and zero genuine C-10 counterexamples.
 
 This wave is intentionally large. It must not be started if Wave 1 returns COMPUTE_FAIL or unresolved HP discrepancies.
@@ -255,6 +255,6 @@ This is a server-scale bundled task. Do not return after a few plots or a small 
 
 ## Branch rule
 
-The Chief will create the execution branch **only after Wave 1 passes and is integrated**.
+Execution branch: `agent/compute-wave2-20260925`.
 
 Do not start this task from the current compute-wave branch.
