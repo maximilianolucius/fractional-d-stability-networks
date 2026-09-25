@@ -1,4 +1,7 @@
 \section{Dimension two: exact obstruction}
+\label{sec:dimension-two}
+
+The two-dimensional case is completely elementary but structurally decisive: purely fractional positive-diagonal stability exists, yet it cannot occupy a full-dimensional open set.
 
 Let
 \[
@@ -10,6 +13,7 @@ c&d
 \]
 
 \begin{theorem}[Exact \(2\times2\) classification]
+\label{thm:2x2}
 For every \(0<\alpha<1\),
 \[
 A\in\mathcal F_\alpha^{(2)}
@@ -19,17 +23,52 @@ A\in\mathcal F_\alpha^{(2)}
 \end{theorem}
 
 \begin{proof}
-For \(D=\operatorname{diag}(x,y)\succ0\),
+Let
+\[
+D=\operatorname{diag}(x,y)\succ0.
+\]
+Then
 \[
 \operatorname{tr}(DA)=xa+yd,
 \qquad
 \det(DA)=xy\det A.
 \]
-If \(\det A\le0\), a zero or positive real eigenvalue occurs. If \(a>0\), keeping \(x>0\) fixed and letting \(y\downarrow0\) produces a persistent positive eigenvalue near \(xa\); similarly \(d>0\) is impossible. Conversely, \(\det A>0\) together with \(a,d\le0\) gives nonpositive trace for every \(D\). The eigenvalues are either both negative real or a complex-conjugate pair with nonpositive real part, hence their argument magnitudes are at least \(\pi/2>\alpha\pi/2\).
+
+We first prove necessity. If \(\det A=0\), then \(DA\) has a zero eigenvalue for every \(D\), which is excluded from \(\Sigma_\alpha\). If \(\det A<0\), then \(DA\) has two real eigenvalues of opposite signs and therefore a positive real eigenvalue.
+
+Suppose now that \(a>0\). Fix \(x>0\) and let \(y\downarrow0\). The limiting matrix
+\[
+\begin{pmatrix}
+xa&xb\\
+0&0
+\end{pmatrix}
+\]
+has a simple positive eigenvalue \(xa\). Eigenvalues depend continuously on the matrix entries, so for all sufficiently small \(y>0\), \(DA\) has an eigenvalue close to \(xa>0\), contradicting Matignon stability. Hence \(a\le0\). By symmetry, \(d\le0\).
+
+Conversely, assume
+\[
+\det A>0,\qquad a\le0,\qquad d\le0.
+\]
+Then every \(DA\) has positive determinant and nonpositive trace. If its eigenvalues are real, they have the same sign and nonpositive sum, so both are strictly negative. If they are nonreal, they are a conjugate pair with nonpositive real part. Their arguments therefore have magnitude at least \(\pi/2\), which is strictly larger than \(\alpha\pi/2\) for every \(0<\alpha<1\). Thus
+\[
+\sigma(DA)\subset\Sigma_\alpha
+\]
+for every positive diagonal \(D\).
 \end{proof}
 
-Classical Hurwitz D-stability additionally requires that \(a\) and \(d\) are not both zero. Therefore
+Classical Hurwitz D-stability in dimension two requires the same positive determinant and
 \[
+xa+yd<0
+\qquad
+\forall x,y>0.
+\]
+Under \(a,d\le0\), this fails exactly when
+\[
+a=d=0.
+\]
+Hence
+\[
+\boxed{
 \mathcal P_\alpha^{(2)}
 =
 \left\{
@@ -39,15 +78,28 @@ c&0
 \end{pmatrix}
 :bc<0
 \right\}.
+}
 \]
 
-\begin{corollary}
+\begin{corollary}[No robust two-dimensional separation]
+\label{cor:2x2-empty-interior}
 For every \(0<\alpha<1\),
 \[
-\operatorname{int}_{\mathbb R^4}\mathcal P_\alpha^{(2)}
+\operatorname{int}_{\mathbb R^4}
+\mathcal P_\alpha^{(2)}
 =
 \varnothing.
 \]
 \end{corollary}
 
-Thus dimension two can exhibit fractional-only D-stability, but only on a lower-dimensional boundary set. A robust full-dimensional separation from classical D-stability cannot occur before dimension three.
+\begin{proof}
+The set above is contained in the codimension-two affine subspace
+\[
+a=d=0.
+\]
+It therefore has empty interior in \(\mathbb R^4\).
+\end{proof}
+
+\begin{remark}
+At the classical endpoint \(\alpha=1\), the purely imaginary boundary \(a=d=0\) is no longer asymptotically stable, because Matignon's strict condition becomes the open left-half-plane condition. Thus the two-dimensional fractional-only set collapses exactly at integer order.
+\end{remark}
