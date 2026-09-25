@@ -1,0 +1,2 @@
+49821baad65ebbf4eebc5c250d1329443a72824c3b39fca37e8bb99f43e4152e  paper/final/exact-positive-diagonal-matignon-stability-dimension-three.pdf
+ab15bd8f50f84f50c60fc30f04565da23636b00ae9db87fee4e0c02a51e5a49a  paper/final/submission.zip
