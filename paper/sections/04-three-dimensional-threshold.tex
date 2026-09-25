@@ -402,13 +402,35 @@ A:
 \end{theorem}
 
 \begin{proof}
-For \(0<\alpha\le2/3\), strict-P sufficiency is the Kellogg argument above, and necessity for interior points is Corollary~\ref{cor:strictP-interior}.
+For \(0<\alpha\le2/3\), strict-P sufficiency is the Kellogg argument above, and necessity for interior points is Corollary~\ref{cor:strictP-interior}. The strict-P conditions are finitely many strict polynomial inequalities in the entries of \(A\), hence define an open subset of \(\mathbb R^{3\times3}\). Because that open set is contained in \(\mathcal F_\alpha^{(3)}\), every strict-\(P(-A)\) matrix is an interior point.
 
-Let now \(2/3<\alpha<1\). Necessity follows from Corollary~\ref{cor:strictP-interior} and Theorem~\ref{thm:C10}. Conversely, strict-P conditions are open. The objective defining \(T_\alpha\) diverges at the simplex boundary and depends continuously on \((\alpha,\beta,x)\). Around any fixed positive \(\beta\), all minimizers therefore lie in a common compact subset of the open simplex. Consequently \(T_\alpha(\beta)\) is continuous locally in \(\beta\). If
+Let now \(2/3<\alpha<1\). Necessity follows from Corollary~\ref{cor:strictP-interior} and Theorem~\ref{thm:C10}. Conversely, fix a strict-\(P(-A_0)\) matrix with invariant vector \(\beta^0>0\) and
 \[
-\kappa<T_\alpha(\beta),
+\kappa^0<T_\alpha(\beta^0).
 \]
-the strict gap persists under sufficiently small perturbations of \(A\), so \(A\) is an interior point.
+In a sufficiently small neighborhood of \(A_0\), all strict principal minors remain positive, so the invariants are well defined and vary continuously. Shrinking the neighborhood if necessary, the three components of \(\beta\) remain in a compact positive box.
+
+For such \(\beta\),
+\[
+F_{\alpha,\beta}(x)
+=
+\frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}
+\ge
+\frac{h_\alpha(0)}{x_1x_2x_3},
+\]
+because \(B_\beta(x)\ge0\) and \(h_\alpha\) is increasing. The right-hand side diverges uniformly as \(x\) approaches the simplex boundary. Therefore all minimizers for \(\beta\) in that parameter neighborhood lie in one common compact subset
+\[
+K\Subset\Delta_2^\circ.
+\]
+On \(K\), \(F_{\alpha,\beta}(x)\) is jointly continuous in \((\beta,x)\). Hence
+\[
+T_\alpha(\beta)=\min_{x\in K}F_{\alpha,\beta}(x)
+\]
+is continuous in \(\beta\). Since \(\kappa\) is also continuous in the matrix entries on the strict-P stratum, the strict gap
+\[
+T_\alpha(\beta)-\kappa>0
+\]
+persists under sufficiently small perturbations of \(A_0\). Thus \(A_0\) is an interior point.
 \end{proof}
 
 \subsection{Exact recovery of Cain and the genuinely fractional band}
