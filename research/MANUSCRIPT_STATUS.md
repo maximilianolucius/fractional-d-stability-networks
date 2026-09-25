@@ -1,7 +1,7 @@
 # Q1 Manuscript Status
 
 **Branch:** \`q1-manuscript-20260925\`  
-**Phase:** proof-complete technical manuscript v1  
+**Phase:** proof-complete technical manuscript v1.5 — internal referee pass 2 completed  
 **Scientific gates:** novelty PASS WITH REPOSITIONING; proof PASS; compute PASS.
 
 ## Current manuscript state
@@ -39,13 +39,26 @@ The obsolete ecological-network scaffold has been replaced by a theorem-first ma
 - automated LaTeX build workflow;
 - static reference/citation audit with zero missing citations/refs.
 
+## Current readiness
+
+- theorem correctness: PASS;
+- novelty positioning: PASS;
+- theorem reconciliation: PASS;
+- clean LaTeX build: PASS;
+- static citation/reference audit: PASS;
+- abstract length: ~189 words;
+- current technical length: ~37 pages including bibliography;
+- internal referee pass 2: scientific content ready, editorial revision required.
+
+See `research/MANUSCRIPT_REFEREE_PASS_2.md`.
+
 ## Still required before submission
 
-1. obtain and inspect the primary Shao et al. 2017 PDF if feasible;
+1. inspect the primary Shao et al. 2017 PDF only if it becomes accessible; current final search found metadata but no public full text, and it is not load-bearing;
 2. incorporate Wave 2 certified atlas/canonical witnesses/robustness outputs;
 3. choose 5--8 publication figures and final captions;
-4. perform a line-by-line mathematical referee pass against canonical theorem files;
-5. resolve all LaTeX warnings/overfull boxes;
+4. integrate Wave 2 outputs and then perform the final post-figure referee pass;
+5. preserve the current warning-free LaTeX build after figure integration;
 6. add repository/data-availability statement and final commit identifier;
 7. select target journal and adapt formatting;
 8. title/abstract final compression after figures and journal target are fixed.
@@ -53,3 +66,16 @@ The obsolete ecological-network scaffold has been replaced by a theorem-first ma
 ## Manuscript principle
 
 No new central theorem is required for submission. New discoveries from Wave 2 or n=4 are excluded unless the Chief explicitly reopens the theorem package.
+
+
+## Build and audit record
+
+The manuscript branch includes a dedicated `.github/workflows/paper.yml` workflow. A clean completed build produced a 37-page PDF with no LaTeX/BibTeX warnings, no undefined citations and no undefined references. The workflow now also uploads the compiled PDF as a versioned CI artifact.
+
+The manuscript theorem reconciliation is recorded in:
+
+`research/MANUSCRIPT_THEOREM_RECONCILIATION.md`.
+
+The second internal referee pass is recorded in:
+
+`research/MANUSCRIPT_REFEREE_PASS_2.md`.
