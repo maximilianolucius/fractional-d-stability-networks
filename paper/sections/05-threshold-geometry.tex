@@ -1041,6 +1041,91 @@ for every positive diagonal \(D\). Therefore \(\Phi>\rho_\alpha\) implies fracti
 
 This certificate is generally conservative; the exact boundary remains \(T_\alpha(\beta)\).
 
+To quantify the gap near integer order, write
+\[
+T_\Phi(\alpha,\beta)
+=
+\frac{T_1(\beta)}{\rho_\alpha},
+\]
+so that the scalar certificate is equivalent to
+\[
+\kappa<T_\Phi.
+\]
+Whenever \(T_\Phi<T_\alpha\), define the fraction of the exact genuinely fractional \(\kappa\)-band certified by C-11 as
+\[
+f_\alpha(\beta)
+=
+\frac{T_\Phi-T_1}{T_\alpha-T_1}.
+\]
+
+\begin{corollary}[Classical-limit coverage of the scalar certificate]
+\label{cor:C11-coverage}
+With
+\[
+S=\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}},
+\qquad
+\Gamma=\sqrt{\beta_{12}\beta_{13}\beta_{23}},
+\]
+one has
+\[
+\boxed{
+\lim_{\alpha\to1^-}
+f_\alpha(\beta)
+=
+\frac{2\sqrt{S\Gamma}}{S+\Gamma}
+\le1.
+}
+\]
+Equality holds exactly when \(S=\Gamma\).
+\end{corollary}
+
+\begin{proof}
+Let \(\varepsilon=1-\alpha\). Since
+\[
+u=\cos(\alpha\pi/2)
+=
+\frac{\pi}{2}\varepsilon+O(\varepsilon^3),
+\]
+we have
+\[
+\rho_\alpha
+=
+(1-2u)^2
+=
+1-2\pi\varepsilon+O(\varepsilon^2).
+\]
+Therefore
+\[
+T_\Phi-T_1
+=
+2\pi T_1\,\varepsilon+O(\varepsilon^2)
+=
+2\pi S^2\varepsilon+O(\varepsilon^2).
+\]
+By Theorem~\ref{thm:C14},
+\[
+T_\alpha-T_1
+=
+\pi S^{3/2}
+\left(
+\frac{S}{\sqrt\Gamma}+\sqrt\Gamma
+\right)\varepsilon
++
+O(\varepsilon^2).
+\]
+Taking the ratio gives
+\[
+\frac{2\sqrt{S\Gamma}}{S+\Gamma}.
+\]
+The upper bound follows from
+\[
+2\sqrt{S\Gamma}\le S+\Gamma,
+\]
+with equality if and only if \(S=\Gamma\).
+\end{proof}
+
+Thus the simple \(\Phi\)-criterion can capture the entire first-order band in special balanced cases, but can become strongly conservative under anisotropy.
+
 \subsection{Realizability of the entire genuinely fractional band}
 
 For a normalized matrix with \(p_1=p_2=p_3=1\), define
