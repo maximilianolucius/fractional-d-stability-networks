@@ -12,6 +12,7 @@ build/
 dist/
 
 # LaTeX build artifacts
+paper/figures/generated/
 paper/*.aux
 paper/*.bbl
 paper/*.blg
@@ -20,6 +21,7 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.synctex.gz
+paper/*.thm
 paper/*.toc
 paper/*.pdf
 supplement/*.aux
