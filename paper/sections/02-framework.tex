@@ -1,25 +1,86 @@
-\section{Framework}
-Let
-\begin{equation}
-{}^C D^\alpha x = F_G(x;\theta), \qquad 0<\alpha\le 1,
-\end{equation}
-where $G$ is a directed interaction graph. For an equilibrium $x^*$, write
-\begin{equation}
-J_G = D F_G(x^*).
-\end{equation}
-For commensurate order $\alpha$, Matignon's criterion requires
-\begin{equation}
-|\arg \lambda_i(J_G)|>\frac{\alpha\pi}{2}\qquad \text{for all }i.
-\end{equation}
+\section{Positive-diagonal Matignon stability and orbit reduction}
 
-\begin{definition}[Purely fractional stabilization region]
-For a graph $G$, define
-\begin{equation}
-\mathcal S_\alpha(G)=\left\{\theta:
-|\arg\lambda_i(J_G)|>\frac{\alpha\pi}{2}\ \forall i,
-\quad \max_i\Re\lambda_i(J_G)>0
-\right\}.
-\end{equation}
+For \(0<\alpha<1\), define
+\[
+\Sigma_\alpha
+=
+\{z\in\mathbb C\setminus\{0\}:|\arg z|>\alpha\pi/2\}.
+\]
+
+\begin{definition}
+For \(A\in\mathbb R^{n\times n}\), define
+\[
+\mathcal F_\alpha^{(n)}
+=
+\{A:\sigma(DA)\subset\Sigma_\alpha\ \text{for every positive diagonal }D\},
+\]
+and let
+\[
+\mathcal D_H^{(n)}
+=
+\{A:DA\ \text{is Hurwitz for every positive diagonal }D\}.
+\]
+The genuinely fractional difference class is
+\[
+\mathcal P_\alpha^{(n)}
+=
+\mathcal F_\alpha^{(n)}
+\setminus
+\mathcal D_H^{(n)}.
+\]
 \end{definition}
 
-The second condition excludes equilibria already Hurwitz stable in the first-order system.
+The definition is an instance of generalized multiplicative region D-stability \citep{Kushel2019,KushelPavani2022}. The distinctive feature here is that \(\Sigma_\alpha\) is a reflex sector: for \(\alpha<1\) it contains a nonempty right-half-plane sliver.
+
+\subsection{Standard orbit normalization}
+
+Assume \(-A\) is a strict P-matrix and define, for nonempty \(I\subseteq\{1,\ldots,n\}\),
+\[
+m_I=(-1)^{|I|}\det A[I]>0,
+\qquad
+p_i=m_{\{i\}}=-a_{ii}>0.
+\]
+For \(|I|\ge2\), set
+\[
+\beta_I
+=
+\frac{m_I}{\prod_{i\in I}p_i}.
+\]
+
+Let \(D=\operatorname{diag}(d_1,\ldots,d_n)\succ0\) and write
+\[
+\det(\lambda I-DA)
+=
+\lambda^n+c_1(D)\lambda^{n-1}+\cdots+c_n(D).
+\]
+The characteristic-coefficient/principal-minor identity gives
+\[
+c_k(D)
+=
+\sum_{|I|=k}m_I\prod_{i\in I}d_i.
+\]
+With
+\[
+s=c_1(D)=\sum_i p_id_i,
+\qquad
+x_i=\frac{p_id_i}{s},
+\]
+we have \(x\in\Delta_{n-1}^\circ\), and every point of the open simplex is realized by a positive diagonal \(D\), uniquely modulo a common positive scalar. Therefore
+\[
+\frac{c_k(D)}{s^k}
+=
+B_k(x)
+:=
+\sum_{|I|=k}\beta_I\prod_{i\in I}x_i.
+\]
+After the radial rescaling \(\lambda=sz\), which leaves eigenvalue arguments unchanged, the entire positive-diagonal orbit is represented by
+\[
+z^n+z^{n-1}+B_2(x)z^{n-2}+\cdots+B_n(x).
+\]
+This standard projective reduction is structural machinery rather than a novelty claim. Its role is to isolate the genuinely dimension-specific root-location problem.
+
+For \(n=3\), the nontrivial orbit data reduce to four invariants:
+\[
+\beta_{12},\quad\beta_{13},\quad\beta_{23},\quad
+\kappa=\frac{-\det A}{p_1p_2p_3}.
+\]
