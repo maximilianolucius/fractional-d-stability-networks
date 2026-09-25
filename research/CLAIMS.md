@@ -20,6 +20,7 @@ No theorem is submission-certified until the independent proof audit passes. "No
 | C-11 | exact orbit minimum Phi(A) and simple fractional Cain sufficient certificate | structural/supporting result; standalone novelty unnecessary | **INTERNAL THEOREM** | `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md` |
 | C-12 | GLV abundance-scaling invariance of F_alpha, D_H, P_alpha and orbit invariants | application bridge | **INTERNAL COROLLARY** | positive-diagonal orbit action |
 | C-13 | exact ecological loop-coordinate form of C-10 | structural/ecological corollary; loop analysis itself classical | **INTERNAL COROLLARY** | `research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md` |
+| C-14 | strict monotonicity of T_alpha and sharp alpha->1 collapse rate | supporting structural corollary; standalone novelty not required | **INTERNAL COROLLARY** | `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` |
 
 ## Central definitions
 
@@ -315,3 +316,28 @@ Before final manuscript drafting:
 - **CERTIFIED COMPUTATION** — rigorous computational certificate.
 - **NUMERICAL CORROBORATION** — floating-point evidence only.
 - **OPEN** — unresolved.
+
+
+## C-14 — monotone memory widening and classical-limit rate
+
+For positive beta coordinates and 2/3<alpha<1, the exact C-10 threshold is strictly decreasing in alpha:
+
+```text
+alpha1 < alpha2  =>  T_alpha1(beta) > T_alpha2(beta).
+```
+
+As alpha->1 from below,
+
+```text
+T_alpha(beta)
+=
+T_1(beta)
++
+C(beta) (1-alpha)
++
+O((1-alpha)^2),
+```
+
+with explicit positive C(beta) given in `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md`.
+
+Thus the genuinely fractional band closes linearly, with a motif-dependent coefficient.
