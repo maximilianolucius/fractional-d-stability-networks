@@ -145,12 +145,13 @@ MERGE TO MAIN:              NOT YET
 
 Per `agent_directives_publishable_first_submission.md`:
 
-- no arXiv reference may appear in the paper;
-- every cited result must use its published journal/conference version;
-- DOI/publisher metadata must be verified;
-- a manuscript claim may not depend on an arXiv-only source.
+- no unpublished reference may appear in the paper;
+- this includes arXiv/preprints, working papers, submitted or unpublished manuscripts, technical drafts, and personal communications;
+- every cited result must use a formally published journal/conference/book version;
+- DOI/publisher metadata must be verified where available;
+- a manuscript claim may not depend on an unpublished-only source.
 
-Internal novelty audits may retain arXiv links for research provenance, but the submitted bibliography may not.
+Internal novelty audits may retain unpublished material for research provenance, but the submitted bibliography may not.
 
 ### 2. Final frozen-claim novelty audit
 
