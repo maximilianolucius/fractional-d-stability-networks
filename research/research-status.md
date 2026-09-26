@@ -633,3 +633,87 @@ ARCHITECTURE:                 UPDATED
 MANUSCRIPT DRAFTING:          UNLOCKED
 SUBMISSION READY:             NO
 ~~~
+
+
+---
+
+## Final visual gate — 2026-09-26
+
+Figure Wave 2 branch:
+
+`agent/compute-figures-wave2-20260926`
+
+Final SHA:
+
+`3b596577e24d57dda6edd94b85649909e9b849de`
+
+Status:
+
+`FIGURE_WAVE2_PASS`
+
+Tests:
+
+`52 passed, 0 failed`
+
+Chief final visual decision:
+
+`VISUAL_GATE_PASS`
+
+Canonical visual-gate document:
+
+`research/CHIEF_FINAL_VISUAL_GATE_2026-09-26.md`
+
+Canonical biological witness:
+
+`W2-A`
+
+~~~text
+alpha = 0.9
+m = 0.511
+X = 1
+Y = 0.785633
+Z = 0.192182
+beta = (4.79, 4.506, 5.607)
+kappa = 62.735
+T1 = 44.6124
+T_0.9 = 94.5719
+~~~
+
+Certified:
+
+~~~text
+kappa-T1 >= 18.1226
+T_0.9-kappa >= 31.8369
+m in [0.394,0.578] fractional-only for fixed W2-A design
+~~~
+
+Exact classical crossing:
+
+`m0 = 0.37445128124251493523908034461904384927176466921467...`
+
+Final default visual program:
+
+~~~text
+6 figure environments
+14 panels
+no supplementary material
+~~~
+
+1. conceptual Matignon + 2D/3D opener;
+2. exact C-10 geometry;
+3. alpha deformation;
+4. ecological no-go vs IGP mechanism;
+5. Double-Allee m-crossing;
+6. certified realization + exact 2D/3D ecological contrast.
+
+Current manuscript state:
+
+~~~text
+THEOREM PACKAGE:       FROZEN
+EXTERNAL PROOF GATE:   PASS
+VISUAL GATE:           PASS
+CANONICAL WITNESS:     W2-A
+STORYBOARD:            FROZEN
+NEXT GATE:             PUBLISHED-REFERENCE / FROZEN-CLAIM NOVELTY AUDIT
+FULL LATEX DRAFT:      BLOCKED ONLY BY REFERENCE/NOVELTY GATE
+~~~
