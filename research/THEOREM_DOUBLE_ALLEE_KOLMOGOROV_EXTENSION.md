@@ -1,8 +1,8 @@
 # Theorem package — Double-Allee intraguild-predation realization of positive-diagonal Matignon stability
 
 **Date:** 2026-09-26  
-**Branch:** chief/double-allee-final-integration-20260926  
-**Status:** internal analytic development; Audit 1 PASSED WITH MINOR FIXES (SHA 9235d75e8d407af8b726bb3bbfbf42c47d792151); Audit 2 PASSED WITH MINOR FIXES (SHA fb970648ff8dcb586fe5733c52717bf2c4d9d20f) under a procedurally blind but same-session protocol; a truly epistemically independent external audit remains pending
+**Branch:** chief/double-allee-submission-gate-20260926  
+**Status:** theorem package externally audited. Audit 1 PASSED WITH MINOR FIXES (SHA 9235d75e8d407af8b726bb3bbfbf42c47d792151); Audit 2 PASSED WITH MINOR FIXES (SHA fb970648ff8dcb586fe5733c52717bf2c4d9d20f) under a procedurally blind same-session protocol; true external Audit 3 PASSED WITH FIXES (SHA 5066fa067dbff1c9b79c053195dbc992b28dc5a4).
 
 ## 1. General Kolmogorov orbit lemma
 
@@ -423,6 +423,24 @@ s+chi>0.
 ~~~
 
 Equivalently, once s>0 is imposed, full strict-P is exactly q>0. The simpler condition e1 e3>e2 implies chi>0 and is therefore sufficient, but it is not necessary.
+
+The same identity also identifies the coexistence nondegeneracy boundary. For
+
+~~~text
+F(X,m)=g_DA(X;m)-chi X+nu,
+~~~
+
+one has
+
+~~~text
+F_X
+=
+-(s+chi)
+=
+-q/Delta.
+~~~
+
+Hence the scalar coexistence branch loses IFT nondegeneracy exactly at q=0.
 
 Hence
 
@@ -1070,28 +1088,84 @@ partial_m H_A
 <0.
 ~~~
 
-If, in addition,
+In fact, no additional sign assumption on chi is needed. Let
 
 ~~~text
-chi>=0,
+d = X-m,
+ell = K-X,
+u = X+a.
 ~~~
 
-then
+Then
+
+~~~text
+H_A
+=
+1/ell - 1/d + 1/u,
+~~~
+
+and
+
+~~~text
+H_X - H_A^2
+=
+2(u-d)(ell+u)/(d ell u^2)
+>
+0,
+~~~
+
+because u-d=m+a>0.
+
+Exact differentiation gives
 
 ~~~text
 ds/dm
 =
-chi (dX/dm) H_A
-+
-Q[
-   (partial_X H_A)(dX/dm)
-   -
-   1/(X-m)^2
- ]
-<0.
+-
+Q
+/
+[
+ d(s+chi)
+]
+*
+[
+ Q H_X
+ +s/d
+ +chi(H_A+1/d)
+].
 ~~~
 
-The constructive fractional-only regime has chi>0, so this monotonicity is strict there.
+On the positive strict-P stratum one has chi>-s. Therefore
+
+~~~text
+Q H_X
++s/d
++chi(H_A+1/d)
+>
+Q H_X
++s/d
+-s(H_A+1/d)
+=
+Q(H_X-H_A^2)
+>
+0.
+~~~
+
+Since Q>0, d>0 and s+chi>0,
+
+~~~text
+ds/dm<0.
+~~~
+
+Thus both
+
+~~~text
+dX/dm<0
+and
+ds/dm<0
+~~~
+
+hold throughout the positive strict-P coexistence stratum, even when chi<0.
 
 ## Monotone invariant motion
 
@@ -1433,7 +1507,7 @@ The natural two-consumer extension is killed.
 
 The intraguild-predation redesign passes all main early kill tests:
 
-1. **tractable equilibrium:** yes; X satisfies an explicit quadratic and Y,Z are affine-rational in X;
+1. **tractable equilibrium:** yes; X satisfies an explicit polynomial equation of degree at most two (a genuine quadratic in the constructive regime), and Y,Z are affine-rational in X;
 2. **strict P on an open feasible set:** yes;
 3. **full-dimensional invariant access:** yes; a constructive four-invariant realization theorem is available on beta_ij>1;
 4. **fractional-only point:** yes for every 0<alpha<1;
