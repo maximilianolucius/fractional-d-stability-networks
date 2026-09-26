@@ -337,12 +337,15 @@ No identity failed (71 SymPy re-derivations), no counterexample, no C-10 mismatc
 (all other parameters fixed) and a full 14-parameter box of relative half-width 5e-4 around m=0.21 are interval-CERTIFIED
 genuinely fractional. Tests: 39 passed.
 
-Integration gate: all load-bearing items (DA-02, DA-03, DA-06, DA-07, DA-08, DA-09/10/11, DA-12) passed. The audit fixes
-applied to `THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` (marked *[audit fix]* / *[audit remark]*):
+Integration gate: all load-bearing items (DA-02, DA-03, DA-06, DA-07, DA-08, DA-09/10/11, DA-12) passed. The audit fixes were
+integrated by the Chief in `THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` (commit `1560210`, "integrate first Double-Allee audit fixes"):
 
 1. §8: "its positive coexistence equilibrium" -> "a positive coexistence equilibrium (the constructed branch)"; uniqueness is not claimed;
 2. §6: the redundant hypothesis "if in addition kappa > T1" for the efficiency bounds removed (every R > 0 target admits 0 < e_i < 1, e1 e3 > e2);
-3. §5: e1 e3 > e2 recorded as sufficient, not necessary, with the sharp strict-P condition.
+3. §5: e1 e3 > e2 recorded as sufficient, not necessary (full strict-P additionally requires q = -det B > 0);
+4. §9: minimal sign assumptions (Q > 0, s > 0, chi > 0, m > -a) stated explicitly;
+5. §10: automatic transversality bound G1'(t_H) >= (4 + 4 sqrt(C0))/t_H added;
+6. §12: admissibility m_c > 0 <=> X^2 + 2aX > Ka added.
 
 Audit recommendations kept for the manuscript stage: choose a less fragile witness (m ~ 0.3-0.45 of the certified interval; the
 m=0.21 point is 0.8% beyond the Cain boundary with log-parameter condition ~10^3); in numerical validation maximise Re(lambda)/|lambda|

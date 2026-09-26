@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-26  
 **Branch:** chief/double-allee-kolmogorov-20260926  
-**Status:** independently proof-audited — `COMPUTE_AUDIT_PASS_WITH_FIXES` (2026-09-26, `research/DOUBLE_ALLEE_PROOF_AUDIT_FINAL.md`); the two wording fixes requested by the audit are applied below (marked *[audit fix]*)
+**Status:** internal analytic development; first independent compute/symbolic audit PASSED WITH MINOR FIXES at agent SHA 9235d75e8d407af8b726bb3bbfbf42c47d792151; second independent audit still pending
 
 ## 1. General Kolmogorov orbit lemma
 
@@ -384,7 +384,7 @@ m23
 c1 c2 + e3 h^2.
 ~~~
 
-Thus whenever s>0 all order-one and order-two strict-P conditions hold automatically.
+Thus whenever s>0 all order-one and order-two strict-P conditions hold automatically. Full strict-P additionally requires q=-det B>0. The condition e1 e3>e2 is a simple sufficient condition for q>0, but it is not necessary.
 
 The determinant coordinate is
 
@@ -458,16 +458,6 @@ so the omnivory/intraguild-predation loop raises kappa above the pair-loop basel
 
 This sign reversal is the exact structural mechanism that the failed two-consumer model lacks.
 
-*[audit remark]* The condition e1 e3 > e2 is sufficient but not necessary for strict-P(-B): the sharp condition is s>0 together with q>0, i.e.
-
-~~~text
-h q1 q2 (e2 - e1 e3)
-<
-s(c1 c2 + e3 h^2) + c1 e2 q2^2 + c2 e1 q1^2,
-~~~
-
-and by AM-GM a transparent weaker sufficient condition is h (e2 - e1 e3) <= 2 sqrt(c1 c2 e1 e2).
-
 ---
 
 # 6. Invariant realization theorem
@@ -498,9 +488,7 @@ s,c1,c2,q1,q2,h,e1,e2,e3
 
 such that the reduced matrix B above has exactly those four C-10 invariants.
 
-*[audit fix: the extra hypothesis kappa > T1(beta) is not needed for the efficiency bounds; for every admissible target (R > 0) the construction below already gives]*
-
-The construction can be chosen with
+Moreover, for every such target the construction can be chosen with
 
 ~~~text
 0<e1,e2,e3<1
@@ -511,6 +499,8 @@ and
 ~~~text
 e1 e3 > e2.
 ~~~
+
+This does not require the additional assumption kappa>T1(beta); it follows already from the realization hypothesis R>0.
 
 ### Constructive proof
 
@@ -752,7 +742,7 @@ Fix any
 0 < alpha < 1.
 ~~~
 
-Then there exists a nonempty open set of biologically feasible parameters of the double-Allee IGP system such that a positive coexistence equilibrium (the constructed branch; uniqueness of the coexistence equilibrium is not claimed) is
+Then there exists a nonempty open set of biologically feasible parameters of the double-Allee IGP system such that a positive coexistence equilibrium on the constructed smooth branch is
 
 ~~~text
 positive-diagonal Matignon stable
@@ -866,10 +856,14 @@ chi>0.
 Assume
 
 ~~~text
-0<m<X<K,
+Q>0,
+s=-g_DA'(X)>0,
+chi>0,
 m>-a,
-s=-g_DA'(X)>0.
+0<m<X<K.
 ~~~
+
+The sign conclusions below use Q>0, s>0, chi>0 and m>-a; the additional ecological inequalities 0<m<X<K specify the coexistence branch under study.
 
 The implicit equilibrium equation is
 
@@ -1088,6 +1082,18 @@ such that
 G1(t_H)=0.
 ~~~
 
+The crossing is automatically transverse. Indeed convexity together with G1(0)=-4-4 sqrt(C0) gives
+
+~~~text
+G1'(t_H)
+>=
+[G1(t_H)-G1(0)]/t_H
+=
+(4+4 sqrt(C0))/t_H
+>
+0.
+~~~
+
 Thus:
 
 ~~~text
@@ -1260,7 +1266,11 @@ Therefore the genuinely fractional difference occurs only on
 g_DA'(X)=0.
 ~~~
 
-This is a codimension-one condition.
+This is a codimension-one condition. The critical threshold m_c below is biologically admissible only when it lies in the allowed positive range; in particular m_c>0 is equivalent to
+
+~~~text
+X^2+2aX>Ka.
+~~~
 
 For
 
