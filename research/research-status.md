@@ -717,3 +717,63 @@ STORYBOARD:            FROZEN
 NEXT GATE:             PUBLISHED-REFERENCE / FROZEN-CLAIM NOVELTY AUDIT
 FULL LATEX DRAFT:      BLOCKED ONLY BY REFERENCE/NOVELTY GATE
 ~~~
+
+
+---
+
+## Final frozen-claim novelty gate — 2026-09-26
+
+Chief artifact:
+
+`research/FINAL_FROZEN_CLAIM_NOVELTY_AUDIT_2026-09-26.md`
+
+Status:
+
+`FINAL NOVELTY GATE PASS WITH NARROWED WORDING`
+
+Final claim dispositions:
+
+~~~text
+C-09  NOVEL WITH NARROWED CLAIM
+C-10  NOVEL WITH NARROWED CLAIM
+C-15  NOVEL WITH NARROWED CLAIM
+C-16  NOT NOVEL / STRUCTURAL LEMMA
+C-17  NOT NOVEL / FOUNDATION
+C-18  NOVELTY SURVIVES TARGETED SEARCH
+C-19  THEOREM-REALIZATION NOVELTY SURVIVES
+C-20  FLAGSHIP ECOLOGICAL NOVELTY SURVIVES
+C-21  ALLEE/CAIN CROSSING NOVELTY SURVIVES
+C-22  2D/3D ECOLOGICAL CONTRAST SURVIVES
+~~~
+
+Current published ecology search explicitly confirms that:
+- fractional intraguild-predation models already exist;
+- three-species fractional food-web models already exist;
+- fractional double-Allee ecological models already exist;
+- ordinary Matignon local-stability analyses are already extensive.
+
+Therefore model-level priority language is forbidden.
+
+The final contribution vector is:
+
+~~~text
+exact real-3x3 positive-diagonal Matignon orbit elimination
++ minimum full-dimensional robust dimension
++ exact threshold geometry
++ competitive ecological no-go
++ constructive four-invariant IGP realization
++ full-dimensional open biological fractional-only all-D set
++ Allee-threshold crossing of the exact Cain boundary
++ exact 2D/3D ecological contrast
+~~~
+
+Current gate state:
+
+~~~text
+PROOF GATE:                 PASS
+EXTERNAL PROOF AUDIT:       PASS
+VISUAL GATE:                PASS
+FROZEN-CLAIM NOVELTY GATE:  PASS WITH NARROWED WORDING
+REFERENCE WAVE 2:           ACTIVE / FINAL MECHANICAL GATE
+FULL LATEX DRAFT:           NEXT AFTER REFERENCE WAVE 2
+~~~
