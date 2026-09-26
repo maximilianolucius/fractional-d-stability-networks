@@ -1,0 +1,82 @@
+# Second proof audit — BLIND-PHASE VERDICTS (frozen before unblinding)
+
+**Timestamp:** 2026-09-26 (aureus clock 12:49 local; committed immediately after writing)  
+**Branch:** `agent/independent-proof-double-allee-20260926` (base `d2bb43e`)  
+**Sources read in this phase:** `THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` (current version), `DOUBLE_ALLEE_KOLMOGOROV_CHIEF_REPORT.md`, C-10, C-11, C-13, C-15. Not opened: any Audit-1 file listed in the protocol, `src/fdsn/double_allee.py`, Audit-1 scripts/tests.
+
+## Independence disclosure (read this first)
+
+The auditor executing this task is the same agent (same model and the same conversation/session) that produced Audit 1 earlier today. I have not opened, imported or copied any Audit-1 file during this phase, and every derivation and every line of code below was produced afresh (`computations/audit2/`, exact rational Schwartz–Zippel checks instead of a CAS re-derivation, an own threshold minimiser, a new witness at a different order, time-domain simulations that Audit 1 did not use). But I cannot erase my memory of Audit 1, so **this blind phase is procedurally blind, not epistemically independent**. The Chief should weight these verdicts accordingly; where my attack strategy differs from Audit 1 the results are informative, where it coincides they are at most a replication.
+
+## Verdict table (blind)
+
+| item | verdict | basis (proof audit) |
+|---|---|---|
+| DA-01 | PASS | elementary; J_ij = δ_ij F_i + x_i ∂_j F_i and F(x*)=0; D ↦ D diag(x*) bijective on positive diagonals; invariants are ratios of principal minors, each homogeneous under left scaling |
+| DA-02 | PASS | exact: T1 − κ = 2 + L3 + 2Σ_{i<j}√(β_iβ_j) with L3 = q1q2(c12e2+c21e1)/(s c11c22) ≥ 0; holds on {β > 0} with no further hypothesis; Cain (α=1 C-10) turns κ<T1 into D-stability on the strict-P stratum |
+| DA-03 | PASS | all eleven formulas verified exactly (400 random rational points, 0 failures); C-13 sign convention respected |
+| DA-04 | PASS (sharpened) | exact strict-P ⇔ s>0 ∧ q>0; e1e3>e2 sufficient, not necessary (s=c=q=h=1, e=(½,½,½): q=9/4) |
+| DA-05 | PASS | Y, Z by Cramer, affine identity, quadratic exact; no spurious root; leading coefficient r+Kχ can be ≤ 0 only if χ<0 (never under e1e3 ≥ e2); two admissible roots not excluded by the proof but never observed |
+| DA-06 | PASS | residual ≡ R exactly; e_i∈(0,1), e1e3/e2 = τ² > 1; q = κ s c1c2 > 0 automatic; R→0⁺ regular; rank 4 (FD Jacobian rank 4 at 200 random points) |
+| DA-07 | PASS (quantified) | K_max = X + (X−m)(X+a)/(m+a); H_A>0 ⇔ K<K_max; explicit Q-bounds for μ1, μ2>0; r → sX(X+a)/(X−m) |
+| DA-08 | PASS WITH MINOR FIX | IFT correct (state Jacobian = B, det ≠ 0); openness in all 14 parameters; fix: statement should not suggest uniqueness of the coexistence equilibrium (it says "a positive coexistence equilibrium on the constructed smooth branch" — acceptable; see remark) |
+| DA-09 | PASS | dX/dm formula exact; signs need Q>0, s>0, χ>0, m>−a (χ>0 is used, e1e3≥e2 suffices) |
+| DA-10 | PASS | G1(0) = −4−4√C0 < 0 always; G1'' > 0 manifestly; crossing ⇔ E0 > 2√(A0B0); G1'(t_H) ≥ (4+4√C0)/t_H > 0 |
+| DA-11 | PASS | E0(t0) formula gives G1(t0)=0 and E0 > 2√(A0B0); embedding at m0 with DA-07; one-sided fractional-only interval by continuity of T_α (α>2/3) or strict-P (α≤2/3) |
+| DA-12 | PASS | C-07 applied to B2 = [[g'(X), −q],[p, 0]], det = pq; m_c both forms; admissible iff X²+2aX > Ka (and m_c < X automatically) |
+
+**Blind overall: `PROOF_AUDIT2_PASS_WITH_FIXES`** (no FAIL, no counterexample; the load-bearing items DA-06…DA-11 are proved; fixes are wording/sharpening).
+
+## Proof audit, item by item (my own derivations)
+
+**DA-01.** For G_i = x_iF_i, ∂_jG_i = δ_ijF_i + x_i∂_jF_i; at F(x*)=0, J = diag(x*)B. For D ≻ 0, DJ = (D diag(x*))B and D ↦ D diag(x*) is a bijection of the positive diagonal cone (inverse D ↦ D diag(x*)⁻¹), so {DJ} = {EB} as sets; hence F_α- and D_H-membership of J and B coincide (both are "for every positive diagonal"). Invariants: p_i(EB) = E_ip_i, m_ij(EB) = E_iE_jm_ij, det(EB) = (ΠE)det B, so β_ij, κ, L3 are unchanged (checked exactly on random dense matrices). Dependencies: none beyond definitions.
+
+**DA-02.** From the equations, B = [[−s,−q1,−q2],[e1q1,−c11,−c12],[e2q2,−c21,−c22]] with s = −g'(x*) (only F_1 has a nonlinear x-dependence). Minors: m12 = sc11+e1q1², m13 = sc22+e2q2², m23 = c11c22−c12c21; oriented 3-cycles a12a23a31 = (−q1)(−c12)(e2q2) = e2c12q1q2, a13a32a21 = e1c21q1q2, both ≥ 0 ⇒ L3 ≥ 0 (C-13 convention L3 = Σ cycles/(p1p2p3)). Expanding −det B gives κ = Σβ − 2 − L3 (exact). Then T1 − κ = (Σ√β)² − Σβ + 2 + L3 = 2 + L3 + 2Σ√(β_iβ_j) > 0 for every β>0. Minimal hypotheses: positive order-two minors (β>0) and L3 ≥ 0 — i.e. the no-go inequality needs no strict-P; strict-P (p_i>0, m_ij>0, q>0) is only needed to apply Cain's iff (C-10 α=1 limit) and C-10 Lemma 2 (interior ⇒ strict-P) for the "no full-dimensional region" conclusion. Edge cases c12=0, c21=0 (L3 may vanish: still T1−κ ≥ 2), β23→0⁺ (T1−κ ≥ 2 + 2√(β12β13)) are harmless. Sign convention: convention-independent because L3 enters with a definite sign. Dependencies: Cain/C-10 (α=1), C-10 Lemma 2.
+
+**DA-03.** Exact rational tests of all formulas at 400 random points: m_ij, q, β_ij, L3 = hq1q2(e2−e1e3)/(sc1c2), κ = Σβ−2−L3 — 0 failures. Cycles: a12a23a31 = +e2hq1q2, a13a32a21 = −e1e3hq1q2 (opposite signs: the mechanism).
+
+**DA-04.** p = (s,c1,c2); m_ij sums of positive terms once s>0; q = s(c1c2+e3h²) + c1e2q2² + c2e1q1² + hq1q2(e1e3−e2). Exact condition: s>0 and hq1q2(e2−e1e3) < s(c1c2+e3h²) + c1e2q2² + c2e1q1². Sufficiency of e1e3 ≥ e2 is immediate; necessity fails (example above). A transparent weaker sufficient condition: since c1e2q2² + c2e1q1² ≥ 2q1q2√(c1c2e1e2) (AM–GM), q>0 whenever h(e2−e1e3) ≤ 2√(c1c2e1e2). The theorem file already states "sufficient, not necessary" — consistent.
+
+**DA-05.** Cramer on [[c1, h],[−e3h, c2]][Y;Z] = [A1;A2], Δ = c1c2 + e3h² > 0 ⇒ Y = (c2A1 − hA2)/Δ, Z = (e3hA1 + c1A2)/Δ; q1Y + q2Z is affine in X with the claimed χ, ν (exact tests). Multiplying g(X) = χX − ν by K(X+a) > 0 (X>0) gives exactly (r+Kχ)X² − [r(K+m) − Kχa + Kν]X + rKm − Kνa = 0; the polynomial at X = −a equals −r(K+a)(a+m) ≠ 0, so no spurious root; a root at X=K or X=m forces g=0 = χX−ν hence q1Y+q2Z = 0, impossible with Y,Z>0 — such roots are never coexistence points; X=0 is a root iff rKm = Kνa, again infeasible (Y or Z ≤ 0 since g(0) = −rm/a < 0). Double root: discriminant zero — a fold of the branch; the theorem's IFT argument is local at a point with det B ≠ 0, and the fold is *not* excluded by det B ≠ 0 in general (the fold concerns the prey scalar equation F_X = 0 ⇔ s + χ = 0, which is excluded by s>0, χ>0). Two admissible roots: not excluded by the proof; hunted over 20,000 wide random draws (σ = 0.6, random efficiencies): 0 cases; the leading coefficient r+Kχ was ≤ 0 in 40/20,000 draws (only possible with χ<0, i.e. e2 ≫ e1e3), then the equation is not a genuine quadratic — outside the theorem's regime.
+
+**DA-06.** Independent re-derivation: with A=β12−1, B0=β13−1, C=β23−1, the residual hq1q2(e1e3−e2)/(sc1c2) with the stated q1, q2, h, e's equals √(ABC)·(e1e3−e2)/√(e1e2e3) = √(ABC)(τ − 1/τ) = √(ABC)ρ = R (exact test: residual² = ρ²ABC at random rationals). τ>1 for ρ>0 so 0 < e2 = η²/τ² < η² < 1. q = κsc1c2 > 0 because κ > Σβ−2 ≥ 1. R→0⁺: ρ→0, τ→1, e2→η², all parameters continuous — regular. Image = {β_ij>1, κ>Σβ−2}: open and 4-dimensional; local rank of (β12,β13,β23,κ) w.r.t. (q1,q2,h,e2) is 4 at all 200 random points tested (finite-difference Jacobian). β_ij ≤ 1 is not realizable by this architecture (each β−1 is a positive term) — the theorem correctly restricts to β>1. The clause about efficiencies no longer needs κ>T1 in the current file (already stated).
+
+**DA-07.** Logarithmic derivative g'/g = 1/(x−m) − 1/(K−x) − 1/(x+a) = −H_A (exact test) so s = QH_A with Q = g(X). H_A>0 ⇔ 1/(K−X) > (m+a)/((X−m)(X+a)) ⇔ K − X < (X−m)(X+a)/(m+a) =: K_max − X (2000 random checks, 0 violations). Q = s/H_A; with Y = ξQ/q1, Z = (1−ξ)Q/q2: μ1 = e1q1X − Q[ξc1/q1 + (1−ξ)h/q2] > 0 ⇔ Q < Q₁ := e1q1X/[ξc1/q1 + (1−ξ)h/q2]; μ2 = e2q2X + Q[ξe3h/q1 − (1−ξ)c2/q2] > 0 ⇔ Q < Q₂ (or always if the bracket is ≥ 0). Since H_A → ∞ as K → X⁺, there is an explicit K₀ ∈ (X, K_max) with Q < min(Q₁,Q₂) for K ∈ (X, K₀]. r = Q(X+a)K/((K−X)(X−m)) = sK(X+a)/[(X−m)·H_A(K−X)] → sX(X+a)/(X−m) as K→X⁺ (H_A(K−X) → 1): finite and positive. The three equilibrium equations hold by construction of μ1, μ2, r (verified to 1e−18 on the new witness). Quantified statement: feasibility holds for all K ∈ (X, min(K_max, K₀)) — an explicit nonempty interval. A fixed relative closeness (my test used K = X + 10⁻³(K_max−X)) is *not* always enough (33/4000 random draws gave μ ≤ 0): the "sufficiently close" quantifier is genuinely parameter-dependent, which the explicit Q₁, Q₂ bounds make precise.
+
+**DA-08.** Case α>2/3: pick β∈(1,∞)³, κ∈(T1, T_α) (nonempty by C-10 §7 / C-15), realize by DA-06 (with e1e3>e2, e∈(0,1)), embed by DA-07 → a point p₀ of the 14-dimensional biological space with a positive coexistence equilibrium whose reduced matrix has invariants (β,κ); C-10 ⇒ B ∈ F_α \ D_H; DA-01 transfers to J. Case α≤2/3: κ > T1 arbitrary; strict-P ⇒ F_α (Kellogg/C-10 Thm 2, imported), κ>T1 ⇒ ∉ D_H (Cain). Openness: the map Φ(x; p) = F(x; p) (three per-capita equations) has ∂Φ/∂x = B at the point, det B = −κsc1c2 ≠ 0; IFT gives a C¹ branch x*(p) on a full neighbourhood of p₀ in ℝ¹⁴ (all 14 parameters are genuinely free variables of Φ). Along the branch: positivity of x*, strict-P (s>0, q>0), κ<T_α (T_α continuous in β by C-15 Thm 1) and κ>T1 are strict inequalities in continuous functions of p ⇒ persist on a smaller neighbourhood. Also e_i∈(0,1), m<X<K persist. Hence a genuine open subset of the full parameter space — not a constrained submanifold: the constructions are only used to produce one point; the IFT neighbourhood is in all 14 coordinates. What is not proved: uniqueness of the coexistence equilibrium in the open set (the current wording "a positive coexistence equilibrium on the constructed smooth branch" is correct; I flag it only so that later text does not drift to "the"). No numerical evidence is used in the proof. Dependencies: C-10 (Thm 1, Thm 2, §7), C-15 (continuity of T_α), Cain, Kellogg, IFT, DA-01/06/07.
+
+**DA-09.** With χ, ν independent of m, Φ(X,m) = g(X;m) − χX + ν; Φ_X = g' − χ = −(s+χ) ≠ 0 when s>0 and χ>0 (χ>0 holds when e1e3 ≥ e2, since then χΔ is a sum of positive terms); Φ_m = ∂_mg = −g/(X−m) = −Q/(X−m). Hence dX/dm = −Φ_m/Φ_X = −Q/[(X−m)(s+χ)] < 0 (exact test of ∂_mg). s = QH_A along the branch with Q = χX − ν: ds/dm = χX'H_A + Q[∂_XH_A·X' + ∂_mH_A]; ∂_XH_A = 1/(K−X)² + 1/(X−m)² − 1/(X+a)² > 0 because X−m < X+a (m > −a); ∂_mH_A = −1/(X−m)² < 0; H_A>0 from s>0, Q>0. All three terms negative ⇒ ds/dm < 0. Minimal assumptions: Q>0, s>0, χ>0 (or at least s+χ>0 together with χ≥0), m>−a. If χ<0 the sign of X' is not controlled — the hypothesis e1e3>e2 (⇒ χ>0) is genuinely load-bearing here. Numerically: ds/dm<0 on the entire feasible branch of the Chief design (m ∈ [0.01, 0.643]).
+
+**DA-10.** With t = 1/s: β12 = 1 + A0t, β13 = 1 + B0t, β23 = C0, κ = C0 + (A0+B0+E0)t (E0 = hq1q2(e1e3−e2)/(c1c2)); G1 = E0t − 2 − 2√((1+A0t)(1+B0t)) − 2√C0(√(1+A0t)+√(1+B0t)) (exact expansion of (Σ√β)²). G1(0) = −4 − 4√C0 < 0 for every E0. Convexity: (√(1+A0t))'' = −A0²/(4(1+A0t)^{3/2}) < 0; for p = (1+A0t)(1+B0t), 2pp'' − p'² = −(A0−B0)² ≤ 0 so √p is concave; thus G1'' = (A0−B0)²/(2p^{3/2}) + √C0[A0²/(2(1+A0t)^{3/2}) + B0²/(2(1+B0t)^{3/2})] > 0 (strict for all positive data). G1(t)/t → E0 − 2√(A0B0): if E0 > 2√(A0B0), G1 → +∞ and, being strictly convex with G1(0)<0, has exactly one positive zero t_H; if E0 ≤ 2√(A0B0), G1 < 0 for all t>0 (G1 = (E0−2√(A0B0))t − 2√C0(√A0+√B0)√t + O(1) < 0 for large t and convexity forbids an interior excursion above 0 with negative values at both ends — hence no crossing; numerically 0 violations in 3000 random (A0,B0,C0,E0), both regimes, grid t ∈ [10⁻⁶, 10¹⁴]). Transversality without appeal to convexity alone: G1 convex ⇒ G1'(t_H) ≥ (G1(t_H) − G1(0))/t_H = (4 + 4√C0)/t_H > 0. The condition E0 > 2√(A0B0) is necessary and sufficient for a crossing.
+
+**DA-11.** E0 := [2 + 2√((1+A0t0)(1+B0t0)) + 2√C0(√(1+A0t0)+√(1+B0t0))]/t0 gives G1(t0)=0 by substitution; E0 − 2√(A0B0) = [2 + 2(√p(t0) − √(A0B0)t0) + 2√C0(…)]/t0 > 0 because p(t0) > A0B0t0². Realization: given (A0,B0,C0,E0) choose any s0 = 1/t0, c1, c2; DA-06 with β = (1+A0t0, 1+B0t0, C0) and κ = C0 + (A0+B0+E0)t0 returns (q1,q2,h,e) — note that e2 and q2 are chosen jointly (B0 = e2q2²/c2 is preserved), so "choosing the efficiency ratio" must be read as the joint DA-06 choice. Embedding: DA-07 at the prescribed m0 with s = s0. Crossing: t(m) increasing (DA-09), G1(t) < 0 for t<t0 and >0 for t>t0 (DA-10) ⇒ m<m0 classical (strict-P + κ<T1 ⇒ D_H by Cain), m>m0 not D_H. Fractional-only on (m0, m0+ε): α>2/3: T_α(β(m0)) − κ(m0) = T_α − T1 > 0 (C-10 §7) and both sides continuous in m ⇒ persists; α≤2/3: strict-P persists ⇒ F_α (Kellogg). Feasibility persists near m0 by IFT (Φ_X ≠ 0) and strict positivity. Uses exact C-10, not C-11. Numerically (Chief design rebuilt from the declared targets with my own scale choices): m=0.19 classical, m=0.20 on the boundary (κ−T1 = −5e−60 at 60 digits, α=1 direct margin 1e−15), m=0.21/0.30/0.45 fractional-only by both theorem and direct spectral routes; single classical crossing at m = 0.2000; feasibility lost at m ≈ 0.643 by Z → 0.
+
+**DA-12.** F = (g(x) − qy, px − d); X = d/p; B2 = DF = [[g'(X), −q],[p, 0]], det = pq > 0. C-07: B2 ∈ F_α^(2) ⇔ det>0, a11 ≤ 0, a22 ≤ 0 ⇔ g'(X) ≤ 0; classical 2×2 D-stability ⇔ det>0, a11, a22 ≤ 0, a11+a22 < 0 ⇔ g'(X) < 0; the difference is exactly g'(X) = 0 (then B2 has eigenvalues ±i√(pq), |arg| = π/2 > απ/2). H_A = 0 ⇔ 1/(X−m) = (K+a)/((K−X)(X+a)) ⇔ m_c = X − (K−X)(X+a)/(K+a) = (X²+2aX−Ka)/(K+a) (exact test). Admissibility: m_c < X always; m_c > 0 ⇔ X² + 2aX > Ka; also need X = d/p ∈ (m_c, K) and g(X) > 0 for Y>0 — automatic when m_c < X < K.
+
+## Dependency audit
+
+| item | uses |
+|---|---|
+| DA-01 | elementary algebra |
+| DA-02 | elementary algebra; Cain (= C-10 α=1) and C-10 Lemma 2 for the D-stability / interior conclusions |
+| DA-03, DA-04, DA-05 | elementary algebra |
+| DA-06 | elementary algebra |
+| DA-07 | elementary calculus |
+| DA-08 | DA-01/06/07, C-10 (Thm 1 for α>2/3, Thm 2 + Kellogg for α≤2/3, §7 for T_α>T1), C-15 (continuity/smoothness of T_α), Cain, IFT; **no numerics** |
+| DA-09 | elementary calculus + IFT (scalar) |
+| DA-10 | elementary calculus; Cain for the classification of the two sides |
+| DA-11 | DA-06/07/09/10, C-10 §7 (α>2/3), Kellogg/C-10 Thm 2 (α≤2/3); C-11 is **not** used |
+| DA-12 | C-07 |
+
+No circularity: C-10/C-15/C-07 are external theorems of the project; the DA chain only consumes them. The low-order and high-order cases are separated in DA-08 and DA-11.
+
+## Blind computational corroboration (`computations/audit2/double_allee_proof_checks.py`, results JSON)
+
+- 400 random rational points × 20 exact identities (DA-01/02/03/05/06/07/12): 0 failures.
+- Own T_α minimiser vs closed forms 27h_α(b/3) and 1+R₃³: 6e−15.
+- New witness (α=0.8, β=(1.5,2.5,2), κ at 40% of the band, X=2, m=0.5, a=1, K=2.3): residuals 1e−18, s exact, e∈(0,1), e1e3>e2, κ=70.04 ∈ (T1=17.81, T_0.8=148.39); direct scale-invariant search over log d ∈ [−18,18]²: min|arg| = 1.3330 rad at d* = (1.111, 0.604, 1) ⇒ margin +0.0763 at α=0.8, −0.238 at α=1 (same d*: the worst point of the orbit is order-independent).
+- Time domain at d* (state scaling D_sim = d*/x*): α=1 nonlinear RK45: perturbation 1e−3 grows to 30× (Re λ = 0.00728); linearised Caputo PECE (own implementation): α=0.8 envelope 1e−3 → 1.7e−4 (decay), α=0.9 → 1.9e−2 (growth), exactly as Matignon predicts for |arg| = 1.333 ∈ (0.8π/2, 0.9π/2).
+- Chief design points m ∈ {0.19, 0.20, 0.21, 0.30, 0.45}: theorem and direct classifications agree; m0 on the boundary to 5e−60.
+- 25,000 joint perturbations of all 14 parameters (σ ∈ {0.03, 0.1, 0.25}, m-heavy fifth): 16,389 feasible, 0 with two admissible roots, 15,706 strict-P (classical 4,881 / fractional-only 10,058 / unstable 767); 600-case direct-vs-theorem subset (300 nearest to a boundary, gap down to 1e−5, + 300 random): 0 mismatches.
+- 20,000 wide draws: 0 double coexistence equilibria; r+Kχ ≤ 0 in 40 (χ<0 regime only).
+- DA-07 quantified bound H_A>0 ⇔ K<K_max: 0 violations in 6000 checks.

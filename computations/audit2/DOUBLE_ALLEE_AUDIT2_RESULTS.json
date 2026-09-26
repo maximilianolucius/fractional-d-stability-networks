@@ -1,0 +1,299 @@
+{
+ "exact_identity_tests": {
+  "n_random_rational_points": 400,
+  "checks_per_point": 20,
+  "failures": {}
+ },
+ "T_alpha_selfcheck": {
+  "max_rel_err_vs_closed_forms": 5.995204332975845e-15,
+  "note": "27 h(b/3) symmetric slice and Siami 1+R3^3"
+ },
+ "witnesses": {
+  "new_witness_alpha0.8": {
+   "params": {
+    "a": 1.0,
+    "K": 2.3,
+    "m": 0.5,
+    "c1": 0.2,
+    "c2": 0.1,
+    "q1": 0.12909944487358058,
+    "q2": 15.56858202602052,
+    "h": 0.18257418583505539,
+    "e1": 0.6,
+    "e2": 6.188610369809104e-05,
+    "e3": 0.6,
+    "mu1": 0.13402888083866427,
+    "mu2": 0.013112202411481233,
+    "r": 0.5111111111111111
+   },
+   "equilibrium": [
+    2.0,
+    0.10327955589886438,
+    0.0012846385089260554
+   ],
+   "all_feasible_equilibria_from_quadratic": [
+    [
+     2.0000000000000004,
+     0.10327955589886444,
+     0.001284638508926121
+    ]
+   ],
+   "residuals": [
+    6.938893903907228e-18,
+    1.0028870095490916e-18,
+    3.7947076036992655e-19
+   ],
+   "s_target_0.1_vs_-g'": 0.10000000000000002,
+   "info": {
+    "kappa_target": 70.0405448368357,
+    "T1": 17.80922091634475,
+    "T_alpha": 148.38753071757213,
+    "Q": 0.03333333333333331,
+    "H": 3.000000000000002
+   },
+   "theorem": {
+    "strictP": true,
+    "kappa": 70.04054483683569,
+    "T1": 17.80922091634475,
+    "T_alpha": 148.38753071757213,
+    "class": "frac_only"
+   },
+   "direct": {
+    "margin_alpha": 0.0763308875008264,
+    "d_alpha": [
+     1.110592363798372,
+     0.6044197371462585,
+     1.0
+    ],
+    "margin_1": -0.23782837785815292,
+    "d_1": [
+     1.110592363798372,
+     0.6044197371462585,
+     1.0
+    ],
+    "class": "frac_only"
+   },
+   "e_in_(0,1)": true,
+   "e1e3_gt_e2": "True",
+   "all_params_positive": true,
+   "consistent": true
+  },
+  "chief_design_m_points": {
+   "params_m0": {
+    "a": 0.5,
+    "K": 1.1,
+    "m": 0.2,
+    "c1": 0.05,
+    "c2": 0.05,
+    "q1": 0.07071067811865477,
+    "q2": 1.4071067811865476,
+    "h": 0.07071067811865477,
+    "e1": 0.5,
+    "e2": 0.001262658470836646,
+    "e3": 0.5,
+    "mu1": 0.03334465061805115,
+    "mu2": 0.0030097911215942164,
+    "r": 0.10951327433628327
+   },
+   "points": {
+    "0.19": {
+     "n_eq": 1,
+     "X": 1.0001472593796552,
+     "s": 0.050717554596912955,
+     "kappa": 17.773631168895005,
+     "T1": 17.91506146870707,
+     "T_alpha": 39.41024320777394,
+     "theorem": "classical",
+     "direct": "classical",
+     "direct_margin_alpha": 0.15902444556626927,
+     "direct_margin_1": 0.0019448128867796122
+    },
+    "0.2": {
+     "n_eq": 1,
+     "X": 1.0,
+     "s": 0.05000000000000004,
+     "kappa": 17.999999999999993,
+     "T1": 17.999999999999996,
+     "T_alpha": 39.57857204310837,
+     "theorem": "classical",
+     "direct": "classical",
+     "direct_margin_alpha": 0.15707963267949077,
+     "direct_margin_1": 1.1102230246251565e-15
+    },
+    "0.21": {
+     "n_eq": 1,
+     "X": 0.9998522733376956,
+     "s": 0.04928213319865779,
+     "kappa": 18.23306354810527,
+     "T1": 18.087345977311287,
+     "T_alpha": 39.751745079140264,
+     "theorem": "frac_only",
+     "direct": "frac_only",
+     "direct_margin_alpha": 0.1551176131265284,
+     "direct_margin_1": -0.0019620195529612694
+    },
+    "0.3": {
+     "n_eq": 1,
+     "X": 0.9985013068358783,
+     "s": 0.04280700849151783,
+     "kappa": 20.688528542201674,
+     "T1": 19.00142124593693,
+     "T_alpha": 41.56831562350889,
+     "theorem": "frac_only",
+     "direct": "frac_only",
+     "direct_margin_alpha": 0.13662489458553506,
+     "direct_margin_1": -0.020454738093954594
+    },
+    "0.45": {
+     "n_eq": 1,
+     "X": 0.996160186376436,
+     "s": 0.031955220968573964,
+     "kappa": 27.035032641043298,
+     "T1": 21.318011180355057,
+     "T_alpha": 46.204478768649025,
+     "theorem": "frac_only",
+     "direct": "frac_only",
+     "direct_margin_alpha": 0.10176441925997493,
+     "direct_margin_1": -0.05531521341951473
+    }
+   }
+  },
+  "chief_design_hp": {
+   "beta": [
+    "2.0",
+    "2.0",
+    "2.0"
+   ],
+   "kappa": "18.0",
+   "kappa_minus_T1": "-4.978412222e-60"
+  }
+ },
+ "time_domain": {
+  "orbit_worst_d_star": [
+   1.110592363798372,
+   0.6044197371462585,
+   1.0
+  ],
+  "min_arg_at_d_star_rad": 1.3329679489367436,
+  "alpha=0.8_at_d_star": {
+   "d": [
+    0.04075385336065971,
+    0.42950504251804705,
+    57.12984616172212
+   ],
+   "initial_rel_dev": 0.001,
+   "final_rel_dev": 0.012510258064883817,
+   "max_rel_dev": 0.02698105288416186,
+   "decays": false,
+   "T": 400.0,
+   "h": 0.02,
+   "steps": 20000,
+   "envelope_first_quarter": 0.01501594096513914,
+   "envelope_last_quarter": 0.012510258064883817,
+   "note": "Caputo decay is algebraic (t^-alpha), so a slow monotone envelope decrease is the expected signature",
+   "expected": "decay (Matignon margin > 0 at the worst D) if the equilibrium is in F_alpha"
+  },
+  "alpha=1_at_d_star_max_Re_eig_state_jacobian": 0.007280520853953592,
+  "alpha=1_at_d_star": {
+   "d": [
+    0.04075385336065971,
+    0.42950504251804705,
+    57.12984616172212
+   ],
+   "initial_rel_dev": 0.001,
+   "final_rel_dev": 1.0,
+   "max_rel_dev": 30.68396991553855,
+   "grows": true,
+   "T": 3000.0,
+   "t_at_max": 1847.9058829981814,
+   "expected": "growth (Re lambda > 0 at this D) if the equilibrium is not Hurwitz D-stable"
+  },
+  "linearised_at_d_star": {
+   "eigenvalues": [
+    "(0.007280520853953592+0.030033138782498116j)",
+    "(0.007280520853953592-0.030033138782498116j)",
+    "(-0.038922750428393466+0j)"
+   ],
+   "min_arg_rad": 1.3329679489367445,
+   "alpha=0.8": {
+    "norm0": 0.0010000000000000002,
+    "env_q1": 0.0006669430089100999,
+    "env_q4": 0.0002873248588723796,
+    "final": 0.00016662868718981172,
+    "expected": "bounded, decaying envelope"
+   },
+   "alpha=0.9": {
+    "norm0": 0.0010000000000000002,
+    "env_q1": 0.004557587165568207,
+    "env_q4": 0.018665082149431456,
+    "final": 0.018665082149431456,
+    "expected": "growth"
+   }
+  }
+ },
+ "random_perturbations": {
+  "n": 25000,
+  "feasible": 16389,
+  "two_admissible_roots": 0,
+  "strictP": 15706,
+  "classes": {
+   "classical": 4881,
+   "frac_only": 10058,
+   "unstable": 767
+  },
+  "feasible_not_strictP": 683,
+  "direct_subset": {
+   "n": 600,
+   "mismatches": 0,
+   "min_gap_in_subset": 1.0188919262632545e-05,
+   "examples": []
+  }
+ },
+ "degeneracy_hunt": {
+  "n": 20000,
+  "feasible": 13,
+  "two_coexistence_equilibria_found": 0,
+  "examples": [],
+  "leading_coefficient_r+K*chi<=0": 40
+ },
+ "m_branch": {
+  "feasible_range": [
+   0.01,
+   0.643
+  ],
+  "ds_dm_negative": true,
+  "n_classical_crossings": 1,
+  "crossings_near": [
+   0.2
+  ],
+  "max_n_eq": 1,
+  "at_feasibility_loss": {
+   "X": 0.9929701798316515,
+   "Y": 0.03523670918099192,
+   "Z": 4.4025408448092884e-06,
+   "s": 0.01787332864271265,
+   "kappa": 46.7594298740866,
+   "T1": 28.21341677340014,
+   "n_eq": 1,
+   "H": 7.155609943997426
+  },
+  "feasibility_loss_mechanism": "Z->0"
+ },
+ "path_and_rank": {
+  "G1_root_count_violations_when_E0>2sqrt(A0B0)": 0,
+  "violation_cases": [],
+  "no_crossing_regime_violations": 0,
+  "n": 3000,
+  "rank_of_invariant_map_(q1,q2,h,e2)": {
+   "min": 4,
+   "n": 200
+  }
+ },
+ "da07_quantified": {
+  "H_A>0 <=> K<K_max violations": 0,
+  "n": 2000,
+  "embeddings_with_K=X+1e-3(Kmax-X)_all_positive_and_exact": 1986
+ },
+ "seconds": 819.3,
+ "note": "Audit 2 blind-phase checks; no Audit-1 code or results used"
+}
