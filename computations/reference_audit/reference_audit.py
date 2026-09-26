@@ -1,4 +1,11 @@
-"""Reference audit — automated checks for the published-source-only candidate bibliography.
+"""Reference audit — automated checks for the published-source-only bibliography.
+
+Reporting (Reference Audit Wave 2): `errors` block promotion; `warnings` are bibliography / claim-matrix
+uncertainties (an entry still carrying NEEDS_CHIEF_WEB_VERIFICATION, a missing DOI or a missing required field);
+`info` is intentionally retained provenance outside the bibliography (blocklisted e-print identifiers found in
+research files).  A journal article or proceedings paper without a DOI is an error unless it carries a
+verified `isbn` (proceedings/book identifier) or an explicit NEEDS_CHIEF_WEB_VERIFICATION note (warning).
+The same checks are applied to the final paper/references.bib when it exists (`--final`).
 
 Checks (Reference Audit Wave 1, Part F):
  1. forbidden tokens (e-print servers / non-published status words) anywhere in the candidate .bib;
@@ -13,8 +20,8 @@ Checks (Reference Audit Wave 1, Part F):
  9. (repository sweep) every e-print identifier mentioned anywhere in research material is listed in the
     blocklist, and none of them appears in the candidate .bib.
 
-Usage:  python computations/reference_audit/reference_audit.py [--json report.json]
-Exit status 0 iff no error (flags are allowed).
+Usage:  python computations/reference_audit/reference_audit.py [--json report.json] [--final]
+Exit status 0 iff no error and no warning.
 """
 from __future__ import annotations
 
@@ -26,6 +33,8 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BIB = os.path.join(ROOT, "paper", "references_candidate_published_only.bib")
+FINAL_BIB = os.path.join(ROOT, "paper", "references.bib")
+FINAL_HEADER = "% Final published-source-only bibliography; no unpublished/preprint references permitted."
 MATRIX = os.path.join(ROOT, "research", "CLAIM_REFERENCE_MATRIX.md")
 LEDGER = os.path.join(ROOT, "research", "PUBLISHED_REFERENCE_LEDGER.md")
 BLOCKLIST = os.path.join(ROOT, "research", "UNPUBLISHED_REFERENCE_BLOCKLIST.md")
@@ -126,14 +135,14 @@ def normalise_title(t: str) -> str:
 
 
 def audit(bib_path=BIB, matrix_path=MATRIX, ledger_path=LEDGER, blocklist_path=BLOCKLIST, root=ROOT):
-    rep = {"errors": [], "flags": [], "n_entries": 0, "keys": []}
+    rep = {"errors": [], "warnings": [], "info": [], "n_entries": 0, "keys": [], "forbidden_token_count": 0}
     text = open(bib_path, encoding="utf-8").read()
     # 1. forbidden tokens (whole file, case-insensitive)
     low = text.lower()
     for tok in FORBIDDEN_TOKENS:
         for m in re.finditer(re.escape(tok), low):
             ln = low.count("\n", 0, m.start()) + 1
-            rep["errors"].append(f"forbidden token {tok!r} at line {ln}")
+            rep["errors"].append(f"forbidden token {tok!r} at line {ln}"); rep["forbidden_token_count"] += 1
     # 7. parse
     entries, perr = parse_bib(text)
     rep["errors"] += [f"parse: {e}" for e in perr]
@@ -158,15 +167,18 @@ def audit(bib_path=BIB, matrix_path=MATRIX, ledger_path=LEDGER, blocklist_path=B
                 rep["errors"].append(f"{e['key']}: malformed DOI {doi!r}")
             dois.setdefault(doi.lower(), []).append(e["key"])
         elif e["type"] in ENTRY_TYPES_NEED_DOI:
-            (rep["flags"] if flagged else rep["errors"]).append(f"{e['key']}: no DOI" + (" (flagged for Chief verification)" if flagged else ""))
+            if f.get("isbn") and e["type"] == "inproceedings":
+                rep["info"].append(f"{e['key']}: proceedings paper identified by ISBN {f['isbn']} (no DOI)")
+            else:
+                (rep["warnings"] if flagged else rep["errors"]).append(f"{e['key']}: no DOI" + (" (flagged for Chief verification)" if flagged else ""))
         # required fields
         for req in REQUIRED.get(e["type"], ()):
             if req not in f:
-                (rep["flags"] if flagged else rep["errors"]).append(f"{e['key']}: missing field {req}" + (" (flagged)" if flagged else ""))
+                (rep["warnings"] if flagged else rep["errors"]).append(f"{e['key']}: missing field {req}" + (" (flagged)" if flagged else ""))
         if "url" in f and "doi.org" in f["url"].lower():
             rep["errors"].append(f"{e['key']}: url duplicates a DOI; use the doi field")
         if flagged:
-            rep["flags"].append(f"{e['key']}: {FLAG}")
+            rep["warnings"].append(f"{e['key']}: {FLAG}")
     rep["errors"] += [f"duplicate DOI {d} in {ks}" for d, ks in dois.items() if len(ks) > 1]
     # 3. duplicate normalised titles
     titles = {}
@@ -182,6 +194,10 @@ def audit(bib_path=BIB, matrix_path=MATRIX, ledger_path=LEDGER, blocklist_path=B
             missing = sorted(cited - keys)
             rep["errors"] += [f"{os.path.basename(path)} cites @{k} which is not in the candidate .bib" for k in missing]
             rep[f"cited_in_{os.path.basename(path)}"] = sorted(cited)
+            for tok in ("OPEN", "READY-VERIFY", FLAG):
+                for m in re.finditer(r"\|[^|\n]*\b" + re.escape(tok) + r"\b[^|\n]*\|", open(path, encoding="utf-8").read()):
+                    if not re.search(r"status codes|\*\*OPEN\*\* \(|\*\*READY-VERIFY\*\* \(", m.group(0)):
+                        rep["warnings"].append(f"{os.path.basename(path)}: unresolved status {tok!r} in row {m.group(0)[:60]!r}")
     # 9. repository sweep of e-print identifiers vs blocklist
     ids_found = {}
     for d in SWEEP_DIRS:
@@ -200,22 +216,41 @@ def audit(bib_path=BIB, matrix_path=MATRIX, ledger_path=LEDGER, blocklist_path=B
     block = open(blocklist_path, encoding="utf-8").read() if os.path.exists(blocklist_path) else ""
     rep["errors"] += [f"e-print id {i} mentioned in {sorted(v)[0]} is not listed in the blocklist" for i, v in ids_found.items() if i not in block]
     rep["errors"] += [f"e-print id {i} appears in the candidate .bib" for i in ids_found if i in text]
-    rep["ok"] = not rep["errors"]
+    rep["info"] += [f"blocklisted e-print id {i} retained as provenance in {', '.join(v)}" for i, v in rep["eprint_ids_in_repo"].items()]
+    # final bibliography (if promoted): must be the header line followed by the exact candidate contents
+    if os.path.exists(FINAL_BIB):
+        final = open(FINAL_BIB, encoding="utf-8").read()
+        if "@" in final:
+            rep["final_promoted"] = True
+            if final != FINAL_HEADER + "\n" + text:
+                rep["errors"].append("paper/references.bib is not the required header followed by the exact candidate contents")
+            # the mandated header line states the rule and therefore contains rule words; scan everything after it
+            body = final[len(FINAL_HEADER):].lower() if final.startswith(FINAL_HEADER) else final.lower()
+            for tok in FORBIDDEN_TOKENS:
+                if tok in body:
+                    rep["errors"].append(f"forbidden token {tok!r} in paper/references.bib"); rep["forbidden_token_count"] += 1
+        else:
+            rep["final_promoted"] = False
+    rep["ok"] = not rep["errors"] and not rep["warnings"]
     return rep
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", default=None)
+    ap.add_argument("--verbose", action="store_true")
     a = ap.parse_args(argv)
     rep = audit()
     if a.json:
         json.dump(rep, open(a.json, "w"), indent=1)
-    print(f"entries: {rep['n_entries']}  errors: {len(rep['errors'])}  flags: {len(rep['flags'])}")
+    print(f"entries: {rep['n_entries']}  errors: {len(rep['errors'])}  warnings: {len(rep['warnings'])}  info: {len(rep['info'])}  forbidden tokens: {rep['forbidden_token_count']}  final promoted: {rep.get('final_promoted')}")
     for e in rep["errors"]:
-        print("ERROR", e)
-    for f in rep["flags"]:
-        print("FLAG ", f)
+        print("ERROR  ", e)
+    for w in rep["warnings"]:
+        print("WARNING", w)
+    if a.verbose:
+        for i in rep["info"]:
+            print("INFO   ", i)
     return 0 if rep["ok"] else 1
 
 
