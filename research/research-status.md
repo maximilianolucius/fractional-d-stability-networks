@@ -633,3 +633,93 @@ ARCHITECTURE:                 UPDATED
 MANUSCRIPT DRAFTING:          UNLOCKED
 SUBMISSION READY:             NO
 ~~~
+
+
+---
+
+## Visual integration state — 2026-09-26
+
+Figure Wave 1 branch:
+
+\`agent/compute-figures-wave1-20260926\`
+
+Final SHA:
+
+\`46c9eeffc55754ab6c2f010be68be6b95f8661d0\`
+
+Status:
+
+\`FIGURE_WAVE1_PASS\`
+
+Tests:
+
+\`46 passed, 0 failed\`
+
+Chief visual review:
+
+\`research/CHIEF_VISUAL_REVIEW_WAVE1_2026-09-26.md\`
+
+### Chief decisions
+
+- FIG-03 exact C-10 threshold geometry: accepted / flagship;
+- FIG-06 Double-Allee m-path: accepted / flagship;
+- FIG-01: accepted with representative-alpha label fix;
+- FIG-02: accepted;
+- FIG-04: mathematically accepted, to be simplified for page economy;
+- FIG-05: accepted concept, typography/network layout to be polished;
+- FIG-07: scientifically valid but to be rebuilt more compactly and, if possible, with a less scale-separated biological re-embedding;
+- FIG-08: panel (a) accepted; panel (b) to be redesigned using smooth deterministic boundary tracing rather than a pixel-grid appearance.
+
+Wave-1 robust backup anchor:
+
+~~~text
+alpha=0.9,
+m=0.35,
+kappa-T1 >= 2.773441 certified,
+T_0.9-kappa >= 20.42404 certified.
+~~~
+
+It remains valid even if Wave 2 finds no better illustrative embedding.
+
+### Figure Wave 2
+
+Active branch:
+
+\`agent/compute-figures-wave2-20260926\`
+
+Task:
+
+\`research/COMPUTE_AGENT_FIGURE_WAVE2_TASK.md\`
+
+Scope:
+- optional improved biological re-embedding;
+- final visual polish;
+- FIG-04/05/07/08 redesign;
+- final 6–7 figure recommendation;
+- no theorem or claim modifications.
+
+### Manuscript storyboard
+
+Frozen Chief storyboard:
+
+\`research/MANUSCRIPT_STORYBOARD_2026-09-26.md\`
+
+Target:
+- 22–23 pages;
+- hard ceiling 25 pages;
+- 7 figure environments maximum;
+- no supplementary material;
+- theorem-first narrative.
+
+Current state:
+
+~~~text
+THEOREM PACKAGE:       FROZEN
+EXTERNAL PROOF GATE:   PASS
+VISUAL WAVE 1:         ACCEPTED
+VISUAL WAVE 2:         ACTIVE
+STORYBOARD:            FROZEN
+FINAL FIGURE SET:      PENDING WAVE 2
+BIBLIOGRAPHY GATE:     PENDING
+FULL LATEX DRAFT:      NOT YET STARTED
+~~~
