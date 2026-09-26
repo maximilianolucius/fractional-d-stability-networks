@@ -1,0 +1,63 @@
+{
+  "figure": "fig08_double_allee_2d_3d",
+  "generated_utc": "2026-09-26T17:41:53Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig08_double_allee_2d_3d.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig08_double_allee_2d_3d.pdf",
+    "svg": "computations/figures/exports/svg/fig08_double_allee_2d_3d.svg",
+    "png": "computations/figures/exports/png/fig08_double_allee_2d_3d.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "DA-12 (2D codimension one)",
+    "DA-08 (3D open region)",
+    "C-07",
+    "C-10"
+  ],
+  "formulas": [
+    "m_c=(X^2+2aX-Ka)/(K+a)",
+    "classification: kappa<T1 classical; T1<kappa<T_alpha fractional-only; else not in F_alpha"
+  ],
+  "parameters": {
+    "panel_a": {
+      "a": 0.5,
+      "K": 1.1
+    },
+    "panel_b": {
+      "alpha": 0.9,
+      "fixed_parameters": {
+        "a": 0.5,
+        "K": 1.1,
+        "r": 0.10951327433628327,
+        "m": 0.2,
+        "q1": 0.07071067811865477,
+        "q2": 1.4071067811865476,
+        "h": 0.07071067811865477,
+        "e1": 0.5,
+        "e2": 0.001262658470836646,
+        "e3": 0.5,
+        "mu1": 0.03334465061805115,
+        "mu2": 0.0030097911215942164,
+        "c1": 0.05,
+        "c2": 0.05
+      },
+      "grid": "m in [0.02,0.66] x 130, K in [1.02,1.30] x 120",
+      "certified_interval": "[0.2005, 0.45] at K=1.1 (computations/results/DOUBLE_ALLEE_INTERVAL_BOX.json)"
+    }
+  },
+  "objects": {
+    "m_c curve": "CLOSED-FORM BOUNDARY",
+    "(m,K) classification": "NUMERICAL EVALUATION OF EXACT FORMULAS (per grid point: exact coexistence, exact C-10 threshold)",
+    "green segment": "CERTIFIED INTERVAL",
+    "m0": "CERTIFIED COMPUTATION (HP root)"
+  },
+  "data": "computations/figures/data/fig08_mK_classes.csv"
+}

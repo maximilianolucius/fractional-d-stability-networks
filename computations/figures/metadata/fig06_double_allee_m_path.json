@@ -1,0 +1,73 @@
+{
+  "figure": "fig06_double_allee_m_path",
+  "generated_utc": "2026-09-26T17:43:26Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig06_double_allee_m_path.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig06_double_allee_m_path.pdf",
+    "svg": "computations/figures/exports/svg/fig06_double_allee_m_path.svg",
+    "png": "computations/figures/exports/png/fig06_double_allee_m_path.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "DA-09 (ds/dm<0)",
+    "DA-10 (unique transverse crossing)",
+    "DA-11 (prescribed m0)",
+    "C-10",
+    "C-13"
+  ],
+  "formulas": [
+    "t=1/s(m)",
+    "beta12=1+A0 t, beta13=1+B0 t, beta23=C0",
+    "kappa=C0+(A0+B0+E0)t",
+    "G1=kappa-T1",
+    "G_alpha=T_alpha-kappa"
+  ],
+  "parameters": {
+    "alpha": 0.9,
+    "biological_parameters": {
+      "a": 0.5,
+      "K": 1.1,
+      "r": 0.10951327433628327,
+      "m": 0.2,
+      "q1": 0.07071067811865477,
+      "q2": 1.4071067811865476,
+      "h": 0.07071067811865477,
+      "e1": 0.5,
+      "e2": 0.001262658470836646,
+      "e3": 0.5,
+      "mu1": 0.03334465061805115,
+      "mu2": 0.0030097911215942164,
+      "c1": 0.05,
+      "c2": 0.05
+    },
+    "path_constants": {
+      "A0": 0.05000000000000002,
+      "B0": 0.05000000000000001,
+      "C0": 2.0,
+      "E0": 0.7000000000000002
+    },
+    "m0_hp": "0.2",
+    "G1(m0=0.2)": "-4.978412222e-60",
+    "feasible_m_range": [
+      0.01,
+      0.6425
+    ],
+    "classical_point": 0.12,
+    "anchor": 0.35
+  },
+  "objects": {
+    "G1, G_alpha, path": "EXACT THEOREM CURVE (numerical evaluation of exact formulas along the branch; T_alpha = exact C-10 minimum)",
+    "m0 marker": "CERTIFIED COMPUTATION (HP bisection, 60 digits: G1(0.2) = -5e-60)",
+    "anchor marker": "CERTIFIED INTERVAL (see fig07 metadata)",
+    "T_1, T_0.9 in (b)": "CLOSED-FORM BOUNDARY / EXACT THEOREM CURVE"
+  },
+  "data": "computations/figures/data/branch_alpha0.9.json"
+}

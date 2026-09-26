@@ -1,0 +1,34 @@
+{
+  "figure": "fig05_ecological_mechanism",
+  "generated_utc": "2026-09-26T17:43:23Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig05_ecological_mechanism.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig05_ecological_mechanism.pdf",
+    "svg": "computations/figures/exports/svg/fig05_ecological_mechanism.svg",
+    "png": "computations/figures/exports/png/fig05_ecological_mechanism.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "DA-02 (two-consumer no-go)",
+    "DA-03 (IGP invariants)",
+    "C-13 (loop coordinates)"
+  ],
+  "formulas": [
+    "L3=(a12 a23 a31 + a13 a32 a21)/(p1 p2 p3)",
+    "kappa = beta12+beta13+beta23-2-L3",
+    "T1 - kappa = 2 + L3 + 2 sum sqrt(beta_i beta_j) (two-consumer)"
+  ],
+  "objects": {
+    "network diagrams": "SCHEMATIC (THEOREM DIAGRAM: arrows = nonzero entries of DF with their exact signs)",
+    "cycle formulas": "EXACT THEOREM CURVE (algebraic identities)"
+  },
+  "notes": "No data plotted; arrows j->i correspond to entries a_ij of the reduced matrix B = DF at a positive equilibrium."
+}

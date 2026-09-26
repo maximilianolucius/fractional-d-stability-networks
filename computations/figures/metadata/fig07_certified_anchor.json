@@ -1,0 +1,126 @@
+{
+  "figure": "fig07_certified_anchor",
+  "generated_utc": "2026-09-26T17:43:30Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig07_certified_anchor.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig07_certified_anchor.pdf",
+    "svg": "computations/figures/exports/svg/fig07_certified_anchor.svg",
+    "png": "computations/figures/exports/png/fig07_certified_anchor.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "DA-08 (open region)",
+    "DA-11 (interior fractional-only point)",
+    "C-10",
+    "C-11 (certificate also holds)"
+  ],
+  "anchor": {
+    "m": 0.35,
+    "biological_parameters": {
+      "a": 0.5,
+      "K": 1.1,
+      "r": 0.10951327433628327,
+      "m": 0.35,
+      "q1": 0.07071067811865477,
+      "q2": 1.4071067811865476,
+      "h": 0.07071067811865477,
+      "e1": 0.5,
+      "e2": 0.001262658470836646,
+      "e3": 0.5,
+      "mu1": 0.03334465061805115,
+      "mu2": 0.0030097911215942164,
+      "c1": 0.05,
+      "c2": 0.05
+    },
+    "X_Y_Z": [
+      0.9977336692932793,
+      0.036801168328633074,
+      0.0012799075994722661
+    ],
+    "s": 0.0391982767453449,
+    "beta": [
+      2.275566278712441,
+      2.275566278712441,
+      2.0
+    ],
+    "kappa": 22.409060459399072,
+    "T1": 19.635618554078572,
+    "T_alpha": 42.83310064689668,
+    "m_Cain": 2.7734419053204995,
+    "m_frac": 20.42404018749761,
+    "m_Cain_over_T1": 0.14124545644855277,
+    "m_frac_over_Talpha": 0.4768284312608445,
+    "direct_min_margin_alpha": 0.12562840288839694,
+    "direct_min_margin_1": -0.031451229791092716,
+    "worst_d_geomean1": [
+      1.1274756923946445,
+      0.9417733910741733,
+      0.9417733499797873
+    ],
+    "certified": {
+      "X": "(mpf('0.9977336692932792071952657393385970975654682'), mpf('0.9977336692932792071952657393385970975657552'))",
+      "Y": "(mpf('0.03680116832863304429481265299352027268953505'), mpf('0.03680116832863304429481265299352027268966779'))",
+      "Z": "(mpf('0.001279907599472262563361702716800872048513208'), mpf('0.001279907599472262563361702716800872048606568'))",
+      "s": "(mpf('0.03919827674534486420003777851753509804357074'), mpf('0.03919827674534486420003777851753509804364607'))",
+      "beta": [
+        [
+          "2.27556627871244197614526198643538678842",
+          "2.275566278712441976145261986435386788426"
+        ],
+        [
+          "2.27556627871244197614526198643538678842",
+          "2.275566278712441976145261986435386788426"
+        ],
+        [
+          "2.0",
+          "2.0"
+        ]
+      ],
+      "kappa": "(mpf('22.409060459399071618324191782966188614741'), mpf('22.40906045939907161832419178296618861479243'))",
+      "T1": "(mpf('19.63561855407857692693730745876209707888'), mpf('19.63561855407857692693730745876209707892114'))",
+      "kappa_minus_T1_lo": "2.77344190532049469138688432420409153582",
+      "Phi_minus_rho_lo": "0.404086582759500240609741398348612974554",
+      "C11_certified": true,
+      "T_alpha_lower_corner_L": "42.83310064689667793969109384172393684793",
+      "C10_certified": true,
+      "T_alpha_L_minus_kappa_hi": "20.42404018749760632136690205875774823314",
+      "ok": true,
+      "fail": ""
+    },
+    "cond_classical": 80.346874772147,
+    "cond_fractional": 5.574989399050931,
+    "time_domain": {
+      "0.9": {
+        "final_over_initial": 0.01728114222098188,
+        "max_over_initial": 1.0017283997112616
+      },
+      "1.0": {
+        "final_over_initial": 1.8663503177440168,
+        "max_over_initial": 2.438743760624826
+      }
+    }
+  },
+  "candidates_ranked": [
+    "0.35 (recommended)",
+    "0.40",
+    "0.30"
+  ],
+  "objects": {
+    "densities, margins": "EXACT THEOREM CURVE (numerical evaluation of exact formulas along the branch)",
+    "squares": "CERTIFIED INTERVAL (interval Newton + outward rounding, 50 digits; C-10 bound conditional on C-15 Thm 1, C-11 bound unconditional)",
+    "eigenvalues (c)": "NUMERICAL CORROBORATION (scale-invariant direct search over positive diagonals)",
+    "time series (d)": "NUMERICAL CORROBORATION (Diethelm PECE on the linearised Caputo system)"
+  },
+  "data": [
+    "computations/figures/data/branch_alpha0.9.json",
+    "computations/figures/data/fig07_anchor_candidates.json"
+  ]
+}
