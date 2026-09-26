@@ -175,3 +175,14 @@ def test_e1e3_gt_e2_is_sufficient_not_necessary_for_strict_P():
     assert min(inv["m"]) > 0 and inv["q"] == Fr(9, 4) > 0
     # and the sharp condition: q > 0 iff h q1 q2 (e2 - e1 e3) < s(c1c2+e3h^2) + c1 e2 q2^2 + c2 e1 q1^2
     assert h * q1 * q2 * (e2 - e1 * e3) < s * (c1 * c2 + e3 * h ** 2) + c1 * e2 * q2 ** 2 + c2 * e1 * q1 ** 2
+
+
+def test_meanvalue_full_parameter_box_small_delta():
+    """Rigorous first-order interval enclosure over a 14-parameter box around the m=0.21 witness."""
+    import importlib, os, sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "computations", "scripts"))
+    mv = importlib.import_module("double_allee_box_meanvalue")
+    center = mv.with_m(mv.chief_witness(lambda v: mp.mpf(v)), mp.mpf("0.21")).as_list()
+    res = mv.certify_box(center, [mp.mpf("1e-4")] * 14, {})
+    assert res["ok"], res.get("fail")
+    assert all(res["checks"].values())
