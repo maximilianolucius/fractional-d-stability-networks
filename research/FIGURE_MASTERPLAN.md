@@ -1,0 +1,452 @@
+# Figure Masterplan — Fractional D-Stability Networks
+
+**Date:** 2026-09-26  
+**Owner:** Chief Researcher  
+**Branch:** \`agent/compute-figures-wave1-20260926\`  
+**Status:** canonical visual program for Compute Figure Wave 1
+
+## Purpose
+
+The figures are part of the mathematical argument. They are not decoration.
+
+Every main-paper figure must do at least one of the following:
+
+1. make an exact theorem geometrically visible;
+2. compare a classical and fractional boundary;
+3. show why dimension three is structurally different from dimension two;
+4. expose the signed-cycle mechanism behind the ecological realization;
+5. show the monotone Double-Allee path through exact invariant space;
+6. provide certified corroboration of a theorem-approved biological anchor point.
+
+The visual program must remain subordinate to the theorem hierarchy:
+- analytic theorem first;
+- certified computation second;
+- ordinary numerical corroboration third.
+
+Finite sampling must never be presented as proof of an all-positive-diagonal claim.
+
+---
+
+# Global visual language
+
+All figures must use the same semantic palette:
+
+- Fractional / Matignon / memory: \`#1F4E79\`
+- Classical / Cain / Hurwitz: \`#D97A00\`
+- Biologically admissible / realized: \`#2A7F62\`
+- No-go / excluded / unstable: \`#B14E3A\`
+- Neutral dark: \`#5C6770\`
+- Neutral light: \`#D9DDE3\`
+
+Background: white.
+
+Avoid:
+- rainbow colormaps;
+- neon colors;
+- 3D perspective plots unless absolutely necessary;
+- drop shadows;
+- glossy effects;
+- decorative gradients;
+- screenshots;
+- rasterized text;
+- inconsistent line weights.
+
+Figures must remain interpretable in grayscale.
+
+---
+
+# Main-paper figure program
+
+## FIG-01 — Matignon versus Hurwitz geometry
+
+### Scientific purpose
+Introduce the exact geometric difference between:
+- classical Hurwitz stability;
+- fractional Matignon stability;
+- the genuinely fractional wedge/sliver.
+
+### Required content
+Complex plane with:
+- imaginary and real axes;
+- classical Hurwitz half-plane;
+- Matignon sector boundary
+  \[
+  |\arg z|=\alpha\pi/2;
+  \]
+- fractional-only region clearly indicated.
+
+### Suggested panels
+- Panel A: generic \(0<\alpha<1\).
+- Panel B: one representative value, e.g. \(\alpha=0.8\) or \(\alpha=0.9\).
+
+### Evidence class
+THEOREM VISUALIZATION.
+
+No numerical approximation is needed beyond drawing the exact sector.
+
+---
+
+## FIG-02 — Dimension two versus dimension three
+
+### Scientific purpose
+Visualize C-07/C-09:
+- 2D fractional-only set has empty full-dimensional interior;
+- 3D has a nonempty open genuinely fractional class.
+
+### Required content
+A schematic but mathematically faithful contrast:
+- 2D: codimension-one fractional-only locus;
+- 3D: open region between classical and fractional thresholds.
+
+### Preferred design
+Two-panel comparison.
+
+Panel A:
+- a line/surface representing the 2D equality mechanism.
+
+Panel B:
+- an area/volume slice representing
+  \[
+  T_1(\beta)<\kappa<T_\alpha(\beta).
+  \]
+
+### Evidence class
+THEOREM VISUALIZATION.
+
+---
+
+## FIG-03 — Exact C-10 threshold geometry
+
+### Scientific purpose
+Make the flagship exact threshold visible.
+
+### Required content
+For one or more fixed beta slices:
+- Cain boundary
+  \[
+  \kappa=T_1(\beta);
+  \]
+- fractional boundary
+  \[
+  \kappa=T_\alpha(\beta);
+  \]
+- highlighted genuinely fractional region between them.
+
+### Preferred slices
+At least:
+1. symmetric slice \(\beta=(b,b,b)\);
+2. one asymmetric slice;
+3. optional two-equal slice.
+
+### Evidence class
+THEOREM-GRADE.
+
+The plotted boundaries must come from the exact C-10/C-15 formulas, not sampling over diagonal matrices.
+
+---
+
+## FIG-04 — Threshold deformation with alpha
+
+### Scientific purpose
+Visualize C-14/C-15.
+
+### Required content
+For selected fixed beta:
+- \(T_\alpha(\beta)\) as a function of \(\alpha\);
+- \(T_1(\beta)\);
+- approach to the classical limit as \(\alpha\to1^-\);
+- growth as \(\alpha\downarrow2/3^+\).
+
+### Preferred panels
+- Panel A: full interval \(2/3<\alpha<1\).
+- Panel B: zoom near \(\alpha=1\) with linear asymptotic comparison.
+- Panel C: optional low-order asymptotic scaling check.
+
+### Evidence class
+THEOREM-GRADE + NUMERICAL EVALUATION OF EXACT FORMULA.
+
+---
+
+## FIG-05 — Ecological architecture: no-go versus success
+
+### Scientific purpose
+Explain why the naive architecture fails and the IGP architecture succeeds.
+
+### Required content
+Two clean network diagrams.
+
+Panel A — failed competitive architecture:
+- basal prey \(x\);
+- consumers \(y,z\);
+- both consume x;
+- y,z compete;
+- highlight same-sign directed 3-cycle contribution;
+- label “cannot reach \(\kappa>T_1\) on strict-P stratum”.
+
+Panel B — adopted IGP architecture:
+- x -> y trophic relation;
+- x -> z trophic relation;
+- y -> z intraguild predation;
+- signed three-cycle mechanism;
+- highlight condition \(e_1e_3>e_2\) as one sufficient constructive route.
+
+### Evidence class
+THEOREM DIAGRAM.
+
+No fake data.
+
+---
+
+## FIG-06 — Exact invariant-space path generated by m
+
+### Scientific purpose
+This is the key ecological figure.
+
+Show how varying only the Double-Allee threshold \(m\) moves the same model through invariant space.
+
+### Required exact path
+Use
+\[
+t=1/s(m),
+\]
+\[
+\beta_{12}=1+A_0t,
+\qquad
+\beta_{13}=1+B_0t,
+\qquad
+\beta_{23}=C_0,
+\]
+\[
+\kappa=C_0+(A_0+B_0+E_0)t.
+\]
+
+### Required overlays
+- exact Cain boundary \(T_1\);
+- exact fractional boundary \(T_\alpha\);
+- exact crossing \(m_0\);
+- at least one classical point \(m<m_0\);
+- one interior fractional-only point \(m>m_0\).
+
+### Preferred design
+Two panels:
+- Panel A: scalar gaps versus m:
+  \[
+  \kappa-T_1,\qquad T_\alpha-\kappa;
+  \]
+- Panel B: geometric path in an invariant slice.
+
+### Evidence class
+THEOREM-GRADE.
+
+All curves must come from exact formulas / certified root tracking.
+
+---
+
+## FIG-07 — Certified biological anchor
+
+### Scientific purpose
+Show one robust biological point away from the classical boundary.
+
+### Preferred anchor
+Choose \(m\) in approximately
+\[
+0.30\le m\le0.40
+\]
+after recertification.
+
+Do not use \(m=0.21\) as the principal visual anchor unless specifically illustrating near-boundary transversality.
+
+### Required content
+Compact multi-panel figure:
+- coexistence values \(X,Y,Z\);
+- invariant margins:
+  \[
+  \kappa-T_1>0,
+  \qquad
+  T_\alpha-\kappa>0;
+  \]
+- optional eigenvalue-angle illustration at worst diagonal ratio;
+- optional short linearized Caputo time-domain corroboration.
+
+### Evidence class
+CERTIFIED COMPUTATION + NUMERICAL CORROBORATION.
+
+If interval certification is used, visually distinguish certified intervals from floating-point lines.
+
+---
+
+## FIG-08 — Exact 2D/3D Double-Allee contrast
+
+### Scientific purpose
+Close the ecological block.
+
+### 2D panel
+Show the critical equality
+\[
+g_{DA}'(X)=0
+\]
+as the fractional-only mechanism.
+
+If useful, parameterize with
+\[
+m_c
+=
+\frac{X^2+2aX-Ka}{K+a}.
+\]
+
+### 3D panel
+Show a nonempty open region or certified parameter slice.
+
+### Message
+2D:
+- fractional-only is exceptional / codimension one.
+
+3D:
+- fractional-only is robust / open.
+
+### Evidence class
+THEOREM VISUALIZATION + CERTIFIED SLICE.
+
+---
+
+# Optional / supplementary-to-main-text candidate figures
+
+These are allowed only if the 25-page limit permits.
+
+## FIG-O1 — C-11 sufficient boundary versus exact C-10 boundary
+Purpose:
+show visually why C-11 is useful but not necessary.
+
+## FIG-O2 — Optimizer geometry on simplex
+Purpose:
+show unique C-15 optimizer \(x^*(\alpha,\beta)\).
+
+## FIG-O3 — Alpha-dependent band width
+Purpose:
+show
+\[
+T_\alpha(\beta)-T_1(\beta)
+\]
+across selected motifs.
+
+---
+
+# Main-paper selection target
+
+Preferred final paper:
+- 6 to 8 figure environments;
+- approximately 10 to 16 informative panels;
+- no figure without a theorem-level purpose.
+
+Likely core subset:
+- FIG-01
+- FIG-02
+- FIG-03
+- FIG-04
+- FIG-05
+- FIG-06
+- FIG-07
+- FIG-08
+
+If page pressure is severe:
+- merge FIG-01 + FIG-02;
+- merge FIG-07 + FIG-08;
+- keep FIG-03 and FIG-06 as non-negotiable.
+
+---
+
+# Export requirements
+
+For every figure:
+
+1. vector PDF;
+2. SVG;
+3. PNG preview at >=300 dpi equivalent;
+4. source script;
+5. source data if not generated analytically;
+6. README note with:
+   - theorem/claim supported;
+   - parameter values;
+   - evidence class;
+   - exact/certified/numerical distinction.
+
+Naming convention:
+
+\`fig01_matignon_hurwitz.{pdf,svg,png}\`
+
+\`fig02_dimension_contrast.{pdf,svg,png}\`
+
+etc.
+
+---
+
+# Typography and layout
+
+- use LaTeX-compatible math labels;
+- no title inside final figure unless the journal style requires it;
+- panel labels: (a), (b), (c);
+- font sizes must remain readable at one-column and two-column widths;
+- axis labels should include mathematical symbols and units only when meaningful;
+- avoid redundant legends;
+- direct labeling is preferred for 2–3 curves;
+- legends should never cover data.
+
+---
+
+# Line / marker conventions
+
+Recommended hierarchy:
+- theorem boundary: 2.0–2.4 pt;
+- comparison boundary: 1.5–1.8 pt;
+- auxiliary guide: 0.8–1.0 pt;
+- certified interval: band or error envelope;
+- numerical sample points: small markers, visually secondary.
+
+Use line style as a second semantic channel:
+- solid: exact/theorem boundary;
+- dashed: classical comparator or asymptotic approximation;
+- dotted: auxiliary/reference;
+- markers: numerical/certified sample locations.
+
+---
+
+# Accessibility / grayscale check
+
+Every final figure must pass:
+- grayscale conversion;
+- deuteranopia/protanopia simulation where available;
+- 50% scale readability;
+- white-background print check.
+
+Color may enhance meaning but must not be the sole carrier of meaning.
+
+---
+
+# Figure evidence labels
+
+Each figure's metadata must classify every plotted object as one of:
+
+- EXACT THEOREM CURVE
+- CLOSED-FORM BOUNDARY
+- CERTIFIED INTERVAL
+- CERTIFIED COMPUTATION
+- NUMERICAL CORROBORATION
+- SCHEMATIC
+
+A single figure may mix classes, but the caption must distinguish them.
+
+---
+
+# Final visual objective
+
+The paper should look like a serious modern mathematical-biology / nonlinear-systems paper:
+- restrained;
+- geometrically clear;
+- theorem-centered;
+- visually coherent;
+- reproducible;
+- publication-grade.
+
+The desired reader reaction is not “nice plots”, but:
+
+> “The geometry of the theorem is immediately understandable, and the ecological realization is visually undeniable.”
