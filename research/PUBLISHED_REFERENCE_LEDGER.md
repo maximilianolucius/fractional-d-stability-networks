@@ -22,7 +22,7 @@
 
 | source | exact result | claim | metadata | DOI | verification |
 |---|---|---|---|---|---|
-| `@KushelPavaniJDDE` | Multiplicative (𝔇,D)-stability with quantifier over every positive diagonal D; Theorem 3.1 forbidden-boundary equivalence; **Theorem 3.3**: N&S determinant conditions for a conic region and for the complement of the closed cone | C-04 (framework known), **C-10 novelty wording** ("explicit 3×3 elimination of the universal-D condition; not the first N&S criterion"), C-09 positioning | JDDE, DOI only | 10.1007/s10884-020-09891-y | grade A (theorem verified in e-print); **year/vol/pages and theorem numbering in the journal version: Chief web** |
+| `@KushelPavaniJDDE` | Multiplicative generalized D-stability; forbidden-boundary criterion for conic sectors and their complements | C-04; **C-10 novelty positioning** | J. Dyn. Differ. Equ. 34 (2022), 651–669 | 10.1007/s10884-020-09891-y | **CHIEF WEB VERIFIED**. The relevant conic criterion is Theorem 6 in the published-text numbering; do not call it “Theorem 3.3” (3.3 is a section number). |
 | `@Kushel2019` | general (region, multiplier class, operation) stability framework | C-04 | SIAM Review 61 (2019) | 10.1137/18M119241X | grade A/B; issue/pages: Chief web |
 | `@KushelPavani2021` | diagonal region-dominance / generalized D-stability with fractional applications (sufficient conditions) | C-04, C-10 positioning | LAA 630 (2021) 204–224 | 10.1016/j.laa.2021.08.004 | grade B; **title discrepancy: Chief web** |
 | `@Kushel2023` | relative D-stability in a conic sector around the negative real axis; determinant bounds; sector gaps | C-04/C-06 positioning ("uniform sector gap" is occupied language) | LAA 656 (2023) 9–26 | 10.1016/j.laa.2022.09.018 | grade B |
@@ -34,7 +34,7 @@
 
 | source | exact result | claim | metadata | DOI | verification |
 |---|---|---|---|---|---|
-| `@Kellogg1972` | If P is a real n×n P-matrix then every eigenvalue satisfies \|arg μ\| < π − π/n | **C-08** (−A P-matrix ⇒ A ∈ F_α for α ≤ 2/n), **C-10 Theorem 2** (low-order case α ≤ 2/3), C-13 §(low order), **DA-08 and DA-11 for α ≤ 2/3** | — | — | **NOT VERIFIED IN REPOSITORY — all fields Chief web** (unverified recollection recorded in the .bib note) |
+| `@Kellogg1972` | If P is a real n×n P-matrix then each eigenvalue μ satisfies \(|\arg \mu|<\pi-\pi/n\) | **C-08**, C-10 low-order theorem, DA-08/DA-11 for α≤2/3 | R. B. Kellogg, *On complex eigenvalues of M and P matrices*, Numerische Mathematik 19(2) (1972), 170–175 | 10.1007/BF01402527 | **CHIEF WEB VERIFIED — LOAD-BEARING CLOSED** |
 | `@CermakNechvatal2017`, `@BourafaAbdelouahabMoussaoui2020` | optimal fractional Routh–Hurwitz conditions for a fixed cubic (Bourafa Props. 1–3 incl. the α<2/3 regime and a Cardano-form cubic criterion) | C-10 Lemma 1 positioning (fixed-cubic boundary h_α is occupied territory); C-09 §7 (α = 2/3 cubic transition) | Nonlinear Dyn. 87 (2017) 939–954; CSF 133 (2020) 109623 | 10.1007/s11071-016-3090-9; 10.1016/j.chaos.2020.109623 | grade B |
 | `@HoltzKhrushchevKushel2016`, `@JoyaFuruta1991` | forbidden sectors for positive-coefficient polynomials; polynomial D-region stability incl. sectors | C-10 positioning (sector root-location prior art; terminology) | CMFT 16 (2016) 395–431; Trans. SICE 27(3) (1991) 298–305 | 10.1007/s40315-016-0156-0; 10.9746/sicetr1965.27.298 | grade B / A-B |
 | `@MohsenipourLiu2020`, `@Shao2017` | fractional robust "D-stability" = pole-region stability | terminology disambiguation paragraph (must say "positive-diagonal multiplicative D-stability") | IEEE/CAA JAS 7(3) (2020) 853–864; 36th CCC (2017) 44–48 | 10.1109/JAS.2020.1003159; 10.23919/ChiCC.2017.8027318 | grade A/B; Shao: grade C (**body not retrieved; cite only for terminology**) |
@@ -74,11 +74,16 @@ Per `research/MANUSCRIPT_STORYBOARD_2026-09-26.md` §7 and `research/CHIEF_FINAL
 
 `@KushelPavaniJDDE` (Theorem 3.3), `@Cain1976`, `@BahlCain1977`, `@Siami2021` (Theorem 2: for n=3, T_α(1,1,1) = 1 + R₃(α)³ with R₃(α) = sin(απ/2)/sin(απ/2 − π/3); C-15 recovers it as the symmetric slice), `@CermakNechvatal2017`, `@BourafaAbdelouahabMoussaoui2020`, `@HoltzKhrushchevKushel2016`, `@JoyaFuruta1991`, `@Kushel2023`, `@Kinkhabwala2015`, `@AlAhmadieh2026` (optional). For C-15 the audits located no source for the strict logit convexity of T_α; generic log-sum-exp / geometric-programming convexity is standard and needs no citation, or a textbook the Chief selects (none in repository evidence).
 
-## Load-bearing items still unresolved (must be closed before `paper/references.bib` is written)
+## Load-bearing items still unresolved
 
-1. `@Kellogg1972` — every field (used in proofs: C-08, C-10 Thm 2, DA-08/DA-11 for α ≤ 2/3).
-2. `@KushelPavaniJDDE` — year, volume, pages; confirm "Theorem 3.3" numbering in the journal version.
-3. `@Siami2021` — year, volume, pages; confirm "Theorem 2" numbering in the journal version.
-4. `@Matignon1996` — DOI (or confirm none), exact proceedings title.
-5. `@BrandiburGarrappaKaslik2021` — DOI, issue.
-6. `@Cain1976` — DOI (or confirm none), issue.
+**None of the six load-bearing metadata gaps from Wave 1 remain open.**
+
+Chief web verification closed:
+- Kellogg 1972: title, journal, volume/issue/pages, DOI and wedge statement;
+- Kushel–Pavani: final 2022 volume/pages/DOI and correction of theorem numbering;
+- Siami 2021: IEEE TCNS 8(3), 1261–1269, DOI verified; cyclic secant theorem is Theorem 2 in the article lineage;
+- Matignon 1996: published CESA'96 proceedings metadata verified; no DOI was located and none should be invented;
+- Brandibur–Garrappa–Kaslik 2021: Mathematics 9(8), 914, DOI verified;
+- Cain 1976: NIST DOI 10.6028/jres.080B.013 and issue verified.
+
+Remaining warnings are non-load-bearing metadata/optional-background cleanup for Reference Audit Wave 2.
