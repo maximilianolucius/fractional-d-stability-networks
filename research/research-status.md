@@ -352,3 +352,61 @@ m=0.21 point is 0.8% beyond the Cain boundary with log-parameter condition ~10^3
 (never the raw spectral abscissa) over positive diagonals; use interval Newton / mean-value forms for parameter-box certificates.
 
 Still locked: no manuscript claims, no title/abstract change, no merge to main, not submission-certified.
+
+
+---
+
+## Audit 2 resolution — 2026-09-26
+
+Audit 2 branch:
+
+`agent/independent-proof-double-allee-20260926`
+
+Final SHA:
+
+`fb970648ff8dcb586fe5733c52717bf2c4d9d20f`
+
+Status:
+
+`PROOF_AUDIT2_PASS_WITH_FIXES`
+
+Important independence disclosure:
+
+The auditor was the **same agent/session** that produced Audit 1. It respected the blind-file protocol and froze its blind verdicts before unblinding, but it is not epistemically independent.
+
+Therefore Audit 2 is counted as:
+
+~~~text
+strong blind replication / adversarial rerun
+~~~
+
+and **not** as satisfying the final different-agent proof gate.
+
+New exact refinements integrated into the Chief theorem:
+
+1. `q = Delta (s+chi)`;
+2. strict-P iff `s>0` and `s+chi>0`;
+3. `dX/dm<0` follows on the positive strict-P coexistence branch without a separate `chi>0` assumption;
+4. `ds/dm<0` is guaranteed under `chi>=0` and in particular on the constructive `chi>0` branch;
+5. explicit `K_max`, `Q1`, `Q2` feasibility bounds replace an unquantified "K sufficiently close";
+6. the eliminated coexistence equation is genuinely quadratic only when `r+Kchi!=0`, automatic in the constructive regime;
+7. the prescribed crossing uses a joint DA-06 parameter realization, not variation of an efficiency ratio alone.
+
+Chief review:
+
+`research/CHIEF_REVIEW_DOUBLE_ALLEE_AUDIT2_2026-09-26.md`
+
+Integrated theorem sharpening commit:
+
+`47a1043e463f39646781656da850321ea5f12908`
+
+Current status:
+
+~~~text
+DOUBLE-ALLEE THEOREM CHAIN:  SURVIVES TWO PROCEDURAL AUDITS
+AUDIT 1:                     PASS WITH MINOR FIXES
+AUDIT 2:                     PASS WITH FIXES
+TRUE INDEPENDENT AUDIT:      STILL REQUIRED
+NOVELTY:                     GO-NARROWED
+MANUSCRIPT:                  LOCKED FOR FINAL CLAIMS
+~~~
