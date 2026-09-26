@@ -410,3 +410,120 @@ TRUE INDEPENDENT AUDIT:      STILL REQUIRED
 NOVELTY:                     GO-NARROWED
 MANUSCRIPT:                  LOCKED FOR FINAL CLAIMS
 ~~~
+
+
+---
+
+## True external proof audit — final gate resolution (2026-09-26)
+
+External audit branch:
+
+`agent/external-proof-double-allee-20260926`
+
+Final SHA:
+
+`5066fa067dbff1c9b79c053195dbc992b28dc5a4`
+
+Artifact:
+
+`research/DOUBLE_ALLEE_EXTERNAL_PROOF_AUDIT_FINAL.md`
+
+Status:
+
+`EXTERNAL_AUDIT_PASS_WITH_FIXES`
+
+Eligibility gate:
+
+~~~text
+SATISFIED — different session from Audit 1 and Audit 2.
+~~~
+
+Verdicts:
+
+~~~text
+EXT-01 PASS
+EXT-02 PASS
+EXT-03 PASS
+EXT-04 PASS
+EXT-05 PASS WITH FIX
+EXT-06 PASS
+EXT-07 PASS
+EXT-08 PASS
+~~~
+
+No load-bearing structural implication failed.
+
+### External strengthening integrated
+
+The external auditor proved that the previous sufficient condition `chi>=0` for
+
+~~~text
+ds/dm<0
+~~~
+
+is unnecessary.
+
+On the positive strict-P coexistence stratum:
+
+~~~text
+Q>0,
+s>0,
+s+chi>0,
+m>-a,
+0<m<X<K
+~~~
+
+already imply
+
+~~~text
+dX/dm<0
+and
+ds/dm<0.
+~~~
+
+The exact proof uses
+
+~~~text
+H_X-H_A^2
+=
+2(X+a-X+m)(K-X+X+a) /
+[(X-m)(K-X)(X+a)^2]
+>0,
+~~~
+
+equivalently the simplified positive form recorded in the theorem file.
+
+This strengthening is integrated in commit:
+
+`e7404639dced1b674233847f84f128a825a66069`
+
+### Additional external conclusions
+
+- two positive coexistence equilibria can exist, but all theorems are branch-local and make no global uniqueness claim;
+- the full 14-dimensional openness argument is valid;
+- the quantified embedding bounds are mutually compatible;
+- the prescribed m0 crossing uses exact C-10 in the high-order range and Kellogg in the low-order range;
+- C-11 is not load-bearing;
+- no circular dependence was found.
+
+### Gate decision
+
+~~~text
+DOUBLE-ALLEE PROOF GATE:          CLOSED / PASS
+TRUE EXTERNAL INDEPENDENCE:       SATISFIED
+THEOREM PACKAGE:                  EXTERNALLY AUDITED
+NOVELTY:                          GO-NARROWED
+MANUSCRIPT ARCHITECTURE:          UNLOCKED
+MANUSCRIPT SUBMISSION-READY:      NO — drafting/reference/editorial gates remain
+MERGE TO MAIN:                    NOT YET
+~~~
+
+The research theorem package may now be used in manuscript architecture and theorem prose.
+
+Before final submission, remaining non-proof gates are:
+
+1. final bibliography sanitation using only published/non-arXiv references;
+2. exact DOI/publisher verification for every cited source;
+3. final novelty wording check against the frozen theorem statements;
+4. journal-format page/figure budget;
+5. final referee-style manuscript audit.
