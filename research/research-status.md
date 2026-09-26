@@ -527,3 +527,109 @@ Before final submission, remaining non-proof gates are:
 3. final novelty wording check against the frozen theorem statements;
 4. journal-format page/figure budget;
 5. final referee-style manuscript audit.
+
+
+---
+
+## Canonical paper direction adopted — Caputo Double-Allee 3D realization
+
+**Date:** 2026-09-26
+
+The ecological direction is now formally part of the paper baggage.
+
+Canonical document:
+
+\`research/PAPER_BAGGAGE_CAPUTO_DOUBLE_ALLEE_3D.md\`
+
+Architecture integration:
+
+\`research/Q1_PAPER_ARCHITECTURE.md\`
+
+Claim registry:
+
+\`research/CLAIMS.md\`, claims C-17 through C-22.
+
+### Canonical model
+
+The paper will use the three-species commensurate Caputo Kolmogorov system
+
+\[
+{}^C D_t^\alpha x
+=
+x[g_{DA}(x)-q_1y-q_2z],
+\]
+
+\[
+{}^C D_t^\alpha y
+=
+y[e_1q_1x-\mu_1-c_1y-hz],
+\]
+
+\[
+{}^C D_t^\alpha z
+=
+z[e_2q_2x+e_3hy-\mu_2-c_2z],
+\]
+
+with
+
+\[
+g_{DA}(x)
+=
+\frac{r}{x+a}
+\left(1-\frac{x}{K}\right)(x-m).
+\]
+
+This model is the **principal ecological realization** of C-10/C-15.
+
+It is not presented as model novelty.
+
+### Paper-level role
+
+The ecological block must prove, rather than merely illustrate:
+
+1. the naive two-consumer competitive architecture is structurally unable to reach the open fractional-only band;
+2. the IGP architecture realizes an open four-dimensional invariant family;
+3. every fixed \(0<\alpha<1\) admits a nonempty open biological fractional-only region;
+4. \(m\) monotonically moves the strict-P coexistence branch through invariant space;
+5. a fixed biological model can cross the exact Cain boundary into a fractional-only Matignon region by changing only \(m\);
+6. the 2D analogue has only a codimension-one fractional-only mechanism.
+
+### Terminology
+
+Use:
+- 3D ecological model;
+- three-species Caputo Kolmogorov model;
+- Caputo Double-Allee IGP realization.
+
+Do not use:
+- experimental model;
+- empirically validated model;
+
+unless actual data/calibration are added.
+
+### Bibliography lock
+
+The final paper may cite **published sources only**.
+
+Forbidden as manuscript references:
+- arXiv/preprints;
+- working papers;
+- submitted or unpublished manuscripts;
+- technical drafts;
+- personal communications.
+
+Internal research/novelty audits may retain such material for provenance, but manuscript claims must be supported by formally published sources.
+
+### Current status
+
+~~~text
+CAPUTO DOUBLE-ALLEE DIRECTION: ADOPTED
+ROLE:                         PRINCIPAL ECOLOGICAL REALIZATION
+CLAIMS:                       C-17 THROUGH C-22
+PROOF GATE:                   PASS
+EXTERNAL AUDIT:               PASS WITH FIX
+ARCHITECTURE:                 UPDATED
+MANUSCRIPT DRAFTING:          UNLOCKED
+SUBMISSION READY:             NO
+~~~
