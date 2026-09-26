@@ -1,7 +1,7 @@
 # Claim registry — Chief canonical state
 
-**Date:** 2026-09-24  
-**Status:** theorem package developed; independent adversarial proof audit pending.
+**Date:** 2026-09-26  
+**Status:** core 2D/3D theorem package developed; Caputo Double-Allee ecological realization externally audited and approved for manuscript integration.
 
 No theorem is submission-certified until the independent proof audit passes. "Novelty survives" means no theorem-equivalent prior art was found in the targeted audit; it is not a substitute for the final pre-submission literature check.
 
@@ -23,6 +23,12 @@ No theorem is submission-certified until the independent proof audit passes. "No
 | C-14 | strict monotonicity of T_alpha and sharp alpha->1 collapse rate | supporting structural corollary; standalone novelty not required | **INTERNAL COROLLARY** | `research/THEOREM_C14_CLASSICAL_LIMIT_RATE.md` |
 | C-15 | strict logit convexity, unique optimizer, explicit threshold-surface parametrization, alpha->2/3 asymptotic, and realizability of the full band | structural strengthening of C-10; standalone novelty pending | **INTERNAL THEOREM** | `research/THEOREM_C15_THRESHOLD_GEOMETRY.md` |
 | C-16 | general positive-diagonal orbit reduction to a simplex using normalized principal-minor invariants | structural proposition; standalone novelty not claimed | **INTERNAL PROPOSITION** | `research/THEOREM_C16_GENERAL_SIMPLEX_REDUCTION.md` |
+| C-17 | positive-equilibrium Kolmogorov orbit equivalence (J=operatorname{diag}(x^*)DF(x^*)) preserves the full positive-diagonal orbit | FOUNDATION / NOT NOVEL | **EXTERNALLY AUDITED LEMMA** | `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` |
+| C-18 | naive double-Allee prey + two competing consumers cannot realize the open fractional-only band on the strict-P stratum | theorem-level ecological no-go; novelty survives targeted search | **EXTERNALLY AUDITED THEOREM** | `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` |
+| C-19 | adopted 3D Caputo double-Allee IGP architecture has exact (eta_{ij},kappa,L_3) coordinates and a constructive four-invariant realization | theorem-level ecological realization | **EXTERNALLY AUDITED THEOREM** | `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` |
+| C-20 | for every (0<alpha<1), a nonempty open set in the full biological parameter space is in (mathcal F_alpha^{(3)}\setminusmathcal D_H^{(3)}) at a positive coexistence equilibrium | **FLAGSHIP ECOLOGICAL REALIZATION** | **EXTERNALLY AUDITED THEOREM** | `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` |
+| C-21 | along the positive strict-P coexistence branch, (dX/dm<0), (ds/dm<0), and (m) can drive a unique/transverse crossing from classical D-stability into the fractional-only band | theorem-level Double-Allee mechanism | **EXTERNALLY AUDITED THEOREM** | `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` |
+| C-22 | corresponding 2D double-Allee system has fractional-only D-stability only on a codimension-one condition, versus an open 3D IGP region | structural 2D/3D contrast | **EXTERNALLY AUDITED COROLLARY** | `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` |
 
 ## Central definitions
 
@@ -401,3 +407,145 @@ B_k(x)=sum_{|I|=k} beta_I product_{i in I} x_i.
 ```
 
 There are exactly `2^n-n-1` nontrivial orbit invariants: 4 in n=3 and 11 in n=4.
+
+
+## C-17 — general Kolmogorov positive-equilibrium orbit bridge
+
+For a commensurate Caputo Kolmogorov system
+
+\[
+{}^C D_t^\alpha x_i=x_iF_i(x),
+\]
+
+at a positive equilibrium \(x^*\),
+
+\[
+J(x^*)
+=
+\operatorname{diag}(x^*)DF(x^*).
+\]
+
+Hence
+
+\[
+\{DJ(x^*):D\succ0\}
+=
+\{EDF(x^*):E\succ0\}.
+\]
+
+This is a foundational bridge and is not claimed as novel.
+
+## C-18 — competitive two-consumer no-go
+
+For the natural double-Allee prey + two competing consumers extension, the exact cycle decomposition forces
+
+\[
+\kappa<T_1(\beta)
+\]
+
+throughout the relevant strict-\(P\) domain.
+
+Therefore this architecture cannot realize an open genuinely fractional-only positive-diagonal stable region.
+
+## C-19 — canonical Caputo Double-Allee IGP realization
+
+The paper's canonical ecological model is
+
+\[
+{}^C D_t^\alpha x
+=
+x[g_{DA}(x)-q_1y-q_2z],
+\]
+
+\[
+{}^C D_t^\alpha y
+=
+y[e_1q_1x-\mu_1-c_1y-hz],
+\]
+
+\[
+{}^C D_t^\alpha z
+=
+z[e_2q_2x+e_3hy-\mu_2-c_2z],
+\]
+
+with
+
+\[
+g_{DA}(x)
+=
+\frac{r}{x+a}
+\left(1-\frac{x}{K}\right)(x-m).
+\]
+
+At positive coexistence, its C-10 invariants have exact closed forms and the biological parameterization admits a constructive right inverse onto an open four-dimensional invariant region.
+
+## C-20 — open biological fractional-only theorem
+
+For every fixed \(0<\alpha<1\), there exists a nonempty open set in the full biological parameter space such that a positive coexistence equilibrium satisfies
+
+\[
+J
+\in
+\mathcal F_\alpha^{(3)}
+\setminus
+\mathcal D_H^{(3)}.
+\]
+
+The openness is in the full biological coordinate space, not merely in an engineered lower-dimensional construction family.
+
+## C-21 — Allee-threshold monotonicity and Cain crossing
+
+On the positive strict-\(P\) coexistence branch,
+
+\[
+q=-\det B
+=
+\Delta(s+\chi)>0
+\]
+
+and the external audit proves
+
+\[
+\frac{dX}{dm}<0,
+\qquad
+\frac{ds}{dm}<0.
+\]
+
+Thus
+
+\[
+t=\frac1s
+\]
+
+is strictly increasing in \(m\). The induced invariant path has a unique/transverse Cain crossing under the explicit crossing condition, and parameters can be chosen so that varying only \(m\) moves the fixed model locally from classical D-stability into the fractional-only Matignon region.
+
+## C-22 — exact 2D/3D Double-Allee contrast
+
+For the corresponding two-species Double-Allee system, the genuinely fractional difference occurs only on the codimension-one condition
+
+\[
+g_{DA}'(X)=0.
+\]
+
+The adopted three-species Caputo IGP architecture instead realizes a nonempty open fractional-only region.
+
+## Ecological-model novelty lock
+
+Do not claim novelty for:
+- Caputo fractional ecological modeling;
+- fractional intraguild predation;
+- the double-Allee functional form;
+- generic 3D predator-prey/IGP dynamics;
+- local Matignon analysis at one fixed Jacobian.
+
+The ecological novelty is restricted to C-18 through C-22.
+
+## Ecological terminology lock
+
+Use:
+- **3D Caputo Double-Allee ecological realization**;
+- **three-species Caputo Kolmogorov system**;
+- **intraguild-predation/omnivory realization**.
+
+Do not call the model **experimental** unless actual experimental calibration/data are introduced.
