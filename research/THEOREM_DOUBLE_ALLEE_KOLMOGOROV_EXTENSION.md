@@ -1,8 +1,8 @@
 # Theorem package — Double-Allee intraguild-predation realization of positive-diagonal Matignon stability
 
 **Date:** 2026-09-26  
-**Branch:** chief/double-allee-kolmogorov-20260926  
-**Status:** internal analytic development; first independent compute/symbolic audit PASSED WITH MINOR FIXES at agent SHA 9235d75e8d407af8b726bb3bbfbf42c47d792151; second independent audit still pending
+**Branch:** chief/double-allee-final-integration-20260926  
+**Status:** internal analytic development; Audit 1 PASSED WITH MINOR FIXES (SHA 9235d75e8d407af8b726bb3bbfbf42c47d792151); Audit 2 PASSED WITH MINOR FIXES (SHA fb970648ff8dcb586fe5733c52717bf2c4d9d20f) under a procedurally blind but same-session protocol; a truly epistemically independent external audit remains pending
 
 ## 1. General Kolmogorov orbit lemma
 
@@ -326,7 +326,7 @@ r/(X+a) (1-X/K)(X-m)
 chi X - nu.
 ~~~
 
-Multiplying out gives the explicit quadratic
+Multiplying out gives
 
 ~~~text
 (r+K chi) X^2
@@ -338,7 +338,7 @@ r K m - K nu a
 0.
 ~~~
 
-Hence the positive equilibrium is analytically tractable: candidate X values are given by the quadratic formula, followed by explicit Y(X),Z(X).
+When r+K chi != 0 this is a genuine quadratic, so candidate X values are given by the quadratic formula, followed by explicit Y(X),Z(X). In the constructive regime e1 e3 >= e2 one has chi>0, hence r+K chi>0 automatically. Outside that regime the leading coefficient can vanish, so the equation must then be treated as lower degree rather than called quadratic.
 
 ---
 
@@ -384,7 +384,7 @@ m23
 c1 c2 + e3 h^2.
 ~~~
 
-Thus whenever s>0 all order-one and order-two strict-P conditions hold automatically. Full strict-P additionally requires q=-det B>0. The condition e1 e3>e2 is a simple sufficient condition for q>0, but it is not necessary.
+Thus whenever s>0 all order-one and order-two strict-P conditions hold automatically.
 
 The determinant coordinate is
 
@@ -399,6 +399,30 @@ c2 e1 q1^2
 +
 h q1 q2(e1 e3-e2).
 ~~~
+
+Using
+
+~~~text
+Delta = c1 c2 + e3 h^2
+~~~
+
+and the coexistence coefficient chi from Section 4,
+
+~~~text
+q
+=
+Delta (s+chi).
+~~~
+
+Therefore, because c1,c2,Delta>0, the exact strict-P condition for this IGP architecture is
+
+~~~text
+s>0
+and
+s+chi>0.
+~~~
+
+Equivalently, once s>0 is imposed, full strict-P is exactly q>0. The simpler condition e1 e3>e2 implies chi>0 and is therefore sufficient, but it is not necessary.
 
 Hence
 
@@ -643,10 +667,38 @@ H_A(X;m,a,K)
 1/(X+a).
 ~~~
 
-Choose K sufficiently close to X that
+Write
 
 ~~~text
-H_A>0.
+C_A
+=
+(m+a)/[(X-m)(X+a)].
+~~~
+
+Then
+
+~~~text
+H_A
+=
+1/(K-X)-C_A.
+~~~
+
+Since m>-a and X>m, C_A>0. Thus
+
+~~~text
+H_A>0
+iff
+X<K<K_max,
+~~~
+
+where
+
+~~~text
+K_max
+=
+X
++
+(X-m)(X+a)/(m+a).
 ~~~
 
 Set
@@ -671,6 +723,68 @@ q1Y+q2Z=Q.
 
 For K sufficiently close to X, H_A is arbitrarily large and therefore Q,Y,Z are arbitrarily small.
 
+More explicitly, with xi in (0,1),
+
+~~~text
+mu1
+=
+e1 q1 X
+-
+Q[
+ xi c1/q1
+ +(1-xi) h/q2
+].
+~~~
+
+Hence mu1>0 whenever
+
+~~~text
+Q<Q1
+:=
+e1 q1 X
+/
+[
+ xi c1/q1
+ +(1-xi) h/q2
+].
+~~~
+
+Also
+
+~~~text
+mu2
+=
+e2 q2 X
++
+Q[
+ xi e3 h/q1
+ -(1-xi)c2/q2
+].
+~~~
+
+If the bracket is nonnegative then mu2>0 for every Q>0. Otherwise mu2>0 whenever
+
+~~~text
+Q<Q2
+:=
+e2 q2 X
+/
+[
+ (1-xi)c2/q2
+ -xi e3 h/q1
+].
+~~~
+
+Thus the phrase "K sufficiently close to X" is parameter-dependent: choose K so that H_A>s/Qbar, with Qbar=Q1 if the mu2 bracket is nonnegative and Qbar=min(Q1,Q2) otherwise. Equivalently,
+
+~~~text
+0<K-X
+<
+1/[C_A+s/Qbar].
+~~~
+
+This interval is nonempty and is contained in (X,K_max).
+
 Define
 
 ~~~text
@@ -691,7 +805,7 @@ e3 h Y
 c2 Z.
 ~~~
 
-For sufficiently small Q both are positive.
+The explicit bounds above guarantee both are positive.
 
 Finally set
 
@@ -847,23 +961,19 @@ In the fractional-only construction
 e1 e3 > e2,
 ~~~
 
-hence
-
-~~~text
-chi>0.
-~~~
+hence chi>0. However the first monotonicity statement below is more general.
 
 Assume
 
 ~~~text
 Q>0,
 s=-g_DA'(X)>0,
-chi>0,
+s+chi>0,
 m>-a,
 0<m<X<K.
 ~~~
 
-The sign conclusions below use Q>0, s>0, chi>0 and m>-a; the additional ecological inequalities 0<m<X<K specify the coexistence branch under study.
+The condition s+chi>0 is exactly the strict-P determinant condition because q=Delta(s+chi)>0. The stronger chi>=0 will be used only for the sign of ds/dm; in the constructive fractional-only regime one has chi>0 automatically.
 
 The implicit equilibrium equation is
 
@@ -883,7 +993,8 @@ partial_X F
 g_DA'(X)-chi
 =
 -(s+chi)
-<0,
+<
+0,
 ~~~
 
 the coexistence branch is locally a smooth function X=X(m).
@@ -911,6 +1022,8 @@ Q
 ]
 <0.
 ~~~
+
+Thus dX/dm<0 holds throughout the positive strict-P coexistence stratum; no separate assumption chi>0 is needed for this sign.
 
 So increasing the Allee threshold strictly lowers the coexistence prey density.
 
@@ -957,7 +1070,13 @@ partial_m H_A
 <0.
 ~~~
 
-Thus
+If, in addition,
+
+~~~text
+chi>=0,
+~~~
+
+then
 
 ~~~text
 ds/dm
@@ -971,6 +1090,8 @@ Q[
  ]
 <0.
 ~~~
+
+The constructive fractional-only regime has chi>0, so this monotonicity is strict there.
 
 ## Monotone invariant motion
 
@@ -1144,7 +1265,7 @@ This E0 satisfies
 E0>2 sqrt(A0 B0).
 ~~~
 
-The IGP realization theorem can realize this exact E0 by choosing the conversion-efficiency ratio e1e3/e2.
+The IGP realization theorem can realize this exact E0 through the joint DA-06 choice of the conversion parameters and attack coefficient, in particular the coupled choice of e2 and q2 while preserving B0=e2 q2^2/c2. It should not be interpreted as varying the efficiency ratio alone with every other invariant-building parameter fixed.
 
 The double-Allee realization can independently set
 
