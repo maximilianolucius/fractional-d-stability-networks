@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-26  
 **Branch:** chief/double-allee-kolmogorov-20260926  
-**Status:** internal analytic development; independent proof audit still required
+**Status:** independently proof-audited — `COMPUTE_AUDIT_PASS_WITH_FIXES` (2026-09-26, `research/DOUBLE_ALLEE_PROOF_AUDIT_FINAL.md`); the two wording fixes requested by the audit are applied below (marked *[audit fix]*)
 
 ## 1. General Kolmogorov orbit lemma
 
@@ -458,6 +458,16 @@ so the omnivory/intraguild-predation loop raises kappa above the pair-loop basel
 
 This sign reversal is the exact structural mechanism that the failed two-consumer model lacks.
 
+*[audit remark]* The condition e1 e3 > e2 is sufficient but not necessary for strict-P(-B): the sharp condition is s>0 together with q>0, i.e.
+
+~~~text
+h q1 q2 (e2 - e1 e3)
+<
+s(c1 c2 + e3 h^2) + c1 e2 q2^2 + c2 e1 q1^2,
+~~~
+
+and by AM-GM a transparent weaker sufficient condition is h (e2 - e1 e3) <= 2 sqrt(c1 c2 e1 e2).
+
 ---
 
 # 6. Invariant realization theorem
@@ -488,13 +498,9 @@ s,c1,c2,q1,q2,h,e1,e2,e3
 
 such that the reduced matrix B above has exactly those four C-10 invariants.
 
-If, in addition,
+*[audit fix: the extra hypothesis kappa > T1(beta) is not needed for the efficiency bounds; for every admissible target (R > 0) the construction below already gives]*
 
-~~~text
-kappa > T1(beta),
-~~~
-
-the construction can be chosen with
+The construction can be chosen with
 
 ~~~text
 0<e1,e2,e3<1
@@ -746,7 +752,7 @@ Fix any
 0 < alpha < 1.
 ~~~
 
-Then there exists a nonempty open set of biologically feasible parameters of the double-Allee IGP system such that its positive coexistence equilibrium is
+Then there exists a nonempty open set of biologically feasible parameters of the double-Allee IGP system such that a positive coexistence equilibrium (the constructed branch; uniqueness of the coexistence equilibrium is not claimed) is
 
 ~~~text
 positive-diagonal Matignon stable

@@ -322,3 +322,30 @@ The Chief may **not**:
 - change title/abstract/conclusion;
 - merge the extension into main;
 - call the new ecology theorem submission-certified.
+
+
+---
+
+# Chief extension state — audit resolution (2026-09-26, later)
+
+The STOP-THE-LINE compute audit returned and has been merged into this branch
+(`agent/compute-double-allee-proof-audit-20260926` @ `9235d75`, report `research/DOUBLE_ALLEE_PROOF_AUDIT_FINAL.md`).
+
+**Overall: `COMPUTE_AUDIT_PASS_WITH_FIXES`.** DA-01..DA-07 and DA-09..DA-12 PASS; DA-08 PASS WITH MINOR FIX (wording only).
+No identity failed (71 SymPy re-derivations), no counterexample, no C-10 mismatch in 4,500 direct spectral cross-checks of
+160,000 joint parameter perturbations; the alpha=0.9 witness is reproduced from the design at 100 digits; m in [0.2005, 0.45]
+(all other parameters fixed) and a full 14-parameter box of relative half-width 5e-4 around m=0.21 are interval-CERTIFIED
+genuinely fractional. Tests: 39 passed.
+
+Integration gate: all load-bearing items (DA-02, DA-03, DA-06, DA-07, DA-08, DA-09/10/11, DA-12) passed. The audit fixes
+applied to `THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md` (marked *[audit fix]* / *[audit remark]*):
+
+1. §8: "its positive coexistence equilibrium" -> "a positive coexistence equilibrium (the constructed branch)"; uniqueness is not claimed;
+2. §6: the redundant hypothesis "if in addition kappa > T1" for the efficiency bounds removed (every R > 0 target admits 0 < e_i < 1, e1 e3 > e2);
+3. §5: e1 e3 > e2 recorded as sufficient, not necessary, with the sharp strict-P condition.
+
+Audit recommendations kept for the manuscript stage: choose a less fragile witness (m ~ 0.3-0.45 of the certified interval; the
+m=0.21 point is 0.8% beyond the Cain boundary with log-parameter condition ~10^3); in numerical validation maximise Re(lambda)/|lambda|
+(never the raw spectral abscissa) over positive diagonals; use interval Newton / mean-value forms for parameter-box certificates.
+
+Still locked: no manuscript claims, no title/abstract change, no merge to main, not submission-certified.
