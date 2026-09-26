@@ -1,0 +1,84 @@
+{
+  "figure": "fig08_double_allee_2d_3d",
+  "generated_utc": "2026-09-26T20:58:19Z",
+  "git_sha": "85cf354fd12f233b0d72898771e5331202076782",
+  "script": "computations/figures_wave2/scripts/fig08_double_allee_2d_3d.py",
+  "outputs": {
+    "pdf": "computations/figures_wave2/exports/pdf/fig08_double_allee_2d_3d.pdf",
+    "svg": "computations/figures_wave2/exports/svg/fig08_double_allee_2d_3d.svg",
+    "png": "computations/figures_wave2/exports/png/fig08_double_allee_2d_3d.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "DA-12",
+    "DA-08",
+    "C-07",
+    "C-10"
+  ],
+  "formulas": [
+    "m_c=(X^2+2aX-Ka)/(K+a)",
+    "boundaries: kappa-T1=0 (classical|fractional), T_alpha-kappa=0 (fractional|unstable), feasibility edges"
+  ],
+  "parameters": {
+    "panel_a": {
+      "a": 0.5,
+      "K": 1.1
+    },
+    "panel_b": {
+      "alpha": 0.9,
+      "design": {
+        "b12": "4.79",
+        "b13": "4.506",
+        "b23": "5.607",
+        "kappa": "62.735",
+        "s": "0.8231",
+        "c1": "0.065",
+        "c2": "0.0509",
+        "eta": "0.773",
+        "xi": "0.393",
+        "a": "0.229",
+        "m": "0.511",
+        "rhoK": "0.605"
+      },
+      "fixed_parameters": {
+        "a": 0.229,
+        "K": 1.4913425743243243,
+        "r": 7.810448011319853,
+        "m": 0.511,
+        "q1": 0.5121684678469208,
+        "q2": 3.233821373633579,
+        "h": 0.14042192704058162,
+        "e1": 0.773,
+        "e2": 0.014045921649036076,
+        "e3": 0.773,
+        "mu1": 0.31785353457591464,
+        "mu2": 0.12091735830539557,
+        "c1": 0.065,
+        "c2": 0.0509
+      },
+      "K_range": [
+        1.043939802027027,
+        1.9387453466216216
+      ],
+      "n_K": 61,
+      "tracing": "scan of 400 m-values per K + 80 bisection steps on the exact defining function"
+    }
+  },
+  "objects": {
+    "m_c curve": "CLOSED-FORM BOUNDARY",
+    "traced boundaries and fills": "NUMERICAL EVALUATION OF EXACT FORMULAS (root tracing; not interval-certified)",
+    "green segment": "CERTIFIED INTERVAL",
+    "m0": "CERTIFIED COMPUTATION (60-digit root)"
+  },
+  "data": [
+    "computations/figures_wave2/data/fig08_traced_boundaries.json",
+    "computations/figures_wave2/data/design_selected.json"
+  ]
+}

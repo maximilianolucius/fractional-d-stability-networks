@@ -1,0 +1,53 @@
+{
+  "figure": "fig03_threshold_geometry",
+  "generated_utc": "2026-09-26T20:17:52Z",
+  "git_sha": "85cf354fd12f233b0d72898771e5331202076782",
+  "script": "computations/figures_wave2/scripts/fig03_threshold_geometry.py",
+  "outputs": {
+    "pdf": "computations/figures_wave2/exports/pdf/fig03_threshold_geometry.pdf",
+    "svg": "computations/figures_wave2/exports/svg/fig03_threshold_geometry.svg",
+    "png": "computations/figures_wave2/exports/png/fig03_threshold_geometry.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "C-10 Thm 1",
+    "C-10 \u00a76-7 (T_1, band)",
+    "C-15 Cor. 1 (symmetric closed form)",
+    "C-15 Thm 1 (unique minimiser)"
+  ],
+  "formulas": [
+    "T_1=(sum sqrt beta_ij)^2",
+    "T_alpha(b,b,b)=27 h_alpha(b/3)",
+    "T_alpha(beta)=min_x h_alpha(B_beta(x))/(x1x2x3)"
+  ],
+  "parameters": {
+    "panel_a_alphas": [
+      0.7,
+      0.8,
+      0.9
+    ],
+    "panel_b": {
+      "alpha": 0.9,
+      "beta13": 1.5,
+      "beta23": 3.0
+    }
+  },
+  "objects": {
+    "T_1 curves": "CLOSED-FORM BOUNDARY",
+    "panel (a) T_alpha": "CLOSED-FORM BOUNDARY",
+    "panel (b) T_alpha": "EXACT THEOREM CURVE (numerical evaluation of the exact variational formula, unique minimiser)",
+    "squares": "CERTIFIED INTERVAL (interval arithmetic, conditional on C-15 Thm 1)"
+  },
+  "data": [
+    "computations/figures/data/fig03_symmetric_slice.csv",
+    "computations/figures/data/fig03_asymmetric_slice.csv",
+    "computations/figures/data/fig03_certified_anchors.json"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "figure": "fig06_double_allee_m_path",
+  "generated_utc": "2026-09-26T20:53:37Z",
+  "git_sha": "85cf354fd12f233b0d72898771e5331202076782",
+  "script": "computations/figures_wave2/scripts/fig06_double_allee_m_path.py",
+  "outputs": {
+    "pdf": "computations/figures_wave2/exports/pdf/fig06_double_allee_m_path.pdf",
+    "svg": "computations/figures_wave2/exports/svg/fig06_double_allee_m_path.svg",
+    "png": "computations/figures_wave2/exports/png/fig06_double_allee_m_path.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "DA-09",
+    "DA-10",
+    "DA-11",
+    "C-10",
+    "C-13"
+  ],
+  "formulas": [
+    "t=1/s(m); beta12=1+A0 t, beta13=1+B0 t, beta23=C0; kappa=C0+(A0+B0+E0)t",
+    "G1=kappa-T1; G_alpha=T_alpha-kappa"
+  ],
+  "parameters": {
+    "alpha": 0.9,
+    "design": {
+      "b12": "4.79",
+      "b13": "4.506",
+      "b23": "5.607",
+      "kappa": "62.735",
+      "s": "0.8231",
+      "c1": "0.065",
+      "c2": "0.0509",
+      "eta": "0.773",
+      "xi": "0.393",
+      "a": "0.229",
+      "m": "0.511",
+      "rhoK": "0.605"
+    },
+    "biological_parameters": {
+      "a": 0.229,
+      "K": 1.4913425743243243,
+      "r": 7.810448011319853,
+      "m": 0.511,
+      "q1": 0.5121684678469208,
+      "q2": 3.233821373633579,
+      "h": 0.14042192704058162,
+      "e1": 0.773,
+      "e2": 0.014045921649036076,
+      "e3": 0.773,
+      "mu1": 0.31785353457591464,
+      "mu2": 0.12091735830539557,
+      "c1": 0.065,
+      "c2": 0.0509
+    },
+    "m0_hp": "0.37445128124251493523908034461904384927176466921467",
+    "G1_at_m0": "9.9568e-60",
+    "classical_point": 0.19,
+    "anchor": 0.511,
+    "feasible_range": [
+      0.005,
+      0.6125
+    ]
+  },
+  "objects": {
+    "curves": "EXACT THEOREM CURVE (exact formulas along the exactly solved branch; T_alpha = exact C-10 minimum)",
+    "m0": "CERTIFIED COMPUTATION (60-digit root)",
+    "anchor": "CERTIFIED INTERVAL (see fig07 metadata)"
+  },
+  "data": [
+    "computations/figures_wave2/data/design_selected.json",
+    "computations/figures_wave2/data/branch_wave2.json"
+  ]
+}

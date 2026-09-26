@@ -1,0 +1,54 @@
+{
+  "figure": "fig04c_low_order_asymptotic",
+  "generated_utc": "2026-09-26T20:18:08Z",
+  "git_sha": "85cf354fd12f233b0d72898771e5331202076782",
+  "script": "computations/figures_wave2/scripts/fig04_alpha_deformation.py",
+  "outputs": {
+    "pdf": "computations/figures_wave2/exports/pdf/fig04c_low_order_asymptotic.pdf",
+    "svg": "computations/figures_wave2/exports/svg/fig04c_low_order_asymptotic.svg",
+    "png": "computations/figures_wave2/exports/png/fig04c_low_order_asymptotic.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "C-15 Thm 3"
+  ],
+  "formulas": [
+    "T_alpha=27/K^3+(9 sum beta-27)/K^2+O(1/K)"
+  ],
+  "parameters": {
+    "betas": {
+      "$(1,1,1)$": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "$(3,3,3)$": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "$(0.5,2,1.5)$": [
+        0.5,
+        2.0,
+        1.5
+      ]
+    },
+    "k": [
+      1,
+      7
+    ],
+    "hp_digits": 55
+  },
+  "objects": {
+    "solid": "EXACT THEOREM CURVE (55-digit evaluation)",
+    "dashed": "CLOSED-FORM asymptotic"
+  },
+  "data": "computations/figures_wave2/data/fig04_alpha_curves.json"
+}
