@@ -1,0 +1,494 @@
+{
+  "alpha": "0.9",
+  "dps": 50,
+  "method": "interval Newton for X + outward-rounded interval evaluation; adaptive bisection in m",
+  "witness_params_exact_decimal": {
+    "a": "0.5",
+    "K": "1.1",
+    "r": "0.109513274336283185840707964602",
+    "m": "0.2",
+    "q1": "0.0707106781186547524400844362105",
+    "q2": "1.4071067811865475244008443621",
+    "h": "0.0707106781186547524400844362105",
+    "e1": "0.5",
+    "e2": "0.00126265847083664597044732633028",
+    "e3": "0.5",
+    "mu1": "0.0333446506180511420954538982096",
+    "mu2": "0.00300979112159421484710253704694",
+    "c1": "0.05",
+    "c2": "0.05"
+  },
+  "A_m_interval": {
+    "m_lo": "0.2005",
+    "m_hi_attempted": "0.45",
+    "certified_up_to_m": "0.45",
+    "n_boxes_checked": 81,
+    "n_certified_subintervals": 41,
+    "first_failure": null,
+    "min_kappa_minus_T1_lo": "0.0008984538624",
+    "min_T_alpha_L_minus_kappa_hi": "16.88968954",
+    "C10_all": true,
+    "C11_all": true,
+    "statement": "for every m in [0.2005, certified_up_to_m], with all other parameters fixed at the witness values, the coexistence equilibrium is CERTIFIED: X,Y,Z>0, m<X<K, strict-P, kappa>T1 (not Hurwitz D-stable), kappa<T_0.9(beta) (in F_0.9): genuinely fractional. Labels: C-11 rigorous/unconditional; C-10 via the certified bracket at the lower beta corner (conditional on C-15 Thm 1 + monotonicity C-13 \u00a77)."
+  },
+  "A_one_sided_near_m0": [
+    {
+      "interval": "[0.2+1e-2, 0.2+1e-1]",
+      "certified": true,
+      "boxes": 27,
+      "min_kappa_minus_T1_lo": "0.0117429"
+    },
+    {
+      "interval": "[0.2+1e-3, 0.2+1e-2]",
+      "certified": true,
+      "boxes": 27,
+      "min_kappa_minus_T1_lo": "0.00148595"
+    },
+    {
+      "interval": "[0.2+1e-4, 0.2+1e-3]",
+      "certified": true,
+      "boxes": 27,
+      "min_kappa_minus_T1_lo": "0.000151468"
+    },
+    {
+      "interval": "[0.2+1e-5, 0.2+1e-4]",
+      "certified": true,
+      "boxes": 27,
+      "min_kappa_minus_T1_lo": "1.51753e-5"
+    },
+    {
+      "interval": "[0.2+1e-6, 0.2+1e-5]",
+      "certified": true,
+      "boxes": 27,
+      "min_kappa_minus_T1_lo": "1.51782e-6"
+    },
+    {
+      "interval": "[0.2+1e-7, 0.2+1e-6]",
+      "certified": true,
+      "boxes": 27,
+      "min_kappa_minus_T1_lo": "1.51784e-7"
+    }
+  ],
+  "B_full_boxes": [
+    {
+      "delta_relative": "0.002",
+      "certified": false,
+      "boxes": 11,
+      "min_kappa_minus_T1_lo": "nan",
+      "min_T_alpha_L_minus_kappa_hi": "nan",
+      "first_failure": {
+        "m_interval": [
+          "0.20958",
+          "0.209580820312"
+        ],
+        "FAILED": "Y or Z not certified positive"
+      }
+    },
+    {
+      "delta_relative": "0.001",
+      "certified": false,
+      "boxes": 12,
+      "min_kappa_minus_T1_lo": "nan",
+      "min_T_alpha_L_minus_kappa_hi": "nan",
+      "first_failure": {
+        "m_interval": [
+          "0.20979",
+          "0.209790205078"
+        ],
+        "FAILED": "Y or Z not certified positive"
+      }
+    },
+    {
+      "delta_relative": "0.0005",
+      "certified": false,
+      "boxes": 12,
+      "min_kappa_minus_T1_lo": "nan",
+      "min_T_alpha_L_minus_kappa_hi": "nan",
+      "first_failure": {
+        "m_interval": [
+          "0.209895",
+          "0.209895102539"
+        ],
+        "FAILED": "Y or Z not certified positive"
+      }
+    },
+    {
+      "delta_relative": "0.0002",
+      "certified": false,
+      "boxes": 11,
+      "min_kappa_minus_T1_lo": "nan",
+      "min_T_alpha_L_minus_kappa_hi": "nan",
+      "first_failure": {
+        "m_interval": [
+          "0.209958",
+          "0.209958082031"
+        ],
+        "FAILED": "kappa - T1 not certified positive"
+      }
+    },
+    {
+      "delta_relative": "0.0001",
+      "certified": false,
+      "boxes": 12,
+      "min_kappa_minus_T1_lo": "nan",
+      "min_T_alpha_L_minus_kappa_hi": "nan",
+      "first_failure": {
+        "m_interval": [
+          "0.209979",
+          "0.209979020508"
+        ],
+        "FAILED": "kappa - T1 not certified positive"
+      }
+    },
+    {
+      "delta_relative": "5.0e-5",
+      "certified": false,
+      "boxes": 11,
+      "min_kappa_minus_T1_lo": "nan",
+      "min_T_alpha_L_minus_kappa_hi": "nan",
+      "first_failure": {
+        "m_interval": [
+          "0.2099895",
+          "0.209989520508"
+        ],
+        "FAILED": "kappa - T1 not certified positive"
+      }
+    }
+  ],
+  "seconds": 11.4,
+  "B_meanvalue": {
+    "method": "Full 14-parameter box certification by a first-order (mean-value) interval form.",
+    "isotropic_boxes": [
+      {
+        "delta_relative": "5e-3",
+        "ok": false,
+        "X_center": [
+          "0.9998522733376955410536215941332115912962",
+          "0.9998522733376955410536215941332115912962"
+        ],
+        "X_hull": [
+          "0.878314615887646118300526615311676673641",
+          "1.120809283792660875015196307544391854711"
+        ],
+        "T_alpha_L_at_beta_lo": "34.279311762587567842",
+        "checks": {
+          "Y>0": true,
+          "Z>0": false,
+          "X>m": true,
+          "X<K": true,
+          "s>0": true,
+          "kappa-T1>0": false,
+          "C11: Phi-rho>0": false,
+          "C10: kappa_hi < L(beta_lo)": true
+        },
+        "fail": [
+          "Z>0",
+          "kappa-T1>0",
+          "C11: Phi-rho>0"
+        ],
+        "enclosures": {
+          "Y": [
+            "0.0305106492572045",
+            "0.0444833014696282"
+          ],
+          "Z": [
+            "-0.00245345560777814",
+            "0.00614785510575384"
+          ],
+          "s": [
+            "0.0452266719150536",
+            "0.0533375944822619"
+          ],
+          "X_minus_m": [
+            "0.765170231916703",
+            "0.814534314758688"
+          ],
+          "K_minus_X": [
+            "0.072293104196373",
+            "0.128002349128236"
+          ],
+          "kappa_minus_T1": [
+            "-7.48555523950584",
+            "7.7769903810938"
+          ],
+          "Phi_minus_rho": [
+            "-0.895386838745312",
+            "1.93510474195509"
+          ],
+          "beta12": [
+            "1.57187364065462",
+            "2.45725930285854"
+          ],
+          "beta13": [
+            "1.57187364065462",
+            "2.45725930285854"
+          ],
+          "beta23": [
+            "1.97439242943335",
+            "2.02560757056665"
+          ],
+          "kappa": [
+            "10.5528111062653",
+            "25.9133159899453"
+          ]
+        }
+      },
+      {
+        "delta_relative": "2e-3",
+        "ok": false,
+        "X_center": [
+          "0.999852273337695541053621594133211591296",
+          "0.9998522733376955410536215941332115912963"
+        ],
+        "X_hull": [
+          "0.9657890954617555770614626234530139047471",
+          "1.033850261813797532029225745073403330096"
+        ],
+        "T_alpha_L_at_beta_lo": "39.254424850359455352",
+        "checks": {
+          "Y>0": true,
+          "Z>0": true,
+          "X>m": true,
+          "X<K": true,
+          "s>0": true,
+          "kappa-T1>0": false,
+          "C11: Phi-rho>0": true,
+          "C10: kappa_hi < L(beta_lo)": true
+        },
+        "fail": [
+          "kappa-T1>0"
+        ],
+        "enclosures": {
+          "Y": [
+            "0.0359463519362477",
+            "0.039047598790585"
+          ],
+          "Z": [
+            "0.00114037832184703",
+            "0.00255402117612867"
+          ],
+          "s": [
+            "0.0483584128148531",
+            "0.0502058535824624"
+          ],
+          "X_minus_m": [
+            "0.782496805753999",
+            "0.797207740921392"
+          ],
+          "K_minus_X": [
+            "0.0914827958065431",
+            "0.108812657518066"
+          ],
+          "kappa_minus_T1": [
+            "-0.447474786370009",
+            "0.738909927957976"
+          ],
+          "Phi_minus_rho": [
+            "0.470176297837982",
+            "0.569541605371794"
+          ],
+          "beta12": [
+            "1.97779193656215",
+            "2.05134100695101"
+          ],
+          "beta13": [
+            "1.97779193656215",
+            "2.05134100695101"
+          ],
+          "beta23": [
+            "1.98990351820222",
+            "2.01009648179778"
+          ],
+          "kappa": [
+            "17.5288234212669",
+            "18.9373036749437"
+          ]
+        }
+      },
+      {
+        "delta_relative": "1e-3",
+        "ok": false,
+        "X_center": [
+          "0.999852273337695541053621594133211591296",
+          "0.9998522733376955410536215941332115912963"
+        ],
+        "X_hull": [
+          "0.9831501952709763256682253845181705031203",
+          "1.016538361669752395607246864842988967168"
+        ],
+        "T_alpha_L_at_beta_lo": "39.553068758732386849",
+        "checks": {
+          "Y>0": true,
+          "Z>0": true,
+          "X>m": true,
+          "X<K": true,
+          "s>0": true,
+          "kappa-T1>0": false,
+          "C11: Phi-rho>0": true,
+          "C10: kappa_hi < L(beta_lo)": true
+        },
+        "fail": [
+          "kappa-T1>0"
+        ],
+        "enclosures": {
+          "Y": [
+            "0.0368620056550452",
+            "0.0381319450717875"
+          ],
+          "Z": [
+            "0.0016071306252919",
+            "0.0020872688726838"
+          ],
+          "s": [
+            "0.0488812222453465",
+            "0.049683044151969"
+          ],
+          "X_minus_m": [
+            "0.786452148904818",
+            "0.793252397770573"
+          ],
+          "K_minus_X": [
+            "0.0960914209872338",
+            "0.104204032337375"
+          ],
+          "kappa_minus_T1": [
+            "-0.0671433264409377",
+            "0.358578468028904"
+          ],
+          "Phi_minus_rho": [
+            "0.505028877099167",
+            "0.534689026110609"
+          ],
+          "beta12": [
+            "2.00036865838807",
+            "2.02876428512509"
+          ],
+          "beta13": [
+            "2.00036865838807",
+            "2.02876428512509"
+          ],
+          "beta23": [
+            "1.99497593988782",
+            "2.00502406011218"
+          ],
+          "kappa": [
+            "17.9536678487826",
+            "18.512459247428"
+          ]
+        }
+      },
+      {
+        "delta_relative": "5e-4",
+        "ok": true,
+        "X_center": [
+          "0.999852273337695541053621594133211591296",
+          "0.9998522733376955410536215941332115912963"
+        ],
+        "X_hull": [
+          "0.9920821358107410595919728624659539703889",
+          "1.007618690601289632166582292275020352574"
+        ],
+        "T_alpha_L_at_beta_lo": "39.662555776384597685",
+        "checks": {
+          "Y>0": true,
+          "Z>0": true,
+          "X>m": true,
+          "X<K": true,
+          "s>0": true,
+          "kappa-T1>0": true,
+          "C11: Phi-rho>0": true,
+          "C10: kappa_hi < L(beta_lo)": true
+        },
+        "fail": "",
+        "enclosures": {
+          "Y": [
+            "0.0372149143363282",
+            "0.0377790363905045"
+          ],
+          "Z": [
+            "0.00175583479579027",
+            "0.00193856470218542"
+          ],
+          "s": [
+            "0.0490963772669513",
+            "0.0494678891303642"
+          ],
+          "X_minus_m": [
+            "0.788221014069366",
+            "0.791483532606025"
+          ],
+          "K_minus_X": [
+            "0.0981881967564863",
+            "0.102107256568123"
+          ],
+          "kappa_minus_T1": [
+            "0.057389069545768",
+            "0.234046072042199"
+          ],
+          "Phi_minus_rho": [
+            "0.514386643186394",
+            "0.525331260023382"
+          ],
+          "beta12": [
+            "2.00831829166127",
+            "2.02081465185189"
+          ],
+          "beta13": [
+            "2.00831829166127",
+            "2.02081465185189"
+          ],
+          "beta23": [
+            "1.99749399249299",
+            "2.00250600750701"
+          ],
+          "kappa": [
+            "18.1082250405061",
+            "18.3579020557045"
+          ]
+        }
+      }
+    ],
+    "largest_isotropic_delta_certified": "5e-4",
+    "anisotropic_boxes": [
+      {
+        "scale": "0.6",
+        "deltas": {
+          "a": "0.0016876",
+          "K": "0.00039773",
+          "r": "0.00060624",
+          "m": "0.0020143",
+          "q1": "0.00028644",
+          "q2": "0.00056766",
+          "h": "0.00058358",
+          "e1": "0.00026236",
+          "e2": "0.0044602",
+          "e3": "0.00048783",
+          "mu1": "0.00057287",
+          "mu2": "0.0052036",
+          "c1": "0.00057817",
+          "c2": "0.00061218"
+        },
+        "ok": true,
+        "fail": "",
+        "kappa_minus_T1_enclosure": [
+          "0.0355902569157118",
+          "0.255844884672255"
+        ],
+        "checks": {
+          "Y>0": true,
+          "Z>0": true,
+          "X>m": true,
+          "X<K": true,
+          "s>0": true,
+          "kappa-T1>0": true,
+          "C11: Phi-rho>0": true,
+          "C10: kappa_hi < L(beta_lo)": true
+        }
+      }
+    ],
+    "seconds": 0.4,
+    "labels": "C-11 certificate rigorous/unconditional; C-10 certificate conditional on C-15 Thm 1 (+ C-13 monotonicity)"
+  },
+  "B_largest_certified_delta": "5e-4",
+  "B_statement": "every parameter vector in the box p_i in [p_i(1-5e-4), p_i(1+5e-4)] (all 14 biological parameters, around the m=0.21 witness) has a CERTIFIED positive coexistence equilibrium that is strict-P, not Hurwitz D-stable (kappa > T1) and in F_0.9 (kappa < T_0.9(beta)): a full-dimensional certified genuinely fractional box"
+}
