@@ -1,51 +1,67 @@
 # Agent access and handoff
 
-## ACTIVE TASK — COMPUTE FIGURE WAVE 1
+## ACTIVE TASK — COMPUTE FIGURE WAVE 2
 
 **Date:** 2026-09-26  
 **Repository:** `maximilianolucius/fractional-d-stability-networks`  
-**Work branch:** `agent/compute-figures-wave1-20260926`  
-**Base Chief SHA:** `b5a6ebce3fd0ccf33b2245822dbd414a56a4bf61`
+**Work branch:** `agent/compute-figures-wave2-20260926`  
+**Base Chief visual-review SHA:** `289b81a61d0a2528f1a30708b5f5102ccaaf0081`
 
 ### Your only active assignment
 
 Read and execute:
 
-`research/COMPUTE_AGENT_FIGURE_WAVE1_TASK.md`
+`research/COMPUTE_AGENT_FIGURE_WAVE2_TASK.md`
 
-Before coding, read:
+Read first:
 
-1. `research/FIGURE_MASTERPLAN.md`
-2. `research/FIGURE_STYLE_GUIDE.md`
-3. `research/PAPER_BAGGAGE_CAPUTO_DOUBLE_ALLEE_3D.md`
-4. `research/Q1_PAPER_ARCHITECTURE.md`
-5. `research/THEOREM_C10_EXACT_3X3.md`
-6. `research/THEOREM_C15_THRESHOLD_GEOMETRY.md`
-7. `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md`
-8. `research/DOUBLE_ALLEE_INTERVAL_CERTIFICATE.md`
-9. `research/CLAIMS.md`
+1. `research/CHIEF_VISUAL_REVIEW_WAVE1_2026-09-26.md`
+2. `research/FIGURE_MASTERPLAN.md`
+3. `research/FIGURE_STYLE_GUIDE.md`
+4. `research/PAPER_BAGGAGE_CAPUTO_DOUBLE_ALLEE_3D.md`
+5. `research/FIGURE_WAVE1_FINAL_REPORT.md`
+6. `research/FIGURE_DATA_REGISTRY.md`
+7. `research/FIGURE_CAPTIONS_DRAFT.md`
+8. `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md`
 
 ### Mission
 
-Produce the reproducible computational and publication-quality visual assets for the manuscript.
+Wave 1 passed.
 
-This is a figure-production/certification lane, not theorem discovery.
+Wave 2 is only for:
+- biological re-embedding search;
+- figure refinement;
+- page-economy redesign;
+- final visual QA.
 
-You must produce FIG-01 through FIG-08 in:
-- PDF;
-- SVG;
-- PNG preview;
+Do not discover or modify theorem claims.
 
-with:
-- source scripts;
-- source data;
-- metadata;
-- caption drafts;
-- evidence labels.
+### Highest priorities
 
-### Fixed visual semantics
+1. Find a less scale-separated biological witness if this can be done without weakening robustness.
+2. Keep FIG-03 and FIG-06 as flagship theorem figures.
+3. Redesign FIG-07 to at most 3 panels.
+4. Replace the blocky FIG-08(b) grid aesthetic with mathematically faithful smooth boundary tracing.
+5. Simplify FIG-04 and FIG-05.
 
-Use exactly:
+### Biological witness selection
+
+The current m=0.35 witness is a valid fallback.
+
+A new witness is preferred only if:
+- strict-P and C-10 classification remain strong;
+- the m-driven crossing remains exact/local with all other parameters fixed;
+- certification is possible;
+- coexistence density separation is materially reduced.
+
+Internal visualization targets:
+- Y/X >= 1e-2;
+- Z/X >= 1e-2;
+- max/min density ratio <100 if possible.
+
+These are not empirical realism claims.
+
+### Fixed visual palette
 
 - Fractional / Matignon: `#1F4E79`
 - Classical / Cain / Hurwitz: `#D97A00`
@@ -54,52 +70,25 @@ Use exactly:
 - Neutral dark: `#5C6770`
 - Neutral light: `#D9DDE3`
 
-Do not invent alternative semantic colors.
+Do not change semantic assignments.
 
-### Key scientific priorities
+### No supplementary material
 
-Highest-priority figures:
+The paper has a hard 25-page limit and no supplementary material.
 
-1. FIG-03 exact C-10 threshold geometry;
-2. FIG-06 Double-Allee m-path / Cain-to-Matignon crossing;
-3. FIG-07 robust certified biological anchor;
-4. FIG-05 ecological no-go vs IGP signed-cycle mechanism.
+Do not recommend moving figures to a supplement.
 
-### Certified anchor
-
-Do not use m=0.21 as the principal manuscript anchor unless the purpose is specifically the boundary crossing.
-
-Search within the already certified region, preferably around:
-
-`m in [0.30,0.40]`
-
-and return three candidate anchors plus one recommended manuscript point.
-
-### Evidence discipline
-
-Never use finite diagonal sampling as proof.
-
-Classify every plotted object as:
-- EXACT THEOREM CURVE
-- CLOSED-FORM BOUNDARY
-- CERTIFIED INTERVAL
-- CERTIFIED COMPUTATION
-- NUMERICAL CORROBORATION
-- SCHEMATIC
+If a panel is not worth main-text space, recommend omitting it.
 
 ### Required final artifacts
 
 At minimum:
 
-- `research/FIGURE_DATA_REGISTRY.md`
-- `research/FIGURE_CAPTIONS_DRAFT.md`
-- `research/FIGURE_WAVE1_FINAL_REPORT.md`
-- `computations/figures/scripts/`
-- `computations/figures/data/`
-- `computations/figures/exports/pdf/`
-- `computations/figures/exports/svg/`
-- `computations/figures/exports/png/`
-- `computations/figures/metadata/`
+- `research/FIGURE_WAVE2_REEMBEDDING_REPORT.md`
+- `research/FIGURE_FINAL_SET_RECOMMENDATION.md`
+- `research/FIGURE_WAVE2_FINAL_REPORT.md`
+- `computations/figures_wave2/`
+- `tests/test_figures_wave2.py`
 
 ### Repository restrictions
 
@@ -112,29 +101,26 @@ Do NOT modify:
 
 Do not merge.
 
-You may add namespaced plotting utilities/tests if needed.
-
 ### Final status
 
 Return exactly one:
 
-- `FIGURE_WAVE1_PASS`
-- `FIGURE_WAVE1_PASS_WITH_FIXES`
-- `FIGURE_WAVE1_FAIL`
+- `FIGURE_WAVE2_PASS`
+- `FIGURE_WAVE2_PASS_WITH_FIXES`
+- `FIGURE_WAVE2_FAIL`
 - `PARTIAL/BLOCKED`
 
 At completion push the branch and report:
 - branch;
 - final SHA;
-- tests passed/failed;
-- figure inventory;
-- selected robust anchor;
-- theorem-grade vs illustration-grade classification;
-- unresolved numerical/visual issues;
-- recommended main-paper subset.
+- tests;
+- old vs new anchor;
+- final figure inventory;
+- recommended 6–7 figure environments;
+- remaining visual caveats.
 
 ---
 
 ## Historical tasks — NOT ACTIVE
 
-All previous Double-Allee proof audits and C-10 compute/proof waves are historical context only. Do not execute them on this branch.
+Figure Wave 1 and all previous proof/compute audits are historical context only. Do not re-run them except as required for comparison.
