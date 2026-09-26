@@ -1,7 +1,7 @@
 # Provisional Q1 paper architecture — Chief Researcher
 
-**Date:** 2026-09-25  
-**Status:** architecture only; final drafting locked pending independent validation.
+**Date:** 2026-09-26  
+**Status:** architecture approved for drafting; Double-Allee external proof gate passed. Submission readiness still depends on final novelty/bibliography/editorial gates.
 
 ## Scientific center
 
@@ -9,7 +9,7 @@ The paper should **not** be framed as "fractional stability of an ecological mod
 
 Its mathematical center is:
 
-> Exact positive-diagonal Matignon stability in dimensions two and three, the first full-dimensional genuinely fractional class at dimension three, the exact fractional deformation of Cain's 3x3 D-stability boundary, and its interpretation through ecological feedback loops.
+> Exact positive-diagonal Matignon stability in dimensions two and three, the first full-dimensional genuinely fractional class at dimension three, the exact fractional deformation of Cain's 3x3 D-stability boundary, and an exact non-GLV Caputo ecological realization in which a double-Allee threshold drives a transverse transition from classical D-stability into the fractional-only band.
 
 ## Flagship theorem package
 
@@ -271,21 +271,21 @@ This quantifies the collapse of the memory-only band toward classical D-stabilit
 
 ## Provisional title candidates
 
-1. **From Cain to Matignon: Exact Three-Dimensional D-Stability Thresholds for Fractional Dynamics**
-2. **Exact Fractional D-Stability in Dimension Three and Its Ecological Feedback Structure**
-3. **Fractional D-Stability Beyond Hurwitz Stability: Exact Dimension-Three Characterization**
+1. **From Cain to Matignon: Exact Three-Dimensional D-Stability Thresholds and a Nonlinear Ecological Realization**
+2. **Fractional D-Stability Beyond Hurwitz Stability: Exact Dimension-Three Theory and a Double-Allee Kolmogorov Realization**
+3. **Exact Positive-Diagonal Matignon Stability in Dimension Three with a Caputo Double-Allee Realization**
 
-Titles remain provisional until independent proof and novelty audits pass.
+Titles remain provisional until the final frozen-claim novelty and bibliography audits are complete.
 
 ## Q1 quality gate
 
-Before final prose drafting require:
+The Double-Allee proof gate and genuinely external audit are now passed. Before final submission require:
 
-- adversarial proof audit: PASS or PASS WITH MINOR FIX for C-07/C-09/C-10/C-11/C-14/C-15/C-16;
-- high-compute wave: no persistent counterexample;
-- final specialist novelty audit of C-10;
-- exact citation and sign-convention verification for Cain, Matignon, Kushel/Kushel-Pavani, Siami, Cermak-Nechvatal, Bourafa et al.;
+- frozen-claim specialist novelty audit of C-10/C-15 and the exact ecological realization/crossing claims;
+- published-source-only bibliography: no arXiv/preprint/working-paper/unpublished references;
+- exact DOI, theorem-number and sign-convention verification for every imported result;
 - reproducible tests green;
-- no central statement dependent on finite diagonal sampling.
+- no central statement dependent on finite diagonal sampling;
+- final referee-style rigor, novelty, bibliography, page-budget and visual audits.
 
 If these gates pass, the theorem package is strong enough to justify targeting a serious Q1 venue rather than an application-first paper.
