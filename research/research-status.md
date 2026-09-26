@@ -352,3 +352,56 @@ m=0.21 point is 0.8% beyond the Cain boundary with log-parameter condition ~10^3
 (never the raw spectral abscissa) over positive diagonals; use interval Newton / mean-value forms for parameter-box certificates.
 
 Still locked: no manuscript claims, no title/abstract change, no merge to main, not submission-certified.
+
+
+---
+
+## First independent Double-Allee audit result — 2026-09-26
+
+Agent branch:
+
+`agent/compute-double-allee-proof-audit-20260926`
+
+Final SHA:
+
+`9235d75e8d407af8b726bb3bbfbf42c47d792151`
+
+Status:
+
+`COMPUTE_AUDIT_PASS_WITH_FIXES`
+
+Summary:
+- 39 tests passed, 0 failed;
+- 71 symbolic identities, 0 mismatches;
+- DA-01…DA-12: 11 PASS, DA-08 PASS WITH MINOR FIX;
+- 160,000 joint biological-parameter perturbations;
+- 4,500 direct spectral cross-checks, 0 discrepancies;
+- exact m0=0.2 Cain-boundary reconstruction at 100 digits;
+- certified fractional-only interval m in [0.2005,0.45];
+- certified full 14-parameter relative box with half-width 5e-4 around the m=0.21 witness.
+
+Chief review:
+
+`research/CHIEF_REVIEW_DOUBLE_ALLEE_AUDIT1_2026-09-26.md`
+
+Integrated theorem-fix commit:
+
+`1560210c746507ca164bdf5a60e1229a19053528`
+
+Additional targeted novelty addendum:
+
+`research/novelty/DOUBLE_ALLEE_FINAL_NOVELTY_ADDENDUM_2026-09-26.md`
+
+New prior art incorporated:
+- Panja 2019 fractional intraguild predation;
+- 2026 fractional IGP memory/fear work;
+- current double-Allee fractional predator-prey work.
+
+Current status:
+
+```text
+DOUBLE-ALLEE MATHEMATICS: FIRST INDEPENDENT AUDIT PASSED
+NOVELTY: GO-NARROWED / THEOREM-LEVEL ONLY
+SECOND INDEPENDENT AGENT: PENDING
+MANUSCRIPT: LOCKED
+```
