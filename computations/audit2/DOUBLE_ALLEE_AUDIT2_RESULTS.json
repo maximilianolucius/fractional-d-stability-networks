@@ -295,5 +295,9 @@
   "embeddings_with_K=X+1e-3(Kmax-X)_all_positive_and_exact": 1986
  },
  "seconds": 819.3,
- "note": "Audit 2 blind-phase checks; no Audit-1 code or results used"
+ "note": "Audit 2 blind-phase checks; no Audit-1 code or results used",
+ "addendum_q_equals_Delta_times_(s+chi)": {
+  "n_exact_points": 500,
+  "failures": 0
+ }
 }

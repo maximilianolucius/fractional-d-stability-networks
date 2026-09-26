@@ -622,3 +622,23 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def addendum_schur_identity(n=500):
+    """Post-unblinding addendum (exact): q = -det B = Delta (s + chi), i.e. the strict-P determinant
+    condition is exactly s + chi > 0, and the scalar prey-equation derivative Phi_X = -(s + chi) = -q/Delta."""
+    fails = 0
+    for _ in range(n):
+        s, q1, q2, h, e1, e2, e3, c1, c2 = [rfrac() for _ in range(9)]
+        B = [[-s, -q1, -q2], [e1 * q1, -c1, -h], [e2 * q2, e3 * h, -c2]]
+        Delta = c1 * c2 + e3 * h ** 2
+        chi = (e1 * c2 * q1 ** 2 + e2 * c1 * q2 ** 2 + h * q1 * q2 * (e1 * e3 - e2)) / Delta
+        fails += (-det3(B) != Delta * (s + chi))
+    d = json.load(open(OUT))
+    d["addendum_q_equals_Delta_times_(s+chi)"] = {"n_exact_points": n, "failures": fails}
+    json.dump(d, open(OUT, "w"), indent=1)
+    print("addendum failures:", fails)
+
+
+if __name__ == "__main__" and "addendum" in sys.argv:
+    addendum_schur_identity()
