@@ -1,102 +1,73 @@
 # Agent access and handoff
 
-## ACTIVE TASK — SECOND INDEPENDENT DOUBLE-ALLEE PROOF AUDIT
+## ACTIVE TASK — TRUE EXTERNAL DOUBLE-ALLEE PROOF AUDIT
 
 **Date:** 2026-09-26  
 **Repository:** `maximilianolucius/fractional-d-stability-networks`  
-**Work branch:** `agent/independent-proof-double-allee-20260926`  
-**Base integration SHA:** `36bf80f2fdaa0c1baa806d064b02b8f26771f8ac`
+**Work branch:** `agent/external-proof-double-allee-20260926`  
+**Base Chief integration SHA:** `87e1e6bf2c3a9707896917320d43aeb5610ba5dd`
 
-### Your only active assignment
+### Eligibility check comes first
+
+This task requires a **different agent/session** from both prior Double-Allee audits.
+
+If you are the same agent/session that produced either Audit 1 or Audit 2, stop immediately and report:
+
+`INELIGIBLE_SAME_AUDITOR`
+
+Do not perform the audit.
+
+### Your only active task
 
 Read and execute:
 
-`research/SECOND_INDEPENDENT_DOUBLE_ALLEE_PROOF_AUDIT_TASK.md`
+`research/EXTERNAL_DOUBLE_ALLEE_PROOF_AUDIT_TASK.md`
 
-This is the **second independent proof audit** of the Double-Allee Kolmogorov / intraguild-predation theorem package.
+Focus on the logical core:
+- invariant realization;
+- quantified biological embedding;
+- full-dimensional openness;
+- strict-P/nondegeneracy identity;
+- Allee sensitivity;
+- unique/transverse Cain crossing;
+- prescribed-m0 fractional-only transition;
+- dependency/circularity.
 
-It is intentionally different from the first compute audit.
+### Required final artifact
 
-### Independence requirement
+`research/DOUBLE_ALLEE_EXTERNAL_PROOF_AUDIT_FINAL.md`
 
-During the BLIND phase, do **not** read or reuse:
+### Final status
 
-- `research/DOUBLE_ALLEE_PROOF_AUDIT_FINAL.md`
-- `research/CHIEF_REVIEW_DOUBLE_ALLEE_AUDIT1_2026-09-26.md`
-- `computations/results/DOUBLE_ALLEE_SYMBOLIC_AUDIT.json`
-- `computations/results/DOUBLE_ALLEE_ADVERSARIAL_SUMMARY.json`
-- `computations/results/DOUBLE_ALLEE_INTERVAL_BOX.json`
-- `computations/results/DOUBLE_ALLEE_WORST_CASES.csv`
-- `tests/test_double_allee.py`
-- `src/fdsn/double_allee.py`
-- first-audit Double-Allee scripts.
-
-First produce and commit:
-
-`research/DOUBLE_ALLEE_PROOF_AUDIT2_BLIND_VERDICTS.md`
-
-Only after that may you unblind and compare against Audit 1.
-
-### Primary theorem sources
-
-Read:
-
-1. `research/THEOREM_DOUBLE_ALLEE_KOLMOGOROV_EXTENSION.md`
-2. `research/DOUBLE_ALLEE_KOLMOGOROV_CHIEF_REPORT.md`
-3. `research/THEOREM_C10_EXACT_3X3.md`
-4. `research/THEOREM_C11_FRACTIONAL_CAIN_CERTIFICATE.md`
-5. `research/THEOREM_C15_THRESHOLD_GEOMETRY.md`
-6. `research/THEOREM_C13_ECOLOGICAL_LOOP_COORDINATES.md`
-
-### Required final deliverables
-
-At minimum:
-
-- `research/DOUBLE_ALLEE_PROOF_AUDIT2_BLIND_VERDICTS.md`
-- `research/DOUBLE_ALLEE_PROOF_AUDIT2_FINAL.md`
-- `computations/audit2/double_allee_proof_checks.py`
-- `computations/audit2/DOUBLE_ALLEE_AUDIT2_RESULTS.json`
-
-Final overall status must be exactly one of:
-
-- `PROOF_AUDIT2_PASS`
-- `PROOF_AUDIT2_PASS_WITH_FIXES`
-- `PROOF_AUDIT2_FAIL`
+Return exactly one:
+- `EXTERNAL_AUDIT_PASS`
+- `EXTERNAL_AUDIT_PASS_WITH_FIXES`
+- `EXTERNAL_AUDIT_FAIL`
+- `INELIGIBLE_SAME_AUDITOR`
 - `PARTIAL/BLOCKED`
-
-### Stop-the-line rule
-
-A genuine counterexample to DA-06, DA-07, DA-08, DA-09, DA-10 or DA-11 has priority over all remaining work and must be reported immediately.
-
-Do not repair the Chief theorem silently.
 
 ### Repository restrictions
 
 Do not modify:
 - `paper/`;
 - Chief theorem/report files;
-- novelty audit files;
-- Audit 1 artifacts.
+- novelty files;
+- prior audit files.
 
 Do not merge to main.
 
 At completion push this branch and report:
 - branch;
 - final SHA;
-- DA-01…DA-12 verdicts;
-- overall status;
-- checks/tests run;
-- artifact paths;
-- any disagreement with Audit 1.
+- EXT-01…EXT-08 verdicts;
+- final status;
+- any failed implication/counterexample;
+- artifact paths.
 
 ---
 
-## Historical tasks — NOT ACTIVE HERE
-
-The following are prior project lanes and must not be executed on this branch:
+## Historical tasks — NOT ACTIVE
 
 - `research/COMPUTE_AGENT_DOUBLE_ALLEE_PROOF_AUDIT_TASK.md`
-- `research/PROOF_AUDIT_TASK_C07_C09_C11.md`
-- `research/COMPUTE_AGENT_WAVE1_TASK.md`
-- `research/COMPUTE_AGENT_WAVE2_QUEUED.md`
-- `research/FINAL_NOVELTY_AUDIT_TASK.md`
+- `research/SECOND_INDEPENDENT_DOUBLE_ALLEE_PROOF_AUDIT_TASK.md`
+- all older C-10 compute/proof tasks.
