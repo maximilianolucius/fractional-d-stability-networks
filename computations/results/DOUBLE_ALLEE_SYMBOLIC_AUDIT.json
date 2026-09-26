@@ -1,0 +1,520 @@
+{
+  "identities": [
+    {
+      "name": "DA-01 J - diag(x) DF == diag(F_1,F_2,F_3) (vanishes at F=0)",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[-K*a*q1*y/(K*a + K*x) - K*a*q2*z/(K*a + K*x) - K*m*r/(K*a + K*x) - K*q1*x*y/(K*a + K*x) - K*q2*x*z/(K*a + K*x) + K*r*x/(K*a + K*x) + m*r/(a + x) + q1*y + q2*z - r*x/(a + x), 0, 0], [0, 0, 0], [0, 0, 0]])",
+      "residual_simplified": "Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])",
+      "assumptions": "identity holds for all (x,y,z); at an equilibrium F=0 so J = diag(x*) DF"
+    },
+    {
+      "name": "DA-01 beta/kappa/L3 invariant under left positive diagonal scaling (generic 3x3)",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0], [0], [0], [0], [0]])",
+      "residual_simplified": "Matrix([[0], [0], [0], [0], [0]])",
+      "assumptions": "E = diag(E1,E2,E3) > 0"
+    },
+    {
+      "name": "DA-01 orbit equivalence {D J(x*)} = {E B}",
+      "status": "LOGIC_VERIFIED",
+      "argument": "D -> D diag(x*) is a bijection of the positive diagonal cone (inverse D -> D diag(x*)^-1); hence the spectra sets coincide and F_alpha / D_H membership of J and B are equivalent.",
+      "assumptions": "x* >> 0"
+    },
+    {
+      "name": "DA-02 reduced matrix B (two-consumer)",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])",
+      "residual_simplified": "Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])",
+      "assumptions": "s := -g_DA'(x*)"
+    },
+    {
+      "name": "DA-02 p = (s, c11, c22)",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0], [0], [0]])",
+      "residual_simplified": "Matrix([[0], [0], [0]])",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 m12 = s c11 + e1 q1^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 m13 = s c22 + e2 q2^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 m23 = c11 c22 - c12 c21",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 beta12 = 1 + e1 q1^2/(s c11)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 beta13 = 1 + e2 q2^2/(s c22)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 beta23 = 1 - c12 c21/(c11 c22)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 L3 = q1 q2 (c12 e2 + c21 e1)/(s c11 c22)  (C-13 convention L3 = (a12 a23 a31 + a13 a32 a21)/(p1 p2 p3))",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 L3 > 0",
+      "status": "SIGN_VERIFIED",
+      "expression": "q1*q2*(c12*e2 + c21*e1)/(c11*c22*s)",
+      "claimed_sign": "+",
+      "assumptions": "all parameters positive"
+    },
+    {
+      "name": "DA-02 kappa = beta12 + beta13 + beta23 - 2 - L3",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-02 T1 - kappa = 2 + L3 + 2(sqrt(b12 b13)+sqrt(b12 b23)+sqrt(b13 b23))",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": "beta_ij > 0 (needs only the order-two minors positive), L3 >= 0"
+    },
+    {
+      "name": "DA-02 no-go minimal hypotheses",
+      "status": "LOGIC_VERIFIED",
+      "argument": "T1 - kappa = 2 + L3 + 2 sum sqrt(beta_i beta_j) > 0 for every beta > 0 and L3 >= 0; L3 >= 0 holds for all positive parameters including c12 = 0 or c21 = 0 (then L3 may be 0), and beta23 -> 0+ is harmless (T1 - kappa >= 2). Strict-P is only needed to invoke Cain's (alpha=1) classification; kappa < T1 itself holds on the whole positive-beta set.",
+      "assumptions": "q1,q2,e1,e2,s,c11,c22 > 0; c12,c21 >= 0"
+    },
+    {
+      "name": "DA-03 reduced matrix B (IGP)",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])",
+      "residual_simplified": "Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])",
+      "assumptions": "s := -g_DA'(X)"
+    },
+    {
+      "name": "DA-03 m12 = s c1 + e1 q1^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 m13 = s c2 + e2 q2^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 m23 = c1 c2 + e3 h^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 q = -det B",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 beta12 = 1 + e1 q1^2/(s c1)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 beta13 = 1 + e2 q2^2/(s c2)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 beta23 = 1 + e3 h^2/(c1 c2)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 kappa = sum beta - 2 + h q1 q2 (e1 e3 - e2)/(s c1 c2)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 L3 = h q1 q2 (e2 - e1 e3)/(s c1 c2)  (C-13 convention)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 kappa = sum beta - 2 - L3",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-03 oriented cycles: a12 a23 a31 = +e2 q1 q2 h, a13 a32 a21 = -e1 e3 q1 q2 h",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0], [0]])",
+      "residual_simplified": "Matrix([[0], [0]])",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-04 strict-P analysis",
+      "status": "LOGIC_VERIFIED",
+      "p": [
+        "s",
+        "c1",
+        "c2"
+      ],
+      "m": [
+        "c1*s + e1*q1**2",
+        "c2*s + e2*q2**2",
+        "c1*c2 + e3*h**2"
+      ],
+      "q": "c1*c2*s + c1*e2*q2**2 + c2*e1*q1**2 + e1*e3*h*q1*q2 - e2*h*q1*q2 + e3*h**2*s",
+      "argument": "p_i = (s, c1, c2) > 0 iff s > 0; m12, m13, m23 are sums of positive terms once s > 0; q = s(c1c2+e3h^2) + c1 e2 q2^2 + c2 e1 q1^2 + h q1 q2 (e1 e3 - e2). If e1 e3 >= e2 every term is positive, so e1 e3 > e2 is SUFFICIENT, NOT NECESSARY: the exact strict-P condition is s > 0 and q > 0, i.e. h q1 q2 (e2 - e1 e3) < s(c1c2+e3h^2) + c1 e2 q2^2 + c2 e1 q1^2. A transparent sufficient condition weaker than e1e3>e2 follows from AM-GM: c1 e2 q2^2 + c2 e1 q1^2 >= 2 q1 q2 sqrt(c1 c2 e1 e2), hence q > 0 whenever h (e2 - e1 e3) <= 2 sqrt(c1 c2 e1 e2).",
+      "assumptions": "all biological parameters positive"
+    },
+    {
+      "name": "DA-04 AM-GM residual c1 e2 q2^2 + c2 e1 q1^2 - 2 q1 q2 sqrt(c1 c2 e1 e2) = (sqrt(c1 e2) q2 - sqrt(c2 e1) q1)^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-05 Y(X) = [c2 A1 - h A2]/Delta",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-05 Z(X) = [e3 h A1 + c1 A2]/Delta",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-05 q1 Y + q2 Z = chi X - nu",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-05 quadratic: K(X+a)[g_DA(X) - (chi X - nu)] == -(claimed quadratic)",
+      "status": "IDENTITY",
+      "residual_raw": "K*X*c1*c2*r/(c1*c2 + e3*h**2) + K*X*e3*h**2*r/(c1*c2 + e3*h**2) - K*X*r - K*c1*c2*m*r/(c1*c2 + e3*h**2) - K*e3*h**2*m*r/(c1*c2 + e3*h**2) + K*m*r - X**2*c1*c2*r/(c1*c2 + e3*h**2) - X**2*e3*h**2*r/(c1*c2 + e3*h**2) + X**2*r + X*c1*c2*m*r/(c1*c2 + e3*h**2) + X*e3*h**2*m*r/(c1*c2 + e3*h**2) - X*m*r",
+      "residual_simplified": "0",
+      "assumptions": "multiplication by K(X+a) > 0 for X > 0 introduces no root: the polynomial at X=-a equals r(1+a/K)(-a-m) != 0"
+    },
+    {
+      "name": "DA-05 polynomial at X=-a equals -r(K+a)(a+m) != 0 (no spurious root from the multiplication)",
+      "status": "IDENTITY",
+      "residual_raw": "-K*a*c1*c2*r/(c1*c2 + e3*h**2) - K*a*e3*h**2*r/(c1*c2 + e3*h**2) + K*a*r - K*c1*c2*m*r/(c1*c2 + e3*h**2) - K*e3*h**2*m*r/(c1*c2 + e3*h**2) + K*m*r - a**2*c1*c2*r/(c1*c2 + e3*h**2) - a**2*e3*h**2*r/(c1*c2 + e3*h**2) + a**2*r - a*c1*c2*m*r/(c1*c2 + e3*h**2) - a*e3*h**2*m*r/(c1*c2 + e3*h**2) + a*m*r",
+      "residual_simplified": "0",
+      "assumptions": "",
+      "value_at_-a": "-r*(K + a)*(a + m)"
+    },
+    {
+      "name": "DA-06 tau - 1/tau = rho",
+      "status": "IDENTITY",
+      "residual_raw": "sqrt(4 + R**2/(A*B0*C))/2 - 1/(sqrt(4 + R**2/(A*B0*C))/2 + R/(2*sqrt(A)*sqrt(B0)*sqrt(C))) - R/(2*sqrt(A)*sqrt(B0)*sqrt(C))",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-06 beta12 - 1 = A",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-06 beta13 - 1 = B0",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-06 beta23 - 1 = C",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-06 determinant residual h q1 q2 (e1 e3 - e2)/(s c1 c2) = R",
+      "status": "IDENTITY",
+      "residual_raw": "sqrt(A)*sqrt(B0)*sqrt(C)*sqrt(4 + R**2/(A*B0*C))/2 - sqrt(A)*sqrt(B0)*sqrt(C)*sqrt(4 + R**2/(A*B0*C))/(2 + R**2/(A*B0*C) + R*sqrt(4 + R**2/(A*B0*C))/(sqrt(A)*sqrt(B0)*sqrt(C))) - R/2 - R/(2 + R**2/(A*B0*C) + R*sqrt(4 + R**2/(A*B0*C))/(sqrt(A)*sqrt(B0)*sqrt(C)))",
+      "residual_simplified": "0",
+      "assumptions": "A,B0,C,R,s,c1,c2 > 0, 0 < eta"
+    },
+    {
+      "name": "DA-06 e1 e3 / e2 = tau^2 > 1",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-06 positivity / efficiencies",
+      "status": "LOGIC_VERIFIED",
+      "argument": "tau > 1 for rho > 0 (tau = (rho + sqrt(rho^2+4))/2 > (0+2)/2 = 1); e1=e3=eta in (0,1), e2 = eta^2/tau^2 in (0, eta^2) subset (0,1); q1,q2,h are square roots of positive numbers; q = kappa s c1 c2 > 0 automatically since kappa > sum beta - 2 > 1 > 0. As R -> 0+: rho -> 0, tau -> 1, e2 -> eta^2: no blow-up. The image of the construction is exactly {beta_ij > 1, kappa > sum beta - 2}, an open 4-dimensional set; the IGP architecture cannot realize beta23 <= 1 (beta23 = 1 + e3 h^2/(c1 c2) > 1) nor beta12, beta13 <= 1.",
+      "assumptions": "target beta_ij > 1, kappa > sum beta - 2"
+    },
+    {
+      "name": "DA-06 Jacobian rank of (beta12,beta13,beta23,kappa) w.r.t. (q1,q2,h,e2) at a rational point",
+      "status": "RANK_4",
+      "det": "-756718368/125",
+      "symbolic_det": "-4*e1*e3*h**2*q1**2*q2**2*(e1*e3 + e2)/(c1**3*c2**3*s**3)",
+      "point": {
+        "s": "1/20",
+        "c1": "1/20",
+        "c2": "1/20",
+        "e1": "1/2",
+        "e3": "1/2",
+        "q1": "7/100",
+        "q2": "7/5",
+        "h": "7/100",
+        "e2": "1/800"
+      }
+    },
+    {
+      "name": "DA-07 g_DA(X) = Q with r = Q(X+a)/[(1-X/K)(X-m)]",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": "0 < m < X < K"
+    },
+    {
+      "name": "DA-07 g_DA'(X) = -Q H_A",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-07 g_DA'(x) = g_DA(x)[-1/(K-x)+1/(x-m)-1/(x+a)] (logarithmic derivative)",
+      "status": "IDENTITY",
+      "residual_raw": "-m*r*x/(-K*a*m + K*a*x - K*m*x + K*x**2) + m*r*x/(K**2*a + K**2*x - K*a*x - K*x**2) + m*r/(-a*m + a*x - m*x + x**2) - m*r/(K*a + K*x - a*x - x**2) + m*r/(K*a + K*x) + r*x**2/(-K*a*m + K*a*x - K*m*x + K*x**2) - r*x**2/(K**2*a + K**2*x - K*a*x - K*x**2) - r*x/(-a*m + a*x - m*x + x**2) + r*x/(K*a + K*x - a*x - x**2) - 2*r*x/(K*a + K*x) + r/(a + x)",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-07 all three equilibrium equations vanish",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0], [0], [0]])",
+      "residual_simplified": "Matrix([[0], [0], [0]])",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-07 H_A*(K-X) -> 1 as K -> X+",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-07 r -> s X (X+a)/(X-m) as K -> X+ (finite, positive)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": "Q = s/H_A"
+    },
+    {
+      "name": "DA-07 quantified feasibility",
+      "status": "LOGIC_VERIFIED",
+      "argument": "H_A > 0 iff K - X < (X-m)(X+a)/(m+a) (from 1/(K-X) > (m+a)/((X-m)(X+a))); Q = s/H_A is continuous and decreasing to 0 as K -> X+; mu1 > 0 iff Q < e1 q1 X / (xi c1/q1 + (1-xi) h/q2); mu2 > 0 iff Q (1-xi) c2/q2 < e2 q2 X + e3 h xi Q/q1, i.e. always if (1-xi)c2/q2 <= e3 h xi/q1, else Q < e2 q2 X / ((1-xi)c2/q2 - e3 h xi/q1). Hence an explicit interval X < K < K_max(s, X, m, a, ...) makes every parameter positive; r stays bounded (limit s X (X+a)/(X-m)); nothing blows up.",
+      "assumptions": "s > 0, 0 < m < X, a > 0, xi in (0,1)"
+    },
+    {
+      "name": "DA-09 d/dm g_DA(X;m) = -g_DA/(X-m)",
+      "status": "IDENTITY",
+      "residual_raw": "1/(m - X(m)) + 1/(-m + X(m))",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-09 dX/dm = -Q/[(X-m)(s+chi)]",
+      "status": "IDENTITY",
+      "residual_raw": "Q/(chi*m - chi*X(m) + m*s - s*X(m)) + Q/(-chi*m + chi*X(m) - m*s + s*X(m))",
+      "residual_simplified": "0",
+      "assumptions": "F_X = g' - chi = -(s+chi) != 0"
+    },
+    {
+      "name": "DA-09 dH_A/dX = 1/(K-X)^2 + 1/(X-m)^2 - 1/(X+a)^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-09 dH_A/dm = -1/(X-m)^2",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-09 1/(X-m)^2 - 1/(X+a)^2 = (m+a)(2X+a-m)/((X-m)^2 (X+a)^2)",
+      "status": "IDENTITY",
+      "residual_raw": "-2*X*a/(X**4 + 2*X**3*a - 2*X**3*m + X**2*a**2 - 4*X**2*a*m + X**2*m**2 - 2*X*a**2*m + 2*X*a*m**2 + a**2*m**2) - 2*X*m/(X**4 + 2*X**3*a - 2*X**3*m + X**2*a**2 - 4*X**2*a*m + X**2*m**2 - 2*X*a**2*m + 2*X*a*m**2 + a**2*m**2) - a**2/(X**4 + 2*X**3*a - 2*X**3*m + X**2*a**2 - 4*X**2*a*m + X**2*m**2 - 2*X*a**2*m + 2*X*a*m**2 + a**2*m**2) + m**2/(X**4 + 2*X**3*a - 2*X**3*m + X**2*a**2 - 4*X**2*a*m + X**2*m**2 - 2*X*a**2*m + 2*X*a*m**2 + a**2*m**2) + 1/(X**2 - 2*X*m + m**2) - 1/(X**2 + 2*X*a + a**2)",
+      "residual_simplified": "0",
+      "assumptions": "X > m: both factors positive"
+    },
+    {
+      "name": "DA-09 ds/dm sign",
+      "status": "LOGIC_VERIFIED",
+      "expression": "ds/dm = chi X' H_A + Q[(dH_A/dX) X' - 1/(X-m)^2]",
+      "argument": "With Q > 0 (positive predation at coexistence), s = Q H_A > 0 => H_A > 0; chi > 0 (true when e1 e3 >= e2; more generally chi Delta = e1 c2 q1^2 + e2 c1 q2^2 + h q1 q2(e1e3-e2)); then s + chi > 0 => X' = dX/dm < 0; dH_A/dX > 0 (m > -a, automatic for m > 0); so every term is negative: chi X' H_A < 0, Q dH_A/dX X' < 0, -Q/(X-m)^2 < 0. Minimal assumptions: Q>0, s>0, chi>0, X>m>-a. If chi <= 0 the sign of X' and of the first term is not controlled: e1e3>e2 (or chi>0) is genuinely used.",
+      "assumptions": "Q>0, s>0, chi>0, 0<m<X<K, a>0"
+    },
+    {
+      "name": "DA-10 path invariants: beta12=1+A0 t etc. from B with t=1/s",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0], [0], [0], [0]])",
+      "residual_simplified": "Matrix([[0], [0], [0], [0]])",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-10 G1(t) = kappa(t) - T1(beta(t)) closed form",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-10 G1(0) = -4 - 4 sqrt(C0) < 0 (independent of E0)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-10 2 p p'' - p'^2 = -(A0-B0)^2 for p=(1+A0 t)(1+B0 t)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-10 G1''(t) = (A0-B0)^2/(2 p^{3/2}) + sqrt(C0)[A0^2/(2(1+A0t)^{3/2}) + B0^2/(2(1+B0t)^{3/2})] > 0",
+      "status": "IDENTITY",
+      "residual_raw": "A0**2*sqrt(A0*t + 1)/(2*A0*t*sqrt(A0*t + 1) + 2*sqrt(A0*t + 1)) + A0**2*sqrt(B0*t + 1)/(2*A0*t*sqrt(A0*t + 1) + 2*sqrt(A0*t + 1)) - A0**2/(2*A0*B0*t**2*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*A0*t*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*B0*t*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*sqrt(A0*t + 1)*sqrt(B0*t + 1)) - A0**2/(2*A0*t + 2) + 2*A0*B0/(2*A0*B0*t**2*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*A0*t*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*B0*t*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*sqrt(A0*t + 1)*sqrt(B0*t + 1)) - A0*B0/(sqrt(A0*t + 1)*sqrt(B0*t + 1)) + B0**2*sqrt(A0*t + 1)/(2*B0*t*sqrt(B0*t + 1) + 2*sqrt(B0*t + 1)) + B0**2*sqrt(B0*t + 1)/(2*B0*t*sqrt(B0*t + 1) + 2*sqrt(B0*t + 1)) - B0**2/(2*A0*B0*t**2*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*A0*t*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*B0*t*sqrt(A0*t + 1)*sqrt(B0*t + 1) + 2*sqrt(A0*t + 1)*sqrt(B0*t + 1)) - B0**2/(2*B0*t + 2)",
+      "residual_simplified": "0",
+      "assumptions": "manifestly positive: strict convexity for every A0,B0,C0,E0 > 0"
+    },
+    {
+      "name": "DA-10 lim G1(t)/t = E0 - 2 sqrt(A0 B0)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-10 root existence/uniqueness/transversality",
+      "status": "LOGIC_VERIFIED",
+      "argument": "G1 strictly convex, G1(0) < 0. If E0 > 2 sqrt(A0 B0): G1 -> +oo, so exactly one root t_H > 0. Transversality is automatic: convexity gives G1'(t_H) >= (G1(t_H) - G1(0))/t_H = (4 + 4 sqrt(C0))/t_H > 0, so G1'(t_H) cannot vanish. If E0 <= 2 sqrt(A0 B0): G1 < 0 for all t (G1 ~ (E0-2sqrt(A0B0)) t - 2 sqrt(C0)(sqrt A0 + sqrt B0) sqrt t -> -oo or stays negative by convexity), so no crossing: the condition E0 > 2 sqrt(A0 B0) is necessary and sufficient for a crossing.",
+      "assumptions": "A0, B0, C0 > 0, E0 > 0"
+    },
+    {
+      "name": "DA-11 G1(t0) = 0 with the prescribed E0",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-11 E0 - 2 sqrt(A0 B0) = [2 + 2(sqrt(p(t0)) - sqrt(A0 B0) t0) + 2 sqrt(C0)(...)]/t0 with sqrt(p) > sqrt(A0B0) t0",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": "p(t0) = 1 + (A0+B0) t0 + A0 B0 t0^2 > A0 B0 t0^2, so every bracketed term is positive: E0 > 2 sqrt(A0 B0)"
+    },
+    {
+      "name": "DA-12 B2 = [[g_DA'(X), -q],[p, 0]]",
+      "status": "IDENTITY",
+      "residual_raw": "Matrix([[0, 0], [0, 0]])",
+      "residual_simplified": "Matrix([[0, 0], [0, 0]])",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-12 det B2 = p q",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-12 X = d/p",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-12 m_c = X - (K-X)(X+a)/(K+a)",
+      "status": "IDENTITY",
+      "residual_raw": "K*X/(K + a) + X*a/(K + a) - X",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-12 m_c = (X^2 + 2aX - Ka)/(K+a)",
+      "status": "IDENTITY",
+      "residual_raw": "0",
+      "residual_simplified": "0",
+      "assumptions": ""
+    },
+    {
+      "name": "DA-12 C-07 classification of B2",
+      "status": "LOGIC_VERIFIED",
+      "argument": "C-07: B2 in F_alpha^(2) iff det > 0 (= pq, true), a11 = g'(X) <= 0, a22 = 0 <= 0. Classical 2x2 D-stability iff det > 0, a11,a22 <= 0 and a11 + a22 < 0, i.e. g'(X) < 0. Difference set: g'(X) = 0 (then B2 = [[0,-q],[p,0]] has eigenvalues +-i sqrt(pq), |arg| = pi/2 > alpha pi/2). Admissibility of m_c: m_c < X iff (K-X)(X+a) > 0 (true); m_c > 0 iff X^2 + 2aX > Ka.",
+      "assumptions": "p, q, d > 0, X = d/p in (m, K)"
+    }
+  ],
+  "summary": {
+    "n": 71,
+    "mismatches": []
+  }
+}
