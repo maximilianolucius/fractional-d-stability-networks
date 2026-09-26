@@ -1,0 +1,64 @@
+{
+  "figure": "fig04_alpha_deformation",
+  "generated_utc": "2026-09-26T17:43:21Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig04_alpha_deformation.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig04_alpha_deformation.pdf",
+    "svg": "computations/figures/exports/svg/fig04_alpha_deformation.svg",
+    "png": "computations/figures/exports/png/fig04_alpha_deformation.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "C-14 Thm 1-2",
+    "C-15 Thm 3",
+    "C-10 \u00a76-7"
+  ],
+  "formulas": [
+    "T_alpha(beta)=T_1+C(beta)(1-alpha)+O((1-alpha)^2), C=pi(S^{5/2}/sqrt G+S^{3/2}sqrt G)",
+    "T_alpha=27/K^3+(9 sum beta-27)/K^2+O(1/K)"
+  ],
+  "parameters": {
+    "betas": {
+      "$(1,1,1)$": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "$(3,3,3)$": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "$(0.5,2,1.5)$": [
+        0.5,
+        2.0,
+        1.5
+      ]
+    },
+    "panel_b_eps": [
+      1e-06,
+      0.1
+    ],
+    "panel_c_k": [
+      1,
+      7
+    ],
+    "hp_digits": {
+      "b": 35,
+      "c": 55
+    }
+  },
+  "objects": {
+    "solid/dashdot/dotted blue": "EXACT THEOREM CURVE (numerical evaluation; HP in (b),(c))",
+    "dashed orange": "CLOSED-FORM asymptotics (C-14, C-15)"
+  },
+  "data": "computations/figures/data/fig04_alpha_curves.json"
+}

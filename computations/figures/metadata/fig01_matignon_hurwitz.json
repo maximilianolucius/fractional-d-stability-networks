@@ -1,0 +1,38 @@
+{
+  "figure": "fig01_matignon_hurwitz",
+  "generated_utc": "2026-09-26T17:36:27Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig01_matignon_hurwitz.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig01_matignon_hurwitz.pdf",
+    "svg": "computations/figures/exports/svg/fig01_matignon_hurwitz.svg",
+    "png": "computations/figures/exports/png/fig01_matignon_hurwitz.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "C-01 (Matignon, imported)",
+    "C-02",
+    "C-04 definition of F_alpha"
+  ],
+  "formulas": [
+    "Sigma_alpha = {z != 0 : |arg z| > alpha pi/2}",
+    "Hurwitz: Re z < 0"
+  ],
+  "parameters": {
+    "panel_a_alpha_for_drawing": 0.75,
+    "panel_b_alpha": 0.9
+  },
+  "objects": {
+    "Matignon rays": "EXACT THEOREM CURVE",
+    "Hurwitz half-plane": "EXACT THEOREM CURVE",
+    "shaded regions": "SCHEMATIC (exact sectors)"
+  },
+  "notes": "The sector drawn in (a) uses alpha=0.75 only to render a generic angle; no numerical approximation involved."
+}

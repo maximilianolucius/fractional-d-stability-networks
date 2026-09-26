@@ -1,0 +1,43 @@
+{
+  "figure": "fig02_dimension_contrast",
+  "generated_utc": "2026-09-26T17:33:49Z",
+  "git_sha": "6ba5ddd3f8f5759b42d240d795ff2519b20c95a4",
+  "script": "computations/figures/scripts/fig02_dimension_contrast.py",
+  "outputs": {
+    "pdf": "computations/figures/exports/pdf/fig02_dimension_contrast.pdf",
+    "svg": "computations/figures/exports/svg/fig02_dimension_contrast.svg",
+    "png": "computations/figures/exports/png/fig02_dimension_contrast.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "C-07",
+    "C-09",
+    "C-10 (symmetric slice)",
+    "C-15 Cor. 1"
+  ],
+  "formulas": [
+    "2x2: F_alpha iff det>0, a11<=0, a22<=0 (C-07); D_H iff additionally a11+a22<0",
+    "T_1(b,b,b)=9b",
+    "T_alpha(b,b,b)=27 h_alpha(b/3)"
+  ],
+  "parameters": {
+    "alpha": 0.9,
+    "b_range": [
+      0.1,
+      10
+    ]
+  },
+  "objects": {
+    "a11=0 line": "EXACT THEOREM CURVE",
+    "T_1 curve": "CLOSED-FORM BOUNDARY",
+    "T_alpha curve": "CLOSED-FORM BOUNDARY (27 h_alpha(b/3), C-15)"
+  },
+  "data": "computations/figures/data/fig02_symmetric_slice.csv"
+}
