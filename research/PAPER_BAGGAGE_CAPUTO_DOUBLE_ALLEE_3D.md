@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-26  
 **Chief decision:** ADOPTED FOR THE PAPER  
-**Canonical branch:** \`chief/double-allee-submission-gate-20260926\`
+**Canonical branch:** \`chief/manuscript-prep-20260926\`
 
 ## 1. Canonical ecological model
 
@@ -241,32 +241,74 @@ For spectral validation over positive diagonals, use scale-invariant objectives:
 
 Do not optimize the raw spectral abscissa over an unnormalized positive diagonal cone.
 
-## 8. Preferred numerical anchors
+## 8. Canonical numerical witness
 
-Keep the exact boundary point
+The manuscript's primary ecological witness is **W2-A** at
 
-\[
-m_0=0.20
-\]
+[
+alpha=0.9,qquad m=0.511.
+]
 
-as the symbolic Cain-crossing anchor.
+The coexistence point is
 
-Use a deeper interior point approximately
+[
+(X,Y,Z)approx(1, 0.785633, 0.192182),
+]
 
-\[
-m\in[0.30,0.40]
-\]
+with
 
-for the main fractional-only figure/table, after final recertification.
+[
+eta=(4.79,4.506,5.607),
+qquad
+kappa=62.735,
+]
 
-Reason:
-- larger distance from the classical boundary;
-- visually clearer robust effect;
-- less appearance of fine tuning.
+[
+T_1approx44.6124,
+qquad
+T_{0.9}approx94.5719.
+]
+
+Certified margins:
+
+[
+kappa-T_1ge18.1226,
+]
+
+[
+T_{0.9}-kappage31.8369.
+]
+
+The exact classical crossing along the fixed-model (m)-branch occurs at
+
+[
+m_0
+=
+0.37445128124251493523908034461904384927176466921467ldots
+]
+
+and the interval
+
+[
+min[0.394,0.578]
+]
+
+is fully interval-certified fractional-only for the W2-A design.
+
+The older Wave-1 witness at (m=0.35) remains archived as a valid backup but is no longer the preferred manuscript realization.
+
+Why W2-A is preferred:
+- coexistence scale ratio improves from about 780 to 5.2;
+- relative classical margin increases to about 41%;
+- relative fractional margin remains about 34%;
+- the crossing remains unique/transverse;
+- the certified interval remains nontrivial.
+
+This is a constructive witness, not an empirically calibrated ecosystem.
 
 ## 9. Figure burden for the ecological block
 
-The ecological realization should justify approximately three compact figure environments:
+The ecological realization should occupy approximately three of the final six figure environments:
 
 1. **Motif/no-go versus IGP mechanism**
    - failed competitive architecture;
@@ -274,15 +316,16 @@ The ecological realization should justify approximately three compact figure env
    - signed 3-cycle direction.
 
 2. **Invariant-space Allee path**
-   - \(m\mapsto(\beta,\kappa)\);
+   - (mmapsto(eta,kappa));
    - Cain boundary;
    - Matignon boundary;
-   - exact crossing \(m_0\).
+   - exact crossing (m_0).
 
-3. **Certified biological realization**
-   - representative coexistence point / parameter interval;
-   - optional time-domain corroboration;
-   - clear label that numerics are not theorem evidence.
+3. **Certified realization + exact 2D/3D contrast**
+   - exact 2D codimension-one curve;
+   - traced 3D biological slice;
+   - certified margins;
+   - scale-invariant spectral corroboration.
 
 Avoid generic chaos/bifurcation galleries unless a theorem specifically requires them.
 
