@@ -20,6 +20,9 @@ jobs:
 
       - name: Compile Mathematics/MDPI manuscript
         uses: xu-cheng/latex-action@v3
+        env:
+          TEXINPUTS: ".:../reference-paper//:"
+          BSTINPUTS: ".:../reference-paper/Definitions//:"
         with:
           root_file: main.tex
           working_directory: paper
