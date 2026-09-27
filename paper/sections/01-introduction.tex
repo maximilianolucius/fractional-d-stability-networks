@@ -1,2 +1,96 @@
-\section{Introduction}
-The central question is not whether fractional order changes the stability of one ecological model, but how fractional memory interacts with the directed interaction graph and with positive diagonal rescalings across a class of ecological networks. The target contribution is a structural theory linking topology, spectral geometry, and regions of purely fractional stabilization.
+\section{Introduction}\label{sec:introduction}
+
+Stability under a single Jacobian is often too weak a robustness requirement. In matrix \(D\)-stability one asks instead whether the spectrum remains in a prescribed stability region after \emph{every} positive diagonal left scaling. For the classical Hurwitz half-plane this problem has a long history, with exact low-dimensional results, interior and strong-\(D\)-stability theory, and structural criteria based on principal minors and feedback cycles \cite{Cain1976,BahlCain1977,Hartfiel1980,Cain1984,Abed1986,LeeEdgar2001,Kushel2019}. The question addressed here is what becomes of this all-diagonal robustness requirement when the underlying dynamics are commensurate fractional-order systems.
+
+For a Caputo system of order \(0<\alpha<1\), asymptotic stability of the linearization is governed by the Matignon sector rather than the open left half-plane: every eigenvalue must satisfy
+\[
+ |\arg \lambda|>\frac{\alpha\pi}{2}.
+\]
+We use the original proceedings formulation together with a modern published treatment of Caputo stability \cite{Matignon1996,BrandiburGarrappaKaslik2021}. For \(\alpha<1\), the Matignon region strictly contains the left half-plane, so an equilibrium may be fractionally stable even when a conjugate pair has positive real part. This familiar fixed-matrix phenomenon is not our novelty; it is the geometric reason a fractional analogue of multiplicative \(D\)-stability can differ from the classical one.
+
+Generalized matrix stability with respect to spectral regions and multiplier classes is already established. In particular, Kushel's unifying framework includes multiplicative positive-diagonal actions, and Kushel and Pavani give forbidden-boundary criteria for generalized \(D\)-stability in unbounded LMI regions, including conic sectors and their complements \cite{Kushel2019,KushelPavaniJDDE,KushelPavani2021,Kushel2023}. Thus the problem considered here is \emph{not} the first necessary-and-sufficient formulation of generalized \(D\)-stability. Our contribution is lower-dimensional and explicit: for real \(3\times3\) matrices on the full-dimensional strict-\(P(-A)\) stratum, we eliminate the entire positive-diagonal multiplier orbit and reduce the Matignon condition to a scalar threshold in four invariant coordinates.
+
+The classical endpoint of this construction is equally important. Cain's exact criterion for real \(3\times3\) \(D\)-stable matrices already shows that principal minors, homogeneity in the diagonal multiplier, and an exact minimization over the multiplier orbit are classical ingredients \cite{Cain1976}. The present threshold should therefore be read as a fractional deformation of Cain's boundary, not as an unrelated sufficient test. Other adjacent theories are also occupied: P-matrix eigenvalue wedges \cite{Kellogg1972}, fixed-polynomial fractional Routh--Hurwitz criteria \cite{CermakNechvatal2017,BourafaAbdelouahabMoussaoui2020}, forbidden-sector polynomial results \cite{HoltzKhrushchevKushel2016,JoyaFuruta1991}, and structured cyclic fractional-network conditions \cite{Siami2021}. The exact arbitrary-\(\beta\) all-diagonal threshold derived below is not implied by any of these results.
+
+The geometric distinction is summarized in Figure~\ref{fig:matignon}. Classical Hurwitz stability occupies the left half-plane, whereas the Matignon condition permits a right-half-plane sliver whenever \(\alpha<1\). Our object is the much stronger requirement that \emph{every} positive diagonal scaling of a real matrix remain in that sector.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{fig01_matignon_hurwitz.pdf}
+\caption{Hurwitz versus Matignon spectral geometry. The orange region is the classical left half-plane and the blue rays are the exact Matignon boundary. For \(\alpha<1\), the blue sector admits eigenvalues with positive real part. The figure visualizes the fixed-spectrum geometry only; the theorems below impose the condition uniformly over every positive diagonal left scaling.}
+\label{fig:matignon}
+\end{figure}
+
+The first structural result is dimensional. In dimension two we obtain the exact classification
+\[
+ A\in\mathcal F_\alpha^{(2)}
+ \iff
+ \det A>0,\qquad a_{11}\le0,\qquad a_{22}\le0,
+\]
+and the genuinely fractional difference from classical \(D\)-stability lies only on a codimension-two diagonal-equality set. Hence it has empty full-dimensional interior. In dimension three the situation changes qualitatively. On the strict-\(P(-A)\) stratum, four normalized principal-minor invariants
+\[
+ (\beta_{12},\beta_{13},\beta_{23},\kappa)
+\]
+encode the positive-diagonal orbit. For \(2/3<\alpha<1\) we prove
+\[
+ A\in\mathcal F_\alpha^{(3)}
+ \iff
+ \kappa<T_\alpha(\beta),
+\]
+where \(T_\alpha\) is an exact two-dimensional simplex minimum. At \(\alpha=1\),
+\[
+ T_1(\beta)
+ =
+ \left(
+ \sqrt{\beta_{12}}+
+ \sqrt{\beta_{13}}+
+ \sqrt{\beta_{23}}
+ \right)^2,
+\]
+which is Cain's classical boundary. For every \(2/3<\alpha<1\),
+\[
+ T_\alpha(\beta)>T_1(\beta),
+\]
+so
+\[
+ T_1(\beta)<\kappa<T_\alpha(\beta)
+\]
+is an open, genuinely fractional, all-positive-diagonal stability band. For \(0<\alpha\le2/3\), Kellogg's P-matrix wedge gives the complementary low-order characterization. Together with the exact two-dimensional obstruction, this yields
+\[
+ \min\left\{
+ n:
+ \operatorname{int}
+ \left(
+ \mathcal F_\alpha^{(n)}
+ \setminus
+ \mathcal D_H^{(n)}
+ \right)
+ \ne\varnothing
+ \right\}=3
+ \qquad
+ \forall\,0<\alpha<1.
+\]
+
+The threshold is not merely an implicit minimum. We prove that its logarithm is globally strictly convex in logit coordinates on the simplex, giving a unique nondegenerate optimizer and smooth parameter dependence. The threshold decreases strictly with \(\alpha\), approaches Cain's surface linearly as \(\alpha\to1^{-}\), and has an explicit low-order asymptotic as \(\alpha\downarrow2/3^{+}\). The cyclic condition of Siami appears as the fully symmetric slice \(\beta_{12}=\beta_{13}=\beta_{23}=1\), rather than as the general case \cite{Siami2021}.
+
+The second half of the paper asks whether the exact difference band is only an abstract matrix phenomenon. We answer this by constructing a nonlinear ecological realization. Classical \(D\)-stability and diagonal-stability concepts are established in ecological robustness theory \cite{HouBaigent2015,ChenWangLiu2024,Kinkhabwala2015,ClarkHallam1982}. Intraguild predation (IGP) is also a standard three-species food-web module \cite{HoltPolis1997,BaiKangRuanWang2021}, and fractional IGP models already exist \cite{Panja2019}. Likewise, strong/double Allee effects and fractional predator--prey models with Allee mechanisms are well developed \cite{ChaosSolitonsFractals2015DoubleAllee,FractalFract2026DoubleAllee,Tassaddiq2026,Mondal2025,Ramesh2025}. We therefore claim no novelty for Caputo ecology, IGP, double-Allee growth, or ordinary Matignon analysis of a fixed ecological Jacobian.
+
+The ecological contribution is instead an exact realization theorem. We first prove that the most natural double-Allee prey with two competing consumers is structurally incapable of entering the open fractional-only band: its directed three-cycle contribution has the wrong sign and forces \(\kappa<T_1(\beta)\) throughout the strict-\(P\) region. Replacing inter-consumer competition by an IGP/omnivory link reverses one directed three-cycle and creates a four-dimensional open invariant family. We then embed any required positive prey self-slope into a double-Allee growth law at a positive coexistence equilibrium, proving that for every fixed \(0<\alpha<1\) there is a nonempty open set in the full biological parameter space for which
+\[
+ J\in\mathcal F_\alpha^{(3)}
+ \setminus
+ \mathcal D_H^{(3)}.
+\]
+Finally, the Allee threshold itself becomes a control coordinate: along the positive strict-\(P\) coexistence branch, increasing the threshold decreases both the prey equilibrium \(X\) and its effective restoring slope \(s=-g'_{\rm DA}(X)\), so \(t=1/s\) increases monotonically. The resulting invariant path crosses Cain's boundary at most once and, when tuned to cross, does so transversally. Thus varying only the Allee threshold can carry one fixed biological system from classical \(D\)-stability into the fractional-only all-diagonal Matignon region.
+
+The contributions can be summarized as follows:
+\begin{enumerate}
+\item an exact two-dimensional obstruction and the minimum-dimension theorem for nonempty full-dimensional genuinely fractional multiplicative-\(D\)-stability;
+\item an exact real \(3\times3\) four-invariant characterization of positive-diagonal Matignon stability, recovering Cain at \(\alpha=1\);
+\item strict convexity, uniqueness and asymptotic geometry of the threshold \(T_\alpha\);
+\item a structural no-go theorem for a natural competing-consumer double-Allee architecture;
+\item a constructive IGP realization of an open four-invariant family and an open biological fractional-only region for every \(0<\alpha<1\);
+\item a rigorous Allee-threshold mechanism that crosses the exact classical Cain boundary while all other biological parameters remain fixed.
+\end{enumerate}
+
+The paper is organized accordingly. Section~\ref{sec:framework} introduces the positive-diagonal Matignon framework and the simplex normalization. Section~\ref{sec:two} treats dimension two. Sections~\ref{sec:three} and \ref{sec:geometry} give the exact three-dimensional characterization and threshold geometry. Section~\ref{sec:ecology} develops the ecological no-go, realization and Allee crossing. Section~\ref{sec:certified} records a certified interior realization, and Section~\ref{sec:discussion} discusses interpretation, limitations and higher-dimensional directions.
