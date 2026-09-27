@@ -1,0 +1,661 @@
+\section{A Nonlinear Caputo Double-Allee Ecological Realization}\label{sec:ecology}
+
+We now ask whether the open matrix band in Equation~\eqref{eq:fractional-band} can be realized by a biologically standard nonlinear Kolmogorov system rather than by an abstract matrix construction. The answer depends on the interaction architecture. The first natural model fails for a structural reason; an intraguild-predation architecture removes precisely that obstruction.
+
+\subsection{Positive-Equilibrium Orbit Equivalence}
+
+Consider a commensurate Caputo Kolmogorov system
+\begin{equation}
+ {}^C D_t^\alpha x_i=x_iF_i(x),\qquad i=1,\dots,n,
+ \label{eq:kolmogorov-general}
+\end{equation}
+and let \(x^*\gg0\) be an equilibrium. Put \(B=DF(x^*)\).
+
+\begin{Lemma}[Kolmogorov orbit equivalence]\label{lem:kolmogorov-orbit}
+At a positive equilibrium,
+\begin{equation}
+ J(x^*)=\diag(x^*)B.
+ \label{eq:kolmogorov-jacobian}
+\end{equation}
+Consequently,
+\[
+ J(x^*)\in\mathcal F_\alpha^{(n)}
+ \iff
+ B\in\mathcal F_\alpha^{(n)},
+ \qquad
+ J(x^*)\in\mathcal D_H^{(n)}
+ \iff
+ B\in\mathcal D_H^{(n)}.
+\]
+\end{Lemma}
+
+\begin{proof}
+For \(G_i(x)=x_iF_i(x)\),
+\[
+ \partial_jG_i
+ =
+ \delta_{ij}F_i+x_i\partial_jF_i.
+\]
+At \(x^*\), \(F_i(x^*)=0\), which gives Equation~\eqref{eq:kolmogorov-jacobian}. Since \(D\mapsto D\diag(x^*)\) is a bijection of the positive diagonal cone onto itself, the two positive-diagonal spectral orbits coincide.
+\end{proof}
+
+This factorization is standard in Kolmogorov-system stability theory and is used here only as a bridge \cite{HouBaigent2015,ChenWangLiu2024}.
+
+\subsection{A Structural No-Go for Two Competing Consumers}
+
+Begin with a double-Allee basal prey consumed by two competitors:
+\begin{align}
+ {}^CD_t^\alpha x&=x[g_{\rm DA}(x)-q_1y-q_2z],\nonumber\\
+ {}^CD_t^\alpha y&=y[e_1q_1x-\mu_1-c_{11}y-c_{12}z],\label{eq:competitive-model}\\
+ {}^CD_t^\alpha z&=z[e_2q_2x-\mu_2-c_{21}y-c_{22}z],\nonumber
+\end{align}
+with positive parameters. At a positive equilibrium let \(s=-g_{\rm DA}'(X)>0\). The reduced matrix is
+\begin{equation}
+ B_{\rm comp}
+ =
+ \begin{pmatrix}
+ -s&-q_1&-q_2\\
+ e_1q_1&-c_{11}&-c_{12}\\
+ e_2q_2&-c_{21}&-c_{22}
+ \end{pmatrix}.
+ \label{eq:Bcomp}
+\end{equation}
+On its strict-\(P\) stratum,
+\begin{align}
+ \beta_{12}&=1+\frac{e_1q_1^2}{sc_{11}},&
+ \beta_{13}&=1+\frac{e_2q_2^2}{sc_{22}},&
+ \beta_{23}&=1-\frac{c_{12}c_{21}}{c_{11}c_{22}}>0,
+ \label{eq:competitive-betas}
+\end{align}
+and the normalized directed three-cycle contribution is
+\begin{equation}
+ L_3
+ =
+ \frac{q_1q_2(c_{12}e_2+c_{21}e_1)}
+ {sc_{11}c_{22}}>0.
+ \label{eq:competitive-L3}
+\end{equation}
+The determinant identity
+\begin{equation}
+ \kappa
+ =
+ \beta_{12}+\beta_{13}+\beta_{23}-2-L_3
+ \label{eq:kappa-loop}
+\end{equation}
+then yields the following obstruction.
+
+\begin{Theorem}[competitive-architecture no-go]\label{thm:no-go}
+Every strict-\(P\) point of the model in Equation~\eqref{eq:competitive-model} is classically Hurwitz \(D\)-stable. In particular, the architecture cannot realize an open set satisfying
+\[
+ T_1(\beta)<\kappa<T_\alpha(\beta).
+\]
+\end{Theorem}
+
+\begin{proof}
+From Equations~\eqref{eq:competitive-L3}--\eqref{eq:kappa-loop},
+\[
+ \kappa
+ <
+ \beta_{12}+\beta_{13}+\beta_{23}-2
+ <
+ \beta_{12}+\beta_{13}+\beta_{23}.
+\]
+Because all \(\beta_{ij}>0\),
+\[
+ T_1(\beta)
+ =
+ \left(
+ \sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}}
+ \right)^2
+ >
+ \beta_{12}+\beta_{13}+\beta_{23}.
+\]
+Thus \(\kappa<T_1(\beta)\), which is exactly Cain's strict-\(P\) \(D\)-stability inequality.
+\end{proof}
+
+The failure is therefore architectural rather than parametric: adding more parameter search cannot reverse the sign in Equation~\eqref{eq:competitive-L3}.
+
+\subsection{Intraguild Predation and Exact Invariant Access}
+
+We replace direct competition between the consumers by intraguild predation/omnivory, a standard three-species motif \cite{HoltPolis1997,BaiKangRuanWang2021,Panja2019}:
+\begin{align}
+ {}^CD_t^\alpha x
+ &=
+ x[g_{\rm DA}(x)-q_1y-q_2z],
+ \nonumber\\
+ {}^CD_t^\alpha y
+ &=
+ y[e_1q_1x-\mu_1-c_1y-hz],
+ \label{eq:igp-model}\\
+ {}^CD_t^\alpha z
+ &=
+ z[e_2q_2x+e_3hy-\mu_2-c_2z],
+ \nonumber
+\end{align}
+where
+\begin{equation}
+ g_{\rm DA}(x)
+ =
+ \frac{r}{x+a}
+ \left(1-\frac{x}{K}\right)(x-m),
+ \qquad
+ 0<m<K,
+ \label{eq:gDA}
+\end{equation}
+and all displayed parameters are positive. Here \(x\) is the basal prey/resource, \(y\) the intermediate consumer or intraguild prey, and \(z\) the omnivorous top predator.
+
+At a positive equilibrium \((X,Y,Z)\),
+\begin{align}
+ g_{\rm DA}(X)&=q_1Y+q_2Z,\label{eq:eq1}\\
+ c_1Y+hZ&=e_1q_1X-\mu_1,\label{eq:eq2}\\
+ -e_3hY+c_2Z&=e_2q_2X-\mu_2.\label{eq:eq3}
+\end{align}
+Put
+\[
+ \Delta=c_1c_2+e_3h^2,
+ \quad
+ A_1=e_1q_1X-\mu_1,
+ \quad
+ A_2=e_2q_2X-\mu_2.
+\]
+Then
+\begin{equation}
+ Y=\frac{c_2A_1-hA_2}{\Delta},
+ \qquad
+ Z=\frac{e_3hA_1+c_1A_2}{\Delta}.
+ \label{eq:YZ}
+\end{equation}
+Moreover
+\begin{equation}
+ q_1Y+q_2Z=\chi X-\nu,
+ \label{eq:affine-predation}
+\end{equation}
+where
+\begin{equation}
+ \chi=
+ \frac{
+ e_1c_2q_1^2+e_2c_1q_2^2
+ +hq_1q_2(e_1e_3-e_2)
+ }{\Delta},
+ \label{eq:chi}
+\end{equation}
+and
+\[
+ \nu=
+ \frac{
+ \mu_1(q_1c_2+q_2e_3h)
+ +\mu_2(q_2c_1-q_1h)
+ }{\Delta}.
+\]
+Thus \(X\) satisfies the degree-at-most-two equation
+\begin{equation}
+ (r+K\chi)X^2
+ -
+ [r(K+m)-K\chi a+K\nu]X
+ +
+ rKm-K\nu a
+ =0.
+ \label{eq:Xquadratic}
+\end{equation}
+In the constructive regime used below \(e_1e_3\ge e_2\), so \(\chi>0\) and Equation~\eqref{eq:Xquadratic} is a genuine quadratic.
+
+At coexistence set
+\[
+ s=-g_{\rm DA}'(X).
+\]
+The reduced per-capita matrix is
+\begin{equation}
+ B=
+ \begin{pmatrix}
+ -s&-q_1&-q_2\\
+ e_1q_1&-c_1&-h\\
+ e_2q_2&e_3h&-c_2
+ \end{pmatrix}.
+ \label{eq:Bigp}
+\end{equation}
+Its order-two principal minors are
+\[
+ m_{12}=sc_1+e_1q_1^2,\quad
+ m_{13}=sc_2+e_2q_2^2,\quad
+ m_{23}=c_1c_2+e_3h^2,
+\]
+and a direct determinant calculation gives
+\begin{equation}
+ -\det B
+ =
+ \Delta(s+\chi).
+ \label{eq:q-delta}
+\end{equation}
+Hence the exact strict-\(P\) condition for this architecture is
+\begin{equation}
+ s>0,\qquad s+\chi>0.
+ \label{eq:igp-strictP}
+\end{equation}
+The four C-10 invariants are
+\begin{align}
+ \beta_{12}&=1+\frac{e_1q_1^2}{sc_1},&
+ \beta_{13}&=1+\frac{e_2q_2^2}{sc_2},&
+ \beta_{23}&=1+\frac{e_3h^2}{c_1c_2},
+ \label{eq:igp-betas}\\
+ \kappa
+ &=
+ \beta_{12}+\beta_{13}+\beta_{23}-2
+ +
+ \frac{hq_1q_2(e_1e_3-e_2)}{sc_1c_2}.
+ \label{eq:igp-kappa}
+\end{align}
+Equivalently,
+\begin{equation}
+ L_3
+ =
+ \frac{hq_1q_2(e_2-e_1e_3)}{sc_1c_2}.
+ \label{eq:igp-L3}
+\end{equation}
+Thus \(e_1e_3>e_2\) makes \(L_3<0\), the sign mechanism missing from the competitive architecture.
+
+Figure~\ref{fig:mechanism} displays the two motifs and the corresponding directed-cycle sign. The diagram is a theorem schematic; no numerical data enter the no-go or realization argument.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{fig05_ecological_mechanism.pdf}
+\caption{Ecological architectures and the signed three-cycle mechanism. \textbf{(a)} With two competing consumers, both oriented three-cycles contribute with the sign that makes \(L_3>0\), forcing \(\kappa<T_1\) on the strict-\(P\) stratum. \textbf{(b)} Intraguild predation reverses one cycle; when \(e_1e_3>e_2\), \(L_3<0\) and access to \(\kappa>T_1\) becomes possible.}
+\label{fig:mechanism}
+\end{figure}
+
+\begin{Theorem}[four-invariant IGP realization]\label{thm:igp-realization}
+Fix
+\[
+ \beta_{12},\beta_{13},\beta_{23}>1
+\]
+and
+\begin{equation}
+ \kappa>
+ \beta_{12}+\beta_{13}+\beta_{23}-2.
+ \label{eq:igp-target}
+\end{equation}
+Then positive IGP parameters can be chosen so that the matrix in Equation~\eqref{eq:Bigp} has exactly these four invariants. The construction may be made with
+\[
+ 0<e_1,e_2,e_3<1,
+ \qquad
+ e_1e_3>e_2.
+\]
+\end{Theorem}
+
+\begin{proof}
+Let
+\[
+ A=\beta_{12}-1,\quad
+ B_0=\beta_{13}-1,\quad
+ C=\beta_{23}-1,
+\]
+and
+\[
+ R=\kappa-(\beta_{12}+\beta_{13}+\beta_{23}-2)>0.
+\]
+Put
+\[
+ \rho=\frac{R}{\sqrt{AB_0C}},
+ \qquad
+ \tau=\frac{\rho+\sqrt{\rho^2+4}}{2}>1,
+\]
+so \(\tau-\tau^{-1}=\rho\). Choose any \(\eta\in(0,1)\) and set
+\[
+ e_1=e_3=\eta,
+ \qquad
+ e_2=\frac{\eta^2}{\tau^2}.
+\]
+For arbitrary \(s,c_1,c_2>0\), define
+\begin{equation}
+ q_1=\sqrt{\frac{Asc_1}{e_1}},
+ \qquad
+ q_2=\sqrt{\frac{B_0sc_2}{e_2}},
+ \qquad
+ h=\sqrt{\frac{Cc_1c_2}{e_3}}.
+ \label{eq:igp-right-inverse}
+\end{equation}
+Equations~\eqref{eq:igp-betas} give the prescribed \(\beta\)'s, while
+\[
+ \frac{hq_1q_2(e_1e_3-e_2)}{sc_1c_2}
+ =
+ \sqrt{AB_0C}\left(\tau-\frac1\tau\right)
+ =R.
+\]
+Equation~\eqref{eq:igp-kappa} then gives the prescribed \(\kappa\). Since \(\tau>1\), \(e_1e_3>e_2\).
+\end{proof}
+
+\subsection{Embedding the Invariants in the Double-Allee Model}
+
+The previous theorem fixes the desired local prey self-slope \(s>0\). We now realize it at a positive equilibrium of Equation~\eqref{eq:igp-model}.
+
+Fix
+\[
+ a>0,\qquad 0<m<X<K,
+\]
+and define
+\begin{equation}
+ H_A
+ =
+ \frac{1}{K-X}
+ -
+ \frac{1}{X-m}
+ +
+ \frac{1}{X+a}.
+ \label{eq:HA}
+\end{equation}
+Writing
+\[
+ C_A=\frac{m+a}{(X-m)(X+a)},
+\]
+we have \(H_A=(K-X)^{-1}-C_A\), so \(H_A>0\) precisely when
+\begin{equation}
+ X<K<
+ K_{\max}
+ :=
+ X+\frac{(X-m)(X+a)}{m+a}.
+ \label{eq:Kmax}
+\end{equation}
+Set
+\[
+ Q=\frac{s}{H_A}.
+\]
+Choose \(\xi\in(0,1)\) and prescribe
+\begin{equation}
+ Y=\frac{\xi Q}{q_1},
+ \qquad
+ Z=\frac{(1-\xi)Q}{q_2}.
+ \label{eq:YZsplit}
+\end{equation}
+Then \(q_1Y+q_2Z=Q\). Define
+\begin{align}
+ \mu_1&=e_1q_1X-c_1Y-hZ,\label{eq:mu1}\\
+ \mu_2&=e_2q_2X+e_3hY-c_2Z.\label{eq:mu2}
+\end{align}
+The first mortality is positive whenever
+\[
+ Q<Q_1:=
+ \frac{e_1q_1X}
+ {\xi c_1/q_1+(1-\xi)h/q_2}.
+\]
+If \((1-\xi)c_2/q_2-\xi e_3h/q_1>0\), the second is positive whenever
+\[
+ Q<Q_2:=
+ \frac{e_2q_2X}
+ {(1-\xi)c_2/q_2-\xi e_3h/q_1};
+\]
+otherwise \(\mu_2>0\) automatically. Let \(\bar Q=Q_1\) in the latter case and \(\bar Q=\min(Q_1,Q_2)\) in the former. It is enough to choose
+\begin{equation}
+ 0<K-X<
+ \frac{1}{C_A+s/\bar Q}.
+ \label{eq:K-close-bound}
+\end{equation}
+Finally set
+\begin{equation}
+ r=
+ \frac{Q(X+a)}
+ {(1-X/K)(X-m)}.
+ \label{eq:r-embedding}
+\end{equation}
+Then \(g_{\rm DA}(X)=Q=q_1Y+q_2Z\), while
+\[
+ g_{\rm DA}'(X)
+ =
+ Q\left[
+ -\frac1{K-X}
+ +\frac1{X-m}
+ -\frac1{X+a}
+ \right]
+ =-QH_A=-s.
+\]
+Thus the positive equilibrium has exactly the reduced matrix constructed in Theorem~\ref{thm:igp-realization}.
+
+\begin{Theorem}[open genuinely fractional biological region]\label{thm:open-ecological}
+For every fixed \(0<\alpha<1\), there exists a nonempty open set in the full positive biological parameter space of Equation~\eqref{eq:igp-model} for which a positive coexistence equilibrium on the constructed smooth branch satisfies
+\begin{equation}
+ J\in
+ \mathcal F_\alpha^{(3)}
+ \setminus
+ \mathcal D_H^{(3)}.
+ \label{eq:open-ecological-band}
+\end{equation}
+\end{Theorem}
+
+\begin{proof}
+If \(2/3<\alpha<1\), choose \(\beta\in(1,\infty)^3\) and
+\[
+ T_1(\beta)<\kappa<T_\alpha(\beta).
+\]
+Theorem~\ref{thm:igp-realization} gives an IGP reduced matrix with these invariants, and Equations~\eqref{eq:HA}--\eqref{eq:r-embedding} embed it at a positive double-Allee coexistence equilibrium. Theorem~\ref{thm:c10} gives \(B\in\mathcal F_\alpha^{(3)}\setminus\mathcal D_H^{(3)}\), and Lemma~\ref{lem:kolmogorov-orbit} transfers the statement to the actual Jacobian \(J\).
+
+If \(0<\alpha\le2/3\), choose \(\beta>1\) and any \(\kappa>T_1(\beta)\) satisfying Equation~\eqref{eq:igp-target}. The construction is strict-\(P\), so Kellogg's wedge implies \(B\in\mathcal F_\alpha^{(3)}\), while Cain's inequality fails.
+
+All feasibility and stability inequalities are strict. Moreover
+\[
+ -\det B=\kappa sc_1c_2>0,
+\]
+so the state Jacobian of the coexistence equations is nonsingular. The implicit-function theorem preserves the positive equilibrium on a smooth local branch under sufficiently small perturbations of all biological parameters, and continuity preserves the strict invariant inequalities. Hence the set is open in the full biological parameter space.
+\end{proof}
+
+\subsection{The Allee Threshold as a Monotone Invariant-Space Control}
+
+After eliminating \(Y\) and \(Z\), the coexistence equation is
+\begin{equation}
+ F(X,m)
+ :=
+ g_{\rm DA}(X;m)-\chi X+\nu=0.
+ \label{eq:scalar-equilibrium}
+\end{equation}
+Along a positive strict-\(P\) branch put
+\[
+ Q=g_{\rm DA}(X)=\chi X-\nu>0,
+ \qquad
+ s=-g_{\rm DA}'(X)>0.
+\]
+By Equation~\eqref{eq:q-delta},
+\[
+ s+\chi>0.
+\]
+Implicit differentiation gives the first exact monotonicity law:
+\begin{equation}
+ \frac{dX}{dm}
+ =
+ -\frac{Q}{(X-m)(s+\chi)}
+ <0.
+ \label{eq:dXdm}
+\end{equation}
+
+The slope \(s\) decreases as well. Set
+\[
+ d=X-m,\qquad
+ \ell=K-X,\qquad
+ w=X+a.
+\]
+Then \(H_A=\ell^{-1}-d^{-1}+w^{-1}\), and direct algebra gives
+\begin{equation}
+ \partial_XH_A-H_A^2
+ =
+ \frac{2(w-d)(\ell+w)}{d\ell w^2}>0,
+ \label{eq:H-identity}
+\end{equation}
+because \(w-d=m+a>0\). Differentiating \(s=QH_A\) along Equation~\eqref{eq:scalar-equilibrium} yields
+\begin{equation}
+ \frac{ds}{dm}
+ =
+ -\frac{Q}{d(s+\chi)}
+ \left[
+ Q\partial_XH_A+\frac{s}{d}
+ +\chi\left(H_A+\frac1d\right)
+ \right].
+ \label{eq:dsdm}
+\end{equation}
+Since strict-\(P\) gives \(\chi>-s\), the bracket is strictly larger than
+\[
+ Q\partial_XH_A+\frac{s}{d}
+ -s\left(H_A+\frac1d\right)
+ =
+ Q(\partial_XH_A-H_A^2)>0.
+\]
+Therefore
+\begin{equation}
+ \boxed{
+ \frac{dX}{dm}<0,\qquad
+ \frac{ds}{dm}<0
+ }
+ \label{eq:allee-monotonicity}
+\end{equation}
+throughout the positive strict-\(P\) coexistence stratum. No sign assumption on \(\chi\) is required.
+
+Put \(t=1/s\) and define
+\[
+ A_0=\frac{e_1q_1^2}{c_1},\quad
+ B_0=\frac{e_2q_2^2}{c_2},\quad
+ C_0=1+\frac{e_3h^2}{c_1c_2},\quad
+ E_0=\frac{hq_1q_2(e_1e_3-e_2)}{c_1c_2}.
+\]
+Then
+\begin{equation}
+ \beta_{12}=1+A_0t,\quad
+ \beta_{13}=1+B_0t,\quad
+ \beta_{23}=C_0,\quad
+ \kappa=C_0+(A_0+B_0+E_0)t,
+ \label{eq:t-path}
+\end{equation}
+and Equation~\eqref{eq:allee-monotonicity} implies \(dt/dm>0\).
+
+Along this path the classical gap is
+\begin{align}
+ G_1(t)
+ &:=
+ \kappa(t)-T_1(\beta(t))
+ \nonumber\\
+ &=
+ E_0t-2
+ -2\sqrt{(1+A_0t)(1+B_0t)}
+ \nonumber\\
+ &\quad
+ -2\sqrt{C_0}
+ \left[
+ \sqrt{1+A_0t}
+ +
+ \sqrt{1+B_0t}
+ \right].
+ \label{eq:G1}
+\end{align}
+
+\begin{Theorem}[unique transverse Cain crossing]\label{thm:crossing}
+If
+\begin{equation}
+ E_0>2\sqrt{A_0B_0},
+ \label{eq:cross-condition}
+\end{equation}
+then \(G_1\) has a unique positive zero \(t_H\). The crossing is transverse and satisfies
+\begin{equation}
+ G_1'(t_H)
+ \ge
+ \frac{4+4\sqrt{C_0}}{t_H}
+ >0.
+ \label{eq:transversality}
+\end{equation}
+Consequently, because \(t\) increases strictly with \(m\), the coexistence branch crosses the classical \(D\)-stability boundary at most once and does so transversally.
+\end{Theorem}
+
+\begin{proof}
+We have
+\[
+ G_1(0)=-4-4\sqrt{C_0}<0,
+\]
+whereas Equation~\eqref{eq:cross-condition} makes the asymptotic linear coefficient positive, so \(G_1(t)\to+\infty\). Direct differentiation shows
+\begin{align}
+ G_1''(t)
+ &=
+ \frac{(A_0-B_0)^2}
+ {2[(1+A_0t)(1+B_0t)]^{3/2}}
+ \nonumber\\
+ &\quad+
+ \sqrt{C_0}\left[
+ \frac{A_0^2}{2(1+A_0t)^{3/2}}
+ +
+ \frac{B_0^2}{2(1+B_0t)^{3/2}}
+ \right]>0.
+\end{align}
+Thus \(G_1\) is strictly convex and has exactly one positive root. Convexity gives
+\[
+ G_1'(t_H)
+ \ge
+ \frac{G_1(t_H)-G_1(0)}{t_H},
+\]
+which is Equation~\eqref{eq:transversality}.
+\end{proof}
+
+The crossing can be prescribed. For any \(t_0>0\), set
+\begin{equation}
+ E_0
+ =
+ \frac{
+ 2+2\sqrt{(1+A_0t_0)(1+B_0t_0)}
+ +2\sqrt{C_0}\left[
+ \sqrt{1+A_0t_0}+\sqrt{1+B_0t_0}
+ \right]
+ }{t_0}.
+ \label{eq:prescribed-E0}
+\end{equation}
+Then \(G_1(t_0)=0\) and Equation~\eqref{eq:cross-condition} holds. Theorem~\ref{thm:igp-realization} realizes this \(E_0\) through a joint parameter choice, and the double-Allee embedding independently sets \(s_0=1/t_0\) at a selected \(m_0\). Hence, with every non-\(m\) model parameter fixed, there exists \(\varepsilon>0\) such that
+\[
+ m_0-\varepsilon<m<m_0
+ \quad\Longrightarrow\quad
+ J\in\mathcal D_H^{(3)},
+\]
+whereas
+\begin{equation}
+ m_0<m<m_0+\varepsilon
+ \quad\Longrightarrow\quad
+ J\in
+ \mathcal F_\alpha^{(3)}
+ \setminus
+ \mathcal D_H^{(3)}.
+ \label{eq:m-transition}
+\end{equation}
+For \(\alpha>2/3\), the right-hand implication follows from \(T_\alpha>T_1\) and continuity; for \(\alpha\le2/3\), strict-\(P\) itself gives fractional \(D\)-stability.
+
+Figure~\ref{fig:m-path} visualizes this mechanism for the certified realization used in Section~\ref{sec:certified}. All non-\(m\) biological parameters are held fixed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig06_double_allee_m_path.pdf}
+\caption{The Allee threshold drives a fixed three-species community through exact invariant space at \(\alpha=0.9\). \textbf{(a)} Cain's gap \(\kappa-T_1\) changes sign once, at the exact crossing \(m_0=0.374451\ldots\), while \(T_{0.9}-\kappa\) remains positive on the displayed fractional-only branch. \textbf{(b)} The same path in an invariant slice. The curves use exact formulas; the marked anchor is interval-certified in Section~\ref{sec:certified}.}
+\label{fig:m-path}
+\end{figure}
+
+\subsection{Exact Two- versus Three-Dimensional Ecological Contrast}
+
+For comparison, consider the two-species model
+\[
+ {}^CD_t^\alpha x=x[g_{\rm DA}(x)-qy],
+ \qquad
+ {}^CD_t^\alpha y=y[px-d].
+\]
+At coexistence \(X=d/p\), the reduced matrix is
+\[
+ B_2=
+ \begin{pmatrix}
+ g_{\rm DA}'(X)&-q\\
+ p&0
+ \end{pmatrix}.
+\]
+Theorem~\ref{thm:2d} gives
+\[
+ B_2\in\mathcal F_\alpha^{(2)}
+ \iff
+ g_{\rm DA}'(X)\le0,
+\]
+whereas classical Hurwitz \(D\)-stability requires \(g_{\rm DA}'(X)<0\). Hence the genuinely fractional difference occurs only on the codimension-one condition
+\[
+ g_{\rm DA}'(X)=0.
+\]
+Solving this condition for the Allee threshold gives
+\begin{equation}
+ m_c
+ =
+ \frac{X^2+2aX-Ka}{K+a}.
+ \label{eq:mc-2d}
+\end{equation}
+Thus the two-species mechanism is exceptional, while Theorem~\ref{thm:open-ecological} gives a nonempty open fractional-only region in the three-species architecture.
