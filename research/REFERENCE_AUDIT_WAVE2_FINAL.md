@@ -8,7 +8,7 @@
 | item | value |
 |---|---|
 | final bibliography `paper/references.bib` | **promoted** = mandated header line + exact contents of `paper/references_candidate_published_only.bib` |
-| entries | 46 (44 `@article`, 1 `@inproceedings`, 2 `@book` — 45 with DOI; Matignon 1996 identified by ISBN 2-9502908-9-2, no DOI exists per the Chief record) |
+| entries | 46 (43 `@article`, 1 `@inproceedings`, 2 `@book` — 45 with DOI; Matignon 1996 identified by ISBN 2-9502908-9-2, no DOI exists per the Chief record) |
 | audit errors / warnings | **0 / 0** (`computations/reference_audit/reference_audit.py`; report in `computations/reference_audit/reference_audit_report.json`) |
 | forbidden tokens (arxiv, eprint, archivePrefix, unpublished, submitted, preprint, working paper, personal communication, …) | **0** in the candidate and in the body of the final file (the mandated header line itself states the rule and is excluded from the scan) |
 | `NEEDS_CHIEF_WEB_VERIFICATION` marks in bibliography / ledger / matrix | 0 |
