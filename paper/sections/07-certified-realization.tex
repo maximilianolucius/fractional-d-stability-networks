@@ -1,0 +1,138 @@
+\section{Certified Interior Realization}\label{sec:certified}
+
+The preceding results are analytic and do not depend on numerical sampling. We nevertheless record one certified interior realization to show that the open ecological region can be reached with nondegenerate coexistence densities and comfortable separation from both the classical and fractional boundaries.
+
+We use \(\alpha=0.9\) and the parameter set in Table~\ref{tab:w2a}. This realization was selected from a search over constructive embeddings only after the theorem package had been fixed; the search therefore chooses a readable interior witness rather than supplying evidence for the theorem.
+
+\begin{table}[H]
+\centering
+\caption{Canonical certified realization W2-A. All parameters are positive; the conversion efficiencies satisfy \(0<e_1,e_2,e_3<1\).}
+\label{tab:w2a}
+\begin{tabular}{cccccc}
+\toprule
+Parameter & Value & Parameter & Value & Parameter & Value\\
+\midrule
+\(\alpha\) & \(0.9\) &
+\(a\) & \(0.229\) &
+\(K\) & \(1.4913425743\)\\
+\(r\) & \(7.8104480113\) &
+\(m\) & \(0.511\) &
+\(h\) & \(0.1404219270\)\\
+\(q_1\) & \(0.5121684678\) &
+\(q_2\) & \(3.2338213736\) &
+\(c_1\) & \(0.065\)\\
+\(c_2\) & \(0.0509\) &
+\(e_1=e_3\) & \(0.773\) &
+\(e_2\) & \(0.01404592165\)\\
+\(\mu_1\) & \(0.3178535346\) &
+\(\mu_2\) & \(0.1209173583\) &
+ & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At \(m=0.511\), interval evaluation of the coexistence equations gives
+\begin{equation}
+ (X,Y,Z)
+ =
+ (1,\;0.7856328169\ldots,\;0.1921819373\ldots),
+ \label{eq:w2a-densities}
+\end{equation}
+so the largest-to-smallest coexistence density ratio is approximately \(5.20\). The reduced prey slope and C-10 invariants are
+\begin{equation}
+ s=0.8231,\qquad
+ \beta=(4.79,\;4.506,\;5.607),\qquad
+ \kappa=62.735.
+ \label{eq:w2a-invariants}
+\end{equation}
+The classical threshold is
+\[
+ T_1(\beta)
+ =
+ 44.6123995333883\ldots,
+\]
+and high-precision evaluation of the unique C-15 minimizer gives
+\[
+ T_{0.9}(\beta)
+ =
+ 94.5719074446105\ldots.
+\]
+The interval calculations certify the strict margins
+\begin{equation}
+ \kappa-T_1(\beta)\ge18.1226004666,
+ \qquad
+ T_{0.9}(\beta)-\kappa\ge31.8369074446.
+ \label{eq:w2a-margins}
+\end{equation}
+Thus the point lies well inside the fractional-only band rather than near either boundary.
+
+\subsection{Interval Certification along the Allee Branch}
+
+The coexistence branch was enclosed with outward-rounded high-precision interval arithmetic. For each \(m\)-box, the scalar equilibrium equation~\eqref{eq:scalar-equilibrium} was enclosed and contracted by interval Newton evaluation; the resulting state enclosure was then propagated through \(s\), \(\beta\), \(\kappa\), and the threshold inequalities. The threshold minimizer is unique by Theorem~\ref{thm:strict-convexity}, which removes ambiguity in the exact C-10 branch used for the enclosure.
+
+A subdivision of
+\begin{equation}
+ 0.394\le m\le0.578
+ \label{eq:certified-m-range}
+\end{equation}
+into 42 subintervals was certified without failure. Across this entire interval,
+\[
+ \kappa-T_1>0,
+ \qquad
+ T_{0.9}-\kappa>0.
+\]
+The smallest certified lower margins over the complete interval were approximately
+\[
+ \kappa-T_1\ge0.0332,
+ \qquad
+ T_{0.9}-\kappa\ge1.342.
+\]
+Hence Equation~\eqref{eq:certified-m-range} is a rigorous interval-certified fractional-only segment for one fixed set of non-\(m\) biological parameters.
+
+The classical boundary itself was solved independently at high precision:
+\begin{equation}
+ m_0
+ =
+ 0.37445128124251493523908034461904384927\ldots,
+ \label{eq:w2a-m0}
+\end{equation}
+with residual below \(10^{-59}\) in the exact Cain-gap equation. This value agrees with the unique/transverse crossing predicted by Theorem~\ref{thm:crossing}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig07_certified_anchor.pdf}
+\caption{Certified realization W2-A. \textbf{(a)} Positive coexistence densities along the \(m\)-branch; at the anchor, \((X,Y,Z)\approx(1,0.786,0.192)\). \textbf{(b)} Classical and fractional invariant margins; marked points and the green interval are interval-certified. \textbf{(c)} Spectrum at the most restrictive positive diagonal found by a scale-invariant angular search. Panel (c) is numerical corroboration only: the all-diagonal statement follows from Theorem~\ref{thm:c10} and the certified invariant inequalities, not from finite search.}
+\label{fig:certified-anchor}
+\end{figure}
+
+\subsection{Scale-Invariant Spectral Corroboration}
+
+As an independent numerical check, we minimized the smallest eigenvalue angle over positive diagonal ratios after fixing the geometric mean of the diagonal entries to one. This normalization is essential: raw spectral abscissa is not scale invariant under common multiplication of \(D\).
+
+For the anchor, the most restrictive diagonal ratio found was approximately
+\[
+ D_*=
+ \diag(0.1810,\;2.0474,\;2.6985),
+\]
+with eigenvalues
+\[
+ 0.3272\pm4.2040\,i,\qquad -3.7080.
+\]
+Hence
+\[
+ \min_j|\arg\lambda_j(D_*B)|
+ =
+ 1.49312\ldots
+ >
+ 0.9\frac{\pi}{2},
+\]
+while the conjugate pair has positive real part. The corresponding angular margin is about \(0.0794\) radians for \(\alpha=0.9\), whereas the classical \(\alpha=1\) margin is negative. This direct search corroborates both sides of the classification, but it is not used in the proof.
+
+Finally, Figure~\ref{fig:ecological-contrast} places the exact two-dimensional equality curve beside the three-dimensional open region. In panel (b), the region boundaries are traced by deterministic root finding applied to the exact formulas. The traced regions themselves are pointwise formula evaluations; only the green segment and marked anchor carry interval-certification semantics.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.96\textwidth]{fig08_double_allee_2d_3d.pdf}
+\caption{Exact two- versus three-dimensional Double-Allee contrast. \textbf{(a)} In two dimensions the fractional-only class is the closed-form codimension-one curve \(m=m_c(X)\) from Equation~\eqref{eq:mc-2d}. \textbf{(b)} For the three-species W2-A design at \(\alpha=0.9\), the classical Cain boundary, Matignon boundary and feasibility edge enclose an open fractional-only region in the \((m,K)\)-plane. The green segment is interval-certified; the surrounding colored regions are deterministic evaluations of the exact formulas and are not interval certificates.}
+\label{fig:ecological-contrast}
+\end{figure}
