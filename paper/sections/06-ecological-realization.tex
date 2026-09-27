@@ -325,88 +325,56 @@ Equation~\eqref{eq:igp-kappa} then gives the prescribed \(\kappa\). Since \(\tau
 
 \subsection{Embedding the Invariants in the Double-Allee Model}
 
-The previous theorem fixes the desired local prey self-slope \(s>0\). We now realize it at a positive equilibrium of Equation~\eqref{eq:igp-model}.
-
-Fix
-\[
- a>0,\qquad 0<m<X<K,
-\]
-and define
+Theorem~\ref{thm:igp-realization} fixes a desired prey self-slope \(s>0\). Choose \(a>0\) and \(0<m<X<K\), and define
 \begin{equation}
  H_A
  =
- \frac{1}{K-X}
- -
- \frac{1}{X-m}
- +
- \frac{1}{X+a}.
+ \frac{1}{K-X}-\frac{1}{X-m}+\frac{1}{X+a}.
  \label{eq:HA}
 \end{equation}
-Writing
+With \(C_A=(m+a)/[(X-m)(X+a)]\), one has \(H_A=(K-X)^{-1}-C_A\); hence \(H_A>0\) precisely for
 \[
- C_A=\frac{m+a}{(X-m)(X+a)},
+ X<K<X+\frac{(X-m)(X+a)}{m+a}.
 \]
-we have \(H_A=(K-X)^{-1}-C_A\), so \(H_A>0\) precisely when
-\begin{equation}
- X<K<
- K_{\max}
- :=
- X+\frac{(X-m)(X+a)}{m+a}.
- \label{eq:Kmax}
-\end{equation}
-Set
+Set \(Q=s/H_A\). For any \(\xi\in(0,1)\), prescribe
 \[
- Q=\frac{s}{H_A}.
-\]
-Choose \(\xi\in(0,1)\) and prescribe
-\begin{equation}
  Y=\frac{\xi Q}{q_1},
  \qquad
- Z=\frac{(1-\xi)Q}{q_2}.
- \label{eq:YZsplit}
-\end{equation}
-Then \(q_1Y+q_2Z=Q\). Define
+ Z=\frac{(1-\xi)Q}{q_2},
+\]
+so \(q_1Y+q_2Z=Q\), and define
 \begin{align}
- \mu_1&=e_1q_1X-c_1Y-hZ,\label{eq:mu1}\\
- \mu_2&=e_2q_2X+e_3hY-c_2Z.\label{eq:mu2}
+ \mu_1&=e_1q_1X-Q\left(\frac{\xi c_1}{q_1}+\frac{(1-\xi)h}{q_2}\right),\\
+ \mu_2&=e_2q_2X+Q\left(\frac{\xi e_3h}{q_1}-\frac{(1-\xi)c_2}{q_2}\right).
 \end{align}
-The first mortality is positive whenever
+The first mortality is positive when
 \[
  Q<Q_1:=
  \frac{e_1q_1X}
  {\xi c_1/q_1+(1-\xi)h/q_2}.
 \]
-If \((1-\xi)c_2/q_2-\xi e_3h/q_1>0\), the second is positive whenever
+If \((1-\xi)c_2/q_2-\xi e_3h/q_1>0\), require additionally
 \[
  Q<Q_2:=
  \frac{e_2q_2X}
  {(1-\xi)c_2/q_2-\xi e_3h/q_1};
 \]
-otherwise \(\mu_2>0\) automatically. Let \(\bar Q=Q_1\) in the latter case and \(\bar Q=\min(Q_1,Q_2)\) in the former. It is enough to choose
-\begin{equation}
- 0<K-X<
- \frac{1}{C_A+s/\bar Q}.
- \label{eq:K-close-bound}
-\end{equation}
-Finally set
-\begin{equation}
- r=
+otherwise \(\mu_2>0\) automatically. Let \(\bar Q=Q_1\) in the latter case and \(\bar Q=\min(Q_1,Q_2)\) in the former. It is enough to choose \(K\) and \(r\) by
+\begin{align}
+ 0<K-X&<\frac{1}{C_A+s/\bar Q},\\
+ r&=
  \frac{Q(X+a)}
  {(1-X/K)(X-m)}.
  \label{eq:r-embedding}
-\end{equation}
-Then \(g_{\rm DA}(X)=Q=q_1Y+q_2Z\), while
+\end{align}
+Then \(g_{\rm DA}(X)=Q=q_1Y+q_2Z\), while Equation~\eqref{eq:HA} gives
 \[
  g_{\rm DA}'(X)
  =
- Q\left[
- -\frac1{K-X}
- +\frac1{X-m}
- -\frac1{X+a}
- \right]
+ Q\left[-\frac1{K-X}+\frac1{X-m}-\frac1{X+a}\right]
  =-QH_A=-s.
 \]
-Thus the positive equilibrium has exactly the reduced matrix constructed in Theorem~\ref{thm:igp-realization}.
+Thus the constructed positive equilibrium has exactly the reduced matrix of Theorem~\ref{thm:igp-realization}.
 
 \begin{Theorem}[open genuinely fractional biological region]\label{thm:open-ecological}
 For every fixed \(0<\alpha<1\), there exists a nonempty open set in the full 14-dimensional positive biological parameter space of Equation~\eqref{eq:igp-model} for which a positive coexistence equilibrium on the constructed smooth branch satisfies
