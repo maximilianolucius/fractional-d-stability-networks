@@ -1,0 +1,100 @@
+name: submission-package
+
+on:
+  push:
+    branches:
+      - chief/full-manuscript-20260926
+    paths:
+      - "paper/**"
+      - "reference-paper/Definitions/**"
+      - "computations/figures/**"
+      - "computations/figures_wave2/**"
+      - ".github/workflows/submission.yml"
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile frozen Mathematics/MDPI manuscript
+        uses: xu-cheng/latex-action@v3
+        env:
+          TEXINPUTS: ".:../reference-paper//:"
+          BSTINPUTS: ".:../reference-paper//:"
+        with:
+          root_file: main.tex
+          working_directory: paper
+          latexmk_use_xelatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Build clean submission package
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          OUT="$GITHUB_WORKSPACE/dist/submission"
+          SRC="$OUT/latex-source"
+          mkdir -p "$SRC/sections" "$SRC/Definitions" "$SRC/figures"
+
+          cp paper/main.tex "$SRC/main.tex"
+          sed -i 's#../reference-paper/Definitions/mdpi#Definitions/mdpi#' "$SRC/main.tex"
+          sed -i 's#\\graphicspath{{../computations/figures_wave2/exports/pdf/}{../computations/figures/exports/pdf/}}#\\graphicspath{{figures/}}#' "$SRC/main.tex"
+
+          cp paper/references.bib "$SRC/references.bib"
+          cp paper/sections/*.tex "$SRC/sections/"
+
+          cp reference-paper/Definitions/mdpi.cls "$SRC/Definitions/"
+          cp reference-paper/Definitions/mdpi.bst "$SRC/Definitions/"
+          cp reference-paper/Definitions/journalnames.tex "$SRC/Definitions/"
+          cp reference-paper/Definitions/logo-mdpi-eps-converted-to.pdf "$SRC/Definitions/"
+          cp reference-paper/Definitions/logo-orcid.pdf "$SRC/Definitions/"
+          cp reference-paper/Definitions/mathematics-logo-eps-converted-to.pdf "$SRC/Definitions/"
+          cp reference-paper/Definitions/mathematics-logo.png "$SRC/Definitions/"
+
+          cp computations/figures/exports/pdf/fig02_dimension_contrast.pdf "$SRC/figures/"
+          cp computations/figures_wave2/exports/pdf/fig03_threshold_geometry.pdf "$SRC/figures/"
+          cp computations/figures_wave2/exports/pdf/fig05_ecological_mechanism.pdf "$SRC/figures/"
+          cp computations/figures_wave2/exports/pdf/fig06_double_allee_m_path.pdf "$SRC/figures/"
+          cp computations/figures_wave2/exports/pdf/fig07_certified_anchor.pdf "$SRC/figures/"
+          cp computations/figures_wave2/exports/pdf/fig08_double_allee_2d_3d.pdf "$SRC/figures/"
+
+          cp paper/main.pdf "$OUT/from-cain-to-matignon-positive-diagonal-stability.pdf"
+
+          cat > "$OUT/README_SUBMISSION.txt" <<'EOF'
+From Cain to Matignon: Exact Positive-Diagonal Stability in Dimension Three
+and a Nonlinear Caputo Ecological Realization
+
+Submission package for Mathematics / MDPI.
+
+Contents:
+- from-cain-to-matignon-positive-diagonal-stability.pdf : compiled manuscript
+- latex-source/main.tex : standalone manuscript source
+- latex-source/references.bib : audited published-source bibliography
+- latex-source/sections/ : manuscript section sources
+- latex-source/Definitions/ : MDPI class/style dependencies used by the manuscript
+- latex-source/figures/ : six figures used in the manuscript
+
+Recompile:
+  cd latex-source
+  latexmk -pdf -file-line-error -interaction=nonstopmode main.tex
+
+The supplied MDPI reference package contains the converted PDF logo but not the
+original logo-mdpi.eps. The class may emit a non-fatal missing-EPS warning in
+submit mode; this does not prevent successful PDF compilation.
+EOF
+
+          (
+            cd "$OUT"
+            zip -qr ../submission.zip .
+          )
+
+          test -s "$GITHUB_WORKSPACE/dist/submission.zip"
+
+      - name: Upload submission zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: submission
+          path: dist/submission.zip
+          if-no-files-found: error
