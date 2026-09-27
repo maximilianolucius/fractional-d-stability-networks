@@ -1,0 +1,49 @@
+name: manuscript-pdf
+
+on:
+  push:
+    branches:
+      - chief/full-manuscript-20260926
+    paths:
+      - "paper/**"
+      - "reference-paper/Definitions/**"
+      - "computations/figures/**"
+      - "computations/figures_wave2/**"
+      - ".github/workflows/manuscript.yml"
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile Mathematics/MDPI manuscript
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper
+          latexmk_use_xelatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Record PDF diagnostics
+        if: always()
+        shell: bash
+        run: |
+          if [ -f paper/main.pdf ]; then
+            pdfinfo paper/main.pdf | tee paper/pdfinfo.txt || true
+          fi
+          grep -E "LaTeX Warning|Package .* Warning|Overfull|Underfull|undefined|Citation" paper/main.log > paper/latex-warnings.txt || true
+
+      - name: Upload manuscript diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-pdf
+          path: |
+            paper/main.pdf
+            paper/main.log
+            paper/main.bbl
+            paper/pdfinfo.txt
+            paper/latex-warnings.txt
+          if-no-files-found: warn
