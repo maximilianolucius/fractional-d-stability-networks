@@ -1,0 +1,90 @@
+\section{Dimension Two: Exact Obstruction}\label{sec:two}
+
+The two-dimensional problem is completely rigid. Let
+\[
+ A=
+ \begin{pmatrix}
+ a&b\\
+ c&d
+ \end{pmatrix},
+ \qquad
+ D=\diag(d_1,d_2)\succ0.
+\]
+Then
+\[
+ \operatorname{tr}(DA)=d_1a+d_2d,
+ \qquad
+ \det(DA)=d_1d_2\det A.
+\]
+
+\begin{Theorem}[exact \(2\times2\) classification]\label{thm:2d}
+For every real \(2\times2\) matrix \(A\) and every \(0<\alpha<1\),
+\begin{equation}
+ A\in\mathcal F_\alpha^{(2)}
+ \quad\Longleftrightarrow\quad
+ \det A>0,\qquad a\le0,\qquad d\le0.
+ \label{eq:2d-class}
+\end{equation}
+Moreover,
+\begin{equation}
+ \mathcal P_\alpha^{(2)}
+ =
+ \left\{
+ \begin{pmatrix}
+ 0&b\\
+ c&0
+ \end{pmatrix}
+ :bc<0
+ \right\},
+ \label{eq:2d-difference}
+\end{equation}
+and hence
+\[
+ \operatorname{int}\mathcal P_\alpha^{(2)}=\varnothing.
+\]
+\end{Theorem}
+
+\begin{proof}
+Assume first that \(\det A>0\) and \(a,d\le0\). For every \(D\succ0\),
+\[
+ \det(DA)>0,
+ \qquad
+ \operatorname{tr}(DA)\le0.
+\]
+If the eigenvalues are real, both are negative unless the trace vanishes; if they are nonreal, they form a conjugate pair with nonpositive real part. Therefore every eigenvalue has argument magnitude at least \(\pi/2\), and since \(0<\alpha<1\),
+\[
+ \frac{\pi}{2}>\frac{\alpha\pi}{2}.
+\]
+Thus \(A\in\mathcal F_\alpha^{(2)}\).
+
+Conversely, if \(\det A\le0\), some positive diagonal scaling has a nonnegative real eigenvalue, so Matignon stability fails. Suppose \(\det A>0\) but \(a>0\). Set \(D_t=\diag(t,1)\). Then
+\[
+ \operatorname{tr}(D_tA)=ta+d>0
+\]
+for all sufficiently large \(t\), while
+\[
+ \operatorname{disc}(D_tA)
+ =
+ (ta+d)^2-4t\det A>0
+\]
+for all sufficiently large \(t\). Hence \(D_tA\) has two positive real eigenvalues for large \(t\), contradicting membership in \(\mathcal F_\alpha^{(2)}\). The case \(d>0\) is symmetric.
+
+For classical Hurwitz \(D\)-stability, the same determinant condition is required together with
+\[
+ d_1a+d_2d<0
+ \qquad
+ \forall d_1,d_2>0,
+\]
+which is equivalent to \(a\le0\), \(d\le0\), and not both zero. Therefore the fractional-only difference occurs exactly when \(a=d=0\) and \(\det A=-bc>0\), giving Equation~\eqref{eq:2d-difference}. This set has empty interior in \(\mathbb R^{2\times2}\).
+\end{proof}
+
+Figure~\ref{fig:dimcontrast} places this obstruction beside the three-dimensional geometry developed below. In two dimensions the fractional-only set is confined to an equality locus; in dimension three an open band separates the Matignon and Cain boundaries.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{fig02_dimension_contrast.pdf}
+\caption{Dimension contrast. In two dimensions the genuinely fractional all-diagonal class is confined to a lower-dimensional equality set. In three dimensions the exact thresholds \(T_1(\beta)\) and \(T_\alpha(\beta)\) enclose an open fractional-only band. The three-dimensional panel anticipates Theorem~\ref{thm:c10}.}
+\label{fig:dimcontrast}
+\end{figure}
+
+Theorem~\ref{thm:2d} is the lower-dimensional half of the minimum-dimension result. The remaining task is to show that dimension three contains full-dimensional open subsets of \(\mathcal P_\alpha^{(3)}\) for every \(0<\alpha<1\).
