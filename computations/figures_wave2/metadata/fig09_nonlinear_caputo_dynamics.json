@@ -1,7 +1,7 @@
 {
   "figure": "fig09_nonlinear_caputo_dynamics",
-  "generated_utc": "2026-09-27T08:51:37Z",
-  "git_sha": "4b8afc175aa04424b710b711cbb6ace149ab4b52",
+  "generated_utc": "2026-09-27T08:57:38Z",
+  "git_sha": "d68fae17bba42dd4376660d98cd9a6f582b74ffc",
   "script": "computations/figures_wave2/scripts/fig09_nonlinear_caputo_dynamics.py",
   "outputs": {
     "pdf": "computations/figures_wave2/exports/pdf/fig09_nonlinear_caputo_dynamics.pdf",
