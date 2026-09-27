@@ -1,0 +1,271 @@
+\section{Geometry and Order Dependence of the Exact Threshold}\label{sec:geometry}
+
+The exact criterion in Theorem~\ref{thm:c10} reduces the complete positive-diagonal orbit to the scalar threshold \(T_\alpha(\beta)\). We next show that this variational quantity has substantially more structure than a generic two-variable minimum.
+
+\subsection{Strict Convexity and a Unique Optimizer}
+
+Fix \(2/3<\alpha<1\). Let
+\[
+ u=\cos\!\left(\frac{\alpha\pi}{2}\right),\qquad
+ K_\alpha=1-4u^2,
+\]
+and recall from Equation~\eqref{eq:halpha} that \(h_\alpha(b)=r^2(1+2ur)\), where \(r\) is the positive solution of
+\[
+ b=K_\alpha r^2-2ur.
+\]
+Introduce the elasticity
+\begin{equation}
+ E_\alpha(b)
+ :=
+ \frac{b\,h_\alpha'(b)}{h_\alpha(b)}.
+ \label{eq:elasticity}
+\end{equation}
+
+\begin{Lemma}[elasticity bounds]\label{lem:elasticity}
+For every \(b>0\),
+\begin{equation}
+ 0<E_\alpha(b)<\frac32,
+ \qquad
+ \frac{dE_\alpha}{db}>0.
+ \label{eq:elasticity-bounds}
+\end{equation}
+\end{Lemma}
+
+\begin{proof}
+Using \(r\) as parameter,
+\[
+ \frac{db}{dr}=2(K_\alpha r-u),
+ \qquad
+ \frac{dh_\alpha}{dr}=2r(1+3ur),
+\]
+and therefore
+\begin{equation}
+ E_\alpha
+ =
+ \frac{(K_\alpha r-2u)(1+3ur)}
+      {(K_\alpha r-u)(1+2ur)}.
+ \label{eq:E-r}
+\end{equation}
+On \(r>2u/K_\alpha\), both factors
+\[
+ \frac{K_\alpha r-2u}{K_\alpha r-u},
+ \qquad
+ \frac{1+3ur}{1+2ur}
+\]
+increase strictly with \(r\). Their product increases from \(0\) to \(3/2\). Since \(b(r)\) is strictly increasing, Equation~\eqref{eq:elasticity-bounds} follows.
+\end{proof}
+
+Parameterize the open simplex by logit variables
+\begin{equation}
+ x_1=\frac{e^{y_1}}{e^{y_1}+e^{y_2}+1},
+ \quad
+ x_2=\frac{e^{y_2}}{e^{y_1}+e^{y_2}+1},
+ \quad
+ x_3=\frac{1}{e^{y_1}+e^{y_2}+1}.
+ \label{eq:logit}
+\end{equation}
+Set
+\[
+ L(y)=\log(e^{y_1}+e^{y_2}+1),
+\]
+\[
+ Q_\beta(y)
+ =
+ \log\!\left(
+ \beta_{12}e^{y_1+y_2}
+ +\beta_{13}e^{y_1}
+ +\beta_{23}e^{y_2}
+ \right),
+\]
+and \(\phi_\alpha(s)=\log h_\alpha(e^s)\). Then
+\begin{equation}
+ G_{\alpha,\beta}(y)
+ :=
+ \log\!\left[
+ \frac{h_\alpha(B_\beta(x(y)))}{x_1x_2x_3}
+ \right]
+ =
+ \phi_\alpha(Q_\beta-2L)+3L-y_1-y_2.
+ \label{eq:logobjective}
+\end{equation}
+
+\begin{Theorem}[strict threshold geometry]\label{thm:strict-convexity}
+For every \(\beta\in\mathbb R_{>0}^3\) and \(2/3<\alpha<1\), \(G_{\alpha,\beta}\) is globally strictly convex on \(\mathbb R^2\). Hence:
+\begin{enumerate}
+\item \(T_\alpha(\beta)\) has a unique minimizer \(x^*(\alpha,\beta)\in\Delta_2^\circ\);
+\item the minimizer is nondegenerate;
+\item \(x^*\) and \(T_\alpha\) depend smoothly on \((\alpha,\beta)\).
+\end{enumerate}
+\end{Theorem}
+
+\begin{proof}
+Put \(s=Q_\beta-2L\). Since
+\[
+ \phi_\alpha'(\log b)=E_\alpha(b),
+ \qquad
+ \phi_\alpha''(\log b)=b\,E_\alpha'(b),
+\]
+Lemma~\ref{lem:elasticity} gives
+\[
+ \phi_\alpha'>0,\qquad
+ \phi_\alpha''>0,\qquad
+ 3-2\phi_\alpha'>0.
+\]
+Differentiating Equation~\eqref{eq:logobjective},
+\begin{equation}
+ \nabla^2G_{\alpha,\beta}
+ =
+ \phi_\alpha''\,\nabla s\nabla s^\top
+ +\phi_\alpha'\nabla^2Q_\beta
+ +(3-2\phi_\alpha')\nabla^2L.
+ \label{eq:hessian-decomp}
+\end{equation}
+Both \(Q_\beta\) and \(L\) are log-sum-exp functions of affine forms, so \(\nabla^2Q_\beta\succeq0\); moreover \(\nabla^2L\succ0\) because all three softmax weights are positive. Every coefficient in Equation~\eqref{eq:hessian-decomp} is nonnegative and the coefficient of \(\nabla^2L\) is strictly positive. Thus \(\nabla^2G_{\alpha,\beta}\succ0\) everywhere.
+
+As \(\|y\|\to\infty\), \(x(y)\) approaches the simplex boundary and \(x_1x_2x_3\to0\), while \(h_\alpha(B_\beta(x))\) remains positive. Hence \(G_{\alpha,\beta}\) is coercive. A unique minimizer exists; positive definiteness gives nondegeneracy, and the implicit-function theorem gives smooth dependence.
+\end{proof}
+
+Two exact reductions follow immediately. If \(\beta_{12}=\beta_{13}=\beta_{23}=b\), uniqueness and permutation symmetry imply \(x^*=(1/3,1/3,1/3)\), so
+\begin{equation}
+ T_\alpha(b,b,b)=27h_\alpha(b/3).
+ \label{eq:symmetric-slice}
+\end{equation}
+For \(b=1\), this becomes the cyclic-network boundary
+\begin{equation}
+ T_\alpha(1,1,1)=1+R_3(\alpha)^3,
+ \qquad
+ R_3(\alpha)
+ =
+ \frac{\sin(\alpha\pi/2)}
+ {\sin(\alpha\pi/2-\pi/3)},
+ \label{eq:siami-slice}
+\end{equation}
+recovering the structured slice studied by Siami \cite{Siami2021}. If two \(\beta\)'s are equal, the corresponding two simplex coordinates of \(x^*\) are equal, reducing the minimization exactly to one dimension.
+
+\subsection{Dependence on the Fractional Order}
+
+\begin{Theorem}[monotone widening and the classical limit]\label{thm:alpha-deformation}
+For fixed \(\beta>0\), \(T_\alpha(\beta)\) is strictly decreasing in \(\alpha\) on \(2/3<\alpha\le1\). Let
+\[
+ S=\sqrt{\beta_{12}}+\sqrt{\beta_{13}}+\sqrt{\beta_{23}},
+ \qquad
+ G=\sqrt{\beta_{12}\beta_{13}\beta_{23}}.
+\]
+As \(\alpha\to1^{-}\),
+\begin{equation}
+ T_\alpha(\beta)
+ =
+ T_1(\beta)
+ +
+ C(\beta)(1-\alpha)
+ +
+ O((1-\alpha)^2),
+ \label{eq:classical-rate}
+\end{equation}
+where
+\begin{equation}
+ C(\beta)
+ =
+ \pi\left(
+ \frac{S^{5/2}}{\sqrt G}
+ +
+ S^{3/2}\sqrt G
+ \right)>0.
+ \label{eq:Cbeta}
+\end{equation}
+\end{Theorem}
+
+\begin{proof}
+For fixed positive \(a,b\), decreasing the boundary angle \(\theta=\alpha\pi/2\) strictly enlarges the Matignon region. The unique coefficient value \(H_\theta(a,b)\) placing a conjugate pair on the boundary therefore increases strictly as \(\theta\) decreases. Hence \(h_{\alpha_1}(b)>h_{\alpha_2}(b)\) whenever \(\alpha_1<\alpha_2\), and minimization over the same simplex preserves strictness.
+
+For the rate, \(u=\cos(\alpha\pi/2)=\frac{\pi}{2}(1-\alpha)+O((1-\alpha)^3)\). Implicit differentiation of
+\[
+ (1-4u^2)r^2-2ur-b=0
+\]
+at \(u=0\) gives \(\partial r/\partial u=1\). Consequently
+\begin{equation}
+ h_\alpha(b)
+ =
+ b+\pi(1-\alpha)\sqrt b(1+b)+O((1-\alpha)^2).
+ \label{eq:h-expansion}
+\end{equation}
+At \(\alpha=1\), the unique simplex minimizer is
+\[
+ x_1^*=\frac{\sqrt{\beta_{23}}}{S},
+ \quad
+ x_2^*=\frac{\sqrt{\beta_{13}}}{S},
+ \quad
+ x_3^*=\frac{\sqrt{\beta_{12}}}{S},
+\]
+for which
+\[
+ x_1^*x_2^*x_3^*=\frac{G}{S^3},
+ \qquad
+ B_\beta(x^*)=\frac{G}{S}.
+\]
+The envelope theorem applied to the nondegenerate minimum and Equation~\eqref{eq:h-expansion} yields Equations~\eqref{eq:classical-rate}--\eqref{eq:Cbeta}.
+\end{proof}
+
+At the opposite endpoint the threshold diverges. With
+\[
+ K_\alpha=1-4\cos^2(\alpha\pi/2)\downarrow0
+ \qquad(\alpha\downarrow2/3^+),
+\]
+the exact expansion is
+\begin{equation}
+ T_\alpha(\beta)
+ =
+ \frac{27}{K_\alpha^3}
+ +
+ \frac{9(\beta_{12}+\beta_{13}+\beta_{23})-27}{K_\alpha^2}
+ +
+ O(K_\alpha^{-1}).
+ \label{eq:low-order-asymptotic}
+\end{equation}
+Thus the high-order threshold joins continuously with the low-order Kellogg regime through a divergent boundary: as \(\alpha\downarrow2/3^+\), every fixed strict-\(P(-A)\) invariant point eventually satisfies \(\kappa<T_\alpha(\beta)\).
+
+Figure~\ref{fig:alpha-deformation} shows the exact deformation. The global panel displays the widening of the difference band as \(\alpha\) decreases, while the local panel verifies the linear collapse in Equation~\eqref{eq:classical-rate}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{fig04_alpha_deformation.pdf}
+\caption{Deformation of the exact threshold with fractional order. \textbf{(a)} The exact ratio \(T_\alpha(\beta)/T_1(\beta)\) for three pair-loop triples; the threshold decreases to the classical value as \(\alpha\to1^{-}\) and diverges as \(\alpha\downarrow2/3^{+}\). \textbf{(b)} The exact high-precision difference \(T_\alpha-T_1\) (solid) against the first-order asymptotic \(C(\beta)(1-\alpha)\) (dashed). These are evaluations of the exact threshold, not diagonal-sampling approximations.}
+\label{fig:alpha-deformation}
+\end{figure}
+
+\subsection{Global Parametrization of the Threshold Surface}
+
+The strict convexity also permits an explicit parametrization of the full threshold surface. At the unique minimizer write
+\[
+ B=B_\beta(x),\qquad
+ E=\frac{B\,h_\alpha'(B)}{h_\alpha(B)}.
+\]
+The constrained stationarity equations imply, for \(\{i,j,k\}=\{1,2,3\}\),
+\begin{equation}
+ \beta_{ij}
+ =
+ \frac{
+ B\left[1+(2E-3)(1-2x_k)\right]
+ }{
+ 2E\,x_ix_j
+ }.
+ \label{eq:beta-param}
+\end{equation}
+Together with
+\[
+ B=K_\alpha r^2-2ur,
+ \qquad
+ E=
+ \frac{(K_\alpha r-2u)(1+3ur)}
+ {(K_\alpha r-u)(1+2ur)},
+\]
+and
+\begin{equation}
+ T_\alpha
+ =
+ \frac{r^2(1+2ur)}{x_1x_2x_3},
+ \label{eq:T-param}
+\end{equation}
+Equations~\eqref{eq:beta-param}--\eqref{eq:T-param} give a global \((x,r)\)-parametrization on the positivity domain of the three \(\beta_{ij}\). Conversely, the unique optimizer of Theorem~\ref{thm:strict-convexity} recovers the corresponding \((x,r)\), so the parametrization is one-to-one onto the threshold surface.
+
+This geometry is useful for interpretation but is not needed to apply Theorem~\ref{thm:c10}: the exact criterion remains the scalar comparison \(\kappa<T_\alpha(\beta)\).
