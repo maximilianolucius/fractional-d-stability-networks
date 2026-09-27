@@ -31,72 +31,32 @@ Parameter & Value & Parameter & Value & Parameter & Value\\
 \end{tabular}
 \end{table}
 
-At \(m=0.511\), interval evaluation of the coexistence equations gives
-\begin{equation}
- (X,Y,Z)
- =
- (1,\;0.7856328169\ldots,\;0.1921819373\ldots),
- \label{eq:w2a-densities}
-\end{equation}
-so the largest-to-smallest coexistence density ratio is approximately \(5.20\). The reduced prey slope and C-10 invariants are
-\begin{equation}
- s=0.8231,\qquad
- \beta=(4.79,\;4.506,\;5.607),\qquad
- \kappa=62.735.
- \label{eq:w2a-invariants}
-\end{equation}
-The classical threshold is
-\[
- T_1(\beta)
- =
- 44.6123995333883\ldots,
-\]
-and high-precision evaluation of the unique C-15 minimizer gives
-\[
- T_{0.9}(\beta)
- =
- 94.5719074446105\ldots.
-\]
-The interval calculations certify the strict margins
-\begin{equation}
- \kappa-T_1(\beta)\ge18.1226004666,
- \qquad
- T_{0.9}(\beta)-\kappa\ge31.8369074446.
- \label{eq:w2a-margins}
-\end{equation}
-Thus the point lies well inside the fractional-only band rather than near either boundary.
+At \(m=0.511\), interval evaluation gives a well-balanced positive coexistence point and a robust interior invariant margin:
+\begin{align}
+ (X,Y,Z)&=(1,\;0.7856328169\ldots,\;0.1921819373\ldots),\label{eq:w2a-densities}\\
+ s&=0.8231,\qquad \beta=(4.79,\;4.506,\;5.607),\qquad \kappa=62.735,\label{eq:w2a-invariants}\\
+ T_1(\beta)&=44.6123995333883\ldots,\qquad
+ T_{0.9}(\beta)=94.5719074446105\ldots,\\
+ \kappa-T_1(\beta)&\ge18.1226004666,\qquad
+ T_{0.9}(\beta)-\kappa\ge31.8369074446.\label{eq:w2a-margins}
+\end{align}
+The largest-to-smallest coexistence density ratio is approximately \(5.20\), and both certified margins place the point well inside the fractional-only band.
 
 \subsection{Interval Certification along the Allee Branch}
 
 The coexistence branch was enclosed with outward-rounded high-precision interval arithmetic. For each \(m\)-box, the scalar equilibrium equation~\eqref{eq:scalar-equilibrium} was enclosed and contracted by interval Newton evaluation; the resulting state enclosure was then propagated through \(s\), \(\beta\), \(\kappa\), and the threshold inequalities. The threshold minimizer is unique by Theorem~\ref{thm:strict-convexity}, which removes ambiguity in the exact C-10 branch used for the enclosure.
 
-A subdivision of
+A subdivision of the branch into 42 boxes was certified without failure on
 \begin{equation}
- 0.394\le m\le0.578
+ 0.394\le m\le0.578,
  \label{eq:certified-m-range}
 \end{equation}
-into 42 subintervals was certified without failure. Across this entire interval,
-\[
- \kappa-T_1>0,
- \qquad
- T_{0.9}-\kappa>0.
-\]
-The smallest certified lower margins over the complete interval were approximately
-\[
- \kappa-T_1\ge0.0332,
- \qquad
- T_{0.9}-\kappa\ge1.342.
-\]
-Hence Equation~\eqref{eq:certified-m-range} is a rigorous interval-certified fractional-only segment for one fixed set of non-\(m\) biological parameters.
-
-The classical boundary itself was solved independently at high precision:
+with the strict inequalities \(\kappa-T_1>0\) and \(T_{0.9}-\kappa>0\) on every box. The smallest certified lower margins over the complete interval were \(0.0332\) and \(1.342\), respectively. The classical boundary was solved independently at
 \begin{equation}
- m_0
- =
- 0.37445128124251493523908034461904384927\ldots,
+ m_0=0.37445128124251493523908034461904384927\ldots,
  \label{eq:w2a-m0}
 \end{equation}
-with residual below \(10^{-59}\) in the exact Cain-gap equation. This value agrees with the unique/transverse crossing predicted by Theorem~\ref{thm:crossing}.
+with residual below \(10^{-59}\) in the exact Cain-gap equation, in agreement with Theorem~\ref{thm:crossing}.
 
 \begin{figure}[!htbp]
 \centering
@@ -111,20 +71,13 @@ As an independent numerical check, we minimized the smallest eigenvalue angle ov
 
 For the anchor, the most restrictive diagonal ratio found was approximately
 \[
- D_*=
- \diag(0.1810,\;2.0474,\;2.6985),
+ D_*=\diag(0.1810,\;2.0474,\;2.6985),
+ \qquad
+ \spec(D_*B)=\{0.3272\pm4.2040i,\,-3.7080\},
 \]
-with eigenvalues
+and
 \[
- 0.3272\pm4.2040\,i,\qquad -3.7080.
-\]
-Hence
-\[
- \min_j|\arg\lambda_j(D_*B)|
- =
- 1.49312\ldots
- >
- 0.9\frac{\pi}{2},
+ \min_j|\arg\lambda_j(D_*B)|=1.49312\ldots>0.9\frac{\pi}{2},
 \]
 while the conjugate pair has positive real part. The corresponding angular margin is about \(0.0794\) radians for \(\alpha=0.9\), whereas the classical \(\alpha=1\) margin is negative. This direct search corroborates both sides of the classification, but it is not used in the proof.
 
