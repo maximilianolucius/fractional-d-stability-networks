@@ -43,7 +43,14 @@ jobs:
           sed -i 's#\\graphicspath{{../computations/figures_wave2/exports/pdf/}{../computations/figures/exports/pdf/}}#\\graphicspath{{figures/}}#' "$SRC/main.tex"
 
           cp paper/references.bib "$SRC/references.bib"
-          cp paper/sections/*.tex "$SRC/sections/"
+          cp paper/sections/01-introduction.tex "$SRC/sections/"
+          cp paper/sections/02-framework.tex "$SRC/sections/"
+          cp paper/sections/03-dimension-two.tex "$SRC/sections/"
+          cp paper/sections/04-exact-dimension-three.tex "$SRC/sections/"
+          cp paper/sections/05-threshold-geometry.tex "$SRC/sections/"
+          cp paper/sections/06-ecological-realization.tex "$SRC/sections/"
+          cp paper/sections/07-certified-realization.tex "$SRC/sections/"
+          cp paper/sections/08-discussion-conclusion.tex "$SRC/sections/"
 
           cp reference-paper/Definitions/mdpi.cls "$SRC/Definitions/"
           cp reference-paper/Definitions/mdpi.bst "$SRC/Definitions/"
@@ -85,6 +92,24 @@ jobs:
             'submit mode; this does not prevent successful PDF compilation.' \
             > "$OUT/README_SUBMISSION.txt"
 
+
+      - name: Verify standalone submission source
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: dist/submission/latex-source
+          latexmk_use_xelatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Finalize clean submission zip
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$GITHUB_WORKSPACE/dist/submission/latex-source"
+          OUT="$GITHUB_WORKSPACE/dist/submission"
+
+          rm -f "$SRC/main.pdf" "$SRC/main.aux" "$SRC/main.bbl" "$SRC/main.blg" \
+                "$SRC/main.fdb_latexmk" "$SRC/main.fls" "$SRC/main.log" "$SRC/main.out"
 
           (
             cd "$OUT"
