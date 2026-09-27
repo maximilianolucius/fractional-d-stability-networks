@@ -1,36 +1,78 @@
-\documentclass[11pt]{article}
-\usepackage[a4paper,margin=1in]{geometry}
+%=====================================================================
+% From Cain to Matignon
+% Submission manuscript — Mathematics / MDPI template
+%=====================================================================
+\documentclass[mathematics,article,submit,pdftex,moreauthors]{../reference-paper/Definitions/mdpi}
+
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage[numbers]{natbib}
+\usepackage[none]{hyphenat}
 
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Real}{Re}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Falpha}{\mathcal{F}_{\alpha}}
+\newcommand{\DH}{\mathcal{D}_{H}}
+\newcommand{\Palpha}{\mathcal{P}_{\alpha}}
+\newcommand{\Salpha}{\Sigma_{\alpha}}
+\newcommand{\Dpos}{D\succ0}
+\newcommand{\CapD}[1]{{}^{C}\!D_t^{#1}}
 
-\title{Fractional D-Stability in Ecological Networks:\\Topology, Spectral Geometry, and Purely Fractional Stabilization}
-\author{Maximiliano Lucius}
-\date{Working manuscript}
+\graphicspath{{../computations/figures_wave2/exports/pdf/}{../computations/figures/exports/pdf/}}
+
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\hreflink{https://doi.org/}
+
+\Title{From Cain to Matignon: Exact Positive-Diagonal Stability in Dimension Three and a Nonlinear Caputo Ecological Realization}
+
+\Author{{Ibrahim Alraddadi}$^{1}$ and Thoraya N. Alharthi $^{2,*}$}
+\AuthorNames{Ibrahim Alraddadi and Thoraya N. Alharthi}
+
+\address{%
+$^{1}$ \quad Department of Mathematics, Faculty of Science, Islamic University of Madinah, Madinah 42351, Saudi Arabia; ialraddadi@iu.edu.sa\\
+$^{2}$ \quad Department of Mathematics, College of Science, University of Bisha, P.O. Box 551, Bisha 61922, Saudi Arabia}
+
+\corres{Correspondence: talhrthe@ub.edu.sa}
+
+\abstract{Positive-diagonal \(D\)-stability asks whether stability persists under every positive diagonal left scaling. We replace the classical Hurwitz half-plane by the Matignon sector for commensurate Caputo systems and solve the resulting real three-dimensional problem on the full-dimensional strict-\(P(-A)\) stratum. Four scale-invariant quantities \((\beta_{12},\beta_{13},\beta_{23},\kappa)\) reduce the complete positive-diagonal orbit to an open simplex, and for \(2/3<\alpha<1\) we prove the exact criterion \(\kappa<T_{\alpha}(\beta)\). At \(\alpha=1\), \(T_{\alpha}\) collapses to Cain's classical threshold, while \(T_{\alpha}>T_1\) for every \(\alpha<1\), producing an explicit genuinely fractional band. The threshold objective is strictly convex in logit coordinates, has a unique nondegenerate optimizer, and yields the minimum-dimension result: three is the first dimension in which the genuinely fractional multiplicative-\(D\)-stable class has nonempty full-dimensional interior. We then construct a nonlinear three-species Caputo Kolmogorov realization with double-Allee basal growth and intraguild predation. A natural competing-consumer architecture is proved unable to enter the fractional-only band, whereas the intraguild-predation architecture realizes an open biological subset of it. Finally, varying only the Allee threshold moves the fixed biological system transversally across Cain's classical \(D\)-stability boundary into the fractional-only Matignon region.}
+
+\keyword{fractional-order systems; Caputo derivative; D-stability; Matignon stability; P-matrix; Cain criterion; intraguild predation; double Allee effect; ecological stability}
+\MSC{15A18; 34A08; 34D20; 92D25}
 
 \begin{document}
-\maketitle
-
-\begin{abstract}
-We study classes of fractional-order ecological networks rather than a single model or a fixed collection of topologies. For commensurate Caputo systems ${}^C D^\alpha x=F_G(x;\theta)$, we characterize stability through the angular geometry of the equilibrium Jacobian spectrum and isolate parameter regions in which memory stabilizes equilibria that are unstable in the corresponding first-order dynamics. The manuscript is organized to separate general structural results, graph-dependent consequences, and reproducible numerical evidence. This file is an initial repository scaffold and must be replaced or expanded by the current research manuscript before submission.
-\end{abstract}
 
 \input{sections/01-introduction}
 \input{sections/02-framework}
-\input{sections/03-main-results}
-\input{sections/04-computational-protocol}
-\input{sections/05-experiments}
-\input{sections/06-discussion}
-\input{sections/07-conclusion}
+\input{sections/03-dimension-two}
+\input{sections/04-exact-dimension-three}
+\input{sections/05-threshold-geometry}
+\input{sections/06-ecological-realization}
+\input{sections/07-certified-realization}
+\input{sections/08-discussion-conclusion}
 
-\bibliographystyle{plainnat}
+\authorcontributions{Conceptualization, I.A. and T.N.A.; methodology, I.A. and T.N.A.; formal analysis, I.A. and T.N.A.; verification software, I.A.; writing---original draft, I.A.; writing---review and editing, I.A. and T.N.A. All authors have read and agreed to the submitted version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\dataavailability{The analytical derivations and the numerical values required to assess the claims are contained in the article. Reproducibility scripts were used for internal verification; no external dataset or supplementary material is required for the results.}
+
+\acknowledgments{The authors are thankful to the Deanship of Graduate Studies and Scientific Research at University of Bisha for supporting this work through the Fast-Track Research Support Program.}
+
+\conflictsofinterest{The authors declare no conflicts of interest.}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\reftitle{References}
+\bibliographystyle{../reference-paper/Definitions/mdpi}
 \bibliography{references}
+\end{adjustwidth}
+
 \end{document}
