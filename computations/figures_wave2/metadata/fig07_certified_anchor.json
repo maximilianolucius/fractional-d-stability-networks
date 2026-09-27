@@ -1,7 +1,7 @@
 {
   "figure": "fig07_certified_anchor",
-  "generated_utc": "2026-09-26T20:55:36Z",
-  "git_sha": "85cf354fd12f233b0d72898771e5331202076782",
+  "generated_utc": "2026-09-27T08:51:35Z",
+  "git_sha": "4b8afc175aa04424b710b711cbb6ace149ab4b52",
   "script": "computations/figures_wave2/scripts/fig07_certified_anchor.py",
   "outputs": {
     "pdf": "computations/figures_wave2/exports/pdf/fig07_certified_anchor.pdf",
@@ -98,15 +98,15 @@
       ],
       "eig_at_worst_d": [
         [
-          0.32720711185952667,
-          4.204001186254327
+          0.04494262107486707,
+          0.5774288683347261
         ],
         [
-          0.32720711185952667,
-          -4.204001186254327
+          0.04494262107486707,
+          -0.5774288683347261
         ],
         [
-          -3.7079855548071428,
+          -0.509300023443017,
           0.0
         ]
       ],

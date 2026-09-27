@@ -84,13 +84,14 @@ interval_cert = {"attempted": [lo_int, hi_int], "certified_length": covered, "fu
 # direct spectral corroboration at the anchor
 B = np.array(point(P, mA)["B"])
 dm = min_margin(B[None], ALPHA, half_width=16, step=0.5, n_starts=4); d1 = min_margin(B[None], 1.0, half_width=16, step=0.5, n_starts=4)
-ev = np.linalg.eigvals(np.diag(dm["d"][0]) @ B)
+d_star = dm["d"][0] / np.prod(dm["d"][0]) ** (1 / 3)
+ev = np.linalg.eigvals(np.diag(d_star) @ B)
 sel = {"design": d, "alpha": ALPHA, "params": dict(zip(PARAM_NAMES, P.as_list())), "anchor_m": mA, "classical_m": mC, "m0_hp": m0_hp, "G1_at_m0": G_at_m0,
        "feasible_range": [seg[0]["m"], seg[-1]["m"]], "anchor": {k: r[k] for k in ("X", "Y", "Z", "s", "beta", "kappa", "T1", "T_alpha", "x_star")},
        "margins": {"m_Cain": r["kappa"] - r["T1"], "m_frac": r["T_alpha"] - r["kappa"], "rel_classical": (r["kappa"] - r["T1"]) / r["T1"], "rel_fractional": (r["T_alpha"] - r["kappa"]) / r["T_alpha"]},
        "densities": {"Y_over_X": Y / X, "Z_over_X": Z / X, "ratio": max(X, Y, Z) / min(X, Y, Z)},
        "conditioning": {"classical": chosen["cond_classical"], "fractional": chosen["cond_fractional"]},
-       "direct": {"min_margin_alpha": float(dm["margin"][0]), "min_margin_1": float(d1["margin"][0]), "worst_d_geomean1": (dm["d"][0] / np.prod(dm["d"][0]) ** (1 / 3)).tolist(),
+       "direct": {"min_margin_alpha": float(dm["margin"][0]), "min_margin_1": float(d1["margin"][0]), "worst_d_geomean1": d_star.tolist(),
                   "eig_at_worst_d": [[float(v.real), float(v.imag)] for v in ev], "min_arg": float(np.min(np.abs(np.angle(ev))))},
        "certified_points": cert, "certified_m_interval": interval_cert, "shortlist": top}
 save_json("design_selected.json", sel)

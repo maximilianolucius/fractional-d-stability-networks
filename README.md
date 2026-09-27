@@ -2,11 +2,21 @@
 
 Public research repository for the development of an exact theory of **fractional D-stability under positive diagonal scaling**, with a three-species ecological-network / generalized Lotka–Volterra interpretation.
 
-> **Current research state — 2026-09-25:** the exploratory novelty phase has produced a concrete internal theorem package (C-07 through C-16). The mathematical center is now the exact low-dimensional structure of genuinely fractional D-stability, especially the exact \(3\times3\) threshold C-10. The package is **not yet submission-certified**: an independent adversarial proof audit, a high-compute validation wave, and a final specialist novelty audit are still required.
+> **Current research state — 2026-09-27:** the theorem, proof-audit, published-reference and certified-computation programme has been integrated into the full Mathematics/MDPI manuscript. The applied revision adds a reproducible time-domain integration of the full nonlinear three-species Caputo Double-Allee IGP model, with step refinement computed on Aureus. The analytic theorem remains the proof; finite searches and trajectories are explicitly labelled as numerical corroboration.
 
 The repository is public:
 
 **https://github.com/maximilianolucius/fractional-d-stability-networks**
+
+The submission manuscript is built from [`paper/main.tex`](paper/main.tex). To reproduce the new nonlinear case study and its figure:
+
+```bash
+PYTHONPATH=src python3 computations/figures_wave2/scripts/nonlinear_caputo_simulation.py
+PYTHONPATH=src python3 computations/figures_wave2/scripts/fig09_nonlinear_caputo_dynamics.py
+make paper
+```
+
+The canonical numerical output records the compute host, package versions, nested-step discrepancies and local-exit criterion in [`nonlinear_caputo_summary.json`](computations/figures_wave2/data/nonlinear_caputo_summary.json).
 
 ---
 

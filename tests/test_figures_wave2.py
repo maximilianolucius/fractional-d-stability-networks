@@ -85,8 +85,23 @@ def test_fig08_traced_boundaries_separate_the_classes_on_both_sides():
 
 def test_all_wave2_exports_exist():
     for name in ("fig01_matignon_hurwitz", "fig03_threshold_geometry", "fig04_alpha_deformation", "fig04c_low_order_asymptotic",
-                 "fig05_ecological_mechanism", "fig06_double_allee_m_path", "fig07_certified_anchor", "fig08_double_allee_2d_3d"):
+                 "fig05_ecological_mechanism", "fig06_double_allee_m_path", "fig07_certified_anchor", "fig08_double_allee_2d_3d",
+                 "fig09_nonlinear_caputo_dynamics"):
         for ext in ("pdf", "svg", "png"):
             assert os.path.exists(os.path.join(W2, "exports", ext, f"{name}.{ext}"))
         meta = json.load(open(os.path.join(W2, "metadata", f"{name}.json")))
         assert "claims" in meta and "objects" in meta
+
+
+def test_nonlinear_caputo_time_domain_record_is_consistent():
+    summary = json.load(open(os.path.join(W2, "data", "nonlinear_caputo_summary.json")))
+    assert summary["model"].startswith("full nonlinear")
+    assert summary["row_scaling_identity_max_abs_error"] < 1e-12
+    assert summary["equilibrium_residual_max_abs"] < 1e-12
+    assert summary["minimum_eigenvalue_angle"] > summary["matignon_boundary_alpha_0.9"]
+    assert summary["fractional"]["minimum_state"] > 0.0
+    assert summary["fractional"]["final_relative_distance"] < summary["fractional"]["initial_relative_distance"]
+    assert summary["classical"]["exit_time"] is not None
+    assert summary["classical"]["minimum_state_before_exit"] > 0.0
+    assert len(summary["step_refinement"]) >= 2
+    assert summary["step_refinement"][-1]["max_relative_difference"] < 1e-3

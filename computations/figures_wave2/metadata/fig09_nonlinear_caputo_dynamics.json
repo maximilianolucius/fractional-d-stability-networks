@@ -1,0 +1,133 @@
+{
+  "figure": "fig09_nonlinear_caputo_dynamics",
+  "generated_utc": "2026-09-27T08:51:37Z",
+  "git_sha": "4b8afc175aa04424b710b711cbb6ace149ab4b52",
+  "script": "computations/figures_wave2/scripts/fig09_nonlinear_caputo_dynamics.py",
+  "outputs": {
+    "pdf": "computations/figures_wave2/exports/pdf/fig09_nonlinear_caputo_dynamics.pdf",
+    "svg": "computations/figures_wave2/exports/svg/fig09_nonlinear_caputo_dynamics.svg",
+    "png": "computations/figures_wave2/exports/png/fig09_nonlinear_caputo_dynamics.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "time-domain numerical corroboration of the W2-A fractional-only realization"
+  ],
+  "objects": {
+    "both panels": "NUMERICAL CORROBORATION (full nonlinear model; no empirical calibration)",
+    "alpha=0.9": "fractional Adams--Bashforth--Moulton PECE with step refinement",
+    "alpha=1": "adaptive DOP853 integration stopped at the declared local-neighborhood exit"
+  },
+  "summary": {
+    "model": "full nonlinear three-species Caputo Double-Allee IGP system W2-A",
+    "interpretation": "numerical corroboration of local dynamics, not proof or empirical calibration",
+    "alpha_fractional": 0.9,
+    "alpha_classical": 1.0,
+    "t_end": 180.0,
+    "production_step": 0.01,
+    "refinement_steps": [
+      0.04,
+      0.02,
+      0.01
+    ],
+    "output_stride": 5,
+    "equilibrium": [
+      1.0,
+      0.785632816859924,
+      0.1921819372701033
+    ],
+    "initial_state": [
+      1.001,
+      0.7848471840430641,
+      0.19237411920737338
+    ],
+    "initial_relative_perturbation": [
+      0.001,
+      -0.001,
+      0.001
+    ],
+    "d_star_for_per_capita_matrix": [
+      0.18100237446319573,
+      2.0473771293729515,
+      2.6984717772767093
+    ],
+    "equation_row_rates": [
+      0.18100237446319573,
+      2.6060229224589437,
+      14.041235173335387
+    ],
+    "row_scaling_identity_max_abs_error": 5.551115123125783e-17,
+    "equilibrium_residual_max_abs": 1.0408340855860843e-17,
+    "scaled_jacobian_eigenvalues": [
+      [
+        0.04494262107486707,
+        0.5774288683347261
+      ],
+      [
+        0.04494262107486707,
+        -0.5774288683347261
+      ],
+      [
+        -0.509300023443017,
+        0.0
+      ]
+    ],
+    "minimum_eigenvalue_angle": 1.4931206167350513,
+    "matignon_boundary_alpha_0.9": 1.413716694115407,
+    "fractional": {
+      "initial_relative_distance": 0.0017320508075687508,
+      "final_relative_distance": 7.966199813729776e-06,
+      "maximum_relative_distance": 0.0024004222757332185,
+      "minimum_state": 0.19194694436010168,
+      "final_state": [
+        1.0000012946737442,
+        0.7856321367804733,
+        0.19218343868732013
+      ]
+    },
+    "classical": {
+      "exit_radius": 0.2,
+      "exit_time": 101.58577711589737,
+      "terminal_time": 101.58577711589737,
+      "terminal_relative_distance": 0.20000000000000034,
+      "minimum_state_before_exit": 0.16269327330269806,
+      "terminal_state": [
+        0.9936081028558386,
+        0.8386226535361865,
+        0.22834577273257348
+      ]
+    },
+    "step_refinement": [
+      {
+        "coarse_step": 0.04,
+        "fine_step": 0.02,
+        "max_relative_difference": 1.1516541824272434e-06
+      },
+      {
+        "coarse_step": 0.02,
+        "fine_step": 0.01,
+        "max_relative_difference": 3.139246824988377e-07
+      }
+    ],
+    "refinement_error_ratio": 3.6685684389646784,
+    "observed_refinement_order": 1.8752171996027418,
+    "software": {
+      "host": "aur007",
+      "python": "3.12.3",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "elapsed_seconds": 1.5404760837554932
+    },
+    "data_file": "nonlinear_caputo_timeseries.csv"
+  },
+  "data": [
+    "computations/figures_wave2/data/nonlinear_caputo_summary.json",
+    "computations/figures_wave2/data/nonlinear_caputo_timeseries.csv"
+  ]
+}

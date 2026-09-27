@@ -73,13 +73,48 @@ For the anchor, the most restrictive diagonal ratio found was approximately
 \[
  D_*=\diag(0.1810,\;2.0474,\;2.6985),
  \qquad
- \spec(D_*B)=\{0.3272\pm4.2040i,\,-3.7080\},
+ \spec(D_*B)=\{0.04494\pm0.57743i,\,-0.50930\},
 \]
 and
 \[
  \min_j|\arg\lambda_j(D_*B)|=1.49312\ldots>0.9\frac{\pi}{2},
 \]
 while the conjugate pair has positive real part. The corresponding angular margin is about \(0.0794\) radians for \(\alpha=0.9\), whereas the classical \(\alpha=1\) margin is negative. This direct search corroborates both sides of the classification, but it is not used in the proof.
+
+\subsection{Full Nonlinear Time-Domain Case Study}
+
+We now integrate the complete nonlinear ecological system rather than its linearization. Let \(u=(x,y,z)^\top\), let \(u^*=(X,Y,Z)^\top\) be the anchor in Equation~\eqref{eq:w2a-densities}, and denote the unscaled nonlinear vector field in Equation~\eqref{eq:igp-model} by \(G(u)\). To realize exactly the orbit point above, set
+\begin{equation}
+ R_*=D_*\diag(u^*)^{-1}
+ =\diag(0.1810024,\;2.6060229,\;14.0412352)
+ \label{eq:row-rate-scaling}
+\end{equation}
+and consider the positively row-scaled model
+\begin{equation}
+ \CapD{\alpha}u=R_*G(u).
+ \label{eq:scaled-nonlinear-case}
+\end{equation}
+The scaling changes only the three positive response rates, preserves the coexistence equilibrium and the interaction signs, and gives the exact Jacobian identity
+\[
+ R_*J=R_*\diag(u^*)B=D_*B.
+\]
+Thus the same nonlinear model has a locally Matignon-stable equilibrium at \(\alpha=0.9\) and a classically unstable equilibrium at \(\alpha=1\).
+
+Both integrations start from the identical relative perturbation
+\[
+ u(0)=u^*\odot\bigl(\mathbf 1+10^{-3}(1,-1,1)^\top\bigr)
+      =(1.001,\;0.7848471840,\;0.1923741192)^\top.
+\]
+For \(\alpha=0.9\), we used the fractional Adams--Bashforth--Moulton PECE method \cite{Garrappa2010,Garrappa2018,Diethelm2010} with \(h=0.01\) on \(0\le t\le180\). Step halving gave maximum componentwise relative differences of \(1.15\times10^{-6}\) between \(h=0.04\) and \(0.02\), and \(3.14\times10^{-7}\) between \(h=0.02\) and \(0.01\), an observed refinement order of \(1.875\). The relative distance \(\|u/u^*-\mathbf 1\|_2\) decreased from \(1.732\times10^{-3}\) to \(7.97\times10^{-6}\), and all three states remained positive.
+
+For \(\alpha=1\), an adaptive DOP853 integration with relative and absolute tolerances \(10^{-11}\) and \(10^{-13}\), respectively, was stopped when the same relative distance first reached \(0.2\). This occurred at \(t=101.586\), consistently with the positive real part of the conjugate pair. Stopping at the declared radius keeps the comparison within a fixed local neighborhood; it is not a claim about the global fate of the classical trajectory.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.96\textwidth]{fig09_nonlinear_caputo_dynamics.pdf}
+\caption{Full nonlinear time-domain comparison for the W2-A realization under the row scaling in Equation~\eqref{eq:row-rate-scaling}. \textbf{(a)} Relative species deviations for \(\alpha=0.9\), showing decaying oscillatory transients. \textbf{(b)} Relative distance from coexistence for the fractional and classical systems with identical parameters, scaling and initial state. The classical integration is stopped at the prescribed local-neighborhood radius \(0.2\). This computation illustrates the local spectral result and is neither part of its proof nor an empirical calibration.}
+\label{fig:nonlinear-caputo-dynamics}
+\end{figure}
 
 Finally, Figure~\ref{fig:ecological-contrast} places the exact two-dimensional equality curve beside the three-dimensional open region. In panel (b), the region boundaries are traced by deterministic root finding applied to the exact formulas. The traced regions themselves are pointwise formula evaluations; only the green segment and marked anchor carry interval-certification semantics.
 

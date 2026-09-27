@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - chief/full-manuscript-20260926
+      - chief/applied-simulation-20260927
     paths:
       - "paper/**"
       - "reference-paper/Definitions/**"
@@ -66,6 +67,7 @@ jobs:
           cp computations/figures_wave2/exports/pdf/fig06_double_allee_m_path.pdf "$SRC/figures/"
           cp computations/figures_wave2/exports/pdf/fig07_certified_anchor.pdf "$SRC/figures/"
           cp computations/figures_wave2/exports/pdf/fig08_double_allee_2d_3d.pdf "$SRC/figures/"
+          cp computations/figures_wave2/exports/pdf/fig09_nonlinear_caputo_dynamics.pdf "$SRC/figures/"
 
           cp paper/main.pdf "$OUT/from-cain-to-matignon-positive-diagonal-stability.pdf"
 
@@ -81,7 +83,7 @@ jobs:
             '- latex-source/references.bib : audited published-source bibliography' \
             '- latex-source/sections/ : manuscript section sources' \
             '- latex-source/Definitions/ : MDPI class/style dependencies used by the manuscript' \
-            '- latex-source/figures/ : six figures used in the manuscript' \
+            '- latex-source/figures/ : seven figures used in the manuscript' \
             '' \
             'Recompile:' \
             '  cd latex-source' \

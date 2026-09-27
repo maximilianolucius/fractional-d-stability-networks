@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - chief/full-manuscript-20260926
+      - chief/applied-simulation-20260927
   workflow_dispatch:
 
 jobs:
