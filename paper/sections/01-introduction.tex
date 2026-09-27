@@ -12,15 +12,6 @@ Generalized matrix stability with respect to spectral regions and multiplier cla
 
 The classical endpoint of this construction is equally important. Cain's exact criterion for real \(3\times3\) \(D\)-stable matrices already shows that principal minors, homogeneity in the diagonal multiplier, and an exact minimization over the multiplier orbit are classical ingredients \cite{Cain1976}. The present threshold should therefore be read as a fractional deformation of Cain's boundary, not as an unrelated sufficient test. Other adjacent theories are also occupied: P-matrix eigenvalue wedges \cite{Kellogg1972}, fixed-polynomial fractional Routh--Hurwitz criteria \cite{CermakNechvatal2017,BourafaAbdelouahabMoussaoui2020}, forbidden-sector polynomial results \cite{HoltzKhrushchevKushel2016,JoyaFuruta1991}, and structured cyclic fractional-network conditions \cite{Siami2021}. The exact arbitrary-\(\beta\) all-diagonal threshold derived below is not implied by any of these results.
 
-The geometric distinction is summarized in Figure~\ref{fig:matignon}. Classical Hurwitz stability occupies the left half-plane, whereas the Matignon condition permits a right-half-plane sliver whenever \(\alpha<1\). Our object is the much stronger requirement that \emph{every} positive diagonal scaling of a real matrix remain in that sector.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.86\textwidth]{fig01_matignon_hurwitz.pdf}
-\caption{Hurwitz versus Matignon spectral geometry. The orange region is the classical left half-plane and the blue rays are the exact Matignon boundary. For \(\alpha<1\), the blue sector admits eigenvalues with positive real part. The figure visualizes the fixed-spectrum geometry only; the theorems below impose the condition uniformly over every positive diagonal left scaling.}
-\label{fig:matignon}
-\end{figure}
-
 The first structural result is dimensional. In dimension two we obtain the exact classification
 \[
  A\in\mathcal F_\alpha^{(2)}
@@ -71,9 +62,9 @@ is an open, genuinely fractional, all-positive-diagonal stability band. For \(0<
  \forall\,0<\alpha<1.
 \]
 
-The threshold is not merely an implicit minimum. We prove that its logarithm is globally strictly convex in logit coordinates on the simplex, giving a unique nondegenerate optimizer and smooth parameter dependence. The threshold decreases strictly with \(\alpha\), approaches Cain's surface linearly as \(\alpha\to1^{-}\), and has an explicit low-order asymptotic as \(\alpha\downarrow2/3^{+}\). The cyclic condition of Siami appears as the fully symmetric slice \(\beta_{12}=\beta_{13}=\beta_{23}=1\), rather than as the general case \cite{Siami2021}.
+The threshold is not merely an implicit minimum. Its logarithm is globally strictly convex in logit coordinates, giving a unique nondegenerate optimizer and smooth parameter dependence. It decreases strictly with \(\alpha\) and approaches Cain's surface linearly as \(\alpha\to1^{-}\); Siami's cyclic condition is recovered as the fully symmetric slice \(\beta_{12}=\beta_{13}=\beta_{23}=1\) \cite{Siami2021}.
 
-The second half of the paper asks whether the exact difference band is only an abstract matrix phenomenon. We answer this by constructing a nonlinear ecological realization. Classical \(D\)-stability and diagonal-stability concepts are established in ecological robustness theory \cite{HouBaigent2015,ChenWangLiu2024,Kinkhabwala2015,ClarkHallam1982}. Intraguild predation (IGP) is also a standard three-species food-web module \cite{HoltPolis1997,BaiKangRuanWang2021}, and fractional IGP models already exist \cite{Panja2019}. Likewise, strong/double Allee effects and fractional predator--prey models with Allee mechanisms are well developed \cite{ChaosSolitonsFractals2015DoubleAllee,FractalFract2026DoubleAllee,Tassaddiq2026,Mondal2025,Ramesh2025}. We therefore claim no novelty for Caputo ecology, IGP, double-Allee growth, or ordinary Matignon analysis of a fixed ecological Jacobian.
+We next ask whether the exact difference band is only an abstract matrix phenomenon. Classical ecological \(D\)-stability is established \cite{HouBaigent2015,ChenWangLiu2024}; IGP and IGP with Allee effects are standard motifs \cite{HoltPolis1997,BaiKangRuanWang2021}, fractional IGP already exists \cite{Panja2019}, and fractional double-Allee predator--prey models are known \cite{FractalFract2026DoubleAllee,Tassaddiq2026,Mondal2025,Ramesh2025}. Accordingly, novelty is claimed only for the exact all-diagonal realization results below, not for the ecological ingredients themselves.
 
 The ecological contribution is instead an exact realization theorem. We first prove that the most natural double-Allee prey with two competing consumers is structurally incapable of entering the open fractional-only band: its directed three-cycle contribution has the wrong sign and forces \(\kappa<T_1(\beta)\) throughout the strict-\(P\) region. Replacing inter-consumer competition by an IGP/omnivory link reverses one directed three-cycle and creates a four-dimensional open invariant family. We then embed any required positive prey self-slope into a double-Allee growth law at a positive coexistence equilibrium, proving that for every fixed \(0<\alpha<1\) there is a nonempty open set in the full biological parameter space for which
 \[
