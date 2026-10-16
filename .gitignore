@@ -36,3 +36,7 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# Peer-review reports are confidential journal correspondence; kept locally only (hashes in paper/review/round1/SHA256SUMS.txt)
+paper/review/round1/mathematics-4633263-reviewer1.pdf
+paper/review/round1/mathematics-4633263-reviewer2.pdf

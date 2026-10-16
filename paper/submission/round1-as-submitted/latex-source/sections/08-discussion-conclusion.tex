@@ -1,0 +1,19 @@
+\section{Discussion and Conclusions}\label{sec:discussion}
+
+The central distinction in this paper is between stability of one Jacobian and robustness of its complete positive-diagonal orbit. For a fixed commensurate Caputo linearization, the Matignon sector can admit a right-half-plane conjugate pair \cite{Matignon1996,BrandiburGarrappaKaslik2021}. Here the stronger statement is that the \emph{linearized Jacobian} remains Matignon-stable after every positive diagonal left scaling, even when the same orbit is not classically Hurwitz \(D\)-stable. Classical ecological \(D\)-stability is already a recognized robustness concept \cite{ChenWangLiu2024}; our contribution is the exact three-dimensional Matignon deformation of Cain's boundary and its nonlinear ecological realization.
+
+The dimension statement must also be read precisely. Dimension three is not the first dimension in which fractional stabilization can occur. It is the minimum dimension in which
+\[
+\mathcal F_\alpha^{(n)}\setminus\mathcal D_H^{(n)}
+\]
+has nonempty full-dimensional interior. In two dimensions the difference class is confined to an equality locus; in three dimensions the exact interval \(T_1(\beta)<\kappa<T_\alpha(\beta)\) is open. The strict-convexity result makes this boundary computationally and analytically well behaved: the threshold has a unique nondegenerate optimizer and varies smoothly with the invariant coordinates.
+
+The ecological construction gives the invariant geometry a mechanistic interpretation without claiming novelty for IGP or Allee ecology. In the two-consumer architecture the directed three-cycle term has the sign that forces \(\kappa<T_1\), so parameter tuning cannot reach the fractional-only band. In the IGP architecture one cycle changes sign and makes \(L_3<0\) accessible. The resulting four-invariant right inverse, followed by the Double-Allee embedding, yields a nonempty open subset of the full 14-dimensional positive biological parameter space for each fixed \(\alpha\). Along that branch the Allee threshold has an exact matrix-geometric role: increasing \(m\) decreases \(s=-g'_{\rm DA}(X)\), so \(t=1/s\) increases and can cross Cain's surface uniquely and transversally while all other biological parameters remain fixed.
+
+The scope is local and spectral. Membership in \(\mathcal F_\alpha\) concerns the linearized commensurate Caputo system; it does not prove global nonlinear stability, a Hopf bifurcation, or global uniqueness of positive coexistence. The constructed equilibrium is a smooth local branch. The W2-A realization is a biologically feasible mathematical witness with certified margins, not an empirical calibration. The direct diagonal search and full nonlinear time integration in Section~\ref{sec:certified} are reproducible corroboration rather than proof; the latter deliberately stops the unstable classical trajectory at a fixed local-neighborhood boundary.
+
+In summary, the universal positive-diagonal quantifier for real \(3\times3\) matrices on the strict-\(P(-A)\) stratum reduces exactly to
+\[
+\kappa<T_\alpha(\beta).
+\]
+The threshold recovers Cain at \(\alpha=1\), lies strictly above it for \(\alpha<1\), and has a unique smooth optimizer. This yields the minimum full-dimensional robust dimension \(n=3\). A nonlinear Caputo Double-Allee IGP system then realizes an open subset of the resulting fractional-only class, while the competing-consumer architecture is structurally excluded and the Allee threshold supplies an exact crossing mechanism. For \(n\ge4\), the simplex reduction remains available but the number of nontrivial orbit invariants grows to \(2^n-n-1\); identifying higher-dimensional graph classes that retain comparable low-dimensional structure is the natural next problem.

@@ -1,0 +1,81 @@
+%=====================================================================
+% From Cain to Matignon
+% Submission manuscript — Mathematics / MDPI template
+% Submission freeze package trigger 2026-09-27
+%=====================================================================
+\documentclass[mathematics,article,submit,pdftex,moreauthors]{Definitions/mdpi}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Real}{Re}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Falpha}{\mathcal{F}_{\alpha}}
+\newcommand{\Palpha}{\mathcal{P}_{\alpha}}
+\newcommand{\Salpha}{\Sigma_{\alpha}}
+\newcommand{\Dpos}{D\succ0}
+\newcommand{\CapD}[1]{{}^{C}\!D_t^{#1}}
+
+\graphicspath{{figures/}}
+
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\externaleditor{}
+\datereceived{}
+\daterevised{}
+\dateaccepted{}
+\datepublished{ }
+\hreflink{https://doi.org/}
+
+\Title{From Cain to Matignon: Exact Positive-Diagonal Stability in Dimension Three and a Nonlinear Caputo Ecological Realization}
+
+\Author{{Ibrahim Alraddadi^*}
+}
+\AuthorNames{Ibrahim Alraddadi}
+
+\address{%
+$^{1}$ \quad Department of Mathematics, Faculty of Science, Islamic University of Madinah, Madinah 42351, Saudi Arabia}
+
+\corres{Correspondence: ialraddadi@iu.edu.sa}
+
+\abstract{Positive-diagonal \(D\)-stability asks whether stability persists under every positive diagonal left scaling. We replace the classical Hurwitz half-plane by the Matignon sector for commensurate Caputo systems and solve the resulting real three-dimensional problem on the full-dimensional strict-\(P(-A)\) stratum. Four scale-invariant quantities \((\beta_{12},\beta_{13},\beta_{23},\kappa)\) reduce the complete positive-diagonal orbit to an open simplex, and for \(2/3<\alpha<1\) we prove the exact criterion \(\kappa<T_{\alpha}(\beta)\). At \(\alpha=1\), \(T_{\alpha}\) collapses to Cain's classical threshold, while \(T_{\alpha}>T_1\) for every \(\alpha<1\), producing an explicit genuinely fractional band. The threshold objective is strictly convex in logit coordinates, has a unique nondegenerate optimizer, and yields the minimum-dimension result: three is the minimum dimension in which the genuinely fractional multiplicative-\(D\)-stable class has nonempty full-dimensional interior. We then construct a nonlinear three-species Caputo Kolmogorov realization with double-Allee basal growth and intraguild predation. A natural competing-consumer architecture is proved unable to enter the fractional-only band, whereas the intraguild-predation architecture realizes an open biological subset of it. Varying only the Allee threshold moves the fixed biological system transversally across Cain's classical \(D\)-stability boundary into the fractional-only Matignon region. A reproducible integration of the full nonlinear model at a certified orbit point displays decaying Caputo transients at \(\alpha=0.9\), while the same parameters, rate scaling and initial perturbation leave a fixed local neighborhood at \(\alpha=1\).}
+
+\keyword{fractional-order systems; Caputo derivative; D-stability; Matignon stability; P-matrix; Cain criterion; intraguild predation; double Allee effect; ecological stability}
+\MSC{15A18; 34A08; 34D20; 92D25}
+
+\begin{document}
+
+\input{sections/01-introduction}
+\input{sections/02-framework}
+\input{sections/03-dimension-two}
+\input{sections/04-exact-dimension-three}
+\input{sections/05-threshold-geometry}
+\input{sections/06-ecological-realization}
+\input{sections/07-certified-realization}
+\input{sections/08-discussion-conclusion}
+
+\authorcontributions{Conceptualization, I.A.; methodology, I.A.; formal analysis, I.A.; verification software, I.A.; writing---original draft, I.A.; writing---review and editing. I.A. has read and agreed to the submitted version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\dataavailability{The original contributions presented in this study are included in the article. Further inquiries can be directed to the corresponding author}
+
+\acknowledgments{The author is thankful to the Deanship of Scientific Research at Islamic University of Madinah for supporting this work}
+
+\conflictsofinterest{The authors declare no conflicts of interest.}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\reftitle{References}
+\bibliography{references}
+\end{adjustwidth}
+
+\end{document}
