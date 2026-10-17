@@ -40,11 +40,18 @@ At \(m=0.511\), interval evaluation gives a well-balanced positive coexistence p
  \kappa-T_1(\beta)&\ge18.1226004666,\qquad
  T_{0.9}(\beta)-\kappa\ge31.8369074446.\label{eq:w2a-margins}
 \end{align}
-The largest-to-smallest coexistence density ratio is approximately \(5.20\), and both certified margins place the point well inside the fractional-only band.
+The largest-to-smallest coexistence density ratio is approximately \(5.20\), and both certified margins place the point well inside the fractional-only band. The equilibrium is strictly biologically feasible (\(X,Y,Z>0\) and \(m<X<K\)); since the equilibrium equation has a simple root here, the implicit-function theorem preserves a nearby feasible equilibrium and the strict invariant margins under sufficiently small parameter perturbations.
 
 \subsection{Interval Certification along the Allee Branch}
 
-The coexistence branch was enclosed with outward-rounded high-precision interval arithmetic. For each \(m\)-box, the scalar equilibrium equation~\eqref{eq:scalar-equilibrium} was enclosed and contracted by interval Newton evaluation; the resulting state enclosure was then propagated through \(s\), \(\beta\), \(\kappa\), and the threshold inequalities. The threshold minimizer is unique by Theorem~\ref{thm:strict-convexity}, which removes ambiguity in the exact C-10 branch used for the enclosure.
+The coexistence branch was enclosed with the outward-rounded \texttt{mpmath.iv} interval backend. Parameter-box and equilibrium evaluations used 50 decimal digits; the scalar equilibrium equation~\eqref{eq:scalar-equilibrium} was contracted by interval Newton evaluation, and the contracted state interval was propagated through \(Y,Z,s,\beta,\kappa\) and Cain's threshold. Crucially, uniqueness of the threshold minimizer alone would \emph{not} validate a numerical lower bound. The implemented routine \texttt{certify\_threshold\_logit} in \texttt{src/fdsn/interval\_cert.py} therefore employs 40-decimal-digit interval arithmetic to enclose a high-precision Newton candidate \(\widehat y\) for the minimizer of the log-objective \(G_{\alpha,\beta}\) in Equation~\eqref{eq:logobjective}. A subdivided box around \(\widehat y\) is checked for a strictly positive interval lower bound \(\underline\lambda\) on the Hessian's smallest eigenvalue (via Gershgorin or determinant-over-trace), and the gradient enclosure bounds the optimizer displacement by \(\rho_y=\overline{\|\nabla G(\widehat y)\|}/\underline\lambda\). The global strict-convexity theorem and the localization test place the true minimizer inside this box. An outward-rounded validated lower bound is then
+\[
+ \underline T_\alpha
+ =\exp\!\Bigl(\underline{G_{\alpha,\beta}(\widehat y)}
+ -\overline{\|\nabla G_{\alpha,\beta}(\widehat y)\|}\,\rho_y\Bigr)
+ \le T_\alpha(\beta).
+\]
+For interval parameter boxes, the routine takes the componentwise lower corner \(\underline\beta\), using monotonicity of \(T_\alpha\) in each \(\beta_{ij}\), and certifies \(\underline T_\alpha(\underline\beta)-\overline\kappa>0\). An independent option, \texttt{certify\_threshold}, uses simplex boundary-strip exclusion and interval branch-and-bound. The certificate thus requires both the analytic convexity result and explicit interval Hessian, gradient, and threshold enclosures; it is not inferred from an approximate optimizer.
 
 A subdivision of the branch into 42 boxes was certified without failure on
 \begin{equation}
@@ -53,15 +60,15 @@ A subdivision of the branch into 42 boxes was certified without failure on
 \end{equation}
 with the strict inequalities \(\kappa-T_1>0\) and \(T_{0.9}-\kappa>0\) on every box. The smallest certified lower margins over the complete interval were \(0.0332\) and \(1.342\), respectively. The classical boundary was solved independently at
 \begin{equation}
- m_0=0.37445128124251493523908034461904384927\ldots,
+ m_0\approx0.374451281242515,
  \label{eq:w2a-m0}
 \end{equation}
-with residual below \(10^{-59}\) in the exact Cain-gap equation, in agreement with Theorem~\ref{thm:crossing}.
+The unrounded high-precision computation of the Cain-gap equation used 60 decimal digits and returned a residual below \(10^{-59}\); this residual pertains to the full internal approximation, not to the shortened printed number. This agrees with Theorem~\ref{thm:crossing}.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{fig07_certified_anchor.pdf}
-\caption{Certified realization W2-A. \textbf{(a)} Positive coexistence densities along the \(m\)-branch; at the anchor, \((X,Y,Z)\approx(1,0.786,0.192)\). \textbf{(b)} Classical and fractional invariant margins; marked points and the green interval are interval-certified. \textbf{(c)} Spectrum at the most restrictive positive diagonal found by a scale-invariant angular search. Panel (c) is numerical corroboration only: the all-diagonal statement follows from Theorem~\ref{thm:c10} and the certified invariant inequalities, not from finite search.}
+\caption{The three-species double-Allee intraguild-predation witness W2-A at order \(\alpha=0.9\) and anchor Allee parameter \(m=0.511\). \textbf{(a)} The positive coexistence densities \(X,Y,Z\) along the threshold branch (anchor approximately \((1,0.786,0.192)\)). \textbf{(b)} Invariant gaps \(\kappa-T_1(\beta)\) (non-Hurwitz \(D\)-stability) and \(T_{0.9}(\beta)-\kappa\) (all-diagonal Matignon stability); only the marked lower bounds and green interval are interval-certified. \textbf{(c)} Eigenvalues at the positive diagonal ratio \(D_*\) selected by scale-invariant numerical angular search; the plotted spectrum is numerical corroboration, not the all-diagonal proof.}
 \label{fig:certified-anchor}
 \end{figure}
 
@@ -79,7 +86,7 @@ and
 \[
  \min_j|\arg\lambda_j(D_*B)|=1.49312\ldots>0.9\frac{\pi}{2},
 \]
-while the conjugate pair has positive real part. The corresponding angular margin is about \(0.0794\) radians for \(\alpha=0.9\), whereas the classical \(\alpha=1\) margin is negative. This direct search corroborates both sides of the classification, but it is not used in the proof.
+while the conjugate pair has positive real part. Here \(B=DF(u^*)\) is the reduced per-capita derivative and \(J=\diag(u^*)B\) is the Jacobian of the \emph{unscaled} nonlinear system. The search uses a selected member \(D_*B\) of the positive-diagonal orbit, not necessarily \(J\) itself. Failure of Hurwitz \(D\)-stability means that \(\exists D\succ0\) with \(\spec(DB)\not\subset\{\Re z<0\}\), and does not assert that the unscaled \(J\) is unstable. The corresponding angular margin is about \(0.0794\) radians for \(\alpha=0.9\), whereas the classical \(\alpha=1\) margin is negative. This direct search corroborates both sides of the classification, but it is not used in the proof.
 
 \subsection{Full Nonlinear Time-Domain Case Study}
 
@@ -98,7 +105,7 @@ The scaling changes only the three positive response rates, preserves the coexis
 \[
  R_*J=R_*\diag(u^*)B=D_*B.
 \]
-Thus the same nonlinear model has a locally Matignon-stable equilibrium at \(\alpha=0.9\) and a classically unstable equilibrium at \(\alpha=1\).
+The \emph{unscaled} ecological model has Jacobian \(J=\diag(u^*)B\); for the comparison we explicitly choose the positive response-rate configuration \(R_*\), whose Jacobian is \(R_*J=D_*B\). This selected row-scaled nonlinear model has a locally Matignon-stable equilibrium at \(\alpha=0.9\) and a classically unstable equilibrium at \(\alpha=1\). All-diagonal Matignon stability is a separate analytic statement.
 
 Both integrations start from the identical relative perturbation
 \[
@@ -107,12 +114,52 @@ Both integrations start from the identical relative perturbation
 \]
 For \(\alpha=0.9\), we used the fractional Adams--Bashforth--Moulton PECE method \cite{Garrappa2010,Garrappa2018,Diethelm2010} with \(h=0.01\) on \(0\le t\le180\). Step halving gave maximum componentwise relative differences of \(1.15\times10^{-6}\) between \(h=0.04\) and \(0.02\), and \(3.14\times10^{-7}\) between \(h=0.02\) and \(0.01\), an observed refinement order of \(1.875\). The relative distance \(\|u/u^*-\mathbf 1\|_2\) decreased from \(1.732\times10^{-3}\) to \(7.97\times10^{-6}\), and all three states remained positive.
 
-For \(\alpha=1\), an adaptive DOP853 integration with relative and absolute tolerances \(10^{-11}\) and \(10^{-13}\), respectively, was stopped when the same relative distance first reached \(0.2\). This occurred at \(t=101.586\), consistently with the positive real part of the conjugate pair. Stopping at the declared radius keeps the comparison within a fixed local neighborhood; it is not a claim about the global fate of the classical trajectory.
+For \(\alpha=1\), an adaptive DOP853 integration with relative and absolute tolerances \(10^{-11}\) and \(10^{-13}\), respectively, was stopped when the same relative distance first reached \(0.2\). This occurred at \(t=101.586\), consistent with the positive real part of the conjugate pair. Stopping at the declared radius keeps the comparison within a fixed local neighborhood; it is not a claim about the global fate of the classical trajectory.
+
+\paragraph{Additional nonlinear Caputo orders near the selected spectral boundary.}
+For the fixed row-scaled configuration, the linearization has eigenvalues
+approximately \(0.04494\pm0.57743i\) and \(-0.50930\), giving the
+predicted critical order
+\[
+ \alpha_c=\frac{2}{\pi}\min_j|\arg\lambda_j(R_*J)|
+ \approx0.9505501.
+\]
+We additionally integrated the \emph{full nonlinear} three-species model
+with the same parameters, response rates and initial relative perturbation at
+orders immediately below and above this threshold. Table~\ref{tab:order-scan}
+shows the relative Euclidean distance \(d(t)=\|u(t)/u^*-\mathbf1\|_2\)
+at \(t=180\), calculated by the Adams--Bashforth--Moulton PECE method with
+two temporal resolutions. These are finite-time observations and are not
+a substitute for the Matignon spectral criterion. Their order dependence and
+step refinement agree qualitatively with the predicted transition.
+\begin{table}[!htbp]
+\centering
+\caption{Additional nonlinear Caputo simulations near the spectral-order
+threshold \(\alpha_c\approx0.9505501\) of the selected W2-A row-scaled
+Jacobian. Entries are the relative Euclidean distance \(d(180)\) from
+positive coexistence at the fixed terminal time \(t=180\), using the same
+parameters and initial perturbation but two PECE steps \(h=0.04\) and \(0.02\).
+The stability boundary is derived analytically from the spectrum; finite-time
+distances are numerical corroboration.}
+\label{tab:order-scan}
+\begin{tabular}{ccc}
+\toprule
+Order \(\alpha\) & \(d(180),\,h=0.04\) & \(d(180),\,h=0.02\)\\
+\midrule
+\(0.900\) & \(7.962948\times10^{-6}\) & \(7.966787\times10^{-6}\)\\
+\(0.930\) & \(6.495794\times10^{-5}\) & \(6.502634\times10^{-5}\)\\
+\(0.945\) & \(4.650427\times10^{-4}\) & \(4.690636\times10^{-4}\)\\
+\(0.950\) & \(8.365397\times10^{-4}\) & \(8.383824\times10^{-4}\)\\
+\(0.955\) & \(2.127911\times10^{-3}\) & \(2.108725\times10^{-3}\)\\
+\(0.965\) & \(1.873945\times10^{-2}\) & \(1.860071\times10^{-2}\)\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.96\textwidth]{fig09_nonlinear_caputo_dynamics.pdf}
-\caption{Full nonlinear time-domain comparison for the W2-A realization under the row scaling in Equation~\eqref{eq:row-rate-scaling}. \textbf{(a)} Relative species deviations for \(\alpha=0.9\), showing decaying oscillatory transients. \textbf{(b)} Relative distance from coexistence for the fractional and classical systems with identical parameters, scaling and initial state. The classical integration is stopped at the prescribed local-neighborhood radius \(0.2\). This computation illustrates the local spectral result and is neither part of its proof nor an empirical calibration.}
+\caption{Full nonlinear time-domain comparison at the positive coexistence equilibrium of W2-A, with the selected positive response-rate scaling \(R_*\). \textbf{(a)} Relative deviations \(u_i(t)/u_i^*-1\) for each species at Caputo order \(\alpha=0.9\), computed with PECE step \(h=0.01\), showing damped oscillations. \textbf{(b)} Relative Euclidean distance \(\|u(t)/u^*-\mathbf1\|_2\) comparing \(\alpha=0.9\) against integer-order \(\alpha=1\), with identical parameters and initial state; the classical DOP853 trajectory ends upon reaching radius \(0.2\). The comparison concerns local dynamics, not global attraction.}
 \label{fig:nonlinear-caputo-dynamics}
 \end{figure}
 
@@ -121,6 +168,6 @@ Finally, Figure~\ref{fig:ecological-contrast} places the exact two-dimensional e
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.96\textwidth]{fig08_double_allee_2d_3d.pdf}
-\caption{Exact two- versus three-dimensional Double-Allee contrast. \textbf{(a)} In two dimensions the fractional-only class is the closed-form codimension-one curve \(m=m_c(X)\) from Equation~\eqref{eq:mc-2d}. \textbf{(b)} For the three-species W2-A design at \(\alpha=0.9\), the classical Cain boundary, Matignon boundary and feasibility edge enclose an open fractional-only region in the \((m,K)\)-plane. The green segment is interval-certified; the surrounding colored regions are deterministic evaluations of the exact formulas and are not interval certificates.}
+\caption{Geometric double-Allee contrast. \textbf{(a)} In the two-species model the fractional-only set in prey-equilibrium \(X\) versus Allee threshold \(m\) is the codimension-one curve \(m=m_c(X)\). \textbf{(b)} For the three-species W2-A model at \(\alpha=0.9\), the \((m,K)\) plane contains the classical Cain boundary \(\kappa=T_1\), the fractional Matignon boundary \(\kappa=T_{0.9}\), and the feasibility edge, enclosing an open fractional-only region. Curves and filled regions come from numerical evaluations of the exact formulas; only the indicated green interval is rigorously enclosed.}
 \label{fig:ecological-contrast}
 \end{figure}
