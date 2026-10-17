@@ -176,7 +176,14 @@ where
 \end{Theorem}
 
 \begin{proof}
-For fixed positive \(a,b\), decreasing the boundary angle \(\theta=\alpha\pi/2\) strictly enlarges the Matignon region. The unique coefficient value \(H_\theta(a,b)\) placing a conjugate pair on the boundary therefore increases strictly as \(\theta\) decreases. Hence \(h_{\alpha_1}(b)>h_{\alpha_2}(b)\) whenever \(\alpha_1<\alpha_2\), and minimization over the same simplex preserves strictness.
+For fixed positive \(a,b\), decreasing the boundary angle \(\theta=\alpha\pi/2\) strictly enlarges the Matignon region. The unique coefficient value \(H_\theta(a,b)\) placing a conjugate pair on the boundary therefore increases strictly as \(\theta\) decreases. Hence \(h_{\alpha_1}(b)>h_{\alpha_2}(b)\) for \(\alpha_1<\alpha_2\). Let \(x^*\) be the attained minimizer of the \(\alpha_1\) objective (whose existence follows from the coercivity established below Equation~\eqref{eq:Talpha}). Then strictness is preserved under minimization by the explicit comparison
+\[
+T_{\alpha_1}(\beta)
+=\frac{h_{\alpha_1}(B_\beta(x^*))}{x_1^*x_2^*x_3^*}
+>\frac{h_{\alpha_2}(B_\beta(x^*))}{x_1^*x_2^*x_3^*}
+\ge T_{\alpha_2}(\beta).
+\]
+Taking \(\alpha_2=1\), where \(h_1(b)=b\), proves \(T_\alpha>T_1\) by the same argument.
 
 For the rate, \(u=\cos(\alpha\pi/2)=\frac{\pi}{2}(1-\alpha)+O((1-\alpha)^3)\). Implicit differentiation of
 \[
@@ -206,4 +213,4 @@ for which
 The envelope theorem applied to the nondegenerate minimum and Equation~\eqref{eq:h-expansion} yields Equations~\eqref{eq:classical-rate}--\eqref{eq:Cbeta}.
 \end{proof}
 
-Theorem~\ref{thm:alpha-deformation} quantifies the part of the order dependence that is needed below: the fractional-only band widens strictly as \(\alpha\) decreases and closes linearly at the classical endpoint. Together with the exact symmetric reductions above, this supplies a smooth and uniquely optimized threshold geometry without adding further parameters to the C-10 classification.
+Theorem~\ref{thm:alpha-deformation} quantifies the part of the order dependence that is needed below: the fractional-only band widens strictly as \(\alpha\) decreases and closes linearly at the classical endpoint. Together with the exact symmetric reductions above, this supplies a smooth and uniquely optimized threshold geometry without adding further parameters to the exact threshold classification.
