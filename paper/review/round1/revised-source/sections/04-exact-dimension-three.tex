@@ -218,6 +218,13 @@ Consequently, every interior point of \(\mathcal F_\alpha^{(3)}\) has \(-A\) str
 If some \(a_{ii}>0\), let the other row scalings tend to zero; the limiting matrix has a positive real eigenvalue, and nearby positive diagonal scalings violate Matignon stability. If an order-two principal minor is negative, the same argument with the complementary row scaling tending to zero produces a \(2\times2\) block with a positive real eigenvalue. Finally a real \(3\times3\) Matignon-stable matrix has negative determinant, so \(-\det A>0\). Any zero order-one or order-two signed principal minor can be perturbed arbitrarily slightly to the forbidden sign, and therefore cannot occur at an interior point.
 \end{proof}
 
+\paragraph{Vanishing principal minors.}
+The excluded strata lie in the algebraic hypersurfaces \(\{a_{ii}=0\}\) and \(\{\det A[I]=0\}\); they are closed, have Lebesgue measure zero, and by Lemma~\ref{lem:P0} contain no interior point of \(\mathcal F_\alpha^{(3)}\). The characterization of the full-dimensional interior is therefore unaffected. These strata are nevertheless not free of fractional-only matrices. Embedding the two-dimensional set~\eqref{eq:2d-difference},
+\[
+A=\begin{pmatrix}0&b&0\\c&0&0\\0&0&-1\end{pmatrix},\qquad bc<0,
+\]
+gives \(\spec(DA)=\{\pm i\sqrt{-d_1d_2bc},\,-d_3\}\) for every \(D\succ0\), so \(A\in\mathcal F_\alpha^{(3)}\setminus\mathcal D_H^{(3)}\) for every \(0<\alpha<1\), although \(p_1=p_2=0\). The four-invariant method does not extend directly to such points because its normalization degenerates: if \(p_i=0\), the simplex coordinate \(x_i=p_id_i/a_D\) vanishes identically and the invariants \(\beta_I=m_I/\prod_{i\in I}p_i\) are undefined, while \(m_I=0\) removes the corresponding monomial from \(c_{|I|}(D)\) in Equation~\eqref{eq:orbit-compact}. A classification of these lower-dimensional strata would require separate face-by-face limiting arguments and is not attempted here.
+
 At the classical endpoint \(\alpha=1\),
 \[
 h_1(b)=b,
