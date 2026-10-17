@@ -309,25 +309,42 @@ A:
 \end{Corollary}
 
 \begin{proof}
-On the strict-\(P\) stratum the fractional-only \emph{set}, as distinct from its full-dimensional interior, satisfies
+For \(2/3<\alpha<1\), Theorem~\ref{thm:c10} and
+Equation~\eqref{eq:T1} give the two strict inequalities
+characterizing the full-dimensional interior.
+For \(0<\alpha\le2/3\), Kellogg's eigenvalue wedge theorem
+for \(P\)-matrices \cite{Kellogg1972} implies, for every
+\(D\succ0\) and \(\mu\in\spec(-DA)\), that
+\[
+ |\arg\mu|<\frac{2\pi}{3},
+ \qquad
+ |\arg\lambda|=\pi-|\arg\mu|>\frac{\pi}{3}
+ \ge\frac{\alpha\pi}{2},
+ \quad \lambda=-\mu.
+\]
+The strict wedge inequality covers the endpoint \(\alpha=2/3\).
+Lemma~\ref{lem:P0} gives necessity for interior points,
+while Cain's threshold distinguishes the classical
+\(D\)-stable matrices from their complement.
+\end{proof}
+
+\begin{Remark}[fractional-only set versus its interior]
+\label{rem:fracband-boundary}
+On the strict-\(P(-A)\) stratum, for \(2/3<\alpha<1\),
+the complete fractional-only \emph{set} satisfies
 \[
  A\in\mathcal P_\alpha^{(3)}
  \quad\Longleftrightarrow\quad
- T_1(\beta)\le\kappa<T_\alpha(\beta),
- \qquad 2/3<\alpha<1.
+ T_1(\beta)\le\kappa<T_\alpha(\beta).
 \]
-At \(\kappa=T_1\) one positive diagonal scaling has a pair of purely imaginary eigenvalues and so is not Hurwitz-stable; it remains strictly Matignon-stable for every \(\alpha<1\). The \emph{interior} requires \(T_1<\kappa<T_\alpha\). This gives the high-order statement by Theorem~\ref{thm:c10} and Equation~\eqref{eq:T1}. In the low-order regime, Kellogg's eigenvalue wedge theorem for \(P\)-matrices \cite{Kellogg1972} implies that if \(-A\) is strict \(P\), every eigenvalue of \(-DA\) lies in
-\[
-|\arg\mu|<\pi-\frac{\pi}{3}=\frac{2\pi}{3}.
-\]
-If \(\mu\in\spec(-DA)\) and \(\lambda=-\mu\), Kellogg's strict wedge gives
-\[
- |\arg\mu|<2\pi/3,
- \qquad |\arg\lambda|=\pi-|\arg\mu|>\pi/3
- \ge\alpha\pi/2\qquad(0<\alpha\le2/3).
-\]
-Thus the endpoint \(\alpha=2/3\) is included because the eigenvalue inequality is strict. Lemma~\ref{lem:P0} gives necessity for interior points, while Cain's threshold separates classical \(D\)-stability from its complement.
-\end{proof}
+At \(\kappa=T_1(\beta)\), some positive diagonal scaling
+has a purely imaginary conjugate pair. Hence the orbit is
+not Hurwitz \(D\)-stable, although it remains strictly
+Matignon \(D\)-stable for every \(\alpha<1\).
+By contrast, the full-dimensional \emph{interior} is
+characterized by \(T_1(\beta)<\kappa<T_\alpha(\beta)\),
+as stated in Corollary~\ref{cor:fracband}.
+\end{Remark}
 
 Figure~\ref{fig:c10geometry} shows the exact threshold geometry on symmetric and asymmetric slices. The blue Matignon boundary remains strictly above the orange Cain boundary, and the region between them is precisely the all-positive-diagonal fractional-only band.
 
