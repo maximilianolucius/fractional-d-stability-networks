@@ -1,0 +1,48 @@
+{
+  "figure": "fig10_alpha_sweep",
+  "generated_utc": "2026-10-17T00:38:19Z",
+  "git_sha": "1758609abfcb75b80b1125a5e7acb34f1deaf38b",
+  "script": "computations/figures_wave2/scripts/fig10_alpha_sweep.py",
+  "outputs": {
+    "pdf": "computations/figures_wave2/exports/pdf/fig10_alpha_sweep.pdf",
+    "svg": "computations/figures_wave2/exports/svg/fig10_alpha_sweep.svg",
+    "png": "computations/figures_wave2/exports/png/fig10_alpha_sweep.png"
+  },
+  "palette": {
+    "fractional": "#1F4E79",
+    "classical": "#D97A00",
+    "biological": "#2A7F62",
+    "nogo": "#B14E3A",
+    "neutral_dark": "#5C6770",
+    "neutral_light": "#D9DDE3"
+  },
+  "claims": [
+    "time-domain corroboration across alpha of the exact boundary order alpha_* (T_alpha(beta)=kappa) for the W2-A realization (reviewer R2-6)"
+  ],
+  "objects": {
+    "curves/markers": "NUMERICAL CORROBORATION (PECE with step refinement; DOP853 at alpha=1)",
+    "alpha_*": "EXACT THEOREM VALUE (root of T_alpha(beta)=kappa; equals (2/pi) min|arg lambda(D_* B)|)"
+  },
+  "summary": {
+    "alpha_star_theorem": 0.950550107143211,
+    "alpha_c_worst_diagonal": 0.9505501071432109,
+    "kappa": 62.73499999999996,
+    "T1": 44.612399533388306,
+    "beta": [
+      4.789999999999999,
+      4.505999999999999,
+      5.606999999999999
+    ],
+    "exit_radius": 0.2,
+    "steps": [
+      0.02,
+      0.01
+    ],
+    "t_end": 600.0,
+    "t_end_near": 2000.0
+  },
+  "data": [
+    "computations/figures_wave2/data/alpha_sweep_dense_summary.json",
+    "computations/figures_wave2/data/alpha_sweep_timeseries.csv"
+  ]
+}

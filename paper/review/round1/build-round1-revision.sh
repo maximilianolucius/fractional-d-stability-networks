@@ -16,6 +16,8 @@ cp "$REV/main.tex" "$SOURCE/main.tex"
 cp "$REV/references.bib" "$SOURCE/references.bib"
 mkdir -p "$SOURCE/sections"
 cp "$REV/sections/"*.tex "$SOURCE/sections/"
+# figure overlays (relabelled fig02/fig03 without internal claim labels; new fig10 alpha sweep)
+if [[ -d "$REV/figures" ]]; then mkdir -p "$SOURCE/figures"; cp "$REV/figures/"*.pdf "$SOURCE/figures/"; fi
 cp "$ROOT/paper/review/round1/RESPONSE_TO_REVIEWERS.md" "$SOURCE/RESPONSE_TO_REVIEWERS.md"
 printf '%s\n' "EXACT BASE ZIP: $(basename "$ORIG")" "SHA256: $(sha256sum "$ORIG" | cut -d' ' -f1)" > "$SOURCE/REVISED_BUILD_PROVENANCE.txt"
 echo "Assembled manuscript source: $SOURCE"

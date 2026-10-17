@@ -1,7 +1,7 @@
 {
   "figure": "fig03_threshold_geometry",
-  "generated_utc": "2026-09-26T20:17:52Z",
-  "git_sha": "85cf354fd12f233b0d72898771e5331202076782",
+  "generated_utc": "2026-10-17T00:35:05Z",
+  "git_sha": "1758609abfcb75b80b1125a5e7acb34f1deaf38b",
   "script": "computations/figures_wave2/scripts/fig03_threshold_geometry.py",
   "outputs": {
     "pdf": "computations/figures_wave2/exports/pdf/fig03_threshold_geometry.pdf",

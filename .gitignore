@@ -40,3 +40,6 @@ data/processed/*
 # Peer-review reports are confidential journal correspondence; kept locally only (hashes in paper/review/round1/SHA256SUMS.txt)
 paper/review/round1/mathematics-4633263-reviewer1.pdf
 paper/review/round1/mathematics-4633263-reviewer2.pdf
+
+# local build output of the round-1 revision
+paper/review/round1/_build/

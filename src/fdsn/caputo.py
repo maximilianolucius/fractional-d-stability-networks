@@ -21,6 +21,7 @@ def caputo_pece(
     alpha: float,
     t_end: float,
     step: float,
+    stop: Callable[[float, Array], bool] | None = None,
 ) -> tuple[Array, Array]:
     """Integrate ``C D_t^alpha y = rhs(t, y)`` with one PECE correction.
 
@@ -35,6 +36,10 @@ def caputo_pece(
     t_end, step:
         Final time and uniform step. ``t_end / step`` must be integral to
         floating-point tolerance.
+    stop:
+        Optional predicate ``stop(t, y)``; when it returns True after a step the
+        integration ends early and the arrays are truncated at that step (used
+        to stop unstable trajectories at a declared neighbourhood radius).
 
     Notes
     -----
@@ -88,5 +93,7 @@ def caputo_pece(
 
         if not np.all(np.isfinite(states[n])):
             raise FloatingPointError(f"non-finite PECE state at step {n}")
+        if stop is not None and stop(times[n], states[n]):
+            return times[: n + 1], states[: n + 1]
 
     return times, states

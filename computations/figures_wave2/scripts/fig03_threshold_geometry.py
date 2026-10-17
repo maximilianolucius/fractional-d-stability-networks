@@ -34,7 +34,7 @@ beta = np.stack([b, np.full_like(b, 1.5), np.full_like(b, 3.0)], 1)
 tb = threshold_batch(beta, alpha)
 t1 = T1(beta)
 ax2.plot(b, t1, color=S.CLAS, lw=S.LW_THM, ls="--", label=r"$T_1$")
-ax2.plot(b, tb.T, color=S.FRAC, lw=S.LW_THM, label=r"$T_{0.9}$ (exact C-10)")
+ax2.plot(b, tb.T, color=S.FRAC, lw=S.LW_THM, label=r"$T_{0.9}$ (exact threshold)")
 ax2.fill_between(b, t1, tb.T, color=S.FRAC, alpha=0.25, lw=0)
 # certified anchors
 cert = []

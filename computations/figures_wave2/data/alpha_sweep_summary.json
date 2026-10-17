@@ -1,0 +1,906 @@
+{
+ "model": "full nonlinear three-species Caputo Double-Allee IGP system W2-A, positively row-scaled",
+ "interpretation": "numerical corroboration across orders alpha; not proof, not calibration",
+ "equilibrium": [
+  1.0,
+  0.785632816859924,
+  0.1921819372701033
+ ],
+ "initial_relative_perturbation": [
+  0.001,
+  -0.001,
+  0.001
+ ],
+ "beta": [
+  4.789999999999999,
+  4.505999999999999,
+  5.606999999999999
+ ],
+ "kappa": 62.73499999999996,
+ "T1": 44.612399533388306,
+ "alpha_star_theorem": 0.950550107143211,
+ "T_alpha_star": 62.73499999999996,
+ "alpha_c_worst_diagonal": 0.9505501071432109,
+ "min_arg_worst": 1.493120616735051,
+ "eigenvalues_worst": [
+  [
+   0.04494262107486728,
+   0.5774288683347261
+  ],
+  [
+   0.04494262107486728,
+   -0.5774288683347261
+  ],
+  [
+   -0.5093000234430171,
+   0.0
+  ]
+ ],
+ "eigenvalues_unscaled": [
+  [
+   -0.5136677410947447,
+   0.0
+  ],
+  [
+   -0.18514022630409907,
+   0.12625078443173965
+  ],
+  [
+   -0.18514022630409907,
+   -0.12625078443173965
+  ]
+ ],
+ "d_star": [
+  0.18100237446319573,
+  2.0473771293729515,
+  2.6984717772767093
+ ],
+ "row_rates": {
+  "worst": [
+   0.18100237446319573,
+   2.6060229224589437,
+   14.041235173335387
+  ],
+  "unscaled": [
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ "exit_radius": 0.2,
+ "steps": [
+  0.02,
+  0.01
+ ],
+ "t_end": 600.0,
+ "t_end_near": 2000.0,
+ "runs": [
+  {
+   "scaling": "unscaled",
+   "alpha": 0.8,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 1.9020041003226233e-05,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0017320508075687508,
+    "exit_time": null,
+    "min_state": 0.19218380725386536,
+    "late_algebraic_exponent": -0.8574708806993204,
+    "late_exponential_rate": -0.0019490965805953383,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 4.840910761139128e-08,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.247726202011108,
+   "linear_prediction": {
+    "angular_margin_rad": 1.2864673382654273,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "unscaled",
+   "alpha": 0.9,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 4.765831331115522e-06,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0017320508075687508,
+    "exit_time": null,
+    "min_state": 0.1921824081901797,
+    "late_algebraic_exponent": -0.9475916135746932,
+    "late_exponential_rate": -0.0021540897997634166,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.7700094168127123e-08,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.207051277160645,
+   "linear_prediction": {
+    "angular_margin_rad": 1.1293877055859376,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "unscaled",
+   "alpha": 0.9506,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 1.6517590923616473e-06,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0017320508075687508,
+    "exit_time": null,
+    "min_state": 0.19218210087531773,
+    "late_algebraic_exponent": -0.9915872450085648,
+    "late_exponential_rate": -0.002254216632764343,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.5779499928925134e-08,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.466422080993652,
+   "linear_prediction": {
+    "angular_margin_rad": 1.0499054114501158,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "unscaled",
+   "alpha": 1.0,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 2.482534153247273e-16,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0017320508075687508,
+    "exit_time": null,
+    "min_state": 0.1921803020464648,
+    "late_algebraic_exponent": -2.825841483210628e-15,
+    "late_exponential_rate": -5.242343994477702e-17,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.4149216909231654e-08,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "dop853": {
+    "exit_time": null,
+    "final_time": 600.0,
+    "final_relative_distance": 2.111467904009702e-14,
+    "max_relative_distance": 0.0017320508075687508,
+    "success": true
+   },
+   "elapsed_seconds": 12.82494330406189,
+   "linear_prediction": {
+    "angular_margin_rad": 0.9723080729064479,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.7,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 2.9640610331387884e-05,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0018628590700683159,
+    "exit_time": null,
+    "min_state": 0.19218751393990913,
+    "late_algebraic_exponent": -0.7153347070279251,
+    "late_exponential_rate": -0.0016265413649355887,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 2.968688877030134e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.835075855255127,
+   "linear_prediction": {
+    "angular_margin_rad": 0.39356318797862344,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.75,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 1.7740003791621354e-05,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0019678570064771625,
+    "exit_time": null,
+    "min_state": 0.19218527493097104,
+    "late_algebraic_exponent": -0.7656214953516794,
+    "late_exponential_rate": -0.0017408777733952162,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.6768660656849957e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.58196496963501,
+   "linear_prediction": {
+    "angular_margin_rad": 0.3150233716388786,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.8,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 1.0155862717121695e-05,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0020908402415818488,
+    "exit_time": null,
+    "min_state": 0.19215278089086685,
+    "late_algebraic_exponent": -0.8150320656427466,
+    "late_exponential_rate": -0.0018532348116897042,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.798113446415119e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.272345781326294,
+   "linear_prediction": {
+    "angular_margin_rad": 0.23648355529913379,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.85,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 5.432176744980653e-06,
+    "final_time": 600.0,
+    "max_relative_distance": 0.002234160795739755,
+    "exit_time": null,
+    "min_state": 0.1920657239748521,
+    "late_algebraic_exponent": -0.8638680508618044,
+    "late_exponential_rate": -0.0019642958792702963,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 2.079611753999871e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.765695810317993,
+   "linear_prediction": {
+    "angular_margin_rad": 0.15794373895938896,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 2.5740824647369347e-06,
+    "final_time": 600.0,
+    "max_relative_distance": 0.0024004222757332185,
+    "exit_time": null,
+    "min_state": 0.19194694436010168,
+    "late_algebraic_exponent": -0.9123700059473937,
+    "late_exponential_rate": -0.0020746052020333655,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 3.139246824988377e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.880859136581421,
+   "linear_prediction": {
+    "angular_margin_rad": 0.07940392261964413,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.92,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 1.7947001307815003e-06,
+    "final_time": 600.0,
+    "max_relative_distance": 0.002473999769942522,
+    "exit_time": null,
+    "min_state": 0.19188860893237739,
+    "late_algebraic_exponent": -0.9334980633533605,
+    "late_exponential_rate": -0.0021221094958348884,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 4.6003799203423824e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.632793426513672,
+   "linear_prediction": {
+    "angular_margin_rad": 0.047987996083746154,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.93,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 60000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 1.4544755261080759e-06,
+    "final_time": 600.0,
+    "max_relative_distance": 0.002512404958389145,
+    "exit_time": null,
+    "min_state": 0.19185679201219807,
+    "late_algebraic_exponent": -1.2483456095743608,
+    "late_exponential_rate": -0.002769664040673487,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 6.408078338562785e-07,
+      "compared_points": 30001
+     }
+    ]
+   },
+   "elapsed_seconds": 9.762365818023682,
+   "linear_prediction": {
+    "angular_margin_rad": 0.032280032815797055,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.94,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 200000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 3.7589545322098443e-07,
+    "final_time": 2000.0,
+    "max_relative_distance": 0.002551922380139522,
+    "exit_time": null,
+    "min_state": 0.19182308645343812,
+    "late_algebraic_exponent": -0.9436928608209864,
+    "late_exponential_rate": -0.0006437616879594122,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.1684542928613822e-06,
+      "compared_points": 100001
+     }
+    ]
+   },
+   "elapsed_seconds": 188.85199403762817,
+   "linear_prediction": {
+    "angular_margin_rad": 0.0165720695478484,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9406,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 200000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 3.703417618709332e-07,
+    "final_time": 2000.0,
+    "max_relative_distance": 0.002554329752889004,
+    "exit_time": null,
+    "min_state": 0.19182100265686688,
+    "late_algebraic_exponent": -0.9428231659068894,
+    "late_exponential_rate": -0.0006432087584685939,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 1.2336507424478227e-06,
+      "compared_points": 100001
+     }
+    ]
+   },
+   "elapsed_seconds": 150.27242708206177,
+   "linear_prediction": {
+    "angular_margin_rad": 0.015629591751771255,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9456,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 200000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 3.3390285736058074e-07,
+    "final_time": 2000.0,
+    "max_relative_distance": 0.0025745468592925543,
+    "exit_time": null,
+    "min_state": 0.19180334991396641,
+    "late_algebraic_exponent": -6.189873058640327,
+    "late_exponential_rate": -0.004229568772002906,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 2.39853495095303e-06,
+      "compared_points": 100001
+     }
+    ]
+   },
+   "elapsed_seconds": 154.6562521457672,
+   "linear_prediction": {
+    "angular_margin_rad": 0.007775610117796816,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9486,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 200000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 4.986982454193247e-05,
+    "final_time": 2000.0,
+    "max_relative_distance": 0.0025868149718401593,
+    "exit_time": null,
+    "min_state": 0.19178931620894885,
+    "late_algebraic_exponent": -2.634023452874923,
+    "late_exponential_rate": -0.0018113174417025842,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 5.967935053587068e-06,
+      "compared_points": 100001
+     }
+    ]
+   },
+   "elapsed_seconds": 154.18813300132751,
+   "linear_prediction": {
+    "angular_margin_rad": 0.0030632211374121976,
+    "predicted": "stable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9506,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 200000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.0013218768908359255,
+    "final_time": 2000.0,
+    "max_relative_distance": 0.002595051301539223,
+    "exit_time": null,
+    "min_state": 0.19172900701217885,
+    "late_algebraic_exponent": 0.06770459159725459,
+    "late_exponential_rate": 4.6206496917413445e-05,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 6.38243978764701e-05,
+      "compared_points": 100001
+     }
+    ]
+   },
+   "elapsed_seconds": 182.82770657539368,
+   "linear_prediction": {
+    "angular_margin_rad": -7.837151617762217e-05,
+    "predicted": "unstable"
+   },
+   "observed": "decays"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9526,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 200000,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.10246189917210304,
+    "final_time": 2000.0,
+    "max_relative_distance": 0.10274813698842629,
+    "exit_time": null,
+    "min_state": 0.17401418451550205,
+    "late_algebraic_exponent": 2.7779410817487653,
+    "late_exponential_rate": 0.0019107627687982793,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.0025997981953564705,
+      "compared_points": 100001
+     }
+    ]
+   },
+   "elapsed_seconds": 162.23654699325562,
+   "linear_prediction": {
+    "angular_margin_rad": -0.003219964169767442,
+    "predicted": "unstable"
+   },
+   "observed": "grows_within_radius"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9556,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 96102,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.20003504891762777,
+    "final_time": 961.02,
+    "max_relative_distance": 0.20003504891762777,
+    "exit_time": 961.02,
+    "min_state": 0.15706060948889466,
+    "late_algebraic_exponent": null,
+    "late_exponential_rate": null,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.002479845039984077,
+      "compared_points": 48051
+     }
+    ]
+   },
+   "elapsed_seconds": 28.878415822982788,
+   "linear_prediction": {
+    "angular_margin_rad": -0.00793235315015206,
+    "predicted": "unstable"
+   },
+   "observed": "exits_radius"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.96,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 51453,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.20007112874393085,
+    "final_time": 514.53,
+    "max_relative_distance": 0.20007112874393085,
+    "exit_time": 514.53,
+    "min_state": 0.1581225903196501,
+    "late_algebraic_exponent": null,
+    "late_exponential_rate": null,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.0012874934542048003,
+      "compared_points": 25727
+     }
+    ]
+   },
+   "elapsed_seconds": 6.635742425918579,
+   "linear_prediction": {
+    "angular_margin_rad": -0.014843856988049575,
+    "predicted": "unstable"
+   },
+   "observed": "exits_radius"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.9606,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 48128,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.20000482194284286,
+    "final_time": 481.28000000000003,
+    "max_relative_distance": 0.20000482194284286,
+    "exit_time": 481.28000000000003,
+    "min_state": 0.15911532227487324,
+    "late_algebraic_exponent": null,
+    "late_exponential_rate": null,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.0011649082569816257,
+      "compared_points": 24065
+     }
+    ]
+   },
+   "elapsed_seconds": 5.783769369125366,
+   "linear_prediction": {
+    "angular_margin_rad": -0.01578633478412672,
+    "predicted": "unstable"
+   },
+   "observed": "exits_radius"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.97,
+   "t_end": 2000.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 25733,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.2002950208988395,
+    "final_time": 257.33,
+    "max_relative_distance": 0.2002950208988395,
+    "exit_time": 257.33,
+    "min_state": 0.15609181715224107,
+    "late_algebraic_exponent": null,
+    "late_exponential_rate": null,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.0006709028500957849,
+      "compared_points": 12867
+     }
+    ]
+   },
+   "elapsed_seconds": 1.8516271114349365,
+   "linear_prediction": {
+    "angular_margin_rad": -0.030551820255998674,
+    "predicted": "unstable"
+   },
+   "observed": "exits_radius"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 0.98,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 16841,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.20010509758941922,
+    "final_time": 168.41,
+    "max_relative_distance": 0.20010509758941922,
+    "exit_time": 168.41,
+    "min_state": 0.16006489853247743,
+    "late_algebraic_exponent": null,
+    "late_exponential_rate": null,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.00037347632451443336,
+      "compared_points": 8421
+     }
+    ]
+   },
+   "elapsed_seconds": 0.9108583927154541,
+   "linear_prediction": {
+    "angular_margin_rad": -0.04625978352394755,
+    "predicted": "unstable"
+   },
+   "observed": "exits_radius"
+  },
+  {
+   "scaling": "worst",
+   "alpha": 1.0,
+   "t_end": 600.0,
+   "steps": [
+    0.02,
+    0.01
+   ],
+   "pece": {
+    "production_step": 0.01,
+    "n_steps": 10159,
+    "initial_relative_distance": 0.0017320508075687508,
+    "final_relative_distance": 0.2002361477415144,
+    "final_time": 101.59,
+    "max_relative_distance": 0.2002361477415144,
+    "exit_time": 101.59,
+    "min_state": 0.16269188055638403,
+    "late_algebraic_exponent": null,
+    "late_exponential_rate": null,
+    "refinement": [
+     {
+      "coarse": 0.02,
+      "fine": 0.01,
+      "max_relative_difference": 0.0001906249555261909,
+      "compared_points": 5080
+     }
+    ]
+   },
+   "dop853": {
+    "exit_time": 101.58577711590368,
+    "final_time": 101.58577711590368,
+    "final_relative_distance": 0.20000000000000004,
+    "max_relative_distance": 0.20000000000000004,
+    "success": true
+   },
+   "elapsed_seconds": 0.9350285530090332,
+   "linear_prediction": {
+    "angular_margin_rad": -0.07767571005984553,
+    "predicted": "unstable"
+   },
+   "observed": "exits_radius"
+  }
+ ],
+ "software": {
+  "host": "orion",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "elapsed_seconds": 189.41845703125,
+  "workers": 16
+ }
+}
