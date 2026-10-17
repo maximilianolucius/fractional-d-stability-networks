@@ -46,3 +46,21 @@ jobs:
             paper/review/round1/_build/out/*.zip
             paper/review/round1/_build/out/SHA256SUMS.txt
           if-no-files-found: error
+
+      - name: Publish clean PDF and source ZIP on editorial branch
+        if: github.ref == 'refs/heads/chief/editorial-round1-clean-20261017'
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET="paper/review/round1/final"
+          mkdir -p "$TARGET"
+          cp paper/review/round1/_build/out/from-cain-to-matignon-round1-revised.pdf "$TARGET/"
+          cp paper/review/round1/_build/out/mathematics-4633263-round1-revised-submission.zip "$TARGET/"
+          cp paper/review/round1/_build/out/SHA256SUMS.txt "$TARGET/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$TARGET/"
+          if ! git diff --cached --quiet; then
+            git commit -m "Editorial: publish clean manuscript PDF and submission ZIP [skip ci]"
+            git push origin "HEAD:${GITHUB_REF}"
+          fi
