@@ -18,14 +18,12 @@ mkdir -p "$SOURCE/sections"
 cp "$REV/sections/"*.tex "$SOURCE/sections/"
 # figure overlays (relabelled fig02/fig03 without internal claim labels; new fig10 alpha sweep)
 if [[ -d "$REV/figures" ]]; then mkdir -p "$SOURCE/figures"; cp "$REV/figures/"*.pdf "$SOURCE/figures/"; fi
-cp "$ROOT/paper/review/round1/RESPONSE_TO_REVIEWERS.md" "$SOURCE/RESPONSE_TO_REVIEWERS.md"
-printf '%s\n' "EXACT BASE ZIP: $(basename "$ORIG")" "SHA256: $(sha256sum "$ORIG" | cut -d' ' -f1)" > "$SOURCE/REVISED_BUILD_PROVENANCE.txt"
 echo "Assembled manuscript source: $SOURCE"
 if [[ "${1:-}" == "--assemble-only" ]]; then exit 0; fi
 cd "$SOURCE"
 latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode main.tex
 cp main.pdf "$OUT/from-cain-to-matignon-round1-revised.pdf"
 cp main.pdf "$SOURCE/from-cain-to-matignon-round1-revised.pdf"
-zip -qr "$OUT/mathematics-4633263-round1-revised-submission.zip" . -x "*.aux" "*.fdb_latexmk" "*.fls" "*.log" "*.bbl" "*.blg" "*.out" "*.synctex.gz"
+zip -qr "$OUT/mathematics-4633263-round1-revised-submission.zip" main.tex references.bib sections/*.tex Definitions/ figures/ from-cain-to-matignon-round1-revised.pdf
 (cd "$OUT" && sha256sum *.pdf *.zip > SHA256SUMS.txt)
 echo "Built: $OUT"
