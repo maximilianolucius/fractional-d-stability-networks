@@ -34,7 +34,7 @@ jobs:
           mkdir -p "$OUT"
           cp "$SOURCE/main.pdf" "$OUT/from-cain-to-matignon-round1-revised.pdf"
           cp "$SOURCE/main.pdf" "$SOURCE/from-cain-to-matignon-round1-revised.pdf"
-          (cd "$SOURCE" && zip -qr "$GITHUB_WORKSPACE/$OUT/mathematics-4633263-round1-revised-submission.zip" . -x "*.aux" "*.fdb_latexmk" "*.fls" "*.log" "*.bbl" "*.blg" "*.out" "*.synctex.gz")
+          (cd "$SOURCE" && zip -qr "$GITHUB_WORKSPACE/$OUT/mathematics-4633263-round1-revised-submission.zip" main.tex references.bib sections/*.tex Definitions/ figures/ from-cain-to-matignon-round1-revised.pdf)
           (cd "$OUT" && sha256sum *.zip *.pdf > SHA256SUMS.txt)
           ls -lah "$OUT"
       - name: Upload paper and submission package
