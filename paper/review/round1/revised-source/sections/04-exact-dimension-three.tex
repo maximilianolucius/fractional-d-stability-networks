@@ -106,7 +106,15 @@ we obtain
 \[
 Kr^2-2uar-b=0,
 \]
-whose unique positive solution is \(r=r_\theta(a,b)\). The real part then gives
+whose unique positive solution is \(r=r_\theta(a,b)\). At this solution the cubic has the explicit factorization
+\[
+ p(\lambda)=\bigl(\lambda^2-2ur\lambda+r^2\bigr)
+ \bigl(\lambda+a+2ur\bigr).
+\]
+Indeed, \((1-4u^2)r^2-2uar-b=0\) and
+\(c=r^2(a+2ur)\), so its roots are the boundary conjugate pair
+\(re^{\pm i\theta}\) and the strictly negative third root
+\(-a-2ur<0\). The real part then gives
 \[
 c=r^2(a+2ur)=H_\theta(a,b).
 \]
@@ -140,7 +148,23 @@ T_\alpha(\beta)
 \frac{h_\alpha(B_\beta(x))}{x_1x_2x_3}.
 \label{eq:Talpha}
 \end{equation}
-The minimum is attained in the simplex interior because the numerator remains positive on the closed simplex while \(x_1x_2x_3\to0\) on its boundary.
+For \(2/3<\alpha<1\), writing \(u=\cos(\alpha\pi/2)>0\) and \(K=1-4u^2>0\) yields
+\[
+ h_\alpha(0)=\left(\frac{2u}{K}\right)^2
+ \left(1+\frac{4u^2}{K}\right)>0.
+\]
+Since \(B_\beta\ge0\), the objective tends to \(+\infty\) whenever
+\(x\to\partial\Delta_2\), because its denominator
+\(x_1x_2x_3\to0\). At the endpoint \(\alpha=1\),
+\(h_1(b)=b\) and \(h_1(0)=0\), but instead
+\[
+ \frac{B_\beta(x)}{x_1x_2x_3}
+ =\frac{\beta_{23}}{x_1}+
+ \frac{\beta_{13}}{x_2}+
+ \frac{\beta_{12}}{x_3}\longrightarrow+\infty
+ \quad(x\to\partial\Delta_2),
+\]
+for positive \(\beta\). Thus the minimum is attained at an interior point for every \(2/3<\alpha\le1\).
 
 \begin{Theorem}[exact three-dimensional Matignon \(D\)-stability]\label{thm:c10}
 Let \(-A\) be a strict \(P\)-matrix and let \(2/3<\alpha<1\). Then
@@ -178,7 +202,7 @@ The theorem is an explicit low-dimensional solution of a generalized multiplicat
 
 \subsection{Interior and the Classical Cain Boundary}
 
-The strict-\(P\) hypothesis is exactly the full-dimensional stratum relevant to the interior.
+The strict-\(P\) hypothesis isolates the open full-dimensional principal-minor stratum to which Theorem~\ref{thm:c10} applies. The theorem does \emph{not} classify matrices with one or more vanishing signed principal minors: on such boundary strata the normalization and threshold analysis may require separate limiting arguments. The following necessity result excludes these strata from the full-dimensional interior without asserting their complete classification.
 
 \begin{Lemma}[principal-minor necessity]\label{lem:P0}
 If \(A\in\mathcal F_\alpha^{(3)}\), then
@@ -278,11 +302,24 @@ A:
 \end{Corollary}
 
 \begin{proof}
-The high-order statement follows from Theorem~\ref{thm:c10}, Equation~\eqref{eq:T1}, and strictness of the inequalities. In the low-order regime, Kellogg's eigenvalue wedge theorem for \(P\)-matrices \cite{Kellogg1972} implies that if \(-A\) is strict \(P\), every eigenvalue of \(-DA\) lies in
+On the strict-\(P\) stratum the fractional-only \emph{set}, as distinct from its full-dimensional interior, satisfies
+\[
+ A\in\mathcal P_\alpha^{(3)}
+ \quad\Longleftrightarrow\quad
+ T_1(\beta)\le\kappa<T_\alpha(\beta),
+ \qquad 2/3<\alpha<1.
+\]
+At \(\kappa=T_1\) one positive diagonal scaling has a pair of purely imaginary eigenvalues and so is not Hurwitz-stable; it remains strictly Matignon-stable for every \(\alpha<1\). The \emph{interior} requires \(T_1<\kappa<T_\alpha\). This gives the high-order statement by Theorem~\ref{thm:c10} and Equation~\eqref{eq:T1}. In the low-order regime, Kellogg's eigenvalue wedge theorem for \(P\)-matrices \cite{Kellogg1972} implies that if \(-A\) is strict \(P\), every eigenvalue of \(-DA\) lies in
 \[
 |\arg\mu|<\pi-\frac{\pi}{3}=\frac{2\pi}{3}.
 \]
-After multiplication by \(-1\), the eigenvalues of \(DA\) satisfy the Matignon inequality for every \(\alpha\le2/3\). Lemma~\ref{lem:P0} gives necessity for interior points, while Cain's threshold separates classical \(D\)-stability from its complement.
+If \(\mu\in\spec(-DA)\) and \(\lambda=-\mu\), Kellogg's strict wedge gives
+\[
+ |\arg\mu|<2\pi/3,
+ \qquad |\arg\lambda|=\pi-|\arg\mu|>\pi/3
+ \ge\alpha\pi/2\qquad(0<\alpha\le2/3).
+\]
+Thus the endpoint \(\alpha=2/3\) is included because the eigenvalue inequality is strict. Lemma~\ref{lem:P0} gives necessity for interior points, while Cain's threshold separates classical \(D\)-stability from its complement.
 \end{proof}
 
 Figure~\ref{fig:c10geometry} shows the exact threshold geometry on symmetric and asymmetric slices. The blue Matignon boundary remains strictly above the orange Cain boundary, and the region between them is precisely the all-positive-diagonal fractional-only band.
@@ -290,7 +327,7 @@ Figure~\ref{fig:c10geometry} shows the exact threshold geometry on symmetric and
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.92\textwidth]{fig03_threshold_geometry.pdf}
-\caption{Exact C-10 threshold geometry. The orange curve is Cain's classical boundary \(T_1(\beta)\); the blue curve is the exact Matignon boundary \(T_\alpha(\beta)\). Their strict separation creates the genuinely fractional band. Certified anchor markers are computational checks of exact formulas, not substitutes for Theorem~\ref{thm:c10}.}
+\caption{Exact positive-diagonal threshold geometry for real three-by-three matrices with strict-\(P(-A)\) principal minors. Orange: classical Cain boundary \(\kappa=T_1(\beta)\). Blue: fractional Matignon boundary \(\kappa=T_\alpha(\beta)\) for the indicated order. The open interval \(T_1<\kappa<T_\alpha\) is fractionally stable for every positive diagonal multiplier but not classically Hurwitz \(D\)-stable. The numerical markers corroborate exact formulas and are not substitutes for the all-diagonal proof.}
 \label{fig:c10geometry}
 \end{figure}
 
