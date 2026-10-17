@@ -1,0 +1,48 @@
+name: Compile Mathematics Round-1 Revision
+
+on:
+  push:
+    branches: ['chief/revision-round1-20261016']
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble exact submission and reviewed overlay
+        shell: bash
+        run: |
+          bash paper/review/round1/build-round1-revision.sh --assemble-only
+          MAIN="$(find paper/review/round1/_build/source -type f -name main.tex | head -n 1)"
+          test -n "$MAIN"
+          echo "MANUSCRIPT_DIR=$(dirname "$MAIN")" >> "$GITHUB_ENV"
+      - name: Compile original MDPI template with revised sources
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: ${{ env.MANUSCRIPT_DIR }}
+          root_file: main.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Create revised PDF and complete submission ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE="$MANUSCRIPT_DIR"
+          OUT="paper/review/round1/_build/out"
+          mkdir -p "$OUT"
+          cp "$SOURCE/main.pdf" "$OUT/from-cain-to-matignon-round1-revised.pdf"
+          cp "$SOURCE/main.pdf" "$SOURCE/from-cain-to-matignon-round1-revised.pdf"
+          (cd "$SOURCE" && zip -qr "$GITHUB_WORKSPACE/$OUT/mathematics-4633263-round1-revised-submission.zip" . -x "*.aux" "*.fdb_latexmk" "*.fls" "*.log" "*.bbl" "*.blg" "*.out" "*.synctex.gz")
+          (cd "$OUT" && sha256sum *.zip *.pdf > SHA256SUMS.txt)
+          ls -lah "$OUT"
+      - name: Upload paper and submission package
+        uses: actions/upload-artifact@v4
+        with:
+          name: mathematics-4633263-round1-revision
+          path: |
+            paper/review/round1/_build/out/*.pdf
+            paper/review/round1/_build/out/*.zip
+            paper/review/round1/_build/out/SHA256SUMS.txt
+          if-no-files-found: error
