@@ -116,51 +116,114 @@ For \(\alpha=0.9\), we used the fractional Adams--Bashforth--Moulton PECE method
 
 For \(\alpha=1\), an adaptive DOP853 integration with relative and absolute tolerances \(10^{-11}\) and \(10^{-13}\), respectively, was stopped when the same relative distance first reached \(0.2\). This occurred at \(t=101.586\), consistent with the positive real part of the conjugate pair. Stopping at the declared radius keeps the comparison within a fixed local neighborhood; it is not a claim about the global fate of the classical trajectory.
 
-\paragraph{Additional nonlinear Caputo orders near the selected spectral boundary.}
-For the fixed row-scaled configuration, the linearization has eigenvalues
-approximately \(0.04494\pm0.57743i\) and \(-0.50930\), giving the
-predicted critical order
+\paragraph{Long-horizon nonlinear Caputo verification across the exact boundary order.}
+The four-invariant threshold defines the boundary order \(\alpha_*\) by
+\(T_{\alpha_*}(\beta)=\kappa\). The extremal positive diagonal obtained
+independently from the angular search satisfies, at the displayed precision,
 \[
- \alpha_c=\frac{2}{\pi}\min_j|\arg\lambda_j(R_*J)|
- \approx0.9505501.
+ \alpha_* =0.9505501071\ldots
+ =\frac{2}{\pi}\min_j|\arg\lambda_j(D_*B)| .
 \]
-We additionally integrated the \emph{full nonlinear} three-species model
-with the same parameters, response rates and initial relative perturbation at
-orders immediately below and above this threshold. Table~\ref{tab:order-scan}
-shows the relative Euclidean distance \(d(t)=\|u(t)/u^*-\mathbf1\|_2\)
-at \(t=180\), calculated by the Adams--Bashforth--Moulton PECE method with
-two temporal resolutions. These are finite-time observations and are not
-a substitute for the Matignon spectral criterion. Their order dependence and
-step refinement agree qualitatively with the predicted transition.
+This is the critical order of the selected row-scaled
+Jacobian \(R_*J=D_*B\). With the same W2-A model, positive response rates
+and initial perturbation, an additional sweep of the \emph{full nonlinear}
+Caputo equations covered \(0.7\le\alpha\le1\), including a dense grid
+with \(\Delta\alpha=0.001\) and additional points around \(\alpha_*\).
+The Adams--Bashforth--Moulton PECE runs used \(h=0.02\) and
+\(h=0.01\) for step refinement. The horizon was \(t=600\) away from
+the boundary and was extended to \(t=2000\) near it
+(\(|\alpha-\alpha_*|<0.02\)). Integration was terminated when the
+relative distance \(d(t)=\|u(t)/u^*-\mathbf1\|_2\) first reached
+the declared local-neighborhood radius \(0.2\);
+an independent DOP853 integration at \(\alpha=1\) reproduced
+the integer-order exit time.
+
+Table~\ref{tab:order-scan} summarizes representative orders.
+For non-exiting trajectories, the late rate is the fitted
+finite-window slope of \(\log d(t)\) over the last half
+of the integration, not an asymptotic exponential-decay
+exponent for fractional dynamics.
+Negative and positive fitted rates on either side of
+\(\alpha_*\) corroborate the local spectral classification.
+The near-critical order \(\alpha=0.9506\) illustrates
+the danger of classifying solely by final versus initial distance:
+its late rate is positive, but
+\(d(2000)=1.322\times10^{-3}<d(0)=1.732\times10^{-3}\).
+The unscaled configuration \(R=I\) has a Hurwitz Jacobian and
+decayed at all tested orders.
+
 \begin{table}[!htbp]
 \centering
-\caption{Additional nonlinear Caputo simulations near the spectral-order
-threshold \(\alpha_c\approx0.9505501\) of the selected W2-A row-scaled
-Jacobian. Entries are the relative Euclidean distance \(d(180)\) from
-positive coexistence at the fixed terminal time \(t=180\), using the same
-parameters and initial perturbation but two PECE steps \(h=0.04\) and \(0.02\).
-The stability boundary is derived analytically from the spectrum; finite-time
-distances are numerical corroboration.}
+\caption{Long-horizon full nonlinear W2-A Caputo order sweep near
+the predicted order boundary \(\alpha_*=0.9505501071\ldots\),
+with fixed positive row scaling \(R_*\).
+All runs share the same \(10^{-3}(1,-1,1)\) relative initial
+perturbation. The PECE method uses \(h=0.01\) with refinement
+against \(h=0.02\), terminating at radius \(d=0.2\).
+The late rate (units \(10^{-3}\)) is a fitted
+finite-time slope of \(\log d(t)\); a dash means that the
+trajectory exited and was stopped.
+Exit time is the first occurrence of \(d=0.2\).
+The numerical experiment corroborates but does not prove
+the analytic spectral boundary.}
 \label{tab:order-scan}
-\begin{tabular}{ccc}
+\begin{tabular}{ccccc}
 \toprule
-Order \(\alpha\) & \(d(180),\,h=0.04\) & \(d(180),\,h=0.02\)\\
+\(\alpha\) & \(t_{\mathrm{end}}\) & \(d(t_{\mathrm{end}})\) &
+late rate \((10^{-3})\) & exit time \\
 \midrule
-\(0.900\) & \(7.962948\times10^{-6}\) & \(7.966787\times10^{-6}\)\\
-\(0.930\) & \(6.495794\times10^{-5}\) & \(6.502634\times10^{-5}\)\\
-\(0.945\) & \(4.650427\times10^{-4}\) & \(4.690636\times10^{-4}\)\\
-\(0.950\) & \(8.365397\times10^{-4}\) & \(8.383824\times10^{-4}\)\\
-\(0.955\) & \(2.127911\times10^{-3}\) & \(2.108725\times10^{-3}\)\\
-\(0.965\) & \(1.873945\times10^{-2}\) & \(1.860071\times10^{-2}\)\\
+\(0.9000\) & \(600\) & \(2.574\times10^{-6}\) & \(-2.075\) & ---\\
+\(0.9450\) & \(2000\) & \(3.570\times10^{-7}\) & \(-3.531\) & ---\\
+\(0.9500\) & \(2000\) & \(3.253\times10^{-4}\) & \(-0.509\) & ---\\
+\(0.9506\) & \(2000\) & \(1.322\times10^{-3}\) & \(+0.046\) & ---\\
+\(0.9510\) & \(2000\) & \(3.588\times10^{-3}\) & \(+0.417\) & ---\\
+\(0.9520\) & \(2000\) & \(3.227\times10^{-2}\) & \(+1.347\) & ---\\
+\(0.9530\) & \(2000\) & \(0.200\) & --- & \(1955.0\)\\
+\(0.9550\) & \(2000\) & \(0.200\) & --- & \(1084.0\)\\
+\(1.0000\) & \(600\) & \(0.200\) & --- & \(101.6\)\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+Figure~\ref{fig:alpha-sweep} displays trajectories and the
+late-rate sign change around the theoretically predicted order.
+In total, the two-stage sweep comprised 363 integrations.
+The end-versus-start distance diagnostic agreed with the
+linear spectral prediction in 339 of 340 dense runs;
+the sole near-critical exception has a positive late fitted
+rate but has not yet recovered its initial distance by \(t=2000\).
+This is finite-horizon numerical corroboration, not an
+independent proof of fractional asymptotic stability.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.96\textwidth]{fig09_nonlinear_caputo_dynamics.pdf}
 \caption{Full nonlinear time-domain comparison at the positive coexistence equilibrium of W2-A, with the selected positive response-rate scaling \(R_*\). \textbf{(a)} Relative deviations \(u_i(t)/u_i^*-1\) for each species at Caputo order \(\alpha=0.9\), computed with PECE step \(h=0.01\), showing damped oscillations. \textbf{(b)} Relative Euclidean distance \(\|u(t)/u^*-\mathbf1\|_2\) comparing \(\alpha=0.9\) against integer-order \(\alpha=1\), with identical parameters and initial state; the classical DOP853 trajectory ends upon reaching radius \(0.2\). The comparison concerns local dynamics, not global attraction.}
 \label{fig:nonlinear-caputo-dynamics}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.97\textwidth]{fig10_alpha_sweep.pdf}
+\caption{Full nonlinear three-species W2-A Caputo dynamics across
+the order boundary \(\alpha_*=0.9505501071\ldots\)
+for the fixed positive row-rate configuration \(R_*\).
+\textbf{(a)} Running-window envelope of relative
+coexistence distance
+\(d(t)=\|u(t)/u^*-\mathbf1\|_2\) versus nondimensional time
+for selected fractional orders on either side of the boundary;
+the dotted horizontal line marks the stopping radius \(d=0.2\).
+\textbf{(b)} Late fitted log-distance rate versus order \(\alpha\)
+near the boundary. Diamonds are uninterrupted PECE integrations;
+crosses denote trajectories stopped at the exit radius and plot
+the mean rate \(\log(0.2/d(0))/t_{\mathrm{exit}}\) instead.
+The vertical line is the analytic threshold
+\(T_{\alpha_*}(\beta)=\kappa\), not fitted to the trajectories.
+The simulations use PECE \(h=0.01\) with refinement
+at \(h=0.02\). The boundary follows from the theorem;
+the drawn trajectories and rates are finite-horizon
+numerical corroboration.}
+\label{fig:alpha-sweep}
 \end{figure}
 
 Finally, Figure~\ref{fig:ecological-contrast} places the exact two-dimensional equality curve beside the three-dimensional open region. In panel (b), the region boundaries are traced by deterministic root finding applied to the exact formulas. The traced regions themselves are pointwise formula evaluations; only the green segment and marked anchor carry interval-certification semantics.
