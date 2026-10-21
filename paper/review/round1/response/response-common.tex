@@ -1,0 +1,31 @@
+% Shared preamble for the two point-by-point response letters (one per reviewer).
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\diag}{diag}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\definecolor{shadecolor}{gray}{0.93}
+% \comment{label}{text}: the reviewer's comment, quoted in a shaded box.
+\newcommand{\comment}[2]{\par\medskip\begin{shaded}\textbf{Comment #1.} \emph{#2}\end{shaded}}
+% \response{text}
+\newcommand{\response}[1]{\par\textbf{Response.} #1\par\medskip}
+% \where{text}: pointer into the revised manuscript (section, equation, page/line numbers of the revised PDF).
+\newcommand{\where}[1]{\par\textit{Location in the revised manuscript:} #1\par}
+\newcommand{\manuscriptid}{mathematics-4633263}
+\newcommand{\manuscripttitle}{From Cain to Matignon: Exact Positive-Diagonal Stability in Dimension Three and a Nonlinear Caputo Ecological Realization}
+\newcommand{\letterhead}[1]{%
+  \begin{center}
+  {\Large\bfseries Response to #1}\\[6pt]
+  Manuscript \texttt{\manuscriptid}, \emph{Mathematics} (MDPI)\\[2pt]
+  \emph{\manuscripttitle}
+  \end{center}
+  \medskip
+  Page and line numbers below refer to the revised manuscript (line numbers printed in the margin of the revised PDF). Every change requested by #1 is addressed individually; changes made in response to the other reviewer are listed at the end for completeness, because they affect the same sections.\par\medskip}

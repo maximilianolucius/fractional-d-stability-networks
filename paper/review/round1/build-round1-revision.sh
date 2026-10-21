@@ -18,10 +18,17 @@ mkdir -p "$SOURCE/sections"
 cp "$REV/sections/"*.tex "$SOURCE/sections/"
 # figure overlays (relabelled fig02/fig03 without internal claim labels; new fig10 alpha sweep)
 if [[ -d "$REV/figures" ]]; then mkdir -p "$SOURCE/figures"; cp "$REV/figures/"*.pdf "$SOURCE/figures/"; fi
-cp "$ROOT/paper/review/round1/RESPONSE_TO_REVIEWERS.md" "$SOURCE/RESPONSE_TO_REVIEWERS.md"
+# point-by-point response letters, one per reviewer (journal request): compiled from LaTeX, PDFs shipped in the ZIP
+RESP="$ROOT/paper/review/round1/response"
+rm -f "$SOURCE/RESPONSE_TO_REVIEWERS.md"
+# the submitted package carried a stray copy of the original manuscript PDF under sections/; it is not a source file
+find "$SOURCE/sections" -maxdepth 1 -name '*.pdf' -delete
 printf '%s\n' "EXACT BASE ZIP: $(basename "$ORIG")" "SHA256: $(sha256sum "$ORIG" | cut -d' ' -f1)" > "$SOURCE/REVISED_BUILD_PROVENANCE.txt"
 echo "Assembled manuscript source: $SOURCE"
 if [[ "${1:-}" == "--assemble-only" ]]; then exit 0; fi
+(cd "$RESP" && for r in response-reviewer1 response-reviewer2; do latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode -output-directory="$WORK/response" "$r.tex" >/dev/null; done)
+cp "$WORK/response/response-reviewer1.pdf" "$WORK/response/response-reviewer2.pdf" "$SOURCE/"
+cp "$WORK/response/response-reviewer1.pdf" "$WORK/response/response-reviewer2.pdf" "$OUT/"
 cd "$SOURCE"
 latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode main.tex
 cp main.pdf "$OUT/from-cain-to-matignon-round1-revised.pdf"

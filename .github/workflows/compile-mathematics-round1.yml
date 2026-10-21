@@ -25,6 +25,14 @@ jobs:
           working_directory: ${{ env.MANUSCRIPT_DIR }}
           root_file: main.tex
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Compile the two point-by-point response letters (one per reviewer)
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: paper/review/round1/response
+          root_file: |
+            response-reviewer1.tex
+            response-reviewer2.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Create revised PDF and complete submission ZIP
         shell: bash
         run: |
@@ -34,6 +42,8 @@ jobs:
           mkdir -p "$OUT"
           cp "$SOURCE/main.pdf" "$OUT/from-cain-to-matignon-round1-revised.pdf"
           cp "$SOURCE/main.pdf" "$SOURCE/from-cain-to-matignon-round1-revised.pdf"
+          cp paper/review/round1/response/response-reviewer1.pdf paper/review/round1/response/response-reviewer2.pdf "$SOURCE/"
+          cp paper/review/round1/response/response-reviewer1.pdf paper/review/round1/response/response-reviewer2.pdf "$OUT/"
           (cd "$SOURCE" && zip -qr "$GITHUB_WORKSPACE/$OUT/mathematics-4633263-round1-revised-submission.zip" . -x "*.aux" "*.fdb_latexmk" "*.fls" "*.log" "*.bbl" "*.blg" "*.out" "*.synctex.gz")
           (cd "$OUT" && sha256sum *.zip *.pdf > SHA256SUMS.txt)
           ls -lah "$OUT"
@@ -54,6 +64,7 @@ jobs:
           mkdir -p "$TARGET"
           cp paper/review/round1/_build/out/from-cain-to-matignon-round1-revised.pdf "$TARGET/"
           cp paper/review/round1/_build/out/mathematics-4633263-round1-revised-submission.zip "$TARGET/"
+          cp paper/review/round1/_build/out/response-reviewer1.pdf paper/review/round1/_build/out/response-reviewer2.pdf "$TARGET/"
           cp paper/review/round1/_build/out/SHA256SUMS.txt "$TARGET/"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
